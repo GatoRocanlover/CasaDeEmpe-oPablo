@@ -13,6 +13,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
         <!-- Styles -->
         <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
@@ -36,7 +38,7 @@
                     <div class="max-w-6xl mx-auto mr-2"> 
                         <img class="icono" src="{{asset('img/logo.png')}}" width="450px" height="450px">  
                     </div>
-                    <div class="mx-auto ml-2 titulo negritas texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
+                    <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
                 
                 </div>
                <!-- MENU --> 
@@ -48,14 +50,14 @@
                 
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">CLIENTE</label>
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscador" aria-label="Buscador">
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom02" class="form-label">PRENDA</label>
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Buscador" aria-label="Search">
      
                         <div class="valid-feedback">
                         Looks good!

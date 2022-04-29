@@ -13,6 +13,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
         <!-- Styles -->
         <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
@@ -47,7 +49,7 @@
  <!-- encabezado -->
             <div class="size">
                 <div class="navbar1 flex size">
-                    <div class="mx-auto ml-2 titulo negritas texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
+                    <div class="mx-auto ml-2 titulo letratitulo texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
                 
                 </div>
                 <div class="franja"></div>
@@ -65,14 +67,15 @@
                                 <input class="size50 bordes" type="password" name="contraseña">
                             </div>
                             
-                            <div class="max-w-6xl mx-auto flex items-center justify-center mt-4">
-                               <button class="size50 bordes btn btn-primary navbar1" onclick="AdminInicio()">INGRESAR</button>
+                            <div class="max-w-6xl mx-auto flex items-center justify-center mt-4" x-ref="mesaggeError">
+                                <h4 class="titulo">Mensaje de Error</h4>   
                             </div>
                         </form>
                     </div>
             
                     <div class="max-w-6xl mx-auto mr-2"> 
-                        <img class="mr-2" src="{{asset('img/logo.png')}}" width="450px" height="450px">  
+                        <img class="mr-2" src="{{asset('img/logo.png')}}" width="450px" height="450px"> 
+                        <p class="card_text"></p>
                     </div>
                 </div>
     </body>

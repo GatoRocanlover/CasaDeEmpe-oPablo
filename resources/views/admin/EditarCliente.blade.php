@@ -14,6 +14,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="">
         <!-- Styles -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
         <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
         <style>
@@ -37,7 +39,7 @@
                     <div class="max-w-6xl mx-auto mr-2"> 
                         <img class="icono" src="{{asset('img/logo.png')}}" width="450px" height="450px">  
                     </div>
-                    <div class="mx-auto ml-2 titulo negritas texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
+                    <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
                 
                 </div>
                <!-- MENU --> 
