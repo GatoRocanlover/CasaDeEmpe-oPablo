@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">SOCIO</label>
-                        <select class="form-select" id="socio" aria-label="Default select example">
+                        <select class="form-select" id="socio"  name="socio" aria-label="Default select example">
                             <option selected value="-1">SELECCIONA</option>
                             <option value="1">SI</option>
                             <option value="2">NO </option>
@@ -199,7 +199,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="calle_cotitular" class="form-label">CALLE/AVENIDA</label>
-                        <input type="text" name="calle_cotitular'" class="form-control" id="calle_cotitular" required>
+                        <input type="text" name="calle_cotitular" class="form-control" id="calle_cotitular" required>
                         <div class="invalid-feedback">
                         Please provide a valid city.
                         </div>
@@ -220,7 +220,7 @@
                     </div>
                     <div class="col-md-4">
                         <label for="colonia_cotitular" class="form-label">COLONIA</label>
-                        <input type="text" name="colonia_cotitular'" class="form-control" id="colonia_cotitular" required>
+                        <input type="text" name="colonia_cotitular" class="form-control" id="colonia_cotitular" required>
                         <div class="invalid-feedback">
                         Please provide a valid zip.
                         </div>

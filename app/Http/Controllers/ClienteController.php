@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Validator;
+//SECCION DONDE IMPORTAMOS LAS CLASES QUE NECESITAMOS
+use Illuminate\Http\Request; //PARA RECIBIR PARAMETROS
+use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
+use Validator; //VALIDAR LO QUE MANDA LOS USUARIOS
+use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 
 class ClienteController extends Controller
 {
@@ -35,6 +38,7 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+      
         $reglas = [
             "nombre_cliente"=>"bail|required|min:3",
             "apellido_cliente" => "bail|required",
@@ -43,7 +47,7 @@ class ClienteController extends Controller
             "correo_electronico_cliente" => 'bail|nullable',
             "telefono_cliente" => 'bail|nullable',
             "socio" => "bail|required",
-            "numero_socio" => "bail|required",
+            "numero_socio" => "bail|required_if:socio,1",
             "calle_cliente" => 'bail|required',
             "numero_cliente" => 'bail|nullable',
             "cruzamientos_cliente" => 'bail|nullable',
@@ -61,7 +65,7 @@ class ClienteController extends Controller
             "codigo_postal_cotitular" => 'bail|nullable',
             "nombre_beneficiario" => 'bail|nullable',
             "apellido_beneficiario" => 'bail|nullable',
-    ];
+            ];
  
          $mensajes = [
             "nombre_cliente.required" => "No ingreso el nombre del cliente",
@@ -80,7 +84,7 @@ class ClienteController extends Controller
          $validator = Validator::make($request->all(), 
          $reglas, $mensajes 
          
- );
+        );
  
      if ($validator->fails()) {
          return redirect()->back()
@@ -90,7 +94,6 @@ class ClienteController extends Controller
  
  
      $nombre_cliente = Cliente::make($request->all());
-     $nombre_cliente->contrasenia = Hash::make($request->contrasenia);
      $nombre_cliente->save();
  
  
@@ -118,7 +121,14 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cliente = Cliente::find($id);
+
+        return View::make('admin.EditarCliente')->with(
+            [
+                "dato_cliente" => $cliente
+            
+            ]
+        );
     }
 
     /**

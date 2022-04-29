@@ -23,14 +23,15 @@ Route::prefix('admin')->group(function () {
 
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
-    Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
 
+    Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
+    Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
+    
     
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
     Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/AgregarCliente', [AdminController::class, 'AgregarCliente'])->name('agregar_cliente');
-    Route::get('/EditarCliente', [AdminController::class, 'EditarCliente'])->name('editar_cliente');
     Route::get('/ListadoCliente', [AdminController::class, 'ListadoCliente'])->name('listado_cliente');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
     Route::get('/EditarUsuario', [AdminController::class, 'EditarUsuario'])->name('editar_usuario');
