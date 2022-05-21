@@ -44,54 +44,81 @@
                <!-- MENU --> 
                 @include('layout.nav')
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+ 
             <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size50 fondoformulario">
-                <form class="row g-3 needs-validation size80  items-center justify-center" novalidate>
+                <form action="{{Route('usuario.update',$dato_usuario->id_usuario)}}" 
+                    method="POST" class="row g-3 needs-validation size80 items-center justify-center" novalidate>
+
+                @csrf
+
+                <input name="_method" type="hidden" value="PUT">
+
                 <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR USUARIO</label>
-                <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">USUARIO</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>    
-                <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">NOMBRE(S)</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
+                    <div class="col-md-8">
+                        <label for="usuario" class="form-label">USUARIO</label>
+                        <input type="text" name="usuario" class="form-control" id="usuario" value="{{$dato_usuario->usuario}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">APELLIDOS</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
+                        <label for="nombre_usuario" class="form-label">NOMBRE(S)</label>
+                        <input type="text" name="nombre_usuario"  class="form-control" id="nombre_usuario" value="{{$dato_usuario->nombre_usuario}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
+                    <div class="col-md-8">
+                        <label for="apellido_usuario" class="form-label">APELLIDOS</label>
+                        <input type="text"  name="apellido_usuario"  class="form-control" id="apellido_usuario" value="{{$dato_usuario->apellido_usuario}}" required>
+                        <div class="valid-feedback">
+                        Looks good!
+                        </div>
+                    </div>
+                    
                     <div class="col-md-8">TIPO DE USUARIO</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>TIPO DE USUARIO</option>
-                            <option value="1">ADMINISTRADOR</option>
+                        <select class="form-select" name="tipo_de_usuario" id="tipo_de_usuario" aria-label="Default select example" >
+                           
+                            @if($dato_usuario->tipo_de_usuario == -1)
+                                <option selected value="-1">TIPO DE USUARIO</option>
+                            @else
+                                <option value="-1" >TIPO DE USUARIO</option>
+                            @endif
+                            
+                            @if($dato_usuario->tipo_de_usuario == 1)
+                                <option selected value="1">ADMINISTRADOR</option>
+                            @else
+                                <option value="1" >ADMINISTRADOR</option>
+                            @endif
+
+                            @if($dato_usuario->tipo_de_usuario == 2)
                             <option value="2">EVALUADOR</option>
+                            @else
+                                <option value="2" >EVALUADOR</option>
+                            @endif
+
+                            @if($dato_usuario->tipo_de_usuario == 3)
                             <option value="3">CAJERO</option>
-                        </select>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-8 mx-auto">STATUS</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected></option>
-                            <option value="1">ACTIVO</option>
-                            <option value="2">INACTIVO</option>
+                            @else
+                                <option value="3" >CAJERO</option>
+                            @endif
                         </select>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">AGREGAR CONTRASEÑA</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
+                        <label for="contrasenia" class="form-label">AGREGAR CONTRASEÑA</label>
+                        <input type="text" class="form-control" name="contrasenia" id="contrasenia" value="{{$dato_usuario->contrasenia}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>

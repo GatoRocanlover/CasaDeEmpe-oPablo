@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;
+use Validator;//VALIDAR LO QUE MANDA LOS USUARIOS
+use App\Models\Usuario; // PARA USAR LA TABLA usuarios
+use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 
 class UsuarioController extends Controller
 {
@@ -39,7 +41,7 @@ class UsuarioController extends Controller
         $reglas = [
            "usuario"=>"bail|required|min:5|max:30",
            "nombre_usuario" => "bail|required|max:30",
-           "apellido_usuario" => 'bail|nullable|max:30',
+           "apellido_usuario" => 'bail|required|max:30',
            "tipo_de_usuario" => "bail|required|min:1",
            "contrasenia" => "bail|required",
         ];
@@ -69,7 +71,7 @@ class UsuarioController extends Controller
 
 
     $usuario = Usuario::make($request->all());
-    $usuario->contrasenia = Hash::make($request->contrasenia);
+   
     $usuario->save();
 
 
@@ -99,7 +101,14 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = Usuario::find($id);
+
+        return View::make('admin.EditarUsuario')->with(
+            [
+                "dato_usuario" => $usuario
+            
+            ]
+        );
     }
 
     /**
@@ -111,7 +120,48 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario = Usuario::find($id);
+
+        $reglas = [
+            "usuario"=>"bail|required|min:5|max:30",
+            "nombre_usuario" => "bail|required|max:30",
+            "apellido_usuario" => 'bail|required|max:30',
+            "tipo_de_usuario" => "bail|required|min:1",
+            "contrasenia" => "bail|required",
+         ];
+ 
+         $mensajes = [
+              "usuario.required" => "No ingreso el usuario",
+              "usuario.min" => "Los caracteres mínimos para el usuario deben ser :min",
+              "usuario.max" => "Los caracteres máximos para el usuario deben ser :max", 
+              "nombre_usuario.required" => "Los caracteres máximos para el nombre del usuario deben ser :max", 
+              "apellido_usuario.required" => "Los caracteres máximos para el apellido del usuario deben ser :max", 
+              "nombre_usuario.required" => "No ingreso el nombre del usuario", 
+              "tipo_de_usuario.required" => "No ingreso el tipo de usuario",
+              "contrasenia.required" => "No ingreso la contraseña",       
+         ];
+ 
+ 
+         $validator = Validator::make($request->all(), 
+         $reglas, $mensajes 
+         
+ );
+ 
+     if ($validator->fails()) {
+         return redirect()->back()
+                     ->withErrors($validator)
+                 ->withInput();
+     }
+ 
+ 
+     $usuario->fill($request->all());
+    
+     $usuario->save();
+ 
+ 
+     return redirect()->route('listado_usuario', []);
+
+
     }
 
     /**

@@ -44,76 +44,176 @@
                <!-- MENU --> 
                 @include('layout.nav')
 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            
+            
             <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size50 fondoformulario">
-                <form class="row g-3 needs-validation size80 items-center justify-center" novalidate>
-                <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR PRENDA</label>
+                <form action="{{Route('prenda.store')}}" method="POST" class="row g-3 needs-validation size80 items-center justify-center" novalidate>
+                
+                @csrf 
+                
+                <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR DATOS DE PRENDA</label>
                     <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">NOMBRE DE PRENDA</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
-                        <div class="valid-feedback">
-                        Looks good!
+                            <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA</label>
+                            <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" required>
+                            <div class="valid-feedback">
+                                  Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">DESCRIPCION GENERICA</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>TIPO DE IDENTIFICACION</option>
-                            <option value="1">ORO</option>
-                            <option value="2">PLATA</option>
-                        </select>
+                        <select class="form-select" name="descripcion_generica" id="descripcion_generica" aria-label="Default select example">
+                            
+                            @if($dato_prenda->descripcion_generica == -1)
+                                <option selected>TIPO DE IDENTIFICACION</option>
+                            @else
+                                <option value="-1" >TIPO DE IDENTIFICACION</option>
+                            @endif
+                            @if($dato_prenda->descripcion_generica == 1)   
+                            <option value="1" selected>ORO</option>
+                            @else
+                                <option value="1" >ORO</option>
+                            @endif
+                           
+                            @if($dato_prenda->descripcion_generica == 2) 
+                                <option value="2" selected>PLATA</option>
+                        
+                            @else
+                                <option value="2" >PLATA</option>
+                            @endif
+                            </select>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustomUsername" class="form-label">KILATAJE</label>
+                        <label for="kilataje_prenda" class="form-label">KILATAJE</label>
                         <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
+                        <input type="text" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="{{$dato_prenda->kilataje_prenda}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustomUsername" class="form-label">GRAMAJE</label>
+                        <label for="gramaje_prenda" class="form-label">GRAMAJE</label>
                         <div class="input-group has-validation">
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
+                        <input type="text" name="gramaje_prenda" class="form-control" id="gramaje_prenda" value="{{$dato_prenda->gramaje_prenda}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">CARACTERISTICAS</label>
-                        <textarea class="form-control " id="validationCustom02" value="" requiredrows="3"></textarea>
+                        <label for="caracteristicas_prenda" class="form-label">CARACTERISTICAS</label>
+                        <textarea name="caracteristicas_prenda" class="form-control " id="caracteristicas_prenda"  requiredrows="3">{{$dato_prenda->caracteristicas_prenda}}</textarea>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">AVALUO</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
+                        <label for="avaluo_prenda" class="form-label">AVALUO</label>
+                        <input type="text" name="avaluo_prenda" class="form-control" id="avaluo_prenda" value="{{$dato_prenda->avaluo_prenda}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">PORCENTAJE DE PRESTAMO SOBRE AVALUO</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected></option>
-                            <option value="1">70 %</option>
-                            <option value="2">75%</option>
-                            <option value="1">80 %</option>
-                            <option value="2">85%</option>
-                            <option value="3">90%</option>
-                            <option value="3">95%</option>
-                            <option value="3">100%</option>
+                        <select class="form-select" id="porcentaje_prestamo_sobre_avaluo" name="porcentaje_prestamo_sobre_avaluo" aria-label="Default select example">
+                            
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == -1)
+                                <option selected value="-1">SELECCIONA</option>
+                            @else
+                                <option value="-1" >SELECCIONA</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 1)
+                                <option selected value="1">45</option>
+                            @else
+                                <option value="1" >45 %</option>
+                            @endif
+                                
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 2)
+                                <option selected value="2">50 %</option>
+                            @else
+                                <option value="2" >50 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 3)
+                                <option selected value="3">55 %</option>
+                            @else
+                                <option value="3" >55 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 4)
+                                <option selected value="4">60 %</option>
+                            @else
+                                <option value="4" >60 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 4)
+                                <option selected value="5">65%</option>
+                            @else
+                                <option value="5" >65 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 6)
+                                <option selected value="6">70 %</option>
+                            @else
+                                <option value="6" >70 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 7)
+                                <option selected value="7">75 %</option>
+                            @else
+                                <option value="7" >75 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 8)
+                                <option selected value="8">80 %</option>
+                            @else
+                                <option value="8" >80 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 9)
+                                <option selected value="9">85 %</option>
+                            @else
+                                <option value="9" >85 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 10)
+                                <option selected value="10">90 %</option>
+                            @else
+                                <option value="10" >90 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 11)
+                                <option selected value="11">95 %</option>
+                            @else
+                                <option value="11" >95 %</option>
+                            @endif
+
+                            @if($dato_prenda->porcentaje_prestamo_sobre_avaluo == 12)
+                                <option selected value="12">100 %</option>
+                            @else
+                                <option value="12" >100 %</option>
+                            @endif
+                        
                         </select>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">PRESTAMO</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
+                        <label for="prestamo_prenda" class="form-label">PRESTAMO</label>
+                        <input type="text" name="prestamo_prenda" class="form-control" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>

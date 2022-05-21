@@ -99,7 +99,8 @@
                                             INACTIVO
                                     @endif
                                     </td>
-                                    <td><a class="nav-link" href="{{route('editar_usuario')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                   
+                                    <td><a class="nav-link" href="{{route('usuario.edit', [$usuario->id_usuario] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                                
 

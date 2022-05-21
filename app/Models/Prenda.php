@@ -9,7 +9,7 @@ class Prenda extends Model
 {
     use HasFactory;
     protected $table ='prendas';
-    protected $primaryKey ='id_prendas';
+    protected $primaryKey ='id_prenda';
     protected $fillable =[
         'cantidad_prenda',
         'nombre_prenda',

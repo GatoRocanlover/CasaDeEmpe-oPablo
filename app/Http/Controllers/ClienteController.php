@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 //SECCION DONDE IMPORTAMOS LAS CLASES QUE NECESITAMOS
 use Illuminate\Http\Request; //PARA RECIBIR PARAMETROS
-use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use Validator; //VALIDAR LO QUE MANDA LOS USUARIOS
+use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 
 class ClienteController extends Controller

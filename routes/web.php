@@ -22,7 +22,13 @@ Route::get('/',[AdminController::class, 'IniciarSesion'])->name('inicio_sesion')
 Route::prefix('admin')->group(function () {
 
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
+    Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
+    Route::put('actualizar_usuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
+
+
+    
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
+    Route::get('editar_prenda/{id}', [PrendaController::class, 'edit'])->name('prenda.edit');
 
     Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
@@ -34,10 +40,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/AgregarCliente', [AdminController::class, 'AgregarCliente'])->name('agregar_cliente');
     Route::get('/ListadoCliente', [AdminController::class, 'ListadoCliente'])->name('listado_cliente');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
-    Route::get('/EditarUsuario', [AdminController::class, 'EditarUsuario'])->name('editar_usuario');
     Route::get('/ListadoUsuario', [AdminController::class, 'ListadoUsuario'])->name('listado_usuario');
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');
-    Route::get('/EditarPrenda', [AdminController::class, 'EditarPrenda'])->name('editar_prenda');
     Route::get('/ListadoPrenda', [AdminController::class, 'ListadoPrenda'])->name('listado_prenda');
     Route::get('/GenerarBoleta', [AdminController::class, 'GenerarBoleta'])->name('generar_boleta');
     Route::get('/ListadoBoleta', [AdminController::class, 'ListadoBoleta'])->name('listado_boleta');

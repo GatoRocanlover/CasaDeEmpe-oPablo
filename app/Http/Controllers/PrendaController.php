@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Validator;
+//SECCION DONDE IMPORTAMOS LAS CLASES QUE NECESITAMOS//PARA RECIBIR PARAMETROS
+use Illuminate\Http\Request;//PARA RECIBIR PARAMETROS
+use Validator; //VALIDAR LO QUE MANDA LOS USUARIOS
+use App\Models\Prenda; // PARA USAR LA TABLA CLIENTES
+use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 
 class PrendaController extends Controller
 {
@@ -72,9 +75,8 @@ class PrendaController extends Controller
      }
  
  
-     $prenda = Prenda::make($request->all());
-     $prenda->contrasenia = Hash::make($request->contrasenia);
-     $prenda->save();
+     $nombre_prenda = Prenda::make($request->all());
+     $nombre_prenda->save();
  
  
      return redirect()->route('listado_prenda', []);
@@ -102,7 +104,14 @@ class PrendaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $prenda = Prenda::find($id);
+
+        return View::make('admin.EditarPrenda')->with(
+            [
+                "dato_prenda" => $prenda
+            
+            ]
+        );
     }
 
     /**
@@ -114,7 +123,52 @@ class PrendaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $prenda = Prenda::find($id);
+
+        $reglas = [
+            "nombre_prenda"=>"bail|required|min:3",
+            "descripcion_generica" => "bail|required",
+            "cantidad_prenda" => 'bail|required',
+            "kilataje_prenda" => "bail|required",
+            "gramaje_prenda" => 'bail|required',
+            "caracteristicas_prenda" => 'bail|required',
+            "avaluo_prenda" => "bail|required",
+            "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
+            "prestamo_prenda" => 'bail|required',
+        ];
+ 
+         $mensajes = [
+ 
+            "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
+            "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
+            "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar", 
+            "cantidad_prenda.required" => "No ingreso la cantidad de la pieza a refrendar", 
+            "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar", 
+            "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
+            "caracteristicas_prenda.required" => "No ingreso las caracteristicas de la pieza a refrendar",                  
+            "avaluo_prenda.required" => "No ha ingresado el avaluo", 
+            "porcentaje_prestamo_sobre_avaluo.required" => "No ha seleccionado el porfentaje del avaluo",
+            "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",                  
+            
+         ];
+         $validator = Validator::make($request->all(), 
+         $reglas, $mensajes 
+ );
+ 
+     if ($validator->fails()) {
+         return redirect()->back()
+                     ->withErrors($validator)
+                 ->withInput();
+     }
+ 
+ 
+     $nombre_prenda = fill ($request->all());
+     $nombre_prenda->save();
+ 
+ 
+     return redirect()->route('listado_prenda', []);
+ 
+ 
     }
 
     /**

@@ -68,10 +68,10 @@
                             <tr>
                             <th scope="col">#</th>
                             <th scope="col">PRENDA</th>
-                            <th scope="col">DESCRIPCION</th>
                             <th scope="col">CARACTERISTICAS</th>
                             <th scope="col">AVALUO</th>
                             <th scope="col">% DE PRESTAMO</th>
+                            <th scope="col">PRESTAMO</th>
                             <th scope="col">EDITAR</th>
                             </tr>
                         </thead>
@@ -85,7 +85,7 @@
                                 <td>{{$prenda->avaluo_prenda}}</td>
                                 <td>{{$prenda->porcentaje_prestamo_sobre_avaluo}}</td>
                                 <td>{{$prenda->prestamo_prenda}}</td>
-                                <td><a class="nav-link" href="{{route('editar_prenda')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prenda] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                                 <tr>
 

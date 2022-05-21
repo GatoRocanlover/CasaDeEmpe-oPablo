@@ -62,28 +62,28 @@
                 <label for="validationCustom03" class="form-label mt-8 text-center">AGREGAR USUARIO</label>
                     <div class="col-md-8">
                         <label for="usuario" class="form-label">USUARIO</label>
-                        <input type="text" class="form-control" id="usuario" value="" required>
+                        <input type="text" name="usuario" class="form-control" id="usuario" value="" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
                         <label for="nombre_usuario" class="form-label">NOMBRE(S)</label>
-                        <input type="text" class="form-control" id="nombre_usuario" value="" required>
+                        <input type="text" name="nombre_usuario"  class="form-control" id="nombre_usuario" value="" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
                         <label for="apellido_usuario" class="form-label">APELLIDOS</label>
-                        <input type="text" class="form-control" id="apellido_usuario" value="" required>
+                        <input type="text"  name="apellido_usuario"  class="form-control" id="apellido_usuario" value="" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     
                     <div class="col-md-8">TIPO DE USUARIO</label>
-                        <select class="form-select" aria-label="Default select example" id="tipo_de_usuario">
+                        <select class="form-select" name="tipo_de_usuario" id="tipo_de_usuario" aria-label="Default select example" >
                             <option selected value="-1">TIPO DE USUARIO</option>
                             <option value="1">ADMINISTRADOR</option>
                             <option value="2">EVALUADOR</option>
@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-md-8">
                         <label for="contrasenia" class="form-label">AGREGAR CONTRASEÑA</label>
-                        <input type="text" class="form-control" id="contrasenia" value="" required>
+                        <input type="text" class="form-control" name="contrasenia" id="contrasenia" value="" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>

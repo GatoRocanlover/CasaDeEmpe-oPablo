@@ -65,7 +65,7 @@
                     <div class="col-md-8">
                         <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA</label>
                         <div class="input-group has-validation">
-                            <input type="text" class="form-control" id="nombre_prenda" value="" required>
+                            <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -73,14 +73,14 @@
                     </div>
                     <div class="col-md-8">
                         <label for="cantidad_prenda" class="form-label">CANTIDAD</label>
-                        <input type="text" class="form-control" id="cantidad_prenda" value="" required>
+                        <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
                         <label for="validationCustomUsername" class="form-label">TIPO</label>
-                        <select class="form-select" aria-label="Default select example" id="descripcion_generica">
+                        <select class="form-select" aria-label="Default select example" name="descripcion_generica" id="descripcion_generica">
                             <option selected value="-1">DESCRIPCION GENERICA</option>
                             <option value="1">ORO</option>
                             <option value="2">PLATA</option>
@@ -92,7 +92,7 @@
                     <div class="col-md-8">
                         <label for="kilataje_prenda" class="form-label">KILATAJE</label>
                         <div class="input-group has-validation">
-                            <input type="text" class="form-control" id="kilataje_prenda" value="" required>
+                            <input type="text" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -101,7 +101,7 @@
                     <div class="col-md-8">
                         <label for="gramaje_prenda" class="form-label">GRAMAJE</label>
                         <div class="input-group has-validation">
-                            <input type="text" class="form-control" id="gramaje_prenda" value="" required>
+                            <input type="text" name="gramaje_prenda" class="form-control" id="gramaje_prenda" value="" required>
                             <div class="valid-feedback">
                             Looks good!
                             </div>
@@ -109,20 +109,20 @@
                     </div>
                     <div class="col-md-8">
                         <label for="caracteristicas_prenda" class="form-label">CARACTERISTICAS</label>
-                        <textarea class="form-control " id="caracteristicas_prenda" value="" requiredrows="3"></textarea>
+                        <textarea name ="caracteristicas_prenda"class="form-control " id="caracteristicas_prenda" value="" requiredrows="3"></textarea>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">
                         <label for="avaluo_prenda" class="form-label">AVALUO</label>
-                        <input type="text" class="form-control" id="avaluo_prenda" value="" required>
+                        <input type="text" name="avaluo_prenda" class="form-control" id="avaluo_prenda" value="" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">PORCENTAJE DE PRESTAMO SOBRE AVALUO</label>
-                        <select class="form-select" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
+                        <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
                             <option selected  value="-1"></option>
                             <option value="1">45 %</option>
                             <option value="2">50 %</option>
@@ -143,7 +143,7 @@
                     </div>
                     <div class="col-md-8">
                         <label for="prestamo_prenda" class="form-label">PRESTAMO</label>
-                        <input type="text" class="form-control" id="prestamo_prenda" value="" required>
+                        <input type="text" name="prestamo_prenda" class="form-control" id="prestamo_prenda" value="" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
