@@ -29,7 +29,10 @@ Route::prefix('admin')->group(function () {
     
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
     Route::get('editar_prenda/{id}', [PrendaController::class, 'edit'])->name('prenda.edit');
+    Route::put('actualizar_prenda/{id}', [PrendaController::class, 'update'])->name('prenda.update');
 
+
+    
     Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
     

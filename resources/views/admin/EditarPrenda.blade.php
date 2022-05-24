@@ -56,9 +56,11 @@
             
             
             <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size50 fondoformulario">
-                <form action="{{Route('prenda.store')}}" method="POST" class="row g-3 needs-validation size80 items-center justify-center" novalidate>
+                <form action="{{Route('prenda.update',$dato_prenda->id_prenda)}}"
+                     method="POST" class="row g-3 needs-validation size80 items-center justify-center" novalidate>
                 
                 @csrf 
+                <input name="_method" type="hidden" value="PUT">
                 
                 <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR DATOS DE PRENDA</label>
                     <div class="col-md-8">

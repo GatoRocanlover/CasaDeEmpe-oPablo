@@ -128,7 +128,6 @@ class PrendaController extends Controller
         $reglas = [
             "nombre_prenda"=>"bail|required|min:3",
             "descripcion_generica" => "bail|required",
-            "cantidad_prenda" => 'bail|required',
             "kilataje_prenda" => "bail|required",
             "gramaje_prenda" => 'bail|required',
             "caracteristicas_prenda" => 'bail|required',
@@ -142,7 +141,6 @@ class PrendaController extends Controller
             "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
             "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
             "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar", 
-            "cantidad_prenda.required" => "No ingreso la cantidad de la pieza a refrendar", 
             "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar", 
             "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
             "caracteristicas_prenda.required" => "No ingreso las caracteristicas de la pieza a refrendar",                  

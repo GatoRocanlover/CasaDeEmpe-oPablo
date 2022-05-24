@@ -127,7 +127,6 @@
                     <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
                         <button class="size50 bordes btn btn-primary navbar1">GUARDAR</button>
                     </div>
-
                 </form>
             </div>
          </div>
