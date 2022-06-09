@@ -79,12 +79,40 @@
                         @foreach($lista_prendas as $prenda)
 
                                 <tr>
-                                <th scope="row">{{$prenda->id_prendas}}</th>
+                                <th scope="row">{{$prenda->id_prenda}}</th>
                                 <td>{{$prenda->nombre_prenda}}</td>
-                                <td>{{$prenda->kilataje_prenda.', '.$prenda->gramaje_prenda.', '.$prenda->caracteristicas_prenda}}</td>
-                                <td>{{$prenda->avaluo_prenda}}</td>
-                                <td>{{$prenda->porcentaje_prestamo_sobre_avaluo}}</td>
-                                <td>{{$prenda->prestamo_prenda}}</td>
+                                <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
+                                <td> {{'$'.$prenda->avaluo_prenda}}</td>
+                                
+                                <td> @IF($prenda->porcentaje_prestamo_sobre_avaluo == 1)
+                                    45 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 2)
+                                    50 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 4)
+                                    55 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 5)
+                                    60 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 6)
+                                    65 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 7)
+                                    70 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 8)
+                                    75 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 9)
+                                    80 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 10)
+                                    85 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 11)
+                                    90 %
+                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 12)
+                                    95 %
+                                    @else
+                                    100 %
+                                    @endif
+                                </td>
+                    
+                                
+                                <td>{{'$'.$prenda->prestamo_prenda}}</td>
                                 <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prenda] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                                 <tr>
