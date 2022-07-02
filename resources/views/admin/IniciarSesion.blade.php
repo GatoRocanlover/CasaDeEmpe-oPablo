@@ -70,6 +70,9 @@
                             <div class="max-w-6xl mx-auto flex items-center justify-center mt-4" x-ref="mesaggeError">
                                 <h4 class="titulo">Mensaje de Error</h4>   
                             </div>
+                            <div class="max-w-6xl mx-auto flex items-center justify-center mt-4" x-ref="mesaggeError">
+                                <button class="size50 bordes btn btn-primary navbar1">ACCEDER</button>
+                            </div>
                         </form>
                     </div>
             

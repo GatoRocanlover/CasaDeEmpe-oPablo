@@ -17,7 +17,7 @@ use App\Http\Controllers\ClienteController;
 |
 */
 
-Route::get('/',[AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
+    Route::get('/',[AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 
 Route::prefix('admin')->group(function () {
 
@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function () {
     
     Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
-    Route::put('actualizar_cliente{id}', [ClienteController::class, 'update'])->name('cliente.update');
+    Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
     
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
     Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');

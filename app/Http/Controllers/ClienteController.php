@@ -140,7 +140,7 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $cliente = Cliente::find($id);
+        $nombre_cliente = Cliente::find($id);
         $reglas = [
             "nombre_cliente"=>"bail|required|min:3",
             "apellido_cliente" => "bail|required",
@@ -195,7 +195,7 @@ class ClienteController extends Controller
      }
  
  
-     $nombre_cliente = Cliente::make($request->all());
+     $nombre_cliente->fill($request->all());
      $nombre_cliente->save();
  
  

@@ -56,9 +56,10 @@
                 @endif
 
             <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size60 fondoformulario">
-                <form action="{{Route('cliente.store')}}" method="POST" class= "row g-3 needs-validation size95 items-center justify-center" novalidate>
+                <form action="{{Route('cliente.update',$dato_cliente->id_cliente)}}" method="POST" class= "row g-3 needs-validation size95 items-center justify-center" novalidate>
                 
                 @csrf
+                <input name="_method" type="hidden" value="PUT">
                 
                 <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR DATOS DEL CLIENTE</label>
                     <div class="col-md-6">
