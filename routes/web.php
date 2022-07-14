@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PrendaController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\CotizacionPrendaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,11 @@ Route::prefix('admin')->group(function () {
     Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
     Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
-    
+
+    Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
+    Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'ListadoPrenda'])->name('cotizacionprenda.listado');
+    Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
+
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
     Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');

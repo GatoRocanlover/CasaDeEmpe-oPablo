@@ -60,28 +60,9 @@
                     
                     @csrf
 
-                    <label for="validationCustom03" class="form-label mt-8 text-center">AGREGAR PRENDA NUEVA</label>
-                    <div class="col-md-8">
-                        
-                        <div class=" input-group has-validation">
-                            <input type="text" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
-                            <input type="hidden" name="id_usuario" class="form-control" id="id_usuario" value="" placeholder="BUSCAR CLIENTE" required>
-                            <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <button class=" size20 bordes btn btn-primary navbar1">BUSCAR</button>
-                    </div>
-                    <div class=" input-group has-validation">
-                    <label for="nombre_prenda" class="form-label">NOMBRE CLIENTE</label>
-                    <div class=" input-group has-validation">
-                        <input type="text" name="nombre_cliente" class="form-control" id="nombre_cliente" value="" placeholder="CLIENTE" readonly>
-                        <div class="valid-feedback">
-                        Looks good!
-                        </div>
-                    </div>
+                    <label for="validationCustom03" class="form-label mt-8 text-center">COTIZACION PRENDA </label>
                     
-                </div>
-                    </div>    
+             
                     <div class="col-md-8">
                             <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA</label>
                             <div class="input-group has-validation">

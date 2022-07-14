@@ -51,9 +51,12 @@
                     <div class="col-md-6">
                         <label for="validationCustom01" class="form-label">CLIENTE</label>
                         <input class="form-control mr-sm-2" type="search" placeholder="Buscador" aria-label="Buscador">
-                        <div class="valid-feedback">
-                        Looks good!
+                        <div class="valid-feedback">Looks good!
                         </div>
+                        <div class="mr-2 mt-4 mb-8 flex items-center justify-center">
+                            <button class="size50 bordes btn btn-primary navbar1">Buscar</button>
+                        </div>
+                        
                     </div>
                     <div class="col-md-6">
                         <label for="validationCustom02" class="form-label">PRENDA</label>
@@ -62,17 +65,11 @@
                         <div class="valid-feedback">
                         Looks good!
                         </div>
-                    </div>
-                    
-                    
-                    <div class=" mb-12 max-w-6xl mx-auto flex items-center justify-center mt-8">
-                        <div >
-                            <button class="size100 bordes btn btn-primary navbar1">Buscar</button>
-                        </div>
-                        <div >
-                            <button class="size200 bordes btn btn-primary navbar1">Buscar</button>
+                        <div class="mr-2 mt-4 mb-8 flex items-center justify-center">
+                            <button class="size50 bordes btn btn-primary navbar1">Buscar</button>
                         </div>
                     </div>
+                    
                     <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
                         <button class="size50 bordes btn btn-primary navbar1">GENERAR</button>
                     </div>
