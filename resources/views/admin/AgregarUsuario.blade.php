@@ -19,7 +19,9 @@
         <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
         <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css 
+            
+            */
             </style>
 
         <style>
@@ -31,7 +33,7 @@
     </head>
     <body class="antialiased ">
         <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-          
+  
  <!-- encabezado -->
         <div class="size">
                 <div class="navbar1 flex size">

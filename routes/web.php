@@ -52,6 +52,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/ListadoBoletaDesembolsar', [AdminController::class, 'ListadoBoletaDesembolsar'])->name('listado_boleta_desembolsar');
     Route::get('/Desembolso', [AdminController::class, 'Desembolso'])->name('desembolso');
     Route::get('/Pagar', [AdminController::class, 'Pagar'])->name('pagar');
+    
+    Route::get('/boleta', function(){
+        return view('pdf.boleta');
+    })->name('pagar');
 });
 
 

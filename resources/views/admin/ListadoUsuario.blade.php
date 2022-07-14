@@ -76,8 +76,6 @@
                         <tbody>
 
                             @foreach($lista_usuarios as $usuario)
-
-
                                 <tr>
                                     <th scope="row">{{$usuario->id_usuario}}</th>
                                     <td>{{$usuario->usuario}}</td>
@@ -102,22 +100,9 @@
                                    
                                     <td><a class="nav-link" href="{{route('usuario.edit', [$usuario->id_usuario] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
-                               
-
-
-
                             @endforeach
-
-
-
-                          
-
-
-
                         </tbody>
                     </table>
-                    
-
                 </div>
     </body>
 
