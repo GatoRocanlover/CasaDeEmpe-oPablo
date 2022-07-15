@@ -1,5 +1,5 @@
 
-
+<!-- DESEMBOLSAR :) -->
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   
@@ -62,8 +62,9 @@
 
                 <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" style="">
                     <div class="max-w-6xl size  flex items-center justify-center ">
-                    
-                    <table class="table table-hover">
+
+
+      <!-- PABLO           <table class="table table-hover">
                         <thead class="letra-blanca bg-dark">
                             <tr>
                             <th scope="col"># DE BOLETA</th>
@@ -92,7 +93,11 @@
                             <tr>
                         </tbody>
                     </table>
-                </div>
+                </div> -->
+
+
+
+
     </body>
 
   <script src="{{asset('dist/js/bootstrap.js')}}"></script>

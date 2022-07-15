@@ -60,7 +60,7 @@
                 <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" style="">
                     <div class="max-w-6xl size  flex items-center justify-center ">
                     <div class="col-md-12">
-                        <label>LISTA DE PRENDAS</label>
+                        <label>COTIZACIONES</label>
                     <table class="table table-hover">
                         <thead class="letra-blanca bg-dark">
                             <tr>
@@ -77,7 +77,7 @@
                         @foreach($lista_prendas as $prenda)
 
                                 <tr>
-                                <th scope="row">{{$prenda->id_prenda}}</th>
+                                <th scope="row">{{$prenda->id_cotizacionprenda}}</th>
                                 <td>{{$prenda->nombre_prenda}}</td>
                                 <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
                                 <td> {{'$ '.$prenda->avaluo_prenda}}</td>

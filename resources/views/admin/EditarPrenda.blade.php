@@ -65,7 +65,7 @@
                 <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR DATOS DE PRENDA</label>
                     <div class="col-md-8">
                             <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA</label>
-                            <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" required>
+                            <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" required>                        >
                             <div class="valid-feedback">
                                   Looks good!
                         </div>
