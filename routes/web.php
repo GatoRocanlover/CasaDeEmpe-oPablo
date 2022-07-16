@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
     Route::put('actualizar_usuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
 
+    //MI COMENTARIO
 
     
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
