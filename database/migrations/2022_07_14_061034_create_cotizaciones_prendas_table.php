@@ -22,7 +22,8 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->longText('caracteristicas_prenda');
             $table->string('avaluo_prenda', 30);
             $table->tinyInteger('porcentaje_prestamo_sobre_avaluo');
-            $table->string('prestamo_prenda', 20);           
+            $table->string('prestamo_prenda', 20);  
+            $table->integer('cantidad_prenda');
             $table->timestamps();
         });
     }

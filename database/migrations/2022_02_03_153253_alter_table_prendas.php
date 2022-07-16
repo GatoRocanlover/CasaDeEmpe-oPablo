@@ -14,7 +14,7 @@ class AlterTablePrendas extends Migration
     public function up()
     {
         Schema::table('prendas', function (Blueprint $table) {
-            $table->string('cantidad_prenda', 5);
+            $table->integer('cantidad_prenda');
         });
     }
 

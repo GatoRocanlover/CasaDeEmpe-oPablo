@@ -56,7 +56,7 @@
 
             <div class="mt-8  max-w-6xl mx-auto items-center justify-center flex negritas  texto size50 fondoformulario">
 
-                <form action="{{Route('prenda.store')}}" method="POST" class= "row g-3 needs-validation size100 items-center justify-center" novalidate>
+                <form action="{{Route('cotizacionprenda.store')}}" method="POST" class= "row g-3 needs-validation size100 items-center justify-center" novalidate>
                     
                     @csrf
 

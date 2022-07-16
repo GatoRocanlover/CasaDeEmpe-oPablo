@@ -56,8 +56,15 @@
                 </div>
                 
                 @include('layout.nav')
-
+                  
+                    <div class=" items-center justify-end flex mr-3 mt-2">
+                        <a class="btn btn-primary " href="{{route('cotizacion.agregar_prenda')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false">
+                            <i class="fas fa-plus"></i>
+                                AGREGRA NUEVA COTIZACION
+                       </a>
+                    </div>
                 <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" style="">
+                 
                     <div class="max-w-6xl size  flex items-center justify-center ">
                     <div class="col-md-12">
                         <label>COTIZACIONES</label>

@@ -35,6 +35,7 @@ video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;
 .items-center{align-items:center}
 .justify-center{justify-content:center}
 .justify-between{justify-content:space-between}
+.justify-end{justify-content: end;}
 .font-semibold{font-weight:600}
 .h-5{height:1.25rem}
 .h-8{height:2rem}
@@ -48,6 +49,7 @@ video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;
 .ml-1{margin-left:.25rem}
 .mt-2{margin-top:.5rem}
 .mr-2{margin-right:.5rem}
+.mr-3{margin-right:2rem}
 .ml-2{margin-left:.5rem}
 .mt-4{margin-top:1rem}
 .ml-4{margin-left:1rem}
