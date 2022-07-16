@@ -79,7 +79,7 @@ class CotizacionPrendaController extends Controller
      $cotizacionprenda->save();
  
  
-     return redirect()->route('listado_prenda', []);
+     return redirect()->route('admin.CotizacionPrenda', []);
  
  
  
@@ -130,10 +130,10 @@ class CotizacionPrendaController extends Controller
         //
     }
     
-    public function ListadoPrenda()
+    public function ListadoCotizacionPrenda()
     {
         $Cotizacionprendas = CotizacionPrenda::get();
-        return view('admin.ListadoPrenda')->with(
+        return view('admin.ListadoCotizacionPrenda')->with(
             [
                 "lista_prendas" => $Cotizacionprendas
             ]

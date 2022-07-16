@@ -39,7 +39,7 @@ Route::prefix('admin')->group(function () {
     Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
 
     Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
-    Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'ListadoPrenda'])->name('cotizacionprenda.listado');
+    Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'ListadoCotizacionPrenda'])->name('cotizacionprenda.listado');
     Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
 
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
