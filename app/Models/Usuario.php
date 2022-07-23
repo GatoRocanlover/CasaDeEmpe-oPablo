@@ -18,5 +18,11 @@ class Usuario extends Model
         'status',
         'contrasenia',
     ];
+//Relacion de tablas desde la base de datos con el sieguiente comano:
+    public function prendas(){
+        return $this->belongsToMany(prendas::class); //relacion de muchos a muchos
+    }
+
+     
 }
 // 

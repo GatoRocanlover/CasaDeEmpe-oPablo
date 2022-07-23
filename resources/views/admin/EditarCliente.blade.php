@@ -105,7 +105,7 @@
                             @endif
                         </select>
                         <div class="valid-feedback">
-                        Looks good!
+                            Looks good!
                         </div>
                     </div>
                     <div class="col-md-6">

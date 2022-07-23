@@ -74,7 +74,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($lista_prendas as $prenda)
+                        @foreach($lista_prendas as $prenda )
 
                                 <tr>
                                 <th scope="row">{{$prenda->id_prenda}}</th>
@@ -112,9 +112,12 @@
                                 <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prenda] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                                 <tr>
-
                         @endforeach
+
+           
+
                         </tbody>
+                        
                     </table>
                 </div>
     </body>

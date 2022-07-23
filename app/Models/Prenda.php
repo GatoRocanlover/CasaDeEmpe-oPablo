@@ -22,4 +22,9 @@ class Prenda extends Model
         'prestamo_prenda',
    
     ];
+
+    public function usuarios(){
+        return $this->belongsTo(usuarios::class); // Uno a muchos
+    }
+    
 }

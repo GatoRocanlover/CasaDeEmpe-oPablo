@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterPrendasTable extends Migration
+class AlterPrendasForeingKey extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class AlterPrendasTable extends Migration
     public function up()
     {
         Schema::table('prendas', function (Blueprint $table) {
-            $table->bigInteger('id_cliente')->unsigned()->nullable()->default(0);
+            $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
         });
     }
 
@@ -26,11 +26,7 @@ class AlterPrendasTable extends Migration
     public function down()
     {
         Schema::table('prendas', function (Blueprint $table) {
-           if (Schema::hasColumn('prendas', 'id_cliente')) {
-            $table->dropColumn('id_cliente');
-           }
-           
-            
+            //
         });
     }
 }

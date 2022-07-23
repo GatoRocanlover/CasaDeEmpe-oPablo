@@ -80,9 +80,9 @@ class PrendaController extends Controller
  
  
      return redirect()->route('listado_prenda', []);
- 
- 
- 
+
+
+        
     }
 
     /**
@@ -179,4 +179,9 @@ class PrendaController extends Controller
     {
         //
     }
+
+    public function prendas()
+{
+  $this->BelongsTo(usuarios::class);
+}
 }

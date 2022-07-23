@@ -133,7 +133,7 @@ class CotizacionPrendaController extends Controller
     public function ListadoCotizacionPrenda()
     {
         $Cotizacionprendas = CotizacionPrenda::get();
-        return view('admin.ListadoCotizacionPrenda')->with(
+        return view('admin.cotizacionprenda')->with(
             [
                 "lista_prendas" => $Cotizacionprendas
             ]

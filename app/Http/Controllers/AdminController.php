@@ -90,6 +90,25 @@ class AdminController extends BaseController
             ]
         );
     }
+
+
+    public function ListadoBoletaPagar()
+    {
+        $prendas1 = Prenda::get();
+        return view('admin.ListadoBoletaPagar')->with(
+            [
+                "lista_prendas1" => $prendas1
+            ]
+        );
+    }
+
+    
+
+
+
+
+
+
     public function GenerarBoleta()
     {
         return view('admin.GenerarBoleta');
@@ -99,10 +118,7 @@ class AdminController extends BaseController
     {
         return view('admin.ListadoBoleta');
     }
-    public function ListadoBoletaPagar()
-    {
-        return view('admin.ListadoBoletaPagar');
-    }
+   
     public function ListadoBoletaDesembolsar()
     {
         return view('admin.ListadoBoletaDesembolsar');
@@ -115,4 +131,19 @@ class AdminController extends BaseController
     {
         return view('admin.Pagar');
     }
+
+    public function refrendo()
+    {
+        return view('admin.refrendo');
+    }
+    public function abono_capital()
+    {
+        return view('admin.abono_capital');
+    }
+   
+   
+
+
+  
+
 }
