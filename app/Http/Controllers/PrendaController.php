@@ -19,7 +19,6 @@ class PrendaController extends Controller
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -51,7 +50,6 @@ class PrendaController extends Controller
         ];
  
          $mensajes = [
- 
             "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
             "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
             "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar", 
@@ -150,7 +148,7 @@ class PrendaController extends Controller
             "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",                  
             
          ];
-         $validator = Validator::make($request->all(), 
+         $validator = Validator::make(  $request->all(), 
          $reglas, $mensajes 
  );
  
@@ -180,4 +178,5 @@ class PrendaController extends Controller
     {
         //
     }
+
 }

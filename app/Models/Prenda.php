@@ -11,7 +11,6 @@ class Prenda extends Model
     protected $table ='prendas';
     protected $primaryKey ='id_prendas';
     protected $fillable =[
-        'cantidad_prenda',
         'nombre_prenda',
         'descripcion_generica',
         'kilataje_prenda',
@@ -20,6 +19,14 @@ class Prenda extends Model
         'avaluo_prenda',
         'porcentaje_prestamo_sobre_avaluo',
         'prestamo_prenda',
-        'id_cliente'
+        'cantidad_prenda',
+        'id_cliente',
+   
     ];
+
+
+    public function cliente(){
+        return $this->belongsTo(cliente::class);
+    }
+    
 }

@@ -20,7 +20,7 @@ use App\Http\Controllers\CotizacionPrendaController;
 
     Route::get('/',[AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 
-Route::prefix('admin')->group(function () {
+    Route::prefix('admin')->group(function () {
 
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
@@ -57,11 +57,17 @@ Route::prefix('admin')->group(function () {
     Route::get('/ListadoBoletaPagar', [AdminController::class, 'ListadoBoletaPagar'])->name('listado_boleta_pagar');
     Route::get('/ListadoBoletaDesembolsar', [AdminController::class, 'ListadoBoletaDesembolsar'])->name('listado_boleta_desembolsar');
     Route::get('/Desembolso', [AdminController::class, 'Desembolso'])->name('desembolso');
+    
+    Route::get('/refrendo', [AdminController::class, 'refrendo'])->name('1refrendo');
+    Route::get('/abono_capital', [AdminController::class, 'abono_capital'])->name('AbonoCapital');
+
+
     Route::get('/Pagar', [AdminController::class, 'Pagar'])->name('pagar');
     
+
     Route::get('/boleta', function(){
         return view('pdf.boleta');
-    })->name('pagar');
-});
+    })->name('Boleta_pagar');
+    });
 
 

@@ -57,7 +57,7 @@
                 
                 @include('layout.nav')
 
-                <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" style="">
+                <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" >
                     <div class="max-w-6xl size  flex items-center justify-center ">
                     <div class="col-md-12">
                         <label>LISTA DE PRENDAS</label>
@@ -74,7 +74,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($lista_prendas as $prenda)
+                        @foreach($lista_prendas as $prenda )
 
                                 <tr>
                                 <th scope="row">{{$prenda->id_prendas}}</th>
@@ -112,9 +112,12 @@
                                 <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prendas] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                                 <tr>
-
                         @endforeach
+
+           
+
                         </tbody>
+                        
                     </table>
                 </div>
     </body>

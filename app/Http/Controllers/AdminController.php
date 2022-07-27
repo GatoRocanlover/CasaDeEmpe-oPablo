@@ -16,9 +16,9 @@ class AdminController extends BaseController
 
     public function iniciarsesion()
     {
-       return view('admin.IniciarSesion');
+        return view('admin.IniciarSesion');
     }
-    
+
 
 
     public function AdminInicio()
@@ -28,12 +28,10 @@ class AdminController extends BaseController
 
     public function AgregarCliente()
     {
-        
-      
+
+
         return view('admin.AgregarCliente');
-     
-    
-}
+    }
     public function EditarCliente()
     {
         $clientes = Cliente::get();
@@ -41,10 +39,12 @@ class AdminController extends BaseController
 
             [
                 "lista_clientes" => $clientes
-            ]);
+            ]
+        );
     }
     public function ListadoCliente()
-    {   $clientes = Cliente::get();
+    {
+        $clientes = Cliente::get();
 
         return view('admin.ListadoCliente')->with(
 
@@ -64,14 +64,12 @@ class AdminController extends BaseController
     public function ListadoUsuario()
     {
         $usuarios = Usuario::get();
-       
+
         return view('admin.ListadoUsuario')->with(
             [
                 "lista_usuarios" => $usuarios
             ]
         );
-        
-        
     }
     public function AgregarPrenda()
     {
@@ -91,19 +89,41 @@ class AdminController extends BaseController
             ]
         );
     }
+
+
+    public function ListadoBoletaPagar()
+    {
+        $prendas1 = Prenda::get();
+        return view('admin.ListadoBoletaPagar')->with(
+            [
+                "lista_prendas1" => $prendas1
+            ]
+        );
+    }
+
+
+    
+   // ->when(request('search'), function ($query) {
+   //     return $query->where('nombre_prenda', 'like', '%' . request('search') . '%');
+   // })
+
+
+
+
+
+
+
+
     public function GenerarBoleta()
     {
         return view('admin.GenerarBoleta');
     }
     public function ListadoBoleta()
-    
+
     {
         return view('admin.ListadoBoleta');
     }
-    public function ListadoBoletaPagar()
-    {
-        return view('admin.ListadoBoletaPagar');
-    }
+
     public function ListadoBoletaDesembolsar()
     {
         return view('admin.ListadoBoletaDesembolsar');
@@ -115,5 +135,14 @@ class AdminController extends BaseController
     public function Pagar()
     {
         return view('admin.Pagar');
+    }
+
+    public function refrendo()
+    {
+        return view('admin.refrendo');
+    }
+    public function abono_capital()
+    {
+        return view('admin.abono_capital');
     }
 }

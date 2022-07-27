@@ -26,7 +26,11 @@ class AlterTablePrendas extends Migration
     public function down()
     {
         Schema::table('prendas', function (Blueprint $table) {
-            //
+            Schema::table('prendas', function (Blueprint $table) {
+                if (Schema::hasColumn('prendas', 'cantidad_prenda')) {
+                     $table->dropColumn('cantidad_prenda');
+                } 
+             });
         });
     }
 }

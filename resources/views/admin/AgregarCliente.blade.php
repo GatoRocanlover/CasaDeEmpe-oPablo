@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   
@@ -261,7 +260,8 @@
 
                 </form>
             </div>
-         </div>
+     
+</div>
     </body>
 
   <script src="{{asset('dist/js/bootstrap.js')}}"></script>

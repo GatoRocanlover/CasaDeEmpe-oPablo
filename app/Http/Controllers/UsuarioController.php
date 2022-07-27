@@ -185,4 +185,5 @@ class UsuarioController extends Controller
                 ->setPaper('a4', 'landscape')
                 ->download('archivo.pdf');
         }
-}
+
+    }

@@ -64,7 +64,7 @@
                     <div class="max-w-6xl size  flex items-center justify-center ">
 
 
-      <!-- PABLO           <table class="table table-hover">
+                <table class="table table-hover">
                         <thead class="letra-blanca bg-dark">
                             <tr>
                             <th scope="col"># DE BOLETA</th>
@@ -93,7 +93,7 @@
                             <tr>
                         </tbody>
                     </table>
-                </div> -->
+                </div> 
 
 
 

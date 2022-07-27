@@ -14,7 +14,13 @@ class AlterTableClientes extends Migration
     public function up()
     {
         Schema::table('clientes', function (Blueprint $table) {
-            $table->string('numero_socio', 10);
+           
+
+            if (!Schema::hasColumn('clientes', 'numero_socio')) {
+                $table->string('numero_socio', 10);
+           }
+
+
         });
     }
 
@@ -26,7 +32,11 @@ class AlterTableClientes extends Migration
     public function down()
     {
         Schema::table('clientes', function (Blueprint $table) {
-            //
+            Schema::table('clientes', function (Blueprint $table) {
+                if (Schema::hasColumn('clientes', 'numero_socio')) {
+                     $table->dropColumn('numero_socio');
+                }
+             });
         });
     }
 }
