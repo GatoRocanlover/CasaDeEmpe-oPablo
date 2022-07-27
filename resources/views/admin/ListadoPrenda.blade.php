@@ -77,7 +77,7 @@
                         @foreach($lista_prendas as $prenda)
 
                                 <tr>
-                                <th scope="row">{{$prenda->id_prenda}}</th>
+                                <th scope="row">{{$prenda->id_prendas}}</th>
                                 <td>{{$prenda->nombre_prenda}}</td>
                                 <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
                                 <td> {{'$ '.$prenda->avaluo_prenda}}</td>
@@ -109,7 +109,7 @@
                                     @endif
                                 </td>  
                                 <td>{{'$'.$prenda->prestamo_prenda}}</td>
-                                <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prenda] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prendas] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                                 <tr>
 
