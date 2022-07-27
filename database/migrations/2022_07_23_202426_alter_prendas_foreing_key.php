@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 class AlterPrendasForeingKey extends Migration
 {
+
+    
     /**
      * Run the migrations.
      *
@@ -13,7 +15,10 @@ class AlterPrendasForeingKey extends Migration
      */
     public function up()
     {
+        
         Schema::table('prendas', function (Blueprint $table) {
+
+           
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes')->onDelete('cascade');
         });
     }
