@@ -215,5 +215,26 @@ class ClienteController extends Controller
         //
     }
     
+
+    public function buscarCliente(Request $request)
+    {
+        
+
+        $clientes = Cliente::where(  
+            'nombre_cliente', 'LIKE', "%".$request->nombre_cliente."%"
+        )
+        ->orWhere(
+            'apellido_cliente', 'LIKE', "%".$request->nombre_cliente."%"
+        )
+        ->get();
+
+
+        return response()->json([
+            'data' => $clientes
+        ]);
+
+
+    }
+
 }
 

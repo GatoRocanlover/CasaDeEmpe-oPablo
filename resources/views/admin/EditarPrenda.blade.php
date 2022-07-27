@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   
@@ -64,11 +62,11 @@
                 
                 <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR DATOS DE PRENDA</label>
                     <div class="col-md-8">
-                            <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA</label>
+                            <label for="nombre_prenda" class="form-label"> NOMBRE DE PRENDA </label>
                             <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" required>                        >
                             <div class="valid-feedback">
                                   Looks good!
-                        </div>
+                            </div>
                     </div>
                     <div class="col-md-8">DESCRIPCION GENERICA</label>
                         <select class="form-select" name="descripcion_generica" id="descripcion_generica" aria-label="Default select example">

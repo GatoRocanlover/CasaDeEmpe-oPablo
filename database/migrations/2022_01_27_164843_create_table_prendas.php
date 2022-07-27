@@ -15,7 +15,7 @@ class CreateTablePrendas extends Migration
     {
         Schema::create('prendas', function (Blueprint $table) {
            
-            $table->id('id_prendas');
+            $table->id('id_prenda');
             $table->string('nombre_prenda', 30);
             $table->tinyInteger('descripcion_generica');
             $table->string('kilataje_prenda', 20);

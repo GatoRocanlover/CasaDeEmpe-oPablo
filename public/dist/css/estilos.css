@@ -1,5 +1,38 @@
 html{line-height:1.15;-webkit-text-size-adjust:100%}
 body{margin:0}
+.mi_modal{
+   display: none;
+   z-index: 9999;
+   background-color: rgba(0, 0, 0, .7);
+   top: 0;
+   left: 0;
+   height: 100vh!important;
+   width: 100%!important;
+   position: fixed;
+   justify-content: center;
+   align-items: center;
+}
+
+.body-modal{
+        background: white;
+        width: 70%!important;
+        padding: 20px!important;
+}
+
+.select-cliente{
+        width: 90%!important;
+        margin: 10px;
+}
+
+#listado_clientes{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        max-height: 60vh!important;
+        overflow: auto;
+}
+
 a{background-color:transparent}[hidden]{display:none}
 .letra-blanca{color:#FFF}
 .letra-negro{color:#000 }

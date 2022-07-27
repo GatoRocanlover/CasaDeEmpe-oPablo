@@ -75,11 +75,12 @@ class PrendaController extends Controller
      }
  
  
+    //  dd($request->all());
      $prenda = Prenda::make($request->all());
      $prenda->save();
  
  
-     return redirect()->route('listado_prenda', []);
+     return redirect()->route('listado_prenda');
  
  
  

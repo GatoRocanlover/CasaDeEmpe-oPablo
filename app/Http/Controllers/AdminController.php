@@ -84,6 +84,7 @@ class AdminController extends BaseController
     public function ListadoPrenda()
     {
         $prendas = Prenda::get();
+       
         return view('admin.ListadoPrenda')->with(
             [
                 "lista_prendas" => $prendas

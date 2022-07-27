@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   
@@ -29,7 +27,15 @@
             
     </head>
     <body class="antialiased ">
-            <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+
+       <div class="mi_modal" id="modal_cliente">
+            <div class="body-modal">
+                <h2 class="text-center">Seleccione un cliente</h2>
+                <div id="listado_clientes">
+                    
+                </div>
+            </div>
+       </div>
             
     <!-- encabezado -->
         <div class="size">
@@ -65,11 +71,11 @@
                         
                         <div class=" input-group has-validation">
                             <input type="text" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
-                            <input type="hidden" name="id_usuario" class="form-control" id="id_usuario" value="" placeholder="BUSCAR CLIENTE" required>
+                            <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                             <div class="valid-feedback">
                             Looks good!
                         </div>
-                        <button class=" size20 bordes btn btn-primary navbar1">BUSCAR</button>
+                        <button class=" size20 bordes btn btn-primary navbar1" id="btn_busqueda" type="button">BUSCAR</button>
                     </div>
                     <div class=" input-group has-validation">
                         <label for="nombre_prenda" class="form-label">NOMBRE CLIENTE</label>
@@ -176,8 +182,66 @@
                 </form>
             </div>
         </div>
+
+
     </body>
 
     <script src="{{asset('dist/js/bootstrap.js')}}"></script>
+    <script src="{{asset('dist/js/jquery.min.js')}}"></script>
+    <script>
+
+        function setearCliente(id_cliente, nombre_cliente) {
+            
+    
+                $("#id_cliente").val(id_cliente);
+                $("#nombre_cliente").val(nombre_cliente);
+            $("#modal_cliente").css('display','none');
+
+        }
+
+        $("#btn_busqueda").on('click', function(){
+
+        
+           
+          var nombre_busqueda =  $("#buscar_cliente").val();
+
+          if(nombre_busqueda.length==0){
+            alert("Ingrese el nombre del cliente");
+          }
+
+
+                $.post("{{env('APP_URL')}}/api/buscar/cliente", { 
+                   "nombre_cliente" : nombre_busqueda
+                },
+                function(data, status) {
+
+                    console.log(data);
+                    
+                    $("#modal_cliente").css('display','flex');
+                    
+                    var clientes = data.data;
+
+                    console.log(clientes);
+                    $("#listado_clientes").empty();
+
+                        clientes.forEach(cliente => {
+                            
+                         
+
+                            $("#listado_clientes").append(
+                                "<button class='btn btn-primary select-cliente' onclick='setearCliente(\""+cliente.id_cliente+"\",\""+cliente.nombre_cliente+" "+cliente.apellido_cliente+"\")'>"+cliente.nombre_cliente+" "+cliente.apellido_cliente+"</button>"
+                            );
+                    
+                        });
+                    
+                    
+                }, "json");
+
+
+        });
+
+     
+    
+    </script>
 
 </html>
