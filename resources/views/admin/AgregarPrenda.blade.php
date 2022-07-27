@@ -72,7 +72,7 @@
                         <button class=" size20 bordes btn btn-primary navbar1">BUSCAR</button>
                     </div>
                     <div class=" input-group has-validation">
-                    <label for="nombre_prenda" class="form-label">NOMBRE CLIENTE</label>
+                        <label for="nombre_prenda" class="form-label">NOMBRE CLIENTE</label>
                     <div class=" input-group has-validation">
                         <input type="text" name="nombre_cliente" class="form-control" id="nombre_cliente" value="" placeholder="CLIENTE" readonly>
                         <div class="valid-feedback">

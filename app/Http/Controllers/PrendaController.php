@@ -160,7 +160,7 @@ class PrendaController extends Controller
      }
  
  
-     $prenda =  $prenda->fill($request->all());
+    $prenda->fill($request->all());
      $prenda->save();
  
  
