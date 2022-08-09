@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Validator;//VALIDAR LO QUE MANDA LOS USUARIOS
+use Illuminate\Support\Facades\Validator;//VALIDAR LO QUE MANDA LOS USUARIOS
 use App\Models\Usuario; // PARA USAR LA TABLA usuarios
 use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 

@@ -53,7 +53,7 @@
 
     <nav class="navbar mt-3 navbar-light bg-light">
       <form class="container-fluid justify-content-start">
-        <a class="btn btn-sm btn-outline-secondary me-2"  href="{{route('pagar')}}" type="button">DESEMPEÑO</a>
+        <a class="btn btn-sm btn-outline-secondary me-2"  href="{{route('Pagar')}}" type="button">DESEMPEÑO</a>
         <button class="btn btn-success   me-2" type="button">REFRENDO</button>
         <a class="btn btn-sm btn-outline-secondary   "  type="button" href="{{route('AbonoCapital')}}" >ABONO A CAPITAL</a>
       </form>

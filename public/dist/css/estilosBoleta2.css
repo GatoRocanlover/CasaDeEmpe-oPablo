@@ -1,0 +1,99 @@
+.name{
+    justify-content: center;
+}
+
+header{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    color: black;
+    font-weight: bold;    
+}
+.ng{
+    background-color:black;
+}
+
+.lineal{
+display: flex;
+margin-left: 35px;
+}
+
+.text1{
+    font-size: 12px;
+}
+.text2{
+    font-size: 20px;
+    padding: 8px;
+}
+
+header img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 10px;
+  
+    object-fit: cover;
+    object-position: center right;
+}
+.iempresa{
+    font-size: 10px;
+    justify-content: space-between;
+    text-align: left;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+table {
+    font-size: 12px;
+    width: 55%;
+    border: 1px solid black; 
+ }
+
+ .table2{
+    text-align: center;
+    width:700px; 
+    margin: 15px;
+
+ }
+ .lina{
+    border-right: 2px solid white;
+    color:white;
+
+ }
+ .lina2{
+    border-right: 2px solid black;
+ }
+ .lina3{
+    color: white;
+ }
+ .centrotable{
+    display: flex;
+    justify-content: center;
+   
+ }
+
+ .table2 tr th{
+  
+    text-align:center;
+ }
+ .table2 tr td{
+    color:black;
+    text-align:center;
+ }
+
+ .ntp{
+    font-size: 11px;
+    justify-content: center;
+ }
+ .btn2{
+   padding-left: 35px;
+ }
+.margen td{
+    padding: 10px;
+}
+.letrapequeña{
+    font-size: 10px;
+}
+.firma{
+    display: flex;
+    justify-content: center;
+}

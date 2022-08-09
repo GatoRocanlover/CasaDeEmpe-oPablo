@@ -9,6 +9,8 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Usuario;
 use App\Models\Prenda;
 use App\Models\Cliente;
+//use GuzzleHttp\Psr7\Request;
+use Illuminate\http\Request;
 
 class AdminController extends BaseController
 {
@@ -82,37 +84,13 @@ class AdminController extends BaseController
     public function ListadoPrenda()
     {
         $prendas = Prenda::get();
-       
+
         return view('admin.ListadoPrenda')->with(
             [
                 "lista_prendas" => $prendas
             ]
         );
     }
-
-
-    public function ListadoBoletaPagar()
-    {
-        $prendas1 = Prenda::get();
-        return view('admin.ListadoBoletaPagar')->with(
-            [
-                "lista_prendas1" => $prendas1
-            ]
-        );
-    }
-
-
-    
-   // ->when(request('search'), function ($query) {
-   //     return $query->where('nombre_prenda', 'like', '%' . request('search') . '%');
-   // })
-
-
-
-
-
-
-
 
     public function GenerarBoleta()
     {
@@ -132,10 +110,10 @@ class AdminController extends BaseController
     {
         return view('admin.Desembolso');
     }
-    public function Pagar()
+/*     public function Pagar()
     {
         return view('admin.Pagar');
-    }
+    } */
 
     public function refrendo()
     {
@@ -145,4 +123,7 @@ class AdminController extends BaseController
     {
         return view('admin.abono_capital');
     }
+
+   
+
 }
