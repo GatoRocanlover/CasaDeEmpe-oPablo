@@ -119,11 +119,7 @@ class AdminController extends BaseController
     {
         return view('admin.refrendo');
     }
-    public function abono_capital()
-    {
-        return view('admin.abono_capital');
-    }
-
+    
    
 
 }

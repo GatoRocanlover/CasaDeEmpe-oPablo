@@ -153,4 +153,5 @@ function truncateDecimals(num, digits) {
         finalResult = s;
     }
     return finalResult;
+    //-----------------------------------------------------------------------
 };

@@ -7,6 +7,8 @@ use App\Http\Controllers\PrendaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CotizacionPrendaController;
 use App\Http\Controllers\TicketController;
+use App\Http\Controllers\RefrendoController;
+use App\Http\Controllers\AjaxController;
 
 Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 
@@ -55,8 +57,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/ListadoBoletaDesembolsar', [AdminController::class, 'ListadoBoletaDesembolsar'])->name('listado_boleta_desembolsar');
     Route::get('/Desembolso', [AdminController::class, 'Desembolso'])->name('desembolso');
 
-    Route::get('/refrendo', [AdminController::class, 'refrendo'])->name('1refrendo');
-    Route::get('/abono_capital', [AdminController::class, 'abono_capital'])->name('AbonoCapital');
+    Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
+
 
     Route::get('/boleta', function () {
         return view('pdf.boleta');
@@ -65,5 +67,7 @@ Route::prefix('admin')->group(function () {
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
 
 
-    
+
+    Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital');
+    Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch');
 });

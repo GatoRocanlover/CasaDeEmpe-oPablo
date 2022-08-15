@@ -41,7 +41,7 @@
             </div>
           </header>
           <div class="btn2 mt-3">
-            <p>FECHA DEL MOVIMIENTO:&nbsp; {{$dato_tickeimpr->created_at}} </p>
+            <p>FECHA DEL MOVIMIENTO:&nbsp; {{$dato_tickeimpr->created_at->format('d/m/Y')}} </p>
             <p>NOMBRE DEL SOCIO: &nbsp; {{$dato_tickeimpr->nombre_cliente}}</p>
             <p>TIPO DE CUENTA: &nbsp; DESEMPEÑO</p>
           </div>
