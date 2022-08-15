@@ -112,56 +112,33 @@
                         }
                         console.log(data[0].nombre_prenda);
 
-                            var prenda=data[0];
-                            $('#txtid_prendas').val(prenda['id_prendas']);
-                            $('#txtnombre_prenda').val(prenda['nombre_prenda']);
-                  
-                        
-                
-/* 
-                        if(data[0]!=null){
-                            $('txtnombre_prenda').val(data[0].nombre_prenda);
-                        }else{
-                            $("#txtnombre:prenda").val("");
-                        } */
-                           
-                        
-                 
-                      /*      var nombrepre = data;
-                           var datalist ={};
-                           for(var i=0; i< nombrepre.length; i++){
-                               datalist[nombrepre[i].nombre_prenda]=null;
-                           }
-                           console.log("datalist")
-                           console.log(datalist) */
-
-                       
-                         
-                           
-                          
-
+                        var prenda = data[0];
+                        $('#txtid_prendas').val(prenda['id_prendas']);
+                        $('#txtnombre_prenda').val(prenda['nombre_prenda']);
 
                         /* 
-                                                limit = 0;
-                                                for (var i in data) {
-                                                    if (i > limit) break;
-                                                    var elem = data[i];
-
-                                                    console.log(elem);
-                                                } */
+                         if(data[0]!=null){
+                         $('txtnombre_prenda').val(data[0].nombre_prenda);
+                         }else{
+                         $("#txtnombre:prenda").val("");
+                           } */
 
 
 
-                        /* success: function(data) {
-                            $('#countryList').fadeIn();
-                            $('#countryList').html(data); */
+                        /*      var nombrepre = data;
+                             var datalist ={};
+                             for(var i=0; i< nombrepre.length; i++){
+                                 datalist[nombrepre[i].nombre_prenda]=null;
+                             }
+                             console.log("datalist")
+                             console.log(datalist) */
                     }
                 });
             }
         });
 
         $(document).on('click', 'li', function() {
-          
+
             $('#buscadorList').fadeOut();
         });
 
