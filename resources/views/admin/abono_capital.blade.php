@@ -59,7 +59,7 @@
 
             <div class="container box">
                 <div class="form-group">
-                    <input type="text" name="buscador" id="buscador" class="form-control" placeholder="Enter Country Name" />
+                    <input type="text" name="buscador" id="buscador" class="form-control" placeholder="INGRESE EL FOLIO O EL NOMBRE DE LA PRENDA" />
                     <br>
                     <br>
                     <input type="text" class="form-control input-sm" id="txtid_prendas" name="txtid_prendas">
