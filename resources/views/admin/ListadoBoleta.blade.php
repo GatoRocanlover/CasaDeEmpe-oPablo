@@ -87,7 +87,7 @@
                             <td>ORO AMARILLO DE 18 QUILATAJES</td>
                             <td>$50,000</td>
                             <div class="flex justify-center items-center">
-                                <td ><button class="ntn btn-primary"><i class="fas fa-download"></i></button></td>
+                                <td ><button class="btn btn-primary btn1"><i class="fas fa-download"></i></button></td>
                             </div>
                              </tr>
                             <tr>

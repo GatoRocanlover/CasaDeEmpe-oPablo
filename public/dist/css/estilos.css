@@ -39,6 +39,8 @@ a{background-color:transparent}[hidden]{display:none}
 .icono{width: 100px; height: auto;}
 .img-logo{width:100px!important; margin:20px;}
 .navbar1 {background:#8E6E06  !important;} 
+.btn1{background:#8E6E06  !important;
+        border-color: #000 !important;} 
 .texto-grande{font-size: xx-large !important;} 
 .negritas{font-weight: bold !important;}
 .fondoformulario{background: #e6e1e1!important;}

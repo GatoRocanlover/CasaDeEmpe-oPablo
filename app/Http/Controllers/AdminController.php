@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Usuario;
 use App\Models\Prenda;
 use App\Models\Cliente;
+use App\Models\CotizacionPrenda; 
 
 class AdminController extends BaseController
 {
@@ -86,6 +87,24 @@ class AdminController extends BaseController
         return view('admin.ListadoPrenda')->with(
             [
                 "lista_prendas" => $prendas
+            ]
+        );
+    }
+    public function AgregarCotizacionPrenda()
+    {
+        return view('admin.CotizacionPrenda');
+    }
+    public function EditarCotizacionPrenda()
+    {
+        return view('admin.EditarCotizacionPrenda');
+    }
+    public function ListadoCotizacionPrenda()
+    {
+        $prendas = CotizacionPrenda::get();
+       
+        return view('admin.ListadoCotizacionPrenda')->with(
+            [
+                "lista_prendas" => $cotizacionprenda
             ]
         );
     }

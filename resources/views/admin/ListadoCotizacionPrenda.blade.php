@@ -58,9 +58,9 @@
                 @include('layout.nav')
                   
                     <div class=" items-center justify-end flex mr-3 mt-2">
-                        <a class="btn btn-primary " href="{{route('cotizacion.agregar_prenda')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false">
+                        <a class="btn btn1 btn-primary" href="{{route('cotizacion.agregar_prenda')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false">
                             <i class="fas fa-plus"></i>
-                                AGREGRA NUEVA COTIZACION
+                                AGREGAR NUEVA COTIZACION
                        </a>
                     </div>
                 <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" style="">
@@ -81,7 +81,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($lista_prendas as $prenda)
+                        @foreach($lista_cotizacionprendas as $prenda)
 
                                 <tr>
                                 <th scope="row">{{$prenda->id_cotizacionprenda}}</th>
@@ -116,9 +116,9 @@
                                     @endif
                                 </td>  
                                 <td>{{'$'.$prenda->prestamo_prenda}}</td>
-                                <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prenda] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                <td><a class="nav-link" href="{{route('cotizacionprenda.edit', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="btn btn-primary btn1"><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
-                                <tr>
+                                
 
                         @endforeach
                         </tbody>

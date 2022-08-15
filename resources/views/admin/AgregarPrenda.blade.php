@@ -68,7 +68,7 @@
 
                     <label for="validationCustom03" class="form-label mt-8 text-center">AGREGAR PRENDA NUEVA</label>
                     <div class="col-md-8">
-                        
+ 
                         <div class=" input-group has-validation">
                             <input type="text" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                             <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="" placeholder="BUSCAR CLIENTE" required>

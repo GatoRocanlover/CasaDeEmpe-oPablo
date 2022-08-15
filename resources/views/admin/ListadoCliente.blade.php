@@ -89,7 +89,7 @@
                                 </td>
                                 <td>{{$cliente->telefono_cliente}} </td>
                                 <td>{{'C.'.$cliente->calle_cliente.', N°'.$cliente->numero_cliente.', '.$cliente->colonia_cliente.', '.$cliente->ciudad_cliente}} </td>
-                                <td><a class="nav-link" href="{{route('cliente.edit', [$cliente->id_cliente] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                <td><a class="nav-link" href="{{route('cliente.edit', [$cliente->id_cliente] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary btn1 "><i class="fas fa-edit"></i></button></a></td>
                             </tr>
                            
 

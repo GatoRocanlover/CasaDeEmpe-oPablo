@@ -179,4 +179,21 @@ class PrendaController extends Controller
         //
     }
 
+    public function buscarPrenda(Request $request)
+    {
+        
+
+        $prendas = Prenda::where(  
+            'nombre_prenda', 'LIKE', "%".$request->nombre_prenda."%"
+        )
+        ->get();
+
+
+        return response()->json([
+            'data' => $prendas
+        ]);
+
+
+    }
+
 }
