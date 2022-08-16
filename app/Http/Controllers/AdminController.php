@@ -9,7 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 use App\Models\Usuario;
 use App\Models\Prenda;
 use App\Models\Cliente;
-//use GuzzleHttp\Psr7\Request;
+use App\Models\CotizacionPrenda; 
 use Illuminate\http\Request;
 
 class AdminController extends BaseController
@@ -91,6 +91,48 @@ class AdminController extends BaseController
             ]
         );
     }
+
+
+    public function ListadoBoletaPagar()
+    {
+        $prendas1 = Prenda::get();
+        return view('admin.ListadoBoletaPagar')->with(
+            [
+                "lista_prendas1" => $prendas1
+            ]
+        );
+    }
+    public function AgregarCotizacionPrenda()
+    {
+        return view('admin.CotizacionPrenda');
+    }
+    public function EditarCotizacionPrenda()
+    {
+        return view('admin.EditarCotizacionPrenda');
+    }
+    public function ListadoCotizacionPrenda()
+    {
+        $prendas = CotizacionPrenda::get();
+       
+        return view('admin.ListadoCotizacionPrenda')->with(
+            [
+                "lista_prendas" => $cotizacionprenda
+            ]
+        );
+    }
+
+
+    
+   // ->when(request('search'), function ($query) {
+   //     return $query->where('nombre_prenda', 'like', '%' . request('search') . '%');
+   // })
+
+
+
+
+
+
+
 
     public function GenerarBoleta()
     {

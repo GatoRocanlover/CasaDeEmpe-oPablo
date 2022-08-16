@@ -21,3 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('buscar/cliente',[ClienteController::class, 'buscarCliente'])->name('buscar_cliente');
+Route::post('buscar/prenda',[PrendaController::class, 'buscarPrenda'])->name('buscar_prenda');

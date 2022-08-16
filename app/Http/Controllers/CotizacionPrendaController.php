@@ -79,7 +79,7 @@ class CotizacionPrendaController extends Controller
      $cotizacionprenda->save();
  
  
-     return redirect()->route('admin.CotizacionPrenda', []);
+     return redirect()->route('cotizacionprenda.listado', []);
  
  
  
@@ -104,21 +104,65 @@ class CotizacionPrendaController extends Controller
      */
     public function edit($id)
     {
-
+        {
+            $cotizacionprenda = CotizacionPrenda::find($id);
+    
+            return View::make('admin.EditarCotizacionPrenda')->with(
+                [
+                    "dato_prenda_cotizar" => $cotizacionprenda
+                
+                ]
+            );
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function update(Request $request, $id)
-    {
+    { $cotizacionprenda = CotizacionPrenda::find($id);
+
+        $reglas = [
+            "nombre_prenda"=>"bail|required|min:3",
+            "descripcion_generica" => "bail|required",
+            "kilataje_prenda" => "bail|required",
+            "gramaje_prenda" => 'bail|required',
+            "caracteristicas_prenda" => 'bail|required',
+            "avaluo_prenda" => "bail|required",
+            "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
+            "prestamo_prenda" => 'bail|required',
+        ];
+ 
+         $mensajes = [
+ 
+            "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
+            "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
+            "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar", 
+            "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar", 
+            "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
+            "caracteristicas_prenda.required" => "No ingreso las caracteristicas de la pieza a refrendar",                  
+            "avaluo_prenda.required" => "No ha ingresado el avaluo", 
+            "porcentaje_prestamo_sobre_avaluo.required" => "No ha seleccionado el porfentaje del avaluo",
+            "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",                  
+            
+         ];
+         $validator = Validator::make(  $request->all(), 
+         $reglas, $mensajes 
+ );
+ 
+     if ($validator->fails()) {
+         return redirect()->back()
+                     ->withErrors($validator)
+                 ->withInput();
+     }
+ 
+ 
+    $cotizacionprenda->fill($request->all());
+     $cotizacionprenda->save();
+ 
+ 
+     return redirect()->route('cotizacionprenda.listado', []);
+ 
  
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -135,7 +179,7 @@ class CotizacionPrendaController extends Controller
         $Cotizacionprendas = CotizacionPrenda::get();
         return view('admin.ListadoCotizacionPrenda')->with(
             [
-                "lista_prendas" => $Cotizacionprendas
+                "lista_cotizacionprendas" => $Cotizacionprendas
             ]
         );
     }
