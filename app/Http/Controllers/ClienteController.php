@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 //SECCION DONDE IMPORTAMOS LAS CLASES QUE NECESITAMOS
 use Illuminate\Http\Request; //PARA RECIBIR PARAMETROS
-use Validator; //VALIDAR LO QUE MANDA LOS USUARIOS
+//use Validator; //VALIDAR LO QUE MANDA LOS USUARIOS
 use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
+use Illuminate\Support\Facades\Validator;
 
 class ClienteController extends Controller
 {
@@ -38,9 +39,9 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-      
+
         $reglas = [
-            "nombre_cliente"=>"bail|required|min:3",
+            "nombre_cliente" => "bail|required|min:3",
             "apellido_cliente" => "bail|required",
             "tipo_de_identificacion" => 'bail|required',
             "numero_de_identificacion" => "bail|required",
@@ -65,41 +66,41 @@ class ClienteController extends Controller
             "codigo_postal_cotitular" => 'bail|nullable',
             "nombre_beneficiario" => 'bail|nullable',
             "apellido_beneficiario" => 'bail|nullable',
-            ];
- 
-         $mensajes = [
+        ];
+
+        $mensajes = [
             "nombre_cliente.required" => "No ingreso el nombre del cliente",
             "nombre_cliente.min" => "Los caracteres mínimos para el cliente deben ser :min",
-            "tipo_de_identificacion" => "No ha seleccionado el tipo de identificacion", 
-            "numero_de_identificacion" => "No ingreso el número de identificación.", 
-            "socio.required" => "No ha seleccionado si es socio", 
+            "tipo_de_identificacion" => "No ha seleccionado el tipo de identificacion",
+            "numero_de_identificacion" => "No ingreso el número de identificación.",
+            "socio.required" => "No ha seleccionado si es socio",
             "numero_socio.required" => "No ingreso el número de socio",
-            "calle_cliente.required" => "No ingreso el número de calle del cliente",                  
-            "colonia_cliente.required" => "No ha ingresado la colonia del cliente", 
+            "calle_cliente.required" => "No ingreso el número de calle del cliente",
+            "colonia_cliente.required" => "No ha ingresado la colonia del cliente",
             "ciudad_cliente.required" => "No ha ingresado la ciudad del cliente",
-            "codigo_postal_cliente.required" => "No ha ingresado el codigo postal del cliente. ",                  
-            
-            
-         ];
-         $validator = Validator::make($request->all(), 
-         $reglas, $mensajes 
-         
+            "codigo_postal_cliente.required" => "No ha ingresado el codigo postal del cliente. ",
+
+
+        ];
+        $validator = Validator::make(
+            $request->all(),
+            $reglas,
+            $mensajes
+
         );
- 
-     if ($validator->fails()) {
-         return redirect()->back()
-                     ->withErrors($validator)
-                 ->withInput();
-     }
- 
- 
-     $nombre_cliente = Cliente::make($request->all());
-     $nombre_cliente->save();
- 
- 
-     return redirect()->route('listado_cliente', []);
- 
- 
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+
+        $nombre_cliente = Cliente::make($request->all());
+        $nombre_cliente->save();
+
+
+        return redirect()->route('listado_cliente', []);
     }
 
     /**
@@ -126,7 +127,7 @@ class ClienteController extends Controller
         return View::make('admin.EditarCliente')->with(
             [
                 "dato_cliente" => $cliente
-            
+
             ]
         );
     }
@@ -142,7 +143,7 @@ class ClienteController extends Controller
     {
         $nombre_cliente = Cliente::find($id);
         $reglas = [
-            "nombre_cliente"=>"bail|required|min:3",
+            "nombre_cliente" => "bail|required|min:3",
             "apellido_cliente" => "bail|required",
             "tipo_de_identificacion" => 'bail|required',
             "numero_de_identificacion" => "bail|required",
@@ -167,41 +168,41 @@ class ClienteController extends Controller
             "codigo_postal_cotitular" => 'bail|nullable',
             "nombre_beneficiario" => 'bail|nullable',
             "apellido_beneficiario" => 'bail|nullable',
-            ];
- 
-         $mensajes = [
+        ];
+
+        $mensajes = [
             "nombre_cliente.required" => "No ingreso el nombre del cliente",
             "nombre_cliente.min" => "Los caracteres mínimos para el cliente deben ser :min",
-            "tipo_de_identificacion" => "No ha seleccionado el tipo de identificacion", 
-            "numero_de_identificacion" => "No ingreso el número de identificación.", 
-            "socio.required" => "No ha seleccionado si es socio", 
+            "tipo_de_identificacion" => "No ha seleccionado el tipo de identificacion",
+            "numero_de_identificacion" => "No ingreso el número de identificación.",
+            "socio.required" => "No ha seleccionado si es socio",
             "numero_socio.required" => "No ingreso el número de socio",
-            "calle_cliente.required" => "No ingreso el número de calle del cliente",                  
-            "colonia_cliente.required" => "No ha ingresado la colonia del cliente", 
+            "calle_cliente.required" => "No ingreso el número de calle del cliente",
+            "colonia_cliente.required" => "No ha ingresado la colonia del cliente",
             "ciudad_cliente.required" => "No ha ingresado la ciudad del cliente",
-            "codigo_postal_cliente.required" => "No ha ingresado el codigo postal del cliente. ",                  
-            
-            
-         ];
-         $validator = Validator::make($request->all(), 
-         $reglas, $mensajes 
-         
+            "codigo_postal_cliente.required" => "No ha ingresado el codigo postal del cliente. ",
+
+
+        ];
+        $validator = Validator::make(
+            $request->all(),
+            $reglas,
+            $mensajes
+
         );
- 
-     if ($validator->fails()) {
-         return redirect()->back()
-                     ->withErrors($validator)
-                 ->withInput();
-     }
- 
- 
-     $nombre_cliente->fill($request->all());
-     $nombre_cliente->save();
- 
- 
-     return redirect()->route('listado_cliente', []);
- 
- 
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+
+        $nombre_cliente->fill($request->all());
+        $nombre_cliente->save();
+
+
+        return redirect()->route('listado_cliente', []);
     }
 
     /**
@@ -214,27 +215,27 @@ class ClienteController extends Controller
     {
         //
     }
-    
+
 
     public function buscarCliente(Request $request)
     {
-        
 
-        $clientes = Cliente::where(  
-            'nombre_cliente', 'LIKE', "%".$request->nombre_cliente."%"
+
+        $clientes = Cliente::where(
+            'nombre_cliente',
+            'LIKE',
+            "%" . $request->nombre_cliente . "%"
         )
-        ->orWhere(
-            'apellido_cliente', 'LIKE', "%".$request->nombre_cliente."%"
-        )
-        ->get();
+            ->orWhere(
+                'apellido_cliente',
+                'LIKE',
+                "%" . $request->nombre_cliente . "%"
+            )
+            ->get();
 
 
         return response()->json([
             'data' => $clientes
         ]);
-
-
     }
-
 }
-

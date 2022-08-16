@@ -1,0 +1,81 @@
+<div class="modal fade" id="exampleModal{{$dato_prenda->id_prendas}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: black !important;">
+        <h6 class="modal-title" style="color: #fff; text-align: center;">
+          CONFIRMAR DATOS DE PAGO:
+        </h6>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <form method="POST" action="{{Route('Tickets.store')}}" onsubmit="return enviar()" name="formulario_pago">
+        @csrf
+
+        <div class="modal-body" id="cont_modal">
+
+          <div class="col-md-4">
+            <label for="nombre_prenda" class="form-label negritas">FOLIO: </label>
+            <input type="text" name="id_prendas" class="form-control text-center" id="id_prenda" value="{{$dato_prenda->id_prendas}}" readonly>
+          </div>
+          <div class="  mt-3">
+            <label for="nombre_prenda" class="form-label negritas"> CLIENTE: </label>
+            <input type="text" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{$dato_prenda->id_cliente.' - '.$dato_prenda->cliente->nombre_cliente.' '.$dato_prenda->cliente->apellido_cliente}}" readonly>
+          </div>
+          <div class="  mt-3">
+            <label for="nombre_prenda" class="form-label negritas"> NOMBRE DE LA PRENDA: </label>
+            <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" readonly>
+          </div>
+          <div class=" mt-3">
+            <label class="negritas">DESCRIPCION GENERICA:</label>
+            <select class="form-select mt-2 text-center input2" name="descripcion_generica" id="descripcion_generica" aria-label="Default select example">
+
+              @if($dato_prenda->descripcion_generica == 1)
+              <option value="1" selected>ORO</option>
+              @else
+              <option value="1">ORO</option>
+              @endif
+
+              @if($dato_prenda->descripcion_generica == 2)
+              <option value="2" selected>PLATA</option>
+
+              @else
+              <option value="2">PLATA</option>
+              @endif
+            </select>
+          </div>
+          <div class=" mt-3">
+            <label for="caracteristicas_prenda" class="form-label negritas">CARACTERISTICAS:</label>
+            <textarea name="caracteristicas_prenda" class="form-control " id="caracteristicas_prenda" value="" requiredrows="3" readonly>{{$dato_prenda->caracteristicas_prenda.'.'.' '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$dato_prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$dato_prenda->gramaje_prenda.'gr'}}</textarea>
+          </div>
+          <div class=" mt-3">
+            <label for="avaluo_prenda" class="form-label negritas">AVALUO:</label>
+            <input type="text" name="avaluo_prenda" class="form-control text-center" id="avaluo_prenda" value="{{$dato_prenda->avaluo_prenda}}" readonly>
+          </div>
+          <div class=" mt-3">
+            <label for="prestamo_prenda" class="form-label negritas">PRESTAMO:</label>
+            <input type="text" class="form-control text-center tamañoletra negritas" name="prestamo_prenda" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+          </div>
+          <div class=" mt-3">
+            <label for="" class="negritas">CANTIDAD PAGADA:</label>
+            <input type="number" id="cantidad_pago" name="cantidad_pago" class="form-control input_style text-center tamañoletra"  readonly>
+          </div>
+          <div class=" mt-3">
+            <label for="" class="negritas">CAMBIO:</label>
+            <input type="text" id="cambio_boleta" name="cambio_boleta" class="form-control input_style text-center letracambio" readonly>
+          </div>
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary btnpago">PAGAR</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

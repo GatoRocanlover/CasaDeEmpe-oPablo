@@ -10,6 +10,7 @@ use App\Models\Usuario;
 use App\Models\Prenda;
 use App\Models\Cliente;
 use App\Models\CotizacionPrenda; 
+use Illuminate\http\Request;
 
 class AdminController extends BaseController
 {
@@ -83,28 +84,10 @@ class AdminController extends BaseController
     public function ListadoPrenda()
     {
         $prendas = Prenda::get();
-       
+
         return view('admin.ListadoPrenda')->with(
             [
                 "lista_prendas" => $prendas
-            ]
-        );
-    }
-    public function AgregarCotizacionPrenda()
-    {
-        return view('admin.CotizacionPrenda');
-    }
-    public function EditarCotizacionPrenda()
-    {
-        return view('admin.EditarCotizacionPrenda');
-    }
-    public function ListadoCotizacionPrenda()
-    {
-        $prendas = CotizacionPrenda::get();
-       
-        return view('admin.ListadoCotizacionPrenda')->with(
-            [
-                "lista_prendas" => $cotizacionprenda
             ]
         );
     }
@@ -151,17 +134,16 @@ class AdminController extends BaseController
     {
         return view('admin.Desembolso');
     }
-    public function Pagar()
+/*     public function Pagar()
     {
         return view('admin.Pagar');
-    }
+    } */
 
     public function refrendo()
     {
         return view('admin.refrendo');
     }
-    public function abono_capital()
-    {
-        return view('admin.abono_capital');
-    }
+    
+   
+
 }

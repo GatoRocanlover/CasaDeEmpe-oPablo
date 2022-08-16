@@ -37,6 +37,11 @@ class Cliente extends Model
         'nombre_beneficiario',
         'apellido_beneficiario',
     ];
+
+    public function Prendas()
+    {
+        return $this->hasMany(Prenda::class, 'id_cliente','id_cliente');
+    }
     
     
 }
