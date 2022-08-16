@@ -102,6 +102,24 @@ class AdminController extends BaseController
             ]
         );
     }
+    public function AgregarCotizacionPrenda()
+    {
+        return view('admin.CotizacionPrenda');
+    }
+    public function EditarCotizacionPrenda()
+    {
+        return view('admin.EditarCotizacionPrenda');
+    }
+    public function ListadoCotizacionPrenda()
+    {
+        $prendas = CotizacionPrenda::get();
+       
+        return view('admin.ListadoCotizacionPrenda')->with(
+            [
+                "lista_prendas" => $cotizacionprenda
+            ]
+        );
+    }
 
 
     
