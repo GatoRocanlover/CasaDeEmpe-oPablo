@@ -26,7 +26,29 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
+        }
 
+        .tabla {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tabla1 {
+            width: 500px;
+            height: 845px;
+            padding: 30px;
+        }
+
+        .tabla2 {
+            border-left: 2px solid black;
+            width: 500px;
+            height: 845px;
+            padding: 30px;
+        }
+
+        textarea {
+            width: 405px;
+            height: 90px;
         }
     </style>
 
@@ -56,28 +78,40 @@
 
             <br>
             <br>
-
-            <div class="container box">
-                <div class="form-group">
-                    <input type="text" name="buscador" id="buscador" class="form-control" placeholder="INGRESE EL FOLIO O EL NOMBRE DE LA PRENDA" />
+            <div class="tabla justify-content-center">
+                <div class="tabla1">
+                    <label for="" class="h5 text-center col-md-11">DATOS DE LA PRENDA</label>
+                    {{ csrf_field() }}
+                    <div class="col-md-11 mt-8">
+                        <label for="" class="fw-bold">BUSCAR:</label>
+                        <input type="text" name="buscador" id="buscador" class="form-control" placeholder="INGRESE EL FOLIO O EL NOMBRE DE LA PRENDA" />
+                    </div>
                     <br>
-                    <br>
-                    <input type="text" class="form-control input-sm" id="txtid_prendas" name="txtid_prendas">
-                    <input type="text" class="form-control input-sm" id="txtnombre_prenda" name="txtnombre_prenda">
-                    <div id="countryList"></div>
-                    <div id="contenedor"></div>
+                    <div class="col-md-11">
+                        <label for="" class="fw-bold">FOLIO:</label>
+                        <input type="text" class="form-control input-sm" id="txtid_prendas" name="txtid_prendas" disabled>
+                        <br>
+                        <label for="" class="fw-bold">NOMBRE DE LA PRENDA:</label>
+                        <input type="text" class="form-control input-sm" id="txtnombre_prenda" name="txtnombre_prenda" readonly>
+                        <br>
+                        <label for="" class="fw-bold">DESCRIPCIÓN GENERICA:</label>
+                        <input type="text" class="form-control input-sm" id="txtdescripcion_generica" name="txtdescripcion_generica" readonly>
+                        <br>
+                        <input type="hidden" class="form-control input-sm" id="txtkilataje_prenda" name="txtkilataje_prenda" readonly>
+                        <Label class="fw-bold">KILATAJE:</Label>
+                        <input type="text" class="form-control input-sm" id="txtgramaje_prenda" name="txtgramaje_prenda" readonly>
+                        <br>
+                        <Label>CARACTERISTICAS:</Label>
+                        <textarea name="txtcaracteristicas_prenda" id="txtcaracteristicas_prenda" cols="30" rows="8" class="text-center" readonly></textarea>
+                        
+                        <Label class="mt-3">AVALUO:</Label>
+                        <input type="text" class="form-control input-sm" id="txtavaluo_prenda" name="txtavaluo_prenda" readonly>
+                    </div>
                 </div>
-                {{ csrf_field() }}
+                <div class="tabla2">
+
+                </div>
             </div>
-
-            <br>
-            <br>
-            <br><br><br>
-
-
-
-
-
         </div>
 
 </body>
@@ -105,7 +139,7 @@
                         _token: _token
                     },
                     success: function(data) {
-                        console.log(data)
+
 
                         if (data.length == 0) {
                             console.log("sin datos");
@@ -113,15 +147,20 @@
                         console.log(data[0].nombre_prenda);
 
                         var prenda = data[0];
+
                         $('#txtid_prendas').val(prenda['id_prendas']);
                         $('#txtnombre_prenda').val(prenda['nombre_prenda']);
 
-                        /* 
-                         if(data[0]!=null){
-                         $('txtnombre_prenda').val(data[0].nombre_prenda);
-                         }else{
-                         $("#txtnombre:prenda").val("");
-                           } */
+                        if (prenda['descripcion_generica'] == 1) {
+                            $('#txtdescripcion_generica').val("ORO")
+                        }
+                        if (prenda['descripcion_generica'] == 2) {
+                            $('#txtdescripcion_generica').val("PLATA")
+                        }
+                        $('#txtkilataje_prenda').val(prenda['kilataje_prenda']);
+                        $('#txtgramaje_prenda').val(prenda['gramaje_prenda']);
+                        $('#txtcaracteristicas_prenda').val(prenda['caracteristicas_prenda']);
+                        $('#txtavaluo_prenda').val(prenda['avaluo_prenda']);
 
 
 
@@ -136,12 +175,6 @@
                 });
             }
         });
-
-        $(document).on('click', 'li', function() {
-
-            $('#buscadorList').fadeOut();
-        });
-
     });
 </script>
 

@@ -149,7 +149,7 @@
                     </div>
                 </div>
 
-         <!--        <div class="col-md-8">
+                <!--        <div class="col-md-8">
                     <label for="avaluo_prenda" class="form-label">PORCENTAJE DE PRESTAMO SOBRE AVALUO:</label>
                     <input type="number" name="porcentaje_prestamo_sobre_avaluo" onkeyUp="calcular();" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="" required>
                     <div class="valid-feedback">
@@ -157,7 +157,7 @@
                     </div>
                 </div> -->
                 <div class="col-md-8">PORCENTAJE DE PRESTAMO SOBRE AVALUO</label>
-                    <select name="porcentaje_prestamo_sobre_avaluo"  class="form-select"  onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
+                    <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
                         <option selected value="0">PORCENTAJE DEL AVALUO</option>
                         <option value="45">45 %</option>
                         <option value="50">50 %</option>
@@ -247,22 +247,21 @@
 
 
     });
-//FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
-        function formatear(dato) {
-            return dato.replace(/./g, function(c, i, a) {
-                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c;  // "," que le x
-            });
-        }
-        function calcular(){
-            var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
-            var valor2 = document.getElementById("avaluo_prenda").value;
-            var porce = parseInt(valor2)*valor/100;
-            $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
-        }
-        calcular();
-//FIN http://localhost
+    //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
+    function formatear(dato) {
+        return dato.replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
+        });
+    }
 
-
-    </script>
+    function calcular() {
+        var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
+        var valor2 = document.getElementById("avaluo_prenda").value;
+        var porce = parseInt(valor2) * valor / 100;
+        $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
+    }
+    calcular();
+    //FIN http://localhost
+</script>
 
 </html>
