@@ -123,20 +123,20 @@
                             </div>
                         </div>
                         <div class="col-md-8">PORCENTAJE DE PRESTAMO SOBRE AVALUO</label>
-                            <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
-                                <option selected  value="-1"></option>
-                                <option value="1">45 %</option>
-                                <option value="2">50 %</option>
-                                <option value="3">55 %</option>
-                                <option value="4">60 %</option>
-                                <option value="5">65 %</option>
-                                <option value="6">70 %</option>
-                                <option value="7">75 %</option>
-                                <option value="8">80 %</option>
-                                <option value="9">85 %</option>
-                                <option value="10">90 %</option>
-                                <option value="11">95 %</option>
-                                <option value="12">100 %</option>
+                            <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
+                                <option selected value="0">PORCENTAJE DEL AVALUO</option>
+                                <option value="45">45 %</option>
+                                <option value="50">50 %</option>
+                                <option value="55">55 %</option>
+                                <option value="60">60 %</option>
+                                <option value="65">65 %</option>
+                                <option value="70">70 %</option>
+                                <option value="75">75 %</option>
+                                <option value="80">80 %</option>
+                                <option value="85">85 %</option>
+                                <option value="90">90 %</option>
+                                <option value="95">95 %</option>
+                                <option value="100">100 %</option>
                             </select>
                             <div class="valid-feedback">
                                 Looks good!
@@ -158,7 +158,25 @@
             </div>
         </div>
     </body>
-
     <script src="{{asset('dist/js/bootstrap.js')}}"></script>
+<script src="{{asset('dist/js/jquery.min.js')}}"></script>
+    <script>
+    //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
+    function formatear(dato) {
+        return dato.replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
+        });
+    }
+
+    function calcular() {
+        var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
+        var valor2 = document.getElementById("avaluo_prenda").value;
+        var porce = parseInt(valor2) * valor / 100;
+        $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
+    }
+    calcular();
+    </script>
+
+   
 
 </html>
