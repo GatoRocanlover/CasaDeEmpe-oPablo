@@ -17,6 +17,12 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->id('id_cotizacionprenda');
             $table->string('nombre_prenda', 30);
             $table->tinyInteger('descripcion_generica');
+            $table->string('valor_oro_plata', 20);
+            $table->string('dato_1', 20);
+            $table->string('dato_2', 20);
+            $table->string('dato_3', 20);
+            $table->string('dato_4', 20);
+            $table->string('Promedio', 20);
             $table->string('kilataje_prenda', 20);
             $table->string('gramaje_prenda', 30);
             $table->longText('caracteristicas_prenda');

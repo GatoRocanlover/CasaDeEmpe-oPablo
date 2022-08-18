@@ -110,18 +110,6 @@ class AdminController extends BaseController
     {
         return view('admin.EditarCotizacionPrenda');
     }
-    public function ListadoCotizacionPrenda()
-    {
-        $prendas = CotizacionPrenda::get();
-       
-        return view('admin.ListadoCotizacionPrenda')->with(
-            [
-                "lista_prendas" => $cotizacionprenda
-            ]
-        );
-    }
-
-
     
    // ->when(request('search'), function ($query) {
    //     return $query->where('nombre_prenda', 'like', '%' . request('search') . '%');

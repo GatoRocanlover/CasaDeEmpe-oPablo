@@ -51,6 +51,7 @@ class PrendaController extends Controller
                 'id_prendas',
                 'kilataje_prenda',
                 'gramaje_prenda',
+                'cantidad_prenda',
                 'caracteristicas_prenda',
                 'avaluo_prenda',
                 'porcentaje_prestamo_sobre_avaluo',

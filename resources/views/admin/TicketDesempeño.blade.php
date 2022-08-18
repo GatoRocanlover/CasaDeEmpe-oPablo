@@ -29,7 +29,9 @@
     <style>
         body {
             font-family: 'Nunito', sans-serif;
-
+        }
+        .tabla{
+            max-width: 85rem;
         }
     </style>
 
@@ -64,7 +66,7 @@
         <!-- ----------------------------------------------------------------------------->
 
         <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
-            <div class="max-w-6xl size  flex items-center justify-center ">
+            <div class="tabla size  flex items-center justify-center ">
                 <div class="col-md-12">
 
                     <table class="table table-hover">
@@ -74,7 +76,7 @@
                         <label class="mt-2">BUSCAR FOLIO O NOMBRE DEL CLIENTE:</label>
                         <div class="searchSep mt-1">
                             <form action="{{route('Ticket_Desempeño')}}" method="GET">
-                                <div class="col-md-4 d-flex  mt-2 ">
+                                <div class="col-md-3 d-flex  mt-2 ">
                                     <input class="col-md-4 form-control text-center  me-2" type="search" placeholder="ingrese folio o número del cliente" name="search_ticket" aria-label="Search" value="{{request('search_ticket')}}">
                                     <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Buscar</button>
                                 </div>
@@ -86,9 +88,12 @@
                         <div class="mt-4"></div>
                         <thead class="letra-blanca bg-dark">
                             <tr>
-                                <th class="text-center" scope="col">FOLIO</th>
+                                <th class="text-center" scope="col">FOLIO TICKET</th>
+                                <th class="text-center" scope="col">FOLIO BOLETA</th>
+                                <th class="text-center" scope="col">SOCIO</th>
                                 <th class="text-center" scope="col">CLIENTE</th>
                                 <th class="text-center" scope="col">PRENDA</th>
+                                <th class="text-center" scope="col">NO. PRENDA</th>
                                 <th class="text-center" scope="col">AVALUO</th>
                                 <th class="text-center" scope="col">PRESTAMO</th>
                                 <th class="text-center" scope="col">MONTO RECIBIDO</th>
@@ -100,16 +105,25 @@
                             @foreach($ticket as $tickets)
 
                             <tr>
-                                <th class="text-center" scope="row">{{$tickets->id_prendas}}</th>
+                                <th class="text-center" scope="row">{{$tickets->id_folio}}</th>
+                                <td class="text-center" scope="row">{{$tickets->id_prendas}}</td>
+                                <td class="text-center">
+                                        @IF($tickets->promedio_socio == 0.020)
+                                        SOCIO
+                                        @elseif($tickets->promedio_socio = 0.025)
+                                        NO SOCIO
+                                        @ENDIF
+                                    </td>
                                 <td class="text-center">{{$tickets->nombre_cliente}}</td>
                                 <td class="text-center">{{$tickets->nombre_prenda}}</td>
-                                <td class="text-center">{{$tickets->avaluo_prenda}}</td>
-                                <td class="text-center">{{$tickets->prestamo_prenda}}</td>
-                                <td class="text-center">{{$tickets->cantidad_pago}}</td>
-                                <td class="text-center">{{$tickets->cambio_boleta}}</td>
+                                <td class="text-center">{{$tickets->cantidad_prenda}}</td>
+                                <td class="text-center">$ {{$tickets->avaluo_prenda}}</td>
+                                <td class="text-center">$ {{$tickets->prestamo_prenda}}</td>
+                                <td class="text-center">$ {{$tickets->cantidad_pago}}</td>
+                                <td class="text-center">$ {{$tickets->cambio_boleta}}</td>
                                 <td class="text-center">
                                     <div>
-                                        <a class="nav-link" href="{{route('ticket.vistaTicket', [$tickets->id_prendas] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a>
+                                        <a class="nav-link" href="{{route('ticket.vistaTicket', [$tickets->id_folio] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a>
                                     </div>
                                 </td>
                             </tr>
