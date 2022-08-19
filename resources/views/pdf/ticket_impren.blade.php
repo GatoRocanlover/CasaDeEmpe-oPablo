@@ -70,7 +70,7 @@
       </tr>
       <tr>
         <td class="textderecha fw-bold">PRENDA:&nbsp;&nbsp;</td>
-        <td class="text-center" colspan="">CANTIDAD DE PRENDAS: {{$dato_desempeño->cantidad_prenda}}, <br> {{ $dato_desempeño->caracteristicas_prenda}}</td>
+        <td class="text-center" colspan="3">CANTIDAD DE PRENDAS: {{$dato_desempeño->cantidad_prenda}}, <br> {{ $dato_desempeño->caracteristicas_prenda}}</td>
       </tr>
       <tr>
         <td class="textderecha fw-bold">TIPO DE&nbsp;&nbsp; MOVIMIENTO:&nbsp;&nbsp;</td>
