@@ -11,7 +11,7 @@
 
 
     <!-- Fonts -->
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="">
     <!-- Styles -->
@@ -60,7 +60,7 @@
 
         .tabla1 {
             width: 600px;
-            height: 645px;
+            height: 690px;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -68,22 +68,26 @@
         .tabla2 {
             border-left: 2px solid black;
             width: 400px;
-            height: 645px;
+            height: 690px;
             padding: 30px;
             background-color: #f2f2f1;
 
         }
-        .letrapago{
+
+        .letrapago {
             font-size: 30px;
             font-weight: bold;
         }
-        .letranom{
+
+        .letranom {
             font-size: 20px;
         }
-        .btnpago{
-            background-color:green;
+
+        .btnpago {
+            background-color: green;
         }
-        .btnpago:hover{
+
+        .btnpago:hover {
             background-color: red;
         }
     </style>
@@ -128,11 +132,29 @@
             </div>
 
 
-            <div class="tabla justify-content-center mt-5">
-                <div class="tabla1">
-                    <div class="col-md-2">
-                        <label for="nombre_prenda" class="form-label negritas">FOLIO: </label>
-                        <input type="text" name="id_prendas" class="form-control text-center letranom" id="id_prenda" value="{{$dato_prenda->id_prendas}}" readonly>
+            <div class="tabla justify-content-center mt-4">
+                <div class="tabla1 row justify-content-around">
+                    <div class="d-flex row justify-content-around">
+                        <div class="col-md-2">
+                            <label for="nombre_prenda" class="form-label negritas">FOLIO: </label>
+                            <input type="text" name="id_prendas" class="form-control text-center letranom" id="id_prenda" value="{{$dato_prenda->id_prendas}}" readonly>
+                        </div>
+                        <div class="col-md-3">
+                            <div class=" negritas">SOCIO:</label>
+                                <select class="form-select mt-2 text-center input2 letranom" name="promedio_socio" id="promedio_socio" aria-label="Default select example">
+                                    @if($dato_prenda->cliente->socio == 1)
+                                    <option value="0.020" selected>SI</option>
+                                    @else
+                                    <option value="0.020">SI</option>
+                                    @endif
+                                    @if($dato_prenda->cliente->socio == 2)
+                                    <option value="0.025" selected>NO</option>
+                                    @else
+                                    <option value="0.025">NO</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-9 mt-4">
                         <label for="nombre_prenda" class="form-label "> CLIENTE: </label>
@@ -157,8 +179,13 @@
                         </select>
                     </div>
                     <div class="col-md-9 mt-4">
+                        <label for="caracteristicas_prenda" class="form-label negritas  ">CANTIDAD DE PRENDAS:</label>
+                        <input name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{$dato_prenda->cantidad_prenda}}" requiredrows="3" readonly>
+                    </div>
+
+                    <div class="col-md-9 mt-4">
                         <label for="caracteristicas_prenda" class="form-label negritas  ">CARACTERISTICAS:</label>
-                        <textarea name="caracteristicas_prenda" class="form-control" id="caracteristicas_prenda" value="" requiredrows="3" readonly>{{$dato_prenda->caracteristicas_prenda.'.'.' '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$dato_prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$dato_prenda->gramaje_prenda.'gr'}}</textarea>
+                        <textarea name="caracteristicas_prenda" class="form-control text-center" id="caracteristicas_prenda" value="" requiredrows="3" readonly>{{$dato_prenda->caracteristicas_prenda.'.'.' '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$dato_prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$dato_prenda->gramaje_prenda.'gr'}}</textarea>
                     </div>
 
                 </div>
@@ -274,12 +301,12 @@
 
 
             <!-- -------------------------------------------------------------------------------------------->
-     
 
 
 
-        <!-- Modal -->
-        <!-- 
+
+            <!-- Modal -->
+            <!-- 
     <form action="{{Route('prenda1.update',$dato_prenda->id_prendas)}}" method="POST">
                     <div class="modal fade mb-8" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -339,7 +366,7 @@
                         </div>
                     </div>
                 </form>  -->
-        <!------  FIN MODAL -->
+            <!------  FIN MODAL -->
 
 
 </body>

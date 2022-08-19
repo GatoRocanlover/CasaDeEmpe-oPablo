@@ -27,8 +27,8 @@ margin-left: 35px;
 }
 
 header img{
-    width: 90px;
-    height: 90px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     margin: 10px;
   
@@ -44,10 +44,11 @@ header img{
 }
 table {
     font-size: 9px;
-    width: 50%;
+    width: 55%;
     border: 1px solid black; 
     margin: 15px;
  }
+ 
 
  .table2{
     text-align: center;
@@ -72,14 +73,6 @@ table {
    
  }
 
- .table2 tr th{
-  
-    text-align:center;
- }
- .table2 tr td{
-    color:black;
-    text-align:center;
- }
 
  .ntp{
     font-size: 11px;
@@ -98,3 +91,4 @@ table {
     display: flex;
     justify-content: center;
 }
+

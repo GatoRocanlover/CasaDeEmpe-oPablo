@@ -9,6 +9,7 @@ use App\Http\Controllers\CotizacionPrendaController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\RefrendoController;
 use App\Http\Controllers\AjaxController;
+use App\Models\CotizacionPrenda;
 
 Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 
@@ -35,11 +36,11 @@ Route::prefix('admin')->group(function () {
     Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
 
     Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
-    Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
-    Route::put('actualizar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'update'])->name('cotizacionprenda.update');
+        Route::put('actualizar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'update'])->name('cotizacionprenda.update');
 
-    Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'ListadoCotizacionPrenda'])->name('cotizacionprenda.listado');
+    Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'index'])->name('cotizacionprenda.listado');
     Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
+    Route::get('ticket_cotizacion/{id}', [CotizacionPrendaController::class, 'vistaTicket'])->name('ticket.vistaTicketCotiza');
 
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
     Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
@@ -68,9 +69,13 @@ Route::prefix('admin')->group(function () {
     })->name('Boleta_pagar');
 
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
+    
 
 
 
     Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital');
     Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch');
 });
+
+Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+

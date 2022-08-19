@@ -45,6 +45,9 @@
 
             width: 100%;
         }
+        .tabla{
+            max-width: 90rem;
+        }
     </style>
 
 </head>
@@ -85,8 +88,8 @@
             <!-- ----------------------------------------------------------------------------->
 
             <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
-                <div class="max-w-6xl size  flex items-center justify-center ">
-                    <div class="col-md-12">
+                <div class="tabla size  flex items-center justify-center ">
+                    <div>
 
                         <table class="table table-hover">
 
@@ -110,10 +113,12 @@
                             <div class="mt-4"></div>
                             <thead class="letra-blanca bg-dark">
                                 <tr>
-                                    <th class="text-center" scope="col">FOLIO</th>
+                                    <th class="text-center" scope="col">FOLIO BOLETA</th>
+                                    <th class="text-center" scope="col">SOCIO</th>
                                     <th class="text-center" scope="col">CLIENTE</th>
                                     <th class="text-center" scope="col">PRENDA</th>
-                                    <th class="text-center" scope="col">DESCRIPCION</th>
+                                    <th class="text-center" scope="col">NO. PRENDAS</th>
+                                    <th class="text-center" scope="col">DESCRIPCION DE LA PRENDA</th>
                                     <th class="text-center" scope="col">AVALUO</th>
                                     <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
                                     <th class="text-center" scope="col">PRESTAMO</th>
@@ -125,10 +130,18 @@
 
                                 <tr>
                                     <th class="text-center" scope="row">{{$prenda->id_prendas}}</th>
+                                    <td class="text-center">
+                                        @IF($prenda->cliente->socio==1)
+                                        SOCIO
+                                        @elseif($prenda->cliente->socio==2)
+                                        NO SOCIO
+                                        @ENDIF
+                                    </td>
 
                                     <td class="text-center">{{$prenda->cliente->nombre_cliente.' '.$prenda->cliente->apellido_cliente}}</td>
 
                                     <td>{{$prenda->nombre_prenda}}</td>
+                                    <td class="text-center">{{$prenda->cantidad_prenda}}</td>
                                     <td>{{$prenda->caracteristicas_prenda.'.'.' '.' / '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$prenda->gramaje_prenda.'gr'}}</td>
                                     <td class="text-center"> {{'$ '.$prenda->avaluo_prenda}}</td>
 

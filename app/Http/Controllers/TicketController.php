@@ -14,11 +14,14 @@ class TicketController extends Controller
     public function index(Request $request)
     {
         $search_ticket = trim($request->get('search_ticket'));
-        $ticket = DB::table('tickets_desempeño')->orderBy('id_prendas','desc')
+        $ticket = DB::table('tickets_desempeño')->orderBy('id_folio','desc')
             ->select(
+                'id_folio',
                 'id_prendas',
+                'promedio_socio',
                 'nombre_cliente',
                 'nombre_prenda',
+                'cantidad_prenda',
                 'descripcion_generica',
                 'caracteristicas_prenda',
                 'avaluo_prenda',
@@ -26,7 +29,7 @@ class TicketController extends Controller
                 'cantidad_pago',
                 'cambio_boleta',
             )
-            ->where('id_prendas', 'LIKE', '%' . $search_ticket . '%')
+            ->where('id_folio', 'LIKE', '%' . $search_ticket . '%')
             ->orWhere('nombre_cliente', 'LIKE', '%' . $search_ticket . '%')
             ->paginate(5);
         return view('admin.TicketDesempeño', compact('ticket'));
@@ -66,7 +69,7 @@ class TicketController extends Controller
 
         return View::make('pdf.ticket_impren')->with(
             [
-                "dato_tickeimpr" => $ticket_vista
+                "dato_desempeño" => $ticket_vista
 
             ]
         );

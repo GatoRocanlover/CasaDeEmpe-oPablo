@@ -14,9 +14,12 @@ class CreateTicketsDesempeñoTable extends Migration
     public function up()
     {
         Schema::create('tickets_desempeño', function(Blueprint $table){
-            $table->id('id_prendas');
+            $table->id('id_folio');
+            $table->string('id_prendas', 30); 
+            $table->string('promedio_socio', 30);  
             $table->string('nombre_cliente', 35);
             $table->string('nombre_prenda', 30);
+            $table->string('cantidad_prenda', 30);
             $table->tinyInteger('descripcion_generica');
             $table->string('caracteristicas_prenda',300);
             $table->string('avaluo_prenda', 30);
