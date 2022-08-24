@@ -27,7 +27,7 @@ class Prenda extends Model
         'iva',
         'refrendo',
         'desempeño',
-        'abono a capital',
+        'abono_capital',
         'cantidad_prenda',
         
    

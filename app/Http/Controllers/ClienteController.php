@@ -246,6 +246,26 @@ class ClienteController extends Controller
                 'LIKE',
                 "%" . $request->socio . "%"
             )
+            ->orWhere(
+                'numero_cliente',
+                'LIKE',
+                "%" . $request->socio . "%"
+            )
+            ->orWhere(
+                'cruzamientos_cliente',
+                'LIKE',
+                "%" . $request->socio . "%"
+            )
+            ->orWhere(
+                'ciudad_cliente',
+                'LIKE',
+                "%" . $request->socio . "%"
+            )
+            ->orWhere(
+                'colonia_cliente',
+                'LIKE',
+                "%" . $request->socio . "%"
+            )
 
 
 
