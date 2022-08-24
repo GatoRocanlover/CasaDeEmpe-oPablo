@@ -115,8 +115,8 @@
                     <div class="col-md-6">SOCIO</label>
                         <select class="form-select" id="socio"  name="socio" aria-label="Default select example">
                             <option selected value="-1">SELECCIONA</option>
-                            <option value="1">SI</option>
-                            <option value="2">NO </option>
+                            <option value="0.020">SI</option>
+                            <option value="0.025">NO </option>
                         </select>
                         <div class="valid-feedback">
                         Looks good!

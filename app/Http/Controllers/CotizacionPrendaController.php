@@ -152,6 +152,19 @@ class CotizacionPrendaController extends Controller
             );
         }
     }
+    public function vistaaltacoti($id)
+    { {
+            $cotizacionprenda = CotizacionPrenda::find($id);
+
+            return View::make('admin.agregarPrenda')->with(
+                [
+                    "datoCotizar" => $cotizacionprenda
+
+                ]
+            );
+        }
+    }
+    
 
 
     public function update(Request $request, $id)

@@ -23,6 +23,40 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+
+        .tabla {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tabla1 {
+            width: 550px;
+            height: 500px;
+            padding: 30px;
+        }
+
+        .tabla2 {
+            border-left: 2px solid black;
+            width: 600px;
+            height: 500px;
+            padding: 30px;
+        }
+
+        .tabla3 {
+            width: 1150px;
+            border-top: 2px solid black;
+            height: 400px;
+            padding: 30px;
+        }
+
+        textarea {
+            width: 405px;
+            height: 90px;
+        }
+
+        .sub {
+            font-size: 20px;
+        }
     </style>
 
 </head>
@@ -61,148 +95,155 @@
         </div>
         @endif
 
-        <div class="mt-8  max-w-6xl mx-auto items-center justify-center flex negritas  texto size50 fondoformulario">
 
-                <form action="{{Route('prenda.store')}}" method="POST" class= "row g-3 needs-validation size100 items-center justify-center" novalidate>
-                    
-                    @csrf
 
-                <label for="validationCustom03" class="form-label mt-8 text-center">AGREGAR PRENDA NUEVA</label>
-                <div class="col-md-8">
+        <br>
+        <form action="{{Route('prenda.store')}}" method="POST" class="row g-3 needs-validation size100 items-center justify-center" novalidate>
 
-                    <div class=" input-group has-validation">
+            @csrf
+
+            <div class="tabla justify-content-center">
+                <div class="tabla1">
+                    <label for="" class="h5 text-center col-md-11">DATOS DEL CLIENTE:</label>
+                    {{ csrf_field() }}
+                    <div class="col-md-11 mt-8">
                         <input type="text" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                         <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                         <button class=" size20 bordes btn btn-primary navbar1" id="btn_busqueda" type="button">BUSCAR</button>
+
                     </div>
-                    <div class=" input-group has-validation">
-                        <label for="nombre_prenda" class="form-label">NOMBRE CLIENTE</label>
-                        <div class=" input-group has-validation">
-                            <input type="text" name="nombre_cliente" class="form-control" id="nombre_cliente" value="" placeholder="CLIENTE" readonly>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                        </div>
+                    <br>
+                    <div class="col-md-11">
+                        <label for="" class="fw-bold">NOMBRE DEL CLIENTE:</label>
+                        <input type="text" name="nombre_cliente" class="col-md-11 tamaño" id="nombre_cliente" value="" placeholder="CLIENTE" readonly>
+                        <br>
+                        <label for="" class="fw-bold mt-2">DIRECCIÓN:</label>
+                        <input type="text" name="numero_socio" class="col-md-11 tamaño" id="numero_socio" value="" placeholder="numero de socio" readonly>
+                        <br>
+                        <label for="" class="fw-bold mt-2">PROMEDIO SI ES SOCIO:</label>
+                        <input type="text" name="socio" class="col-md-11 tamaño" id="socio" value="" placeholder="socio" readonly>
+                        <br>
+                        <label for="" class="fw-bold mt-2">NUMERO SOCIO:</label>
+                        <input type="text" name="numero_socio" class="col-md-11 tamaño" id="numero_socio" value="" placeholder="numero de socio" readonly>
+
 
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA</label>
-                    <div class="input-group has-validation">
-                        <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
+                <div class="tabla2">
+                    <label for="" class="h5 text-center col-md-11">DATOS DE LA PRENDA:</label>
+                    <div class="col-md-12">
+                        <br>
+                        <label for="" class="sub"><strong>FOLIO DE COTIZACIÓN: </strong>{{$datoCotizar->id_cotizacionprenda}}</label>
+                        <input type="hidden" name="folio_cotizacion" class="form-control" id="folio_cotizacion" value="{{$datoCotizar->id_cotizacionprenda}}" readonly>
+                        <br>
+                        <label for="" class="sub"><strong>NOMBRE PRENDA: </strong>{{$datoCotizar->nombre_prenda}}</label>
+                        <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$datoCotizar->nombre_prenda}}" readonly>
+                        <br>
+                        <label for="" class="sub mt-1"><strong>CANTIDAD DE PRENDAS: </strong>{{$datoCotizar->cantidad_prenda}}</label>
+                        <input type="hidden" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="{{$datoCotizar->id_cantidad_prenda}}" readonly>
+                        <br>
+                        <label for="" class="sub mt-1"><strong>DESCRIPCIÓN: </strong>{{$datoCotizar->caracteristicas_prenda}}</label>
+                        <input type="hidden" name="caracteristicas_prenda" class="form-control" id="caracteristicas_prenda" value="{{$datoCotizar->caracteristicas_prenda}}" readonly>
+                        <br>
+                        <label for="" class="sub mt-1"><strong>DESCRIPCIÓN GENERICA: </strong>@if($datoCotizar->descripcion_generica == 1)
+                            ORO
+                            @else
+                            @endif
+                            @if($datoCotizar->descripcion_generica == 2)
+                            PLATA
+                            @else
+                            @endif</label>
+                        <input type="hidden" name="descripcion_generica" class="form-control" id="descripcion_generica" value="@if($datoCotizar->descripcion_generica == 1)
+                            ORO
+                            @else
+                            @endif
+                            @if($datoCotizar->descripcion_generica == 2)
+                            PLATA
+                            @else
+                            @endif" readonly>
+                        <br>
+                        <label for="" class="sub"><strong>KILATAJE: </strong>{{$datoCotizar->kilataje_prenda}}</label>
+                        <input type="hidden" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="{{$datoCotizar->kilataje_prenda}}" readonly>
+                        <br>
+                        <label for="" class="sub"><strong>GRAMAJE: </strong>{{$datoCotizar->gramaje_prenda}}</label>
+                        <input type="hidden" name="gramaje_prenda" class="form-control" id="gramaje_prenda" value="{{$datoCotizar->gramaje_prenda}}" readonly>
+                        <br>
+                        <label for="" class="sub"><strong>AVALUO: </strong>${{$datoCotizar->avaluo_prenda}}</label>
+                        <input type="hidden" name="avaluo_prenda" class="form-control" id="avaluo_prenda" value="{{$datoCotizar->avaluo_prenda}}" readonly>
+                        <br>
+                        <label for="" class="sub"><strong>PORCENTAJE DE AVALUO: </strong>{{$datoCotizar->porcentaje_prestamo_sobre_avaluo}}%</label>
+                        <input type="hidden" name="porcentaje_prestamo_sobre_avaluo" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="{{$datoCotizar->porcentaje_prestamo_sobre_avaluo}}" readonly>
+                        <br>
+
+                        <input type="hidden" onkeyUp="calcular();" name="prestamo_inicial" class="form-control" id="prestamo_inicial" value="{{$datoCotizar->prestamo_prenda}}" readonly>
+
+
+                        <label for="" class="sub"><strong>PRESTAMO: </strong>${{$datoCotizar->prestamo_prenda}}</label>
+                        <input type="hidden" name="prestamo_prenda" class="form-control" id="prestamo_prenda" value="{{$datoCotizar->prestamo_prenda}}" readonly>
+                        <!--                    <input type="text" class="form-control input-sm" id="intereses" name="prestamo_prenda" value="" required>
+                        <input type="text" class="form-control input-sm" id="almacenaje" name="almacenaje" value="" required>
+                        <input type="text" class="form-control input-sm" id="iva" name="iva" value="" required>
+                        <input type="text" class="form-control input-sm" id="refrendo" name="refrendo" value="" required>
+                        <input type="text" class="form-control input-sm" id="desempeño" name="desempeño" value="" required>
+                        <input type="text" class="form-control input-sm" id="abono_capital" name="abono_capital" value="" required>                
+ -->
                     </div>
                 </div>
-                <div class="col-md-8">
-                    <label for="cantidad_prenda" class="form-label">CANTIDAD</label>
-                    <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" required>
-                    <div class="valid-feedback">
-                        Looks good!
+                <div class="tabla3">
+                    <div class="col-md-4">
+                        <label for="" class="h5 col-md-11">MONTO:</label>
+                        <br>
+                        <label for="" class="sub"><strong>INTERES:</strong></label>
+                        <input type="text" name="interes" class="form-control" id="interes" value="" readonly>
+
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="validationCustomUsername" class="form-label">TIPO</label>
-                    <select class="form-select" aria-label="Default select example" name="descripcion_generica" id="descripcion_generica">
-                        <option selected value="-1">DESCRIPCION GENERICA</option>
-                        <option value="1">ORO</option>
-                        <option value="2">PLATA</option>
-                    </select>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="kilataje_prenda" class="form-label">KILATAJE</label>
-                    <div class="input-group has-validation">
-                        <input type="text" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="gramaje_prenda" class="form-label">GRAMAJE</label>
-                    <div class="input-group has-validation">
-                        <input type="text" name="gramaje_prenda" class="form-control" id="gramaje_prenda" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="caracteristicas_prenda" class="form-label">CARACTERISTICAS</label>
-                    <textarea name="caracteristicas_prenda" class="form-control " id="caracteristicas_prenda" value="" requiredrows="3"></textarea>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="avaluo_prenda" class="form-label">AVALUO</label>
-                    <input type="text" name="avaluo_prenda" onkeyUp="calcular();" class="form-control" id="avaluo_prenda" value="" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+
                 </div>
 
-                <!--        <div class="col-md-8">
-                    <label for="avaluo_prenda" class="form-label">PORCENTAJE DE PRESTAMO SOBRE AVALUO:</label>
-                    <input type="number" name="porcentaje_prestamo_sobre_avaluo" onkeyUp="calcular();" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div> -->
-                <div class="col-md-8">PORCENTAJE DE PRESTAMO SOBRE AVALUO</label>
-                    <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
-                        <option selected value="0">PORCENTAJE DEL AVALUO</option>
-                        <option value="45">45 %</option>
-                        <option value="50">50 %</option>
-                        <option value="55">55 %</option>
-                        <option value="60">60 %</option>
-                        <option value="65">65 %</option>
-                        <option value="70">70 %</option>
-                        <option value="75">75 %</option>
-                        <option value="80">80 %</option>
-                        <option value="85">85 %</option>
-                        <option value="90">90 %</option>
-                        <option value="95">95 %</option>
-                        <option value="100">100 %</option>
-                    </select>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-                <div class="col-md-8">
-                    <label for="prestamo_prenda" class="form-label">PRESTAMO</label>
-                    <input type="text" name="prestamo_prenda" class="form-control" id="prestamo_prenda" value="" required>
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-
-                <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
-                    <button class="size50 bordes btn btn-primary navbar1">GUARDAR</button>
-                </div>
-
-            </form>
-        </div>
+            </div>
     </div>
+
+
+    <!-- ------------------------------------------------ -->
+
+    <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
+
+        <button class="size50 bordes btn btn-primary navbar1">GENERAR BOLETA</button>
+    </div>
+
+    </form>
+
 
 
 </body>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>
 <script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script>
-    function setearCliente(id_cliente, nombre_cliente) {
+    function changeValue(newColor) {
+        var valor = document.getElementById('interes').value;
+        document.getElementById('interes2').innerHTML = valor;
+    }
 
 
-        $("#id_cliente").val(id_cliente);
+    //--------------------------------
+
+    function setearCliente(id_cliente, nombre_cliente, socio, numero_socio, calle_cliente) {
+
+
+        $("#id_cliente").val(id_cliente)    ;
         $("#nombre_cliente").val(nombre_cliente);
+        $("#socio").val(socio);
+        $("#numero_socio").val(numero_socio);
+        $("#direccion").val(calle_cliente);
         $("#modal_cliente").css('display', 'none');
 
     }
@@ -220,12 +261,18 @@
 
         $.post("{{env('APP_URL')}}/api/buscar/cliente", {
                 "nombre_cliente": nombre_busqueda
+             
+
             },
             function(data, status) {
 
                 console.log(data);
 
+
+
+
                 $("#modal_cliente").css('display', 'flex');
+
 
                 var clientes = data.data;
 
@@ -234,20 +281,24 @@
 
                 clientes.forEach(cliente => {
 
-
-
                     $("#listado_clientes").append(
-                        "<button class='btn btn-primary select-cliente' onclick='setearCliente(\"" + cliente.id_cliente + "\",\"" + cliente.nombre_cliente + " " + cliente.apellido_cliente + "\")'>" + cliente.nombre_cliente + " " + cliente.apellido_cliente + "</button>"
+                        "<button class='btn btn-primary select-cliente' onclick='setearCliente(\"" + cliente.id_cliente + "\",\"" + cliente.nombre_cliente + " " + cliente.apellido_cliente +  "\",\""+ cliente.socio +"\",\""+cliente.numero_socio+ "\")'>"
+                         + cliente.nombre_cliente + " " + cliente.apellido_cliente +  "</button>"
+
                     );
 
                 });
 
 
+
+
             }, "json");
 
-
     });
-    //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
+
+    //-------------------------------------------------------------
+
+    //FUNCION PARA SACAR EL INTERES
     function formatear(dato) {
         return dato.replace(/./g, function(c, i, a) {
             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
@@ -255,13 +306,11 @@
     }
 
     function calcular() {
-        var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
-        var valor2 = document.getElementById("avaluo_prenda").value;
-        var porce = parseInt(valor2) * valor / 100;
-        $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
+        var valor = document.getElementById("prestamo_inicial").value;
+        var porce = parseInt(valor) / 100;
+        $("#interes").val(formatear(porce.toFixed(2)))
     }
     calcular();
-    //FIN http://localhost
 </script>
 
 </html>

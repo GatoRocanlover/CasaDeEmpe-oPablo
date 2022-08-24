@@ -195,20 +195,20 @@
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>
 <script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script>
-    //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
-    function formatear(dato) {
-        return dato.replace(/./g, function(c, i, a) {
-            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-        });
-    }
+        //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
+        function formatear(dato) {
+            return dato.replace(/./g, function(c, i, a) {
+                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
+            });
+        }
 
-    function calcular() {
-        var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
-        var valor2 = document.getElementById("avaluo_prenda").value;
-        var porce = parseInt(valor2) * valor / 100;
-        $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
-    }
-    calcular();
+        function calcular() {
+            var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
+            var valor2 = document.getElementById("avaluo_prenda").value;
+            var porce = parseInt(valor2) * valor / 100;
+            $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
+        }
+        calcular();
 
 
     //-----------------------------------------------------------------------------------------------

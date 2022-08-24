@@ -12,6 +12,7 @@ class Prenda extends Model
     protected $primaryKey ='id_prendas';
     protected $fillable =[
         'id_cliente',
+        'folio_cotizacion',
         'nombre_prenda',
         'descripcion_generica',
         'kilataje_prenda',
@@ -19,7 +20,14 @@ class Prenda extends Model
         'caracteristicas_prenda',
         'avaluo_prenda',
         'porcentaje_prestamo_sobre_avaluo',
+        'prestamo_inicial',
         'prestamo_prenda',
+        'interes',
+        'almacenaje',
+        'iva',
+        'refrendo',
+        'desempeño',
+        'abono a capital',
         'cantidad_prenda',
         
    

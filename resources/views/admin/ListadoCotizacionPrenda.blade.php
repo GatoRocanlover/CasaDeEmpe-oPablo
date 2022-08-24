@@ -29,7 +29,8 @@
             justify-content: space-between;
             width: 100%;
         }
-        th{
+
+        th {
             text-align: center;
         }
     </style>
@@ -108,7 +109,7 @@
                                 <th scope="col">PRESTAMO</th>
                                 <th scope="col">FECHA DE ALTA PRENDA</th>
                                 <th scope="col">IMPRIMIR</th>
-                                <th scope="col">ACCIÓN</th>
+                                <th scope="col">ALTA BOLETA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -156,7 +157,9 @@
                                 <td>{{$prenda->created_at->format('d/m/Y')}}</td>
                                 <td><a class="nav-link" href="{{route('ticket.vistaTicketCotiza', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
 
-                              <td><a class="nav-link" href="{{route('cotizacionprenda.edit', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button class="btn btn-primary btn1"><i class="fas fa-edit"></i></button></a></td>
+                                <td><a class="nav-link" href="{{route('coti.altacotizacion', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-check-square" style="font-size:32px"></i></a></td>
+
+                                </td>
                             </tr>
 
 

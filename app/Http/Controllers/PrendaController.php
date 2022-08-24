@@ -47,6 +47,7 @@ class PrendaController extends Controller
         $prendaPagarr = Prenda::orderBy('id_prendas', 'desc')
             ->select(
                 'id_cliente',
+                'folio_cotizacion',
                 'nombre_prenda',
                 'id_prendas',
                 'kilataje_prenda',
@@ -90,28 +91,13 @@ class PrendaController extends Controller
     public function store(Request $request)
     {
         $reglas = [
-            "nombre_prenda" => "bail|required|min:3",
-            "descripcion_generica" => "bail|required",
-            "cantidad_prenda" => 'bail|required',
-            "kilataje_prenda" => "bail|required",
-            "gramaje_prenda" => 'bail|required',
-            "caracteristicas_prenda" => 'bail|required',
-            "avaluo_prenda" => "bail|required",
-            "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
-            "prestamo_prenda" => 'bail|required',
+      
+            "id_cliente" => "bail|required",
+  
         ];
 
         $mensajes = [
-            "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
-            "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
-            "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar",
-            "cantidad_prenda.required" => "No ingreso la cantidad de la pieza a refrendar",
-            "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar",
-            "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
-            "caracteristicas_prenda.required" => "No ingreso las caracteristicas de la pieza a refrendar",
-            "avaluo_prenda.required" => "No ha ingresado el avaluo",
-            "porcentaje_prestamo_sobre_avaluo.required" => "No ha seleccionado el porfentaje del avaluo",
-            "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",
+            "id_cliente.required" => "NO SE INGRESO EL NOMBRE DEL CLIENTE, FAVOR DE VERIFICAR LA INFORMACIÓN. :(",
 
         ];
         $validator = Validator::make(

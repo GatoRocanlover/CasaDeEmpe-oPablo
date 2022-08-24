@@ -84,7 +84,7 @@
                     {{ csrf_field() }}
                     <div class="col-md-11 mt-8">
                         <label for="" class="fw-bold">BUSCAR:</label>
-                        <input type="text" name="buscador" id="buscador" class="form-control" placeholder="INGRESE EL FOLIO O EL NOMBRE DE LA PRENDA" />
+                        <input type="text" name="buscador" id="buscador" class="form-control" placeholder="INGRESE EL FOLIO O EL NOMBRE DE LA PRENDA"/>
                     </div>
                     <br>
                     <div class="col-md-11">
