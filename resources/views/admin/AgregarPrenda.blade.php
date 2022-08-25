@@ -5,6 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>CASA DE EMPEÑOS</title>
 
@@ -108,13 +109,10 @@
 
         <br>
         <form action="{{Route('prenda.store')}}" method="POST" class="row g-3 needs-validation size100 items-center justify-center" novalidate>
-
             @csrf
-
             <div class="tabla justify-content-center">
                 <div class="tabla1">
                     <label for="" class="h5 text-center col-md-11">DATOS DEL CLIENTE:</label>
-                    {{ csrf_field() }}
                     <div class="col-md-11 mt-8">
                         <input type="text" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                         <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="" placeholder="BUSCAR CLIENTE" required>
@@ -289,7 +287,7 @@
                         "<button class='btn btn-primary select-cliente' onclick='setearCliente(\"" +
                         cliente.id_cliente + "\",\"" + cliente.nombre_cliente + " " + cliente.apellido_cliente +
                         "\",\"" + cliente.socio + "\",\"" + cliente.numero_socio + "\",\"" + cliente.calle_cliente +", #" 
-                        + cliente.numero_cliente + ", " + cliente.cruzamientos_cliente + " COL."+cliente.colonia_cliente+", "+cliente.ciudad_cliente+" YUC."+ "\")'>" +
+                        + cliente.numero_cliente + ", " + cliente.cruzamientos_cliente + " COL. "+cliente.colonia_cliente+", "+cliente.ciudad_cliente+" YUC."+ "\")'>" +
                         cliente.nombre_cliente + " " + cliente.apellido_cliente + "</button>"
 
                     );

@@ -17,34 +17,36 @@
 
           <div class="d-flex row justify-content-around">
           <div class="col-md-4">
-            <label for="nombre_prenda" class="form-label negritas">FOLIO: </label>
-            <input type="text" name="id_prendas" class="form-control text-center" id="id_prenda" value="{{$dato_prenda->id_prendas}}" readonly>
+          <label for="nombre_prenda" class="form-label"> <strong>FOLIO:&nbsp;</strong>{{$dato_prenda->id_prendas}} </label>
+              <input type="hidden" name="id_prendas" class="form-control text-center" id="id_prenda" value="{{$dato_prenda->id_prendas}}" readonly>
+            </div>
+            <div class="col-md-4">
+              <div class="d-flex">
+                <label for="" class="sub "><strong>SOCIO: </strong>@if($dato_prenda->cliente->socio == 0.020)
+                  SI
+                  @else
+                  @endif
+                  @if($dato_prenda->cliente->socio == 0.025)
+                  NO
+                  @else
+                  @endif</label>
+                  <input type="hidden" name="id_prendas" class="form-control text-center" id="id_prenda" value="{{$dato_prenda->cliente->socio}}" readonly>
+              </div>
+            </div>
+
           </div>
-          <div class="col-md-3">
-                            <div class=" negritas">SOCIO:</label>
-                                <select class="form-select mt-1 text-center input2 letranom" name="promedio_socio" id="promedio_socio">
-                                    @if($dato_prenda->cliente->socio == 1)
-                                    <option value="0.020" selected>SI</option>
-                                    @else
-                                    <option value="0.020">SI</option>
-                                    @endif
-                                    @if($dato_prenda->cliente->socio == 2)
-                                    <option value="0.025" selected>NO</option>
-                                    @else
-                                    <option value="0.025">NO</option>
-                                    @endif
-                                </select>
-                            </div>
-                        </div>
-          </div>
-          <div class="  mt-3">
-            <label for="nombre_prenda" class="form-label negritas"> CLIENTE: </label>
-            <input type="text" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{$dato_prenda->cliente->nombre_cliente.' '.$dato_prenda->cliente->apellido_cliente}}" readonly>
-          </div>
-          <div class="  mt-3">
-            <label for="nombre_prenda" class="form-label negritas"> NOMBRE DE LA PRENDA: </label>
-            <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" readonly>
-          </div>
+        </div>
+
+
+        <div class=" text-center">
+        <div class="col-md-12 ">
+          <label for="nombre_prenda" class="form-label"> <strong>CLIENTE: &nbsp;</strong> {{$dato_prenda->cliente->nombre_cliente.' '.$dato_prenda->cliente->apellido_cliente}} </label>
+          <input type="hidden" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{$dato_prenda->cliente->nombre_cliente.' '.$dato_prenda->cliente->apellido_cliente}}" readonly>
+        </div>
+        <div class="">
+          <label for="nombre_prenda" class="form-label"> <strong>NOMBRE DE LA PRENDA: &nbsp;</strong> {{$dato_prenda->nombre_prenda}} </label>
+          <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" readonly>
+        </div>
           <div class="mt-4">
                         <label for="caracteristicas_prenda" class="form-label negritas  ">CANTIDAD DE PRENDAS:</label>
                         <input name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{$dato_prenda->cantidad_prenda}}" readonly>
