@@ -14,6 +14,7 @@
     <link href="">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css">
     <!-- Styles -->
     <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
@@ -32,14 +33,14 @@
 
         .tabla1 {
             width: 580px;
-            height: 470px;
+            height: 455px;
             padding: 30px;
         }
 
         .tabla2 {
             border-left: 2px solid black;
             width: 500px;
-            height: 470px;
+            height: 455px;
             padding: 30px;
         }
 
@@ -58,7 +59,8 @@
         .sub {
             font-size: 18px;
         }
-        .sub2{
+
+        .sub2 {
             font-size: 16px;
         }
 
@@ -67,6 +69,7 @@
             justify-content: center;
             align-items: center;
         }
+    
     </style>
 
 </head>
@@ -108,38 +111,47 @@
 
 
         <br>
-        <form action="{{Route('prenda.store')}}" method="POST" class="row g-3 needs-validation size100 items-center justify-center" novalidate>
+        <form action="{{Route('prenda.store')}}" method="POST" onsubmit="return enviar()" name="formulario_boleta" class="row g-3 needs-validation size100 items-center justify-center" novalidate>
             @csrf
             <div class="tabla justify-content-center">
                 <div class="tabla1">
                     <label for="" class="h5 text-center col-md-11">DATOS DEL CLIENTE:</label>
-                    <div class="col-md-11 mt-8">
-                        <input type="text" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
+
+                    <div class="mt-3"></div>
+                    <strong><label class="col-md-6 mt-8">SELECCIONA SI ES CLIENTE:</label></strong><br>
+                        <div class="col-md-5">
+                        <select class="form-select text-center mt-1" id="socio" onchange="calcular();"name="socio" aria-label="Default select example">
+                            <option value="null">¿ES SOCIO?</option>
+                            <option value="0.020">SI</option>
+                            <option value="0.025">NO</option>
+                        </select>
+                        </div>
+
+                    <div class="col-md-11 mt-2">
+                        <input type="hidden" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                         <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
-                        <button class=" size20 bordes btn btn-primary navbar1" id="btn_busqueda" type="button">BUSCAR</button>
-
+                        <button class=" size20 bordes btn btn-primary" id="btn_busqueda" type="button"><strong> BUSCAR CLIENTE</strong></button>
                     </div>
                     <br>
-                    <div class="col-md-13">
+                    <div class="col-md-13 mt-1">
                         <label for="" class="fw-bold sub">NOMBRE DEL CLIENTE:</label>
                         <input type="text" name="nombre_cliente" class="col-md-11 sub" id="nombre_cliente" value="" placeholder="CLIENTE" readonly>
                         <br>
                         <label for="" class="fw-bold mt-2 sub col-md-14">DIRECCIÓN:</label>
-                        <input type="text" name="direccion" class="col-md-11 sub2" id="direccion" value="" placeholder="numero de socio" readonly>
-                        <br>
-                        <label for="" class="fw-bold mt-2 sub">PROMEDIO SI ES SOCIO:</label>
-                        <input type="text" name="socio" class="col-md-11 sub" id="socio" value="" placeholder="socio" readonly>
+                        <input type="text" name="direccion" class="col-md-11 sub2" id="direccion" value="" placeholder="DIRECCIÓN" readonly>
                         <br>
                         <label for="" class="fw-bold mt-2 sub">NUMERO SOCIO:</label>
-                        <input type="text" name="numero_socio" class="col-md-11 sub" id="numero_socio" value="" placeholder="numero de socio" readonly>
+                        <input type="text" name="numero_socio" class="col-md-11 sub" id="numero_socio" value="" placeholder="NUMERO DE SOCIO" readonly>
+
+
 
 
                     </div>
                 </div>
-                <div class="tabla2 ">
+                <div class="tabla2">
                     <label for="" class="h5 text-center col-md-11">DATOS DE LA PRENDA:</label>
                     <div class="col-md-12">
                         <br>
@@ -153,7 +165,7 @@
                         <label for="" class="sub mt-1"><strong>CANTIDAD DE PRENDAS: </strong>{{$datoCotizar->cantidad_prenda}}</label>
                         <input type="hidden" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="{{$datoCotizar->cantidad_prenda}}" readonly>
                         <br>
-                        <label for="" class="sub mt-1"><strong >DESCRIPCIÓN: </strong>{{$datoCotizar->caracteristicas_prenda}}</label>
+                        <label for="" class="sub mt-1"><strong>DESCRIPCIÓN: </strong>{{$datoCotizar->caracteristicas_prenda}}</label>
                         <input type="hidden" name="caracteristicas_prenda" class="form-control" id="caracteristicas_prenda" value="{{$datoCotizar->caracteristicas_prenda}}" readonly>
                         <br>
                         <label for="" class="sub mt-1"><strong>DESCRIPCIÓN GENERICA: </strong>@if($datoCotizar->descripcion_generica == 1)
@@ -179,7 +191,7 @@
                         <input type="hidden" name="porcentaje_prestamo_sobre_avaluo" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="{{$datoCotizar->porcentaje_prestamo_sobre_avaluo}}" readonly>
                         <br>
 
-                        <input type="hidden" onkeyUp="calcular();" onkeyUp="calcular2();" onkeyUp="calcular3();" name="prestamo_inicial" class="form-control" id="prestamo_inicial" value="{{$datoCotizar->prestamo_prenda}}" readonly>
+                        <input type="hidden" onkeyUp="calcular();"  name="prestamo_inicial" class="form-control" id="prestamo_inicial" value="{{$datoCotizar->prestamo_prenda}}" readonly>
 
 
                         <label for="" class="sub"><strong>PRESTAMO: </strong>${{$datoCotizar->prestamo_prenda}}</label>
@@ -213,10 +225,10 @@
                 </div>
             </div>
 
-
             <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="0" readonly>
             <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="0" readonly>
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>
+
 
 
 
@@ -238,7 +250,16 @@
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>
 <script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script>
-    function setearCliente(id_cliente, nombre_cliente, socio, numero_socio, calle_cliente, colonia_cliente ,  numero_cliente, cruzamientos_cliente, ciudad_cliente) {
+
+
+
+    //FUNCION QUE DESABILITA LOS SELECT OPTION SIN MODIFICAR Y NO ENVIAR CAMPOS VACIOS:
+/*  $('select option:not(:selected)').each(function() {
+     $(this).attr('disabled', 'disabled');
+ }); */
+ //--------
+  
+    function setearCliente(id_cliente, nombre_cliente, socio, numero_socio, calle_cliente, colonia_cliente, numero_cliente, cruzamientos_cliente, ciudad_cliente) {
 
 
         $("#id_cliente").val(id_cliente);
@@ -256,10 +277,7 @@
 
         var nombre_busqueda = $("#buscar_cliente").val();
 
-        if (nombre_busqueda.length == 0) {
-            alert("Ingrese el nombre del cliente");
-        }
-
+       
 
         $.post("{{env('APP_URL')}}/api/buscar/cliente", {
                 "nombre_cliente": nombre_busqueda
@@ -286,16 +304,13 @@
                     $("#listado_clientes").append(
                         "<button class='btn btn-primary select-cliente' onclick='setearCliente(\"" +
                         cliente.id_cliente + "\",\"" + cliente.nombre_cliente + " " + cliente.apellido_cliente +
-                        "\",\"" + cliente.socio + "\",\"" + cliente.numero_socio + "\",\"" + cliente.calle_cliente +", #" 
-                        + cliente.numero_cliente + ", " + cliente.cruzamientos_cliente + " COL. "+cliente.colonia_cliente+", "+cliente.ciudad_cliente+" YUC."+ "\")'>" +
+                        "\",\"" + cliente.socio + "\",\"" + cliente.numero_socio + "\",\"" + cliente.calle_cliente + ", #" +
+                        cliente.numero_cliente + ", " + cliente.cruzamientos_cliente + " COL. " + cliente.colonia_cliente + ", " + cliente.ciudad_cliente + " YUC." + "\")'>" +
                         cliente.nombre_cliente + " " + cliente.apellido_cliente + "</button>"
 
                     );
 
                 });
-
-
-
 
             }, "json");
 
@@ -303,7 +318,6 @@
 
     //-------------------------------------------------------------
 
-    //FUNCION PARA SACAR EL INTERES
     function formatear(dato) {
         return dato.replace(/./g, function(c, i, a) {
             return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
@@ -311,41 +325,40 @@
     }
 
     function calcular() {
-        var valor = document.getElementById("prestamo_inicial").value;
-        var porce = parseInt(valor) / 100;
-        $("#interes").val(formatear(porce.toFixed(2)))
+        var valor = document.getElementById("socio").value;
+        var datopres = document.getElementById("prestamo_inicial").value;
+        var porce = parseFloat(1*valor*datopres);
+        var porce1 = parseInt(datopres)*0.01*1;
+        var porce2 = parseFloat((porce+porce1)*0.16);
+        
+        $("#almacenaje").val(formatear(porce.toFixed(3)))
+        $("#iva").val(porce2.toFixed(3))
+        $("#interes").val((porce1.toFixed(2)))
     }
     calcular();
 
-    //FUNCION PARA SACAR EL INTERES
-    function formatear2(dato2) {
-        return dato2.replace(/./g, function(c, i, a) {
-            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-        });
-    }
+    //-------------------------------------------------------
 
-    function calcular2() {
-        var valor2 = document.getElementById("prestamo_inicial").value;
-        var porce2 = parseInt((valor2) / 100) * 2;
-        $("#almacenaje").val(formatear2(porce2.toFixed(2)))
-    }
-    calcular2();
+      //MENSAJE DE ALERTA BOTTON
+      function enviar() {
+        event.preventDefault();
 
-    //FUNCION PARA SACAR EL INTERES
-    function formatear3(dato3) {
-        return dato3.replace(/./g, function(c, i, a) {
-            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-        });
+        Swal.fire({
+            title: '¿DESEA GENERAR LA BOLETA?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Si',
+            cancelButtonText: "No",
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+        }).then((result) => {
+            if (result.value) {
+                document.formulario_boleta.submit();
+            }
+            return false;
+        })
     }
-
-    function calcular3() {
-        var valor3 = document.getElementById("prestamo_inicial").value;
-        var porce3 = parseInt(((valor3) / 100) * 2);
-        var porce4 = parseInt(valor3) / 100;
-        var porce5 = parseFloat(porce3 + porce4) * .16;
-        $("#iva").val(formatear3(porce5.toFixed(2)))
-    }
-    calcular3();
+    
 </script>
 
 </html>

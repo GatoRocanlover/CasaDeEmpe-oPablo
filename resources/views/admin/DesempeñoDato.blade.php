@@ -88,7 +88,17 @@
         }
 
         .btnpago:hover {
+            background-color: blue;
+        }
+        .btn-secondary:hover{
             background-color: red;
+        }
+        .caja{
+            margin: 30px;
+        }
+        .caja2{
+            padding:0;
+            margin: 20px;
         }
     </style>
 
