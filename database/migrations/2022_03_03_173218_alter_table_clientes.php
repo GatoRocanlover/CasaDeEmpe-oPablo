@@ -17,7 +17,8 @@ class AlterTableClientes extends Migration
            
 
             if (!Schema::hasColumn('clientes', 'numero_socio')) {
-                $table->string('numero_socio', 10);
+                $table->string('numero_socio', 10)->nullable()->default(null);
+
            }
 
 
