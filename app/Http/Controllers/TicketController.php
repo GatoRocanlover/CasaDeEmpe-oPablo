@@ -24,7 +24,6 @@ class TicketController extends Controller
                 'cantidad_prenda',
                 'descripcion_generica',
                 'caracteristicas_prenda',
-                'avaluo_prenda',
                 'prestamo_prenda',
                 'cantidad_pago',
                 'cambio_boleta',

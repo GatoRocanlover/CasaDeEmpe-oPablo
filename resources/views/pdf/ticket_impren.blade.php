@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Casa de Empeño Asociados Nueva Mutua.</title>
+    <title>Casa de Empeño Asociados Nueva Mutua-tickes.</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{asset('dist/css/estilosBoleta2.css')}}">
     <script type="text/javascript" src="/JavaScript.js"></script>
@@ -22,14 +22,21 @@
       text-align: right;
     }
 
-    table,
-    th,
-    td {
+    table {
       border: 1px solid black;
     }
 
     .textaling {
       text-align: center;
+    }
+    .bordeup{
+      border-top: 1px solid black;
+    }
+    .borde{
+      border: 1px solid black;
+    }
+    .numeros{
+      font-size: 14px;
     }
   </style>
 
@@ -53,32 +60,110 @@
         <th colspan="4" class="text-center fw-bold">COMPROBANTE DE PAGO</th>
       </tr>
       <tr>
-        <td class="textderecha fw-bold">FECHA:&nbsp;&nbsp;</td>
-        <td class="text-center">{{$dato_desempeño->created_at->format('d-m-Y')}}</td>
-        <td class="textderecha fw-bold">HORA:&nbsp;&nbsp;</td>
-        <td class="text-center">{{$dato_desempeño->created_at->format('H:m:s A')}}</td>
+        <td class="textderecha fw-bold borde">FECHA:&nbsp;&nbsp;</td>
+        <td class="text-center borde">{{$dato_desempeño->created_at->format('d-m-Y')}}</td>
+        <td class="textderecha fw-bold borde">HORA:&nbsp;&nbsp;</td>
+        <td class="text-center borde">{{$dato_desempeño->created_at->format('H:m:s A')}}</td>
       </tr>
       <tr>
-        <td class="textderecha fw-bold">CLIENTE:&nbsp;&nbsp;</td>
-        <td colspan="3" class="text-center">{{$dato_desempeño->nombre_cliente}}</td>
+        <td class="textderecha fw-bold borde">CLIENTE:&nbsp;&nbsp;</td>
+        <td colspan="3" class="text-center borde">{{$dato_desempeño->nombre_cliente}}</td>
       </tr>
       <tr>
-        <td class="textderecha fw-bold">BOLETA:&nbsp;&nbsp;</td>
-        <td class="text-center">{{$dato_desempeño->id_prendas}}</td>
-        <td class="textderecha fw-bold">FOLIO:&nbsp;&nbsp;</td>
-        <td class="text-center">{{$dato_desempeño->id_folio}}</td>
+        <td class="textderecha fw-bold borde">BOLETA:&nbsp;&nbsp;</td>
+        <td class="text-center borde">{{$dato_desempeño->id_prendas}}</td>
+        <td class="textderecha fw-bold borde">FOLIO:&nbsp;&nbsp;</td>
+        <td class="text-center borde">{{$dato_desempeño->id_folio}}</td>
       </tr>
       <tr>
-        <td class="textderecha fw-bold">PRENDA:&nbsp;&nbsp;</td>
-        <td class="text-center" colspan="3">CANTIDAD DE PRENDAS: {{$dato_desempeño->cantidad_prenda}}, <br> {{ $dato_desempeño->caracteristicas_prenda}}</td>
+        <td class="textderecha fw-bold borde">PRENDA:&nbsp;&nbsp;</td>
+        <td class="text-center borde" colspan="3">CANTIDAD DE PRENDAS: {{$dato_desempeño->cantidad_prenda}}, <br> {{ $dato_desempeño->caracteristicas_prenda}}</td>
       </tr>
       <tr>
-        <td class="textderecha fw-bold">TIPO DE&nbsp;&nbsp; MOVIMIENTO:&nbsp;&nbsp;</td>
-        <td colspan="3">&nbsp;&nbsp;DESEMPEÑO</td>
+        <td class="textderecha fw-bold borde">TIPO DE&nbsp;&nbsp; MOVIMIENTO:&nbsp;&nbsp;</td>
+        <td colspan="3" class="borde">&nbsp;&nbsp;DESEMPEÑO</td>
       </tr>
       <tr>
-        <td class="textderecha fw-bold">TIPO DE&nbsp;&nbsp; INTERES:&nbsp;&nbsp;</td>
-        <td colspan="3">&nbsp;&nbsp;ACUMULATIVO</td>
+        <td class="textderecha fw-bold borde">TIPO DE&nbsp;&nbsp; INTERES:&nbsp;&nbsp;</td>
+        <td colspan="3" class="borde">&nbsp;&nbsp;ACUMULATIVO</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">PRESTAMO:&nbsp;&nbsp;</td>
+        <td class="text-center numeros" >$ {{$dato_desempeño->prestamo_prenda}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
+        <td class="text-center numeros" >$ {{$dato_desempeño->interes}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
+        <td class="text-center numeros " >$ {{$dato_desempeño->almacenaje}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
+        <td class="text-center bordeup numeros" >$ {{$dato_desempeño->subtotal}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
+        <td class="text-center numeros" >$ {{$dato_desempeño->iva}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
+        <td class="text-center bordeup numeros" >$ {{$dato_desempeño->total}}</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">NUMEROS</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">PAGO RECIBIDO:&nbsp;&nbsp;</td>
+        <td class="text-center numeros" >$ {{$dato_desempeño->cantidad_pago}}</td>
+      </tr>
+      <tr>
+        <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
+        <td class="text-center numeros" >$ {{$dato_desempeño->cambio_boleta}}</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="fw-bold text-center">FORMAS DE PAGO</td>
+      </tr>
+      <tr>
+        <td colspan="1" class="fw-bold text-center">EFECTIVO</td>
+        <td colspan="3"></td>
+      </tr>
+      <tr>
+        <td colspan="4" class="">&nbsp;&nbsp;&nbsp;&nbsp;**VALIDO SOLO COMO  COMPROBANTE DE PAGO.</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="">&nbsp;&nbsp;&nbsp;&nbsp;**ESTE NO ES UN COMPROBANTE FISCAL.</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="">&nbsp;&nbsp;&nbsp;&nbsp;**NOTA DE VENTA INCLUIDA EN LA FACTURA GLOBAL DEL DIA.</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">__________________________________________</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">FIRMA TITULAR</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
       </tr>
     </table>
 

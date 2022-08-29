@@ -119,7 +119,7 @@
 
                     <div class="mt-3"></div>
                     <strong><label class="col-md-8 sub mt-8">SELECCIONA SI ES SOCIO:</label></strong><br>
-                        <div class="col-md-5">
+                        <div class="col-md-11">
                         <select class="form-select text-center mt-1" id="socio" onchange="calcular();"name="socio" aria-label="Default select example">
                             <option value="null">¿ES SOCIO?</option>
                             <option value="0.020">SI</option>

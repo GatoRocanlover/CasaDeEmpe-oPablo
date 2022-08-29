@@ -94,7 +94,6 @@
                                 <th class="text-center" scope="col">CLIENTE</th>
                                 <th class="text-center" scope="col">PRENDA</th>
                                 <th class="text-center" scope="col">NO. PRENDA</th>
-                                <th class="text-center" scope="col">AVALUO</th>
                                 <th class="text-center" scope="col">PRESTAMO</th>
                                 <th class="text-center" scope="col">MONTO RECIBIDO</th>
                                 <th class="text-center" scope="col">CAMBIO</th>
@@ -117,7 +116,6 @@
                                 <td class="text-center">{{$tickets->nombre_cliente}}</td>
                                 <td class="text-center">{{$tickets->nombre_prenda}}</td>
                                 <td class="text-center">{{$tickets->cantidad_prenda}}</td>
-                                <td class="text-center">$ {{$tickets->avaluo_prenda}}</td>
                                 <td class="text-center">$ {{$tickets->prestamo_prenda}}</td>
                                 <td class="text-center">$ {{$tickets->cantidad_pago}}</td>
                                 <td class="text-center">$ {{$tickets->cambio_boleta}}</td>

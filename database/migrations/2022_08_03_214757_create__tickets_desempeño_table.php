@@ -22,10 +22,14 @@ class CreateTicketsDesempeñoTable extends Migration
             $table->string('cantidad_prenda', 30);
             $table->tinyInteger('descripcion_generica');
             $table->string('caracteristicas_prenda',300);
-            $table->string('avaluo_prenda', 30);
             $table->string('prestamo_prenda', 30);
             $table->string('cantidad_pago', 30);    
             $table->string('cambio_boleta', 30);
+            $table->string('interes', 30);
+            $table->string('almacenaje', 30);
+            $table->string('subtotal', 30);
+            $table->string('iva', 30);
+            $table->string('total', 30);
             $table->timestamps();
 
         });
