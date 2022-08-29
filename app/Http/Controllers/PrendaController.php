@@ -119,7 +119,7 @@ class PrendaController extends Controller
         $prenda->save();
 
 
-        return redirect()->route('listado_prenda');
+        return redirect()->route('listado_prenda')->with('successBoleta', 'SE REALIZO EL PAGO');
     }
 
     /**

@@ -11,6 +11,12 @@
     <strong>&nbsp; &nbsp; SE DIO DE ALTA LA COTIZACIÓN, VERIFICAR EN LA PRIMERA FILA DE LA TABLA.... </strong>
 </div>
 @endif
+@if ($message = Session::get('successBoleta'))
+<div class="alert alert-success alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <strong>&nbsp; &nbsp; SE DIO DE ALTA LA BOLETA, VERIFICAR EN LA PRIMERA FILA DE LA TABLA.... </strong>
+</div>
+@endif
 
 @if ($message = Session::get('error'))
 <div class="alert alert-danger alert-block">

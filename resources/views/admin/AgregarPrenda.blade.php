@@ -32,7 +32,7 @@
         }
 
         .tabla1 {
-            width: 580px;
+            width: 500px;
             height: 455px;
             padding: 30px;
         }
@@ -45,7 +45,7 @@
         }
 
         .tabla3 {
-            width: 1100px;
+            width: 1000px;
             border-top: 2px solid black;
             height: 50px;
             padding: 10px;
@@ -115,10 +115,10 @@
             @csrf
             <div class="tabla justify-content-center">
                 <div class="tabla1">
-                    <label for="" class="h5 text-center col-md-11">DATOS DEL CLIENTE:</label>
+                    <label for="" class="h5 text-center col-md-11 fw-bold">DATOS DEL CLIENTE:</label>
 
                     <div class="mt-3"></div>
-                    <strong><label class="col-md-6 mt-8">SELECCIONA SI ES CLIENTE:</label></strong><br>
+                    <strong><label class="col-md-8 sub mt-8">SELECCIONA SI ES SOCIO:</label></strong><br>
                         <div class="col-md-5">
                         <select class="form-select text-center mt-1" id="socio" onchange="calcular();"name="socio" aria-label="Default select example">
                             <option value="null">¿ES SOCIO?</option>
@@ -152,7 +152,7 @@
                     </div>
                 </div>
                 <div class="tabla2">
-                    <label for="" class="h5 text-center col-md-11">DATOS DE LA PRENDA:</label>
+                    <label for="" class="h5 text-center col-md-11 fw-bold">DATOS DE LA PRENDA:</label>
                     <div class="col-md-12">
                         <br>
                         <br>
@@ -225,8 +225,8 @@
                 </div>
             </div>
 
-            <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="0" readonly>
-            <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="0" readonly>
+            <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="" readonly>
+            <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="" readonly>
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>
 
 
@@ -259,12 +259,12 @@
  }); */
  //--------
   
-    function setearCliente(id_cliente, nombre_cliente, socio, numero_socio, calle_cliente, colonia_cliente, numero_cliente, cruzamientos_cliente, ciudad_cliente) {
+    function setearCliente(id_cliente, nombre_cliente, numero_socio, calle_cliente, colonia_cliente, numero_cliente, cruzamientos_cliente, ciudad_cliente) {
 
 
         $("#id_cliente").val(id_cliente);
         $("#nombre_cliente").val(nombre_cliente);
-        $("#socio").val(socio);
+  
         $("#numero_socio").val(numero_socio);
         $("#direccion").val(calle_cliente);
         $("#modal_cliente").css('display', 'none');
@@ -304,7 +304,7 @@
                     $("#listado_clientes").append(
                         "<button class='btn btn-primary select-cliente' onclick='setearCliente(\"" +
                         cliente.id_cliente + "\",\"" + cliente.nombre_cliente + " " + cliente.apellido_cliente +
-                        "\",\"" + cliente.socio + "\",\"" + cliente.numero_socio + "\",\"" + cliente.calle_cliente + ", #" +
+                        "\",\"" + cliente.numero_socio + "\",\"" + cliente.calle_cliente + ", #" +
                         cliente.numero_cliente + ", " + cliente.cruzamientos_cliente + " COL. " + cliente.colonia_cliente + ", " + cliente.ciudad_cliente + " YUC." + "\")'>" +
                         cliente.nombre_cliente + " " + cliente.apellido_cliente + "</button>"
 
@@ -330,10 +330,15 @@
         var porce = parseFloat(1*valor*datopres);
         var porce1 = parseInt(datopres)*0.01*1;
         var porce2 = parseFloat((porce+porce1)*0.16);
+        var porce3 = parseFloat(porce+porce1+porce2);
+        var porce4 = parseFloat(datopres)
+        var porce5 = parseFloat(porce3+porce4);
         
         $("#almacenaje").val(formatear(porce.toFixed(3)))
         $("#iva").val(porce2.toFixed(3))
-        $("#interes").val((porce1.toFixed(2)))
+        $("#interes").val((porce1.toFixed(3)))
+        $("#refrendo").val((porce3.toFixed(3)))
+        $("#desempeño").val((porce5.toFixed(3)))
     }
     calcular();
 

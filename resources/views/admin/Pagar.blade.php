@@ -131,9 +131,9 @@
                                 <tr>
                                     <th class="text-center" scope="row">{{$prenda->id_prendas}}</th>
                                     <td class="text-center">
-                                        @IF($prenda->cliente->socio==1)
+                                        @IF($prenda->cliente->socio==0.020)
                                         SOCIO
-                                        @elseif($prenda->cliente->socio==2)
+                                        @elseif($prenda->cliente->socio==0.025)
                                         NO SOCIO
                                         @ENDIF
                                     </td>

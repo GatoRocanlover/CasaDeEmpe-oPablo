@@ -18,6 +18,8 @@
     <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css">
 
@@ -59,7 +61,7 @@
         }
 
         .tabla1 {
-            width: 600px;
+            width: 500px;
             height: 690px;
             padding: 30px;
             background-color: #eaeaea;
@@ -67,7 +69,7 @@
 
         .tabla2 {
             border-left: 2px solid black;
-            width: 400px;
+            width: 600px;
             height: 690px;
             padding: 30px;
             background-color: #f2f2f1;
@@ -90,15 +92,22 @@
         .btnpago:hover {
             background-color: blue;
         }
-        .btn-secondary:hover{
+
+        .btn-secondary:hover {
             background-color: red;
         }
-        .caja{
+
+        .caja {
             margin: 30px;
         }
-        .caja2{
-            padding:0;
+
+        .caja2 {
+            padding: 0;
             margin: 20px;
+        }
+
+        .letra1 {
+            font-size: 22px;
         }
     </style>
 
@@ -143,59 +152,35 @@
 
 
             <div class="tabla justify-content-center mt-4">
-                <div class="tabla1 row justify-content-around">
+                <div class="tabla1 ">
                     <div class="d-flex row justify-content-around">
-                        <div class="col-md-2">
-                            <label for="nombre_prenda" class="form-label negritas">FOLIO: </label>
-                            <input type="text" name="id_prendas" class="form-control text-center letranom" id="id_prenda" value="{{$dato_prenda->id_prendas}}" readonly>
+                        <div class="col-md-5">
+                            <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{$dato_prenda->id_prendas}}</label>
                         </div>
-                        <div class="col-md-3">
-                            <div class=" negritas">SOCIO:</label>
-                                <select class="form-select mt-2 text-center input2 letranom" name="promedio_socio" id="promedio_socio" aria-label="Default select example">
-                                    @if($dato_prenda->cliente->socio == 1)
-                                    <option value="0.020" selected>SI</option>
-                                    @else
-                                    <option value="0.020">SI</option>
-                                    @endif
-                                    @if($dato_prenda->cliente->socio == 2)
-                                    <option value="0.025" selected>NO</option>
-                                    @else
-                                    <option value="0.025">NO</option>
-                                    @endif
-                                </select>
-                            </div>
+                        <div class="col-md-5">
+                            <label class="letra1"><strong>SOCIO:</strong>@if($dato_prenda->cliente->socio==0.020)
+                                SI
+                                @ENDIF
+                                @if($dato_prenda->cliente->socio==0.025)
+                                NO
+                                @ENDIF
+
+                            </label>
                         </div>
                     </div>
-                    <div class="col-md-9 mt-4">
-                        <label for="nombre_prenda" class="form-label "> CLIENTE: </label>
-                        <input type="text" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{$dato_prenda->id_cliente.' - '.$dato_prenda->cliente->nombre_cliente.' '.$dato_prenda->cliente->apellido_cliente}}" readonly>
-                    </div>
-                    <div class="col-md-9 mt-4">
-                        <label for="nombre_prenda" class="form-label negritas"> NOMBRE DE LA PRENDA: </label>
-                        <input type="text" name="nombre_prenda" class="form-control letranom" id="nombre_prenda" value="{{$dato_prenda->nombre_prenda}}" readonly>
-                    </div>
-                    <div class="col-md-9 mt-4 negritas">DESCRIPCION GENERICA:</label>
-                        <select class="form-select mt-2 text-center input2 letranom" name="descripcion_generica" id="descripcion_generica" aria-label="Default select example">
-                            @if($dato_prenda->descripcion_generica == 1)
-                            <option value="1" selected>ORO</option>
-                            @else
-                            <option value="1">ORO</option>
+                    <div class="mt-2">&nbsp;</div>
+                    <div class="col-md-11 mt-8 letra1"> 
+                        <label ><strong> CLIENTE: &nbsp;&nbsp;</strong>{{$dato_prenda->cliente->nombre_cliente.' '.$dato_prenda->cliente->apellido_cliente}} </label>
+                        <label class="mt-3"><strong>NOMBRE DE LA PRENDA:&nbsp;&nbsp;</strong>{{$dato_prenda->nombre_prenda}}</label>
+                        <label class="mt-3"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>@if($dato_prenda->descripcion_generica == 1)
+                            ORO
                             @endif
                             @if($dato_prenda->descripcion_generica == 2)
-                            <option value="2" selected>PLATA</option>
-                            @else
-                            <option value="2">PLATA</option>
+                            PLATA
                             @endif
-                        </select>
-                    </div>
-                    <div class="col-md-9 mt-4">
-                        <label for="caracteristicas_prenda" class="form-label negritas  ">CANTIDAD DE PRENDAS:</label>
-                        <input name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{$dato_prenda->cantidad_prenda}}" requiredrows="3" readonly>
-                    </div>
-
-                    <div class="col-md-9 mt-4">
-                        <label for="caracteristicas_prenda" class="form-label negritas  ">CARACTERISTICAS:</label>
-                        <textarea name="caracteristicas_prenda" class="form-control text-center" id="caracteristicas_prenda" value="" requiredrows="3" readonly>{{$dato_prenda->caracteristicas_prenda.'.'.' '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$dato_prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$dato_prenda->gramaje_prenda.'gr'}}</textarea>
+                        </label>
+                        <label class="mt-3"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{$dato_prenda->cantidad_prenda}}</label>
+                        <label class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{$dato_prenda->caracteristicas_prenda.'.'.' '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$dato_prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$dato_prenda->gramaje_prenda.'gr'}}</label>
                     </div>
 
                 </div>
@@ -294,11 +279,11 @@
                         <input type="text" class="form-control text-center letrapago" name="prestamo_prenda" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" placeholder="00.00" readonly>
                     </div>
                     <div class="col-md-12 mt-4">
-                        <label for="" class="negritas">CANTIDAD PAGADA:</label>
+                        <label for="" class="negritas">PAGO RECIBIDO:</label>
                         <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="$ 0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
                     </div>
                     <div class="col-md-12 mt-4">
-                        <label for="" class="negritas">CAMBIO:</label>
+                        <label for="" class="negritas">CAMBIO ENTREGADO:</label>
                         <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="$ 0.00">
                     </div>
                     <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
@@ -307,77 +292,6 @@
                     @include('admin.Modals.modaldesempeño')
                 </div>
             </div>
-
-
-
-            <!-- -------------------------------------------------------------------------------------------->
-
-
-
-
-            <!-- Modal -->
-            <!-- 
-    <form action="{{Route('prenda1.update',$dato_prenda->id_prendas)}}" method="POST">
-                    <div class="modal fade mb-8" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">VERIFICAR PAGO:</h5>
-                                    <button type="button" data-toggle="modal" data-target="#EjemploModal" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-
-                                      <div class="modal-body">
-                                        <table class="table">
-                                            <thead class="letra-blanca bg-dark">
-                                                <tr>
-                                                    <th scope="col">FOLIO</th>
-                                                    <th scope="col">NOMBRE</th>
-                                                    <th scope="col">PRESTAMO</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-
-                                                <tr>
-                                                    <th class="text-center"></th>
-                                                    <td></td>
-                                                    <td class="text-center"></td>
-                                                </tr>
-
-
-                                            </tbody>
-                                        </table>
-
-                                        <div class="mt-8 col-md-8">
-                                            <label for="validationCustom02" class="form-label ">CANTIDAD PAGADA:</label>
-                                            <input type="text" class="form-control" value="" id="foro_id" >
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                        <div class="mt-3 col-md-8">
-                                            <label for="validationCustom02" class="form-label">CAMBIO:</label>
-                                            <input type="text" class="form-control"value="" disabled>
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                        <div class="mt-8">
-
-                                        </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" >CONTINUAR</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>  -->
-            <!------  FIN MODAL -->
-
 
 </body>
 

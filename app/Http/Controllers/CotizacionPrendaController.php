@@ -120,7 +120,7 @@ class CotizacionPrendaController extends Controller
         $cotizacionprenda->save();
 
 
-        return redirect()->route('cotizacionprenda.listado')->with('successCotizacion', 'SE REALIZO EL PAGO');;
+        return redirect()->route('cotizacionprenda.listado')->with('successCotizacion', 'SE REALIZO EL PAGO');
     }
 
     /**
