@@ -117,17 +117,9 @@
 
                     </div>
                     <div class="col-md-8">
-                        <label for="cantidad_prenda" class="form-label">PROMEDIO:</label>
-                        <input type="text" name="promedio" class="form-control" id="promedio" value="" readonly>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
                         <label for="kilataje_prenda" class="form-label">KILATAJE:</label>
                         <div class="input-group has-validation">
-                            <input type="text" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="" placeholder="Kilataje de la prenda" required>
+                            <input type="text" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="" placeholder="Kilataje de la prenda" readonly>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -220,7 +212,7 @@
                 c = parseFloat(document.getElementById("dato_3").value) || 0,
                 d = parseFloat(document.getElementById("dato_4").value) || 0;
 
-            var total2 = document.getElementById("promedio").value = ((a + b + c + d) / 4).toFixed(3);
+            var total2 = document.getElementById("kilataje_prenda").value = ((a + b + c + d) / 4).toFixed(3);
 
         } catch (e) {}
     }

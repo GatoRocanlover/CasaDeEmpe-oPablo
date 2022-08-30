@@ -158,7 +158,11 @@
 
             <div class="tabla justify-content-center mt-4">
                 <div class="tabla1 ">
+                    <br>
+                    <br>
+                    <br>
                     <div class="d-flex row justify-content-around">
+                        <br>
                         <div class="col-md-5">
                             <label
                                 class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
@@ -235,6 +239,8 @@
                         <div class="col-md-12 mt-4 text-center">
                             <label for="prestamo_prenda" class="form-label h2">
                                 <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño}} </strong></label>
+                                <input type="hidden" id="desempeño1" name="desempeño1"
+                                value="{{ $dato_prenda->desempeño}}">
                         </div>
                         <div class="col-md-12 mt-4">
                             <label for="" class="negritas">PAGO RECIBIDO:</label>
