@@ -57,11 +57,15 @@
             @include('layout.nav')
         </div>
         @include('pdf.flash-message')
+        <br>
+        <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
+            <label for="validationCustom03" class="form-label  text-center h3 fw-bold"> BOLETAS GENERADAS:</label>
+        </div>
+
 
         <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
             <div class="max-w-6xl size  flex items-center justify-center ">
                 <div class="col-md-12">
-                    <label>LISTA DE PRENDAS</label>
                     <table class="table table-hover">
                         <thead class="letra-blanca bg-dark">
                             <tr>
@@ -72,7 +76,7 @@
                                 <th scope="col">AVALUO</th>
                                 <th scope="col">% DE PRESTAMO</th>
                                 <th scope="col">PRESTAMO</th>
-                                <th scope="col">EDITAR</th>
+                                <th scope="col">IMPRIMIR BOLETA</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,7 +116,8 @@
                                     @endif
                                 </td>
                                 <td>$&nbsp;{{$prenda->prestamo_prenda}}</td>
-                                <td><a class="nav-link" href="{{route('prenda.edit', [$prenda->id_prendas] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                <td><a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
+
                             </tr>
                             <tr>
                                 @endforeach

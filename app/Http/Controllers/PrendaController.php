@@ -162,6 +162,17 @@ class PrendaController extends Controller
             ]
         );
     }
+    public function vistaboleta($id)
+    {
+        $prenda = Prenda::find($id);
+
+        return View::make('pdf.boleta')->with(
+            [
+                "dato_prenda" => $prenda
+
+            ]
+        );
+    }
 
     /**
      * Update the specified resource in storage.

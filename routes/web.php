@@ -70,6 +70,7 @@ Route::prefix('admin')->group(function () {
     })->name('Boleta_pagar');
 
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
+    Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
     
 
 

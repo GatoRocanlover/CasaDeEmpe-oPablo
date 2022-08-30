@@ -28,7 +28,7 @@
         <th colspan="9">
           <header>
               <div >
-                <h5>Folio: ####</h5>
+                <h5>Folio:&nbsp;{{$dato_prenda->id_prendas}}<h5>
               </div>
               <div>
                 <h5>Asociados Nueva Mutua S.A. DE C.V.</h5>
