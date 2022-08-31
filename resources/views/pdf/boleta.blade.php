@@ -44,10 +44,11 @@
             </header>
             <div class="iempresa">
                 <div class="lineal">
-                    <p>Fecha de celebración del contrato Umán, Yuc a
-                    <script type="text/javascript"> var meses = new Array 
+                    <p>Fecha de celebración del contrato Umán, Yuc a {{$dato_prenda->created_at->format('D, d F, Y.')
+                  }}
+                  {{--   <script type="text/javascript"> var meses = new Array 
                     ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
-                    var f=new Date(); document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()); </script>
+                    var f=new Date(); document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()); </script> --}}
                     </p>
                 </div>
                 <p>CONTRATO DE MUTUO CON INTERES Y GARANTIA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA MUTUA S.A. DE C.V., EL PROVEEDOR,
