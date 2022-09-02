@@ -334,11 +334,11 @@
         var porce4 = parseFloat(datopres)
         var porce5 = parseFloat(porce3+porce4);
         
-        $("#almacenaje").val(formatear(porce.toFixed(3)))
-        $("#iva").val(porce2.toFixed(3))
-        $("#interes").val((porce1.toFixed(3)))
-        $("#refrendo").val((porce3.toFixed(3)))
-        $("#desempeño").val((porce5.toFixed(3)))
+        $("#almacenaje").val(formatear(porce.toFixed(2)))
+        $("#iva").val(porce2.toFixed(2))
+        $("#interes").val((porce1.toFixed(2)))
+        $("#refrendo").val((porce3.toFixed(2)))
+        $("#desempeño").val((porce5.toFixed(2)))
     }
     calcular();
 

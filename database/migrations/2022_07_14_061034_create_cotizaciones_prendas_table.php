@@ -22,6 +22,7 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->string('dato_2', 20);
             $table->string('dato_3', 20);
             $table->string('dato_4', 20);
+            $table->string('promedio_prenda', 20);
             $table->string('kilataje_prenda', 20);
             $table->string('gramaje_prenda', 30);
             $table->longText('caracteristicas_prenda');

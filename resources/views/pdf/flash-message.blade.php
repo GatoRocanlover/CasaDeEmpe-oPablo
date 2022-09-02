@@ -32,10 +32,10 @@
 </div>
 @endif
 
-@if ($message = Session::get('info'))
+@if ($message = Session::get('info1'))
 <div class="alert alert-info alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>
-    <strong> $message </strong>
+    <strong>&nbsp; &nbsp; LOS CAMPOS CON * SON OBLIGATORIO.... </strong>
 </div>
 @endif
 

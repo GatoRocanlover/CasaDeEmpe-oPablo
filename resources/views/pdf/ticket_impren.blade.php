@@ -1,4 +1,6 @@
+
 <DOCTYPE html>
+
   <html>
 
   <head>
@@ -37,6 +39,9 @@
     }
     .numeros{
       font-size: 14px;
+    }
+    .numeros2{
+      font-size: 12px;
     }
   </style>
 
@@ -115,7 +120,10 @@
         <td class="text-center bordeup numeros" >$ {{$dato_desempeño->total}}</td>
       </tr>
       <tr>
-        <td colspan="4" class="text-center">NUMEROS</td>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center fw-bold numeros2">{{num2letras($dato_desempeño->total)}}</td>
       </tr>
       <tr>
         <td colspan="4">&nbsp;</td>

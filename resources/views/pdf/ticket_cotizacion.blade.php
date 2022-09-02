@@ -81,7 +81,7 @@
             </tr>
             <tr>
                 <td class="textderecha fw-bold">PROMEDIO:&nbsp;&nbsp;</td>
-                <td class="text-center">{{$dato_tickecoti->Promedio}}</td>
+                <td class="text-center">{{$dato_tickecoti->promedio_prenda}}</td>
                 <td class="textderecha fw-bold">QUILATAJE:&nbsp;&nbsp;</td>
                 <td class="text-center">{{$dato_tickecoti->kilataje_prenda}} k</td>
             </tr>

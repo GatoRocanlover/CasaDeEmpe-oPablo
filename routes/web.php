@@ -36,8 +36,8 @@ Route::prefix('admin')->group(function () {
     Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
 
     Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
-        Route::put('actualizar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'update'])->name('cotizacionprenda.update');
-        Route::get('altacotizacion/{id}', [CotizacionPrendaController::class, 'vistaaltacoti'])->name('coti.altacotizacion');
+    Route::put('actualizar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'update'])->name('cotizacionprenda.update');
+    Route::get('altacotizacion/{id}', [CotizacionPrendaController::class, 'vistaaltacoti'])->name('coti.altacotizacion');
 
     Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'index'])->name('cotizacionprenda.listado');
     Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
@@ -71,7 +71,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
     Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
-    
+
 
 
 
@@ -80,4 +80,3 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
-

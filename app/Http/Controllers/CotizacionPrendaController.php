@@ -29,6 +29,7 @@ class CotizacionPrendaController extends Controller
                 'dato_2',
                 'dato_3',
                 'dato_4',
+                'promedio_prenda',
                 'kilataje_prenda',
                 'gramaje_prenda',
                 'caracteristicas_prenda',
