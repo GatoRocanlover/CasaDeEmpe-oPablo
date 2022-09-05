@@ -62,7 +62,7 @@
 
         .tabla1 {
             width: 500px;
-            height: 800px;
+            height: 820px;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -70,12 +70,13 @@
         .tabla2 {
             border-left: 2px solid black;
             width: 600px;
-            height: 800px;
+            height: 820px;
             padding: 30px;
             background-color: #f2f2f1;
 
         }
-        .campo1{
+
+        .campo1 {
             background-color: #f2f2f1;
         }
 
@@ -117,8 +118,7 @@
 </head>
 
 <body class="antialiased ">
-    <div
-        class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
         <!-- encabezado -->
         <div class="size">
@@ -134,13 +134,13 @@
             @include('layout.nav')
 
             @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
             @endif
 
 
@@ -161,19 +161,19 @@
                     <br>
                     <br>
                     <br>
+                    <br>
                     <div class="d-flex row justify-content-around">
                         <br>
                         <div class="col-md-5">
-                            <label
-                                class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
+                            <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
                         </div>
                         <div class="col-md-5">
                             <label class="letra1"><strong>SOCIO:</strong>
                                 @if ($dato_prenda->cliente->socio == 0.02)
-                                    SI
+                                SI
                                 @ENDIF
                                 @if ($dato_prenda->cliente->socio == 0.025)
-                                    NO
+                                NO
                                 @ENDIF
                             </label>
                         </div>
@@ -187,16 +187,15 @@
                                 PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
                         <label class="mt-3"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
                             @if ($dato_prenda->descripcion_generica == 1)
-                                ORO
+                            ORO
                             @endif
                             @if ($dato_prenda->descripcion_generica == 2)
-                                PLATA
+                            PLATA
                             @endif
                         </label>
                         <label class="mt-3"><strong>CANTIDAD DE
                                 PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                        <label
-                            class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                        <label class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
                     </div>
 
                 </div>
@@ -207,29 +206,24 @@
                     <div class="col-md-12 text-center">
                         <label class="form-label h4"><strong>DESEMPEÑO:</strong> </label>
                     </div>
-                    <label class="col-md-12 mt-4"><label
-                            class=" "><strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}</label>
-                        <input type="hidden" id="prestamo" onkeyUp="calcular();" name="prestamo"
-                            value="{{ $dato_prenda->prestamo_prenda }}">
+                    <label class="col-md-12 mt-4"><label class=" "><strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}</label>
+                        <input type="hidden" id="prestamo" onkeyUp="calcular();" name="prestamo" value="{{ $dato_prenda->prestamo_prenda }}">
 
                         <div class="col-md-12 mt-2">
                             <label for="prestamo_prenda" class="form-label">
                                 <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->interes }}</label>
-                            <input type="hidden" id="interes" onkeyUp="calcular();" name="interes"
-                                value="{{ $dato_prenda->interes }}">
+                            <input type="hidden" id="interes" onkeyUp="calcular();" name="interes" value="{{ $dato_prenda->interes }}">
 
                         </div>
                         <div class="col-md-12">
                             <label for="prestamo_prenda" class="form-label">
                                 <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->almacenaje }}</label>
-                            <input type="hidden" id="almacenaje" onkeyUp="calcular();" name="almacenaje"
-                                value="{{ $dato_prenda->almacenaje }}">
+                            <input type="hidden" id="almacenaje" onkeyUp="calcular();" name="almacenaje" value="{{ $dato_prenda->almacenaje }}">
                         </div>
                         <p>------------------------------------------------------</p>
                         <div class="col-md-12">
                             <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                    TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1"
-                                    name="subtotal1" type="text" readonly></label>
+                                    TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1" name="subtotal1" type="text" readonly></label>
                         </div>
                         <div class="col-md-12">
                             <label for="prestamo_prenda" class="form-label">
@@ -239,25 +233,24 @@
                         <div class="col-md-12 mt-4 text-center">
                             <label for="prestamo_prenda" class="form-label h2">
                                 <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño}} </strong></label>
-                                <input type="hidden" id="desempeño1" name="desempeño1"
-                                value="{{ $dato_prenda->desempeño}}">
+                            <input type="hidden" id="desempeño1" name="desempeño1" value="{{ $dato_prenda->desempeño}}">
                         </div>
+                        <div class="text-center mt-2">
+                            <font size=4>
+                                <p>{{num2letras($dato_prenda->desempeño)}}</p>
+                            </font>
+                        </div>
+
                         <div class="col-md-12 mt-4">
                             <label for="" class="negritas">PAGO RECIBIDO:</label>
-                            <input type="number" id="cantidad_pago1" name="cantidad_pago1"
-                                class="form-control input_style tamañoletra text-center" placeholder="$ 0.00"
-                                onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
+                            <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="$ 0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
                         </div>
                         <div class="col-md-12 mt-4">
                             <label for="" class="negritas">CAMBIO ENTREGADO:</label>
-                            <input type="text" id="cambio_boleta1" name="cambio_boleta1"
-                                class="form-control input_style letracambio text-center" readonly placeholder="$ 0.00">
+                            <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="$ 0.00">
                         </div>
                         <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
-                            <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit"
-                                id="btn-submit" data-toggle="modal"
-                                data-target="#exampleModal{{ $dato_prenda->id_prendas }}"
-                                data-item-prestamo="cantidad_pago">PAGAR</button>
+                            <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
                         </div>
                         @include('admin.Modals.modaldesempeño')
                 </div>
@@ -272,14 +265,11 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>

@@ -104,7 +104,7 @@
                 <td class="text-center"> N/A</td>
                 <td rowspan="3" colspan="2" class="textaling fw-bold">
                     <br><br> ____________________________________ <br>
-                    FIRMA
+                    FIRMA DE PERITO VALUADOR
                 </td>
             </tr>
             <tr>

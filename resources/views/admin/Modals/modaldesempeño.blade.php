@@ -136,8 +136,12 @@
                         <label for="prestamo_prenda" class="form-label h2">
                             <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño }} </strong></label>
                             <input type="hidden" id="total" name="total" value="{{ $dato_prenda->desempeño}}">
- 
                     </div>
+                    <div class="text-center mt-2">
+                            <font size=3>
+                                <p>{{num2letras($dato_prenda->desempeño)}}</p>
+                            </font>
+                        </div>
 
 
                     <div class="text-center col-md-12">
@@ -147,7 +151,7 @@
 
                     <div class=" mt-3">
                         <label for="" class="negritas">CANTIDAD PAGADA:</label>
-                        <input type="number" id="cantidad_pago" name="cantidad_pago"
+                        <input type="number" id="cantidad_pago" name="cantidad_pago" 
                             class="form-control input_style text-center tamañoletra" readonly>
                     </div>
                     <div class=" mt-3">
