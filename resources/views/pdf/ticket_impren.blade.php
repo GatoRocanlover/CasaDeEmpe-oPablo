@@ -41,7 +41,7 @@
       font-size: 14px;
     }
     .numeros2{
-      font-size: 12px;
+      font-size: 10px;
     }
   </style>
 
@@ -135,6 +135,9 @@
       <tr>
         <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
         <td class="text-center numeros" >$ {{$dato_desempeño->cambio_boleta}}</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
       </tr>
       <tr>
         <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>

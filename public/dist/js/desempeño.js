@@ -181,3 +181,19 @@ function calcular() {
    
 }
 calcular();
+
+/**MENSAJES DE ERRROR */
+var mensaje_error_save_venta_temp = (data) => {
+    var errores = document.querySelector(".print-save-error-msg");
+    errores.innerHTML = "";
+    errores.style.display = "block";
+    const mensaje_validacion_ventas= data.mensaje;
+    mensaje_validacion_ventas.forEach(element => {
+        // console.log(element);
+        errores.innerHTML += "<li>" + element + "</li>";
+    });
+    window.setTimeout(function() {
+      const diverror =  document.querySelector(".print-save-error-msg");
+      diverror.style.display="none";
+    }, 3000);
+};

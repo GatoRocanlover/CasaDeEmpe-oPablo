@@ -62,7 +62,7 @@
 
         .tabla1 {
             width: 500px;
-            height: 820px;
+            height: 840px;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -70,7 +70,7 @@
         .tabla2 {
             border-left: 2px solid black;
             width: 600px;
-            height: 820px;
+            height: 840px;
             padding: 30px;
             background-color: #f2f2f1;
 
@@ -113,6 +113,10 @@
         .letra1 {
             font-size: 22px;
         }
+
+        .signo {
+            font-size: 28px;
+        }
     </style>
 
 </head>
@@ -132,6 +136,9 @@
             </div>
             <!-- MENU -->
             @include('layout.nav')
+
+
+
 
             @if ($errors->any())
             <div class="alert alert-danger">
@@ -158,6 +165,7 @@
 
             <div class="tabla justify-content-center mt-4">
                 <div class="tabla1 ">
+                    <br>
                     <br>
                     <br>
                     <br>
@@ -240,15 +248,23 @@
                                 <p>{{num2letras($dato_prenda->desempeño)}}</p>
                             </font>
                         </div>
+                        <div class=" tabla justify-content-center">
+                            <div class="col-md-8 mt-4">
+                                <label for="" class="negritas">PAGO RECIBIDO:</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                                    <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
+                                </div>
+                            </div>
+                            <div class="col-md-8 mt-4">
+                                <label for="" class="negritas">CAMBIO ENTREGADO:</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                                    <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
+                                </div>
+                            </div>
+                        </div>
 
-                        <div class="col-md-12 mt-4">
-                            <label for="" class="negritas">PAGO RECIBIDO:</label>
-                            <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="$ 0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
-                        </div>
-                        <div class="col-md-12 mt-4">
-                            <label for="" class="negritas">CAMBIO ENTREGADO:</label>
-                            <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="$ 0.00">
-                        </div>
                         <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
                             <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
                         </div>

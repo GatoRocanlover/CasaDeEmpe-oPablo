@@ -38,11 +38,13 @@ class TicketController extends Controller
     {
         $reglas = [
             "cantidad_pago" => 'bail|required',
+            "cambio_boleta" => 'bail|required',
         ];
 
 
         $mensajes = [
           "cantidad_pago.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
+          "cambio_boleta.required" => "LA CANTIDAD QUE SE INGRESO ES MENOR A LA CANTIDAD TOTAL A DESEMPEÑAR, VERIFICAR LA INFORMACIÓN!!",
         ];
         $validator = Validator::make(
             $request->all(),

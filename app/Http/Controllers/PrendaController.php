@@ -236,13 +236,12 @@ class PrendaController extends Controller
         $prenda = Prenda::find($id);
 
         $reglas = [
-            "cantidad_pago" => 'bail|required',
+         //   "cantidad_pago" => 'bail|required',       
         ];
 
         $mensajes = [
 
-            "cantidad_pago.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
-
+          //  "cantidad_pago.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
 
         ];
         $validator = Validator::make(
