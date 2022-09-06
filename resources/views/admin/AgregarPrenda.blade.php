@@ -18,9 +18,7 @@
     <!-- Styles -->
     <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
-    <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-    </style>
+
     <style>
         body {
             font-family: 'Nunito', sans-serif;

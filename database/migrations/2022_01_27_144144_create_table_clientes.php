@@ -17,7 +17,7 @@ class CreateTableClientes extends Migration
             $table->id('id_cliente');
             $table->string('nombre_cliente', 30);
             $table->string('apellido_cliente', 30);
-            $table->tinyInteger('tipo_de_identificacion');
+            $table->string('tipo_de_identificacion', 30);
             $table->string('numero_de_identificacion', 20);
             $table->string('correo_electronico_cliente', 30)->nullable()->default(null);
             $table->string('telefono_cliente', 10)->nullable()->default(null);

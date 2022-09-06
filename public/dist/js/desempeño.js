@@ -175,8 +175,8 @@ function calcular() {
     var porce4 = parseFloat(porce+porce1+porce2);
 
     
-    $("#subtotal1").val(formatear(porce3.toFixed(3)))
-    $("#subtotal").val(porce4.toFixed(3))
+    $("#subtotal1").val(formatear(porce3.toFixed(2)))
+    $("#subtotal").val(porce4.toFixed(2))
 
    
 }

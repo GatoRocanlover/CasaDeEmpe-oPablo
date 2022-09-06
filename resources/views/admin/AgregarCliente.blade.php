@@ -83,9 +83,9 @@
                 <div class="col-md-6">IDENTIFICACION *</label>
                     <select class="form-select" name="tipo_de_identificacion" id="tipo_de_identificacion" aria-label="Default select example">
                         <option selected value="-1">TIPO DE IDENTIFICACION </option>
-                        <option value="1">INE</option>
-                        <option value="2">CARTILLA MILITAR </option>
-                        <option value="3">PASAPORTE</option>
+                        <option value="CREDENCIAL NACIONAL ELECTOR">INE</option>
+                        <option value="CARTILLA MILITAR">CARTILLA MILITAR </option>
+                        <option value="PASAPORTE">PASAPORTE</option>
                     </select>
                     <div class="valid-feedback">
                         Looks good!
@@ -165,7 +165,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="ciudad_cliente" class="form-label">CIUDAD *</label>
+                    <label for="ciudad_cliente" class="form-label">CIUDAD Y ESTADO *</label>
                     <input type="text" name="ciudad_cliente" class="form-control" id="ciudad_cliente" placeholder="Ciudad del cliente" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
@@ -230,7 +230,7 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <label for="ciudad_cotitular" class="form-label">CIUDAD</label>
+                    <label for="ciudad_cotitular" class="form-label">CIUDAD Y ESTADO</label>
                     <input type="text" name="ciudad_cotitular" class="form-control" id="ciudad_cotitular" placeholder="Ciudad cotitular" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.

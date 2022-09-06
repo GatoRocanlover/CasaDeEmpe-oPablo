@@ -126,8 +126,8 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label">
                             <strong>I.V.A. 16% : &nbsp;&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->iva }}</label>
-                            <input type="hidden" id="iva" name="iva" value="{{ $dato_prenda->iva }}">
- 
+                        <input type="hidden" id="iva" name="iva" value="{{ $dato_prenda->iva }}">
+
                     </div>
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
@@ -135,29 +135,37 @@
                     <div class="col-md-12 mt-4 text-center">
                         <label for="prestamo_prenda" class="form-label h2">
                             <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño }} </strong></label>
-                            <input type="hidden" id="total" name="total" value="{{ $dato_prenda->desempeño}}">
+                        <input type="hidden" id="total" name="total" value="{{ $dato_prenda->desempeño }}">
                     </div>
                     <div class="text-center mt-2">
-                            <font size=3>
-                                <p>{{num2letras($dato_prenda->desempeño)}}</p>
-                            </font>
-                        </div>
+                        <font size=3>
+                            <p>{{ num2letras($dato_prenda->desempeño) }}</p>
+                        </font>
+                    </div>
 
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
                     </div>
-
-
-                    <div class=" mt-3">
-                        <label for="" class="negritas">CANTIDAD PAGADA:</label>
-                        <input type="number" id="cantidad_pago" name="cantidad_pago" 
-                            class="form-control input_style text-center tamañoletra" readonly>
+                    
+                    <div class=" tabla justify-content-center">
+                        <div class="col-md-8 mt-3">
+                            <label for="" class="negritas">CANTIDAD PAGADA:</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                                <input type="number" id="cantidad_pago" name="cantidad_pago"
+                                    class="form-control input_style text-center tamañoletra" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-8 mt-3">
+                            <label for="" class="negritas">CAMBIO:</label>
+                            <div class="input-group has-validation">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                                <input type="text" id="cambio_boleta" name="cambio_boleta"
+                                    class="form-control input_style text-center letracambio" readonly>
+                            </div>
+                        </div>
                     </div>
-                    <div class=" mt-3">
-                        <label for="" class="negritas">CAMBIO:</label>
-                        <input type="text" id="cambio_boleta" name="cambio_boleta"
-                            class="form-control input_style text-center letracambio" readonly>
-                    </div>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

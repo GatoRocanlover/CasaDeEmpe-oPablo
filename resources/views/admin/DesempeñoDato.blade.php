@@ -78,6 +78,7 @@
 
         .campo1 {
             background-color: #f2f2f1;
+            color: black;
         }
 
         .letrapago {
@@ -231,7 +232,7 @@
                         <p>------------------------------------------------------</p>
                         <div class="col-md-12">
                             <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                    TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1" name="subtotal1" type="text" readonly></label>
+                                    TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1" name="subtotal1" type="text" disabled></label>
                         </div>
                         <div class="col-md-12">
                             <label for="prestamo_prenda" class="form-label">
