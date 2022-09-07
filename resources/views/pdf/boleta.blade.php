@@ -75,9 +75,10 @@
                             </p>
                         </div>
                         {{dias()}}
-                        {{diasmes2()}}
+                        {{diasmes2($dato_prenda->created_at->format('d-m-Y'))}}
                         {{diasmes3()}}
                         {{diasmes4()}}
+                        {{diasmes5()}}
                        
                         
 
