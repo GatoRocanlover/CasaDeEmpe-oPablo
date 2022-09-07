@@ -60,25 +60,33 @@
  });
  //--------
 
- //MENSAJE DE ALERTA BOTTON
- function enviar(){
-event.preventDefault();
 
- Swal.fire({
- title: '¿SEGURO DE REALIZAR EL PAGO?',
- type: 'warning',
- showCancelButton: true,
- confirmButtonText: 'Si',
- cancelButtonText: "No",
- confirmButtonColor: '#3085d6',
- cancelButtonColor: '#d33',
+ function enviar() {
+    event.preventDefault();
+
+    Swal.fire({
+title: '¿SEGURO DE REALIZAR EL PAGO?',
+text: "Esta seguro que desea realizar esta operación!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'SI, DESEO REALIZAR EL PAGO!',
+cancelButtonText: "No"
 }).then((result) => {
- if (result.value) {
- document.formulario_pago.submit();
- }
- return false;
+if (result.value) {
+document.formulario_pago.submit();
+/* Swal.fire(
+  'Deleted!',
+  'Your file has been deleted.',
+  'success'
+)
+ */
+}
 })
 }
+
+
 //--------------
 
 
@@ -182,18 +190,3 @@ function calcular() {
 }
 calcular();
 
-/**MENSAJES DE ERRROR */
-var mensaje_error_save_venta_temp = (data) => {
-    var errores = document.querySelector(".print-save-error-msg");
-    errores.innerHTML = "";
-    errores.style.display = "block";
-    const mensaje_validacion_ventas= data.mensaje;
-    mensaje_validacion_ventas.forEach(element => {
-        // console.log(element);
-        errores.innerHTML += "<li>" + element + "</li>";
-    });
-    window.setTimeout(function() {
-      const diverror =  document.querySelector(".print-save-error-msg");
-      diverror.style.display="none";
-    }, 3000);
-};

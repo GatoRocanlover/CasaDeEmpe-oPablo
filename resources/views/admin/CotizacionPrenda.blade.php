@@ -188,7 +188,7 @@
         </div>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
@@ -245,24 +245,32 @@
     calcular1();
 
     //MENSAJE DE ALERTA BOTTON
-    function enviar() {
-        event.preventDefault();
 
-        Swal.fire({
-            title: '¿DESEA YA REGISTRAR COTIZACIÓN?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Si',
-            cancelButtonText: "No",
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                document.registroCotizacion.submit();
-            }
-            return false;
-        })
-    }
+
+    function enviar() {
+    event.preventDefault();
+
+    Swal.fire({
+title: '¿DESEA REGISTRAR COTIZACIÓN?',
+text: "Esta seguro que desea realizar esta operación!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'SI, DESEO REGISTRAR LA COTIZACIÓN!',
+cancelButtonText: "No"
+}).then((result) => {
+if (result.value) {
+document.registroCotizacion.submit();
+/* Swal.fire(
+  'Deleted!',
+  'Your file has been deleted.',
+  'success'
+)
+ */
+}
+})
+}
 </script>
 
 </html>

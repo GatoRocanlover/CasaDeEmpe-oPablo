@@ -61,7 +61,7 @@ class TicketController extends Controller
         $ticket = TicketsDesempeño::make($request->all());
         $ticket->save();
 
-        return redirect()->route('Ticket_Desempeño')->with('success','SE REALIZO EL PAGO');
+        return redirect()->route('Ticket_Desempeño')->with('registro','pago');
     }
 
     public function vistaTicket($id)

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
-    
+
 
     <style>
         body {
@@ -69,9 +69,10 @@
             justify-content: center;
             align-items: center;
         }
-        .red1 :hover{
+
+        .red1 :hover {
             background-color: green;
-           
+
         }
     </style>
 
@@ -103,33 +104,30 @@
         @include('layout.nav')
 
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
         @endif
 
 
 
         <br>
-        <form action="{{ Route('prenda.store') }}" method="POST" onsubmit="return enviar()" name="formulario_boleta"
-            class="row g-3 needs-validation size100 items-center justify-center" novalidate>
+        <form action="{{ Route('prenda.store') }}" method="POST" onsubmit="return enviar()" name="formulario_boleta" class="row g-3 needs-validation size100 items-center justify-center" novalidate>
             @csrf
             <div class="tabla justify-content-center">
                 <div class="tabla1">
                     <label for="" class="h5 text-center col-md-11 fw-bold">DATOS DEL CLIENTE:</label>
 
                     <div class="mt-5"></div>
-                    
+
 
                     <div class="col-md-11 mt-4 red1">
-                        <input type="hidden" name="buscar_cliente" class="form-control" id="buscar_cliente"
-                            value="" placeholder="BUSCAR CLIENTE" required>
-                        <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value=""
-                            placeholder="BUSCAR CLIENTE" required>
+                        <input type="hidden" name="buscar_cliente" class="form-control" id="buscar_cliente" value="" placeholder="BUSCAR CLIENTE" required>
+                        <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="" placeholder="BUSCAR CLIENTE" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
@@ -139,25 +137,21 @@
 
                     <div class="col-md-13 mt-4">
                         <label for="" class="fw-bold sub">NOMBRE DEL CLIENTE:</label>
-                        <input type="text" name="nombre_cliente" class="col-md-11 sub" id="nombre_cliente"
-                            value="" placeholder="CLIENTE" readonly>
+                        <input type="text" name="nombre_cliente" class="col-md-11 sub" id="nombre_cliente" value="" placeholder="CLIENTE" readonly>
                         <br>
                         <label for="" class="fw-bold mt-2 sub col-md-14">DIRECCIÓN:</label>
-                        <input type="text" name="direccion" class="col-md-11 sub2" id="direccion" value=""
-                            placeholder="DIRECCIÓN" readonly>
+                        <input type="text" name="direccion" class="col-md-11 sub2" id="direccion" value="" placeholder="DIRECCIÓN" readonly>
                         <br>
                         <label for="" class="fw-bold mt-2 sub">NUMERO SOCIO:</label>
-                        <input type="text" name="numero_socio" class="col-md-11 sub" id="numero_socio" value=""
-                            placeholder="NUMERO DE SOCIO" readonly>
-                            <strong><label class="col-md-8 sub mt-2">REAFIRMA SI ES SOCIO:</label></strong><br>
-                            <div class="col-md-11">
-                                <select class="form-select text-center mt-1" id="socio" onchange="calcular();"name="socio"
-                                    aria-label="Default select example">
-                                    <option value="">¿ES SOCIO?</option>
-                                    <option value="0.020">SI</option>
-                                    <option value="0.025">NO</option>
-                                </select>
-                            </div>
+                        <input type="text" name="numero_socio" class="col-md-11 sub" id="numero_socio" value="" placeholder="NUMERO DE SOCIO" readonly>
+                        <strong><label class="col-md-8 sub mt-2">REAFIRMA SI ES SOCIO:</label></strong><br>
+                        <div class="col-md-11">
+                            <select class="form-select text-center mt-1" id="socio" onchange="calcular();" name="socio" aria-label="Default select example">
+                                <option value="">¿ES SOCIO?</option>
+                                <option value="0.020">SI</option>
+                                <option value="0.025">NO</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="tabla2">
@@ -167,77 +161,98 @@
                         <br>
                         <label for="" class="sub"><strong>FOLIO DE COTIZACIÓN:
                             </strong>{{ $datoCotizar->id_cotizacionprenda }}</label>
-                        <input type="hidden" name="folio_cotizacion" class="form-control" id="folio_cotizacion"
-                            value="{{ $datoCotizar->id_cotizacionprenda }}" readonly>
+                        <input type="hidden" name="folio_cotizacion" class="form-control" id="folio_cotizacion" value="{{ $datoCotizar->id_cotizacionprenda }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>NOMBRE PRENDA:
                             </strong>{{ $datoCotizar->nombre_prenda }}</label>
-                        <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda"
-                            value="{{ $datoCotizar->nombre_prenda }}" readonly>
+                        <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{ $datoCotizar->nombre_prenda }}" readonly>
                         <br>
                         <label for="" class="sub mt-1"><strong>CANTIDAD DE PRENDAS:
                             </strong>{{ $datoCotizar->cantidad_prenda }}</label>
-                        <input type="hidden" name="cantidad_prenda" class="form-control" id="cantidad_prenda"
-                            value="{{ $datoCotizar->cantidad_prenda }}" readonly>
+                        <input type="hidden" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="{{ $datoCotizar->cantidad_prenda }}" readonly>
                         <br>
                         <label for="" class="sub mt-1"><strong>DESCRIPCIÓN:
                             </strong>{{ $datoCotizar->caracteristicas_prenda }}</label>
-                        <input type="hidden" name="caracteristicas_prenda" class="form-control"
-                            id="caracteristicas_prenda" value="{{ $datoCotizar->caracteristicas_prenda }}" readonly>
+                        <input type="hidden" name="caracteristicas_prenda" class="form-control" id="caracteristicas_prenda" value="{{ $datoCotizar->caracteristicas_prenda }}" readonly>
                         <br>
                         <label for="" class="sub mt-1"><strong>DESCRIPCIÓN GENERICA: </strong>
                             @if ($datoCotizar->descripcion_generica == 1)
-                                ORO
+                            ORO
                             @else
                             @endif
                             @if ($datoCotizar->descripcion_generica == 2)
-                                PLATA
+                            PLATA
                             @else
                             @endif
                         </label>
-                        <input type="hidden" name="descripcion_generica" class="form-control"
-                            id="descripcion_generica" value="{{ $datoCotizar->descripcion_generica }}" readonly>
+                        <input type="hidden" name="descripcion_generica" class="form-control" id="descripcion_generica" value="{{ $datoCotizar->descripcion_generica }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>KILATAJE:
                             </strong>{{ $datoCotizar->kilataje_prenda }}</label>
-                        <input type="hidden" name="kilataje_prenda" class="form-control" id="kilataje_prenda"
-                            value="{{ $datoCotizar->kilataje_prenda }}" readonly>
+                        <input type="hidden" name="kilataje_prenda" class="form-control" id="kilataje_prenda" value="{{ $datoCotizar->kilataje_prenda }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>GRAMAJE:
                             </strong>{{ $datoCotizar->gramaje_prenda }}</label>
-                        <input type="hidden" name="gramaje_prenda" class="form-control" id="gramaje_prenda"
-                            value="{{ $datoCotizar->gramaje_prenda }}" readonly>
+                        <input type="hidden" name="gramaje_prenda" class="form-control" id="gramaje_prenda" value="{{ $datoCotizar->gramaje_prenda }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>AVALUO:
                             </strong>${{ $datoCotizar->avaluo_prenda }}</label>
-                        <input type="hidden" name="avaluo_prenda" class="form-control" id="avaluo_prenda"
-                            value="{{ $datoCotizar->avaluo_prenda }}" readonly>
+                        <input type="hidden" name="avaluo_prenda" class="form-control" id="avaluo_prenda" value="{{ $datoCotizar->avaluo_prenda }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>PORCENTAJE DE AVALUO:
                             </strong>{{ $datoCotizar->porcentaje_prestamo_sobre_avaluo }}%</label>
-                        <input type="hidden" name="porcentaje_prestamo_sobre_avaluo" class="form-control"
-                            id="porcentaje_prestamo_sobre_avaluo"
-                            value="{{ $datoCotizar->porcentaje_prestamo_sobre_avaluo }}" readonly>
+                        <input type="hidden" name="porcentaje_prestamo_sobre_avaluo" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="{{ $datoCotizar->porcentaje_prestamo_sobre_avaluo }}" readonly>
                         <br>
 
-                        <input type="hidden" onkeyUp="calcular();" name="prestamo_inicial" class="form-control"
-                            id="prestamo_inicial" value="{{ $datoCotizar->prestamo_prenda }}" readonly>
+                        <input type="hidden" onkeyUp="calcular();" name="prestamo_inicial" class="form-control" id="prestamo_inicial" value="{{ $datoCotizar->prestamo_prenda }}" readonly>
 
 
                         <label for="" class="sub"><strong>PRESTAMO:
                             </strong>${{ $datoCotizar->prestamo_prenda }}</label>
-                        <input type="hidden" name="prestamo_prenda" class="form-control" id="prestamo_prenda"
-                            value="{{ $datoCotizar->prestamo_prenda }}" readonly>
+                        <input type="hidden" name="prestamo_prenda" class="form-control" id="prestamo_prenda" value="{{ $datoCotizar->prestamo_prenda }}" readonly>
                     </div>
                 </div>
-                
+
             </div>
 
+            <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
+            <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{diasmes2()}}" readonly>
+            <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{diasmes3()}}" readonly>
+            <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{diasmes4()}}" readonly>
+            <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
+            <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
+            <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{fechacomercial()}}" readonly>
+        
             <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
             <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
             <input type="hidden" name="iva" class="form-control" id="iva" value="" readonly>
             <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="" readonly>
             <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="" readonly>
+            
+            <input type="hidden" name="interes2" class="sub uno" id="interes2" value="" readonly>
+            <input type="hidden" name="almacenaje2" class="form-control" id="almacenaje2" value="" readonly>
+            <input type="hidden" name="iva2" class="form-control" id="iva2" value="" readonly>
+            <input type="hidden" name="refrendo2" class="form-control" id="refrendo2" value="" readonly>
+            <input type="hidden" name="desempeño2" class="form-control" id="desempeño2" value="" readonly>
+            
+            <input type="hidden" name="interes3" class="sub uno" id="interes3" value="" readonly>
+            <input type="hidden" name="almacenaje3" class="form-control" id="almacenaje3" value="" readonly>
+            <input type="hidden" name="iva3" class="form-control" id="iva3" value="" readonly>
+            <input type="hidden" name="refrendo3" class="form-control" id="refrendo3" value="" readonly>
+            <input type="hidden" name="desempeño3" class="form-control" id="desempeño3" value="" readonly>
+            
+            <input type="hidden" name="interes4" class="sub uno" id="interes4" value="" readonly>
+            <input type="hidden" name="almacenaje4" class="form-control" id="almacenaje4" value="" readonly>
+            <input type="hidden" name="iva4" class="form-control" id="iva4" value="" readonly>
+            <input type="hidden" name="refrendo4" class="form-control" id="refrendo4" value="" readonly>
+            <input type="hidden" name="desempeño4" class="form-control" id="desempeño4" value="" readonly>
+            
+            <input type="hidden" name="interes5" class="sub uno" id="interes5" value="" readonly>
+            <input type="hidden" name="almacenaje5" class="form-control" id="almacenaje5" value="" readonly>
+            <input type="hidden" name="iva5" class="form-control" id="iva5" value="" readonly>
+            <input type="hidden" name="refrendo5" class="form-control" id="refrendo5" value="" readonly>
+            <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
+
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>
 
 
@@ -248,33 +263,21 @@
             </div>
     </div>
     </form>
-
-
-
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
-
+<script src="{{ asset('dist/js/AgregarPrenda.js') }}"></script>
 <script>
-    //FUNCION QUE DESABILITA LOS SELECT OPTION SIN MODIFICAR Y NO ENVIAR CAMPOS VACIOS:
-    /*  $('select option:not(:selected)').each(function() {
-         $(this).attr('disabled', 'disabled');
-     }); */
-    //--------
-
     function setearCliente(id_cliente, nombre_cliente, numero_socio, calle_cliente, colonia_cliente, numero_cliente,
         cruzamientos_cliente, ciudad_cliente) {
 
@@ -336,76 +339,6 @@
             }, "json");
 
     });
-
-    //-------------------------------------------------------------
-
-    function formatear(dato) {
-        return dato.replace(/./g, function(c, i, a) {
-            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-        });
-    }
-
-    function calcular() {
-        var valor = document.getElementById("socio").value;
-        var datopres = document.getElementById("prestamo_inicial").value;
-        var porce = parseFloat(1 * valor * datopres);
-        var porce1 = parseInt(datopres) * 0.01 * 1;
-        var porce2 = parseFloat((porce + porce1) * 0.16);
-        var porce3 = parseFloat(porce + porce1 + porce2);
-        var porce4 = parseFloat(datopres)
-        var porce5 = parseFloat(porce3 + porce4);
-
-        $("#almacenaje").val(formatear(porce.toFixed(2)))
-        $("#iva").val(porce2.toFixed(2))
-        $("#interes").val((porce1.toFixed(2)))
-        $("#refrendo").val((porce3.toFixed(2)))
-        $("#desempeño").val((porce5.toFixed(2)))
-    }
-    calcular();
-
-    //-------------------------------------------------------
-
-    //MENSAJE DE ALERTA BOTTON
-    function enviar() {
-        event.preventDefault();
-
-        Swal.fire({
-  title: '¿DESEA GENERAR LA BOLETA?',
-  text: "Esta seguro que desea realizar esta operación!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'SI, DESEO GENERAR LA BOLETA!',
-  cancelButtonText: "No"
-}).then((result) => {
-  if (result.value) {
-    document.formulario_boleta.submit();
-    /* Swal.fire(
-      'Deleted!',
-      'Your file has been deleted.',
-      'success'
-    )
-     */
-  }
-})
-
-        /* Swal.fire({
-            title: '¿DESEA GENERAR LA BOLETA?',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Si',
-            cancelButtonText: "No",
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-        }).then((result) => {
-            if (result.value) {
-                
-                document.formulario_boleta.submit();
-            }
-            return false;
-        }) */
-    }
 </script>
 
 </html>

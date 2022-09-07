@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Casa de Empeño Asociados Nueva Mutua.</title>
+    <title>Casa de Empeño Asociados Nueva Mutua / Boletas #.</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Sonsie+One" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="{{ asset('dist/css/estilosBoleta.css') }}">
     <script type="text/javascript" src="/JavaScript.js"></script>
@@ -39,6 +39,9 @@
             justify-content: center;
             align-items: center;
         }
+        .subrayado{
+           
+        }
     </style>
 </head>
 
@@ -67,57 +70,49 @@
                     </header>
                     <div class="iempresa">
                         <div class="lineal">
-                            <p>Fecha de celebración del contrato Umán, Yuc a
-                                {{ $dato_prenda->created_at->format('D, d F, Y.') }}
-                                <script type="text/javascript"> var meses = new Array 
-                    ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"); 
-                    var f=new Date(); document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear()); </script>
-                            </p>
+                             Fecha de celebración del contrato Umán, Yuc a
+                                {{ $dato_prenda->fecha_prestamo}}
+                                <!-- <script type="text/javascript">
+                                    var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+                                    var f = new Date();
+                                    document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+                                </script> -->
+                            
                         </div>
-                        {{dias()}}
-                        {{diasmes2($dato_prenda->created_at->format('d-m-Y'))}}
-                        {{diasmes3()}}
-                        {{diasmes4()}}
-                        {{diasmes5()}}
-                       
-                        
+                        CONTRATO DE MUTUO CON INTERES Y GARANTIA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA
+                        MUTUA S.A. DE C.V., EL PROVEEDOR,
+                        con domicilio en: Calle 23 No 100-B x 18 y 20 Col. Centro, Umán,
+                        Yucatán, México. C.P.97390, R.F.C. ANM-180517PD6, 988 933 0223,
+                        Correo electrónico: asociadosnm2018@gmail.com.
+                        <br>
+                        y EL CONSUMIDOR <b>{{ $dato_prenda->cliente->nombre_cliente }}
+                            {{ $dato_prenda->cliente->apellido_cliente }}</b>, que se identifica con
+                        <b>{{ $dato_prenda->cliente->tipo_de_identificacion }}</b>, número:
+                        <b>{{ $dato_prenda->cliente->numero_de_identificacion }}</b> con domicilio en:
+                        <b>CALLE {{ $dato_prenda->cliente->calle_cliente }} N°
+                            {{ $dato_prenda->cliente->numero_cliente }} COL.
+                            {{ $dato_prenda->cliente->colonia_cliente }},
+                            {{ $dato_prenda->cliente->ciudad_cliente }},</b> Tel:
+                        <b>{{ $dato_prenda->cliente->telefono_cliente }}</b>, correo electrónico:
+                        <b>{{ $dato_prenda->cliente->correo_electronico_cliente }}</b>, quien designa como
+                        cotitular a
+                        <b>{{ $dato_prenda->cliente->nombre_cotitular }}
+                            {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE N°
+                            {{ $dato_prenda->cliente->calle_cotitular }} COL.
+                            {{ $dato_prenda->cliente->colonia_cotitular }},
+                            {{ $dato_prenda->cliente->ciudad_cotitular }}.</b>, solo para efectos de este.
 
-                        
-                       
-                        <p>CONTRATO DE MUTUO CON INTERES Y GARANTIA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA
-                            MUTUA S.A. DE C.V., EL PROVEEDOR,
-                            con domicilio en: Calle 23 No 100-B x 18 y 20 Col. Centro, Umán,
-                            Yucatán, México. C.P.97390, R.F.C. ANM-180517PD6, 988 933 0223,
-                            Correo electrónico: asociadosnm2018@gmail.com.
-                            <br>
-                            y EL CONSUMIDOR <b>{{ $dato_prenda->cliente->nombre_cliente }}
-                                {{ $dato_prenda->cliente->apellido_cliente }}</b>, que se identifica con
-                            <b>{{ $dato_prenda->cliente->tipo_de_identificacion }}</b>, número:
-                            <b>{{ $dato_prenda->cliente->numero_de_identificacion }}</b> con domicilio en:
-                            <b>CALLE {{ $dato_prenda->cliente->calle_cliente }} N°
-                                {{ $dato_prenda->cliente->numero_cliente }} COL.
-                                {{ $dato_prenda->cliente->colonia_cliente }},
-                                {{ $dato_prenda->cliente->ciudad_cliente }},</b> Tel:
-                            <b>{{ $dato_prenda->cliente->telefono_cliente }}</b>, correo electrónico:
-                            <b>{{ $dato_prenda->cliente->correo_electronico_cliente }}</b>, quien designa como
-                            cotitular a
-                            <b>{{ $dato_prenda->cliente->nombre_cotitular }}
-                                {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE N°
-                                {{ $dato_prenda->cliente->calle_cotitular }} COL.
-                                {{ $dato_prenda->cliente->colonia_cotitular }},
-                                {{ $dato_prenda->cliente->ciudad_cotitular }}.</b>, solo para efectos de este.
-                        </p>
-                        <p>
-                            @if ($dato_prenda->cliente->socio == 0.02)
-                            SOCIO: SI (X) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
-                            {{ $dato_prenda->cliente->numero_socio }}
-                            @else
-                            @endif
-                            @if ($dato_prenda->cliente->socio == 0.025)
-                            SOCIO: SI ( ) NO (X) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO: N/A
-                            @else
-                            @endif
-                        </p>
+                        <br>
+                        @if ($dato_prenda->cliente->socio == 0.02)
+                        SOCIO: SI (X) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
+                        {{ $dato_prenda->cliente->numero_socio }}
+                        @else
+                        @endif
+                        @if ($dato_prenda->cliente->socio == 0.025)
+                        SOCIO: SI ( ) NO (X) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO: N/A
+                        @else
+                        @endif
+
                     </div>
                 </th>
             </tr>
@@ -162,9 +157,8 @@
                 </td>
 
                 <td>
-                    <div class="d-flex align-items-center justify-content-center">
-                        <span>$</span><input type="text" name="desempcopia" class="numT col-md-6 " id="desempcopia" value="" disabled>
-                    </div>
+                    $ {{$dato_prenda->desempeño5}}
+                    <br>
                     (CON IVA)
                 </td>
 
@@ -203,8 +197,8 @@
 
                 <td colspan="9">
                     <div class="iempresa">
-                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : 15-JUL-2022.
-                        Total de refrendos aplicables: 5 . Su pago será: EFECTIVO. En caso de que sea
+                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{$dato_prenda->fecha_comercializacion}}</u></b>.
+                        Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: EFECTIVO. En caso de que sea
                         día inhábil, se considera el día siguiente.
                     </div>
                 </td>
@@ -212,15 +206,15 @@
 
             <tr>
 
-                <td rowspan="7">OPCIONES DE PAGO PARA REFRENDO O DESEMPEÑO</td>
+                <th rowspan="7">OPCIONES DE PAGO PARA REFRENDO O DESEMPEÑO</th>
 
-                <td rowspan="2">NUMERO</td>
+                <th rowspan="2">NUMERO</th>
 
-                <td colspan="4">MONTO</td>
+                <th colspan="4">MONTO</th>
 
-                <td colspan="2">TOTAL A PAGAR</td>
+                <th colspan="2">TOTAL A PAGAR</th>
 
-                <td rowspan="2">CUANDO SE REALIZAN LOS PAGOS</td>
+                <th rowspan="2">CUANDO SE REALIZAN LOS PAGOS</th>
 
             </tr>
 
@@ -257,176 +251,109 @@
                 <td>$ {{ $dato_prenda->desempeño }}</td>
 
                 <td>
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 1));
-                        var mesesAbr = new Array("en", "feb", "mar", "abr", "may", "jun", "jul", "ag", "sept", "oct", "nov", "dic");
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                    {{$dato_prenda->mes1}}
                 </td>
 
             </tr>
             <tr>
                 <th>2° Mes</th>
 
-                <td>${{ $dato_prenda->prestamo_prenda }}.00</td>
-
                 <td>
-                    <div class="centro1">
-
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span>$</span><input type="text" name="interes2" class="col-md-5 numT" id="interes2" disabled>
-                        </div>
-                    </div>
+                    $ {{$dato_prenda->prestamo_prenda}}.00
                 </td>
-
                 <td>
-                    <div class="centro1">
-
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span>$</span><input type="text" name="alma2" class="numT col-md-5" id="alma2" value="" disabled>
-                        </div>
-                    </div>
+                    $ {{$dato_prenda->interes2}}
                 </td>
-
                 <td>
-                    <div class="centro1">
-
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span>$</span><input type="text" name="iva2" class="numT col-md-5" id="iva2" value="" disabled>
-                        </div>
-                    </div>
+                    $ {{$dato_prenda->almacenaje2}}
                 </td>
-
                 <td>
-                    <div class="centro1">
-
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span>$</span><input type="text" name="refre2" class="numT col-md-5" id="refre2" value="" disabled>
-                        </div>
-                    </div>
+                    $ {{$dato_prenda->iva2}}
                 </td>
-
                 <td>
-                    <div class="centro1">
-
-                        <div class="d-flex align-items-center justify-content-center">
-                            <span>$</span><input type="text" name="desemp2" class="numT col-md-5" id="desemp2" value="" disabled>
-                        </div>
-                    </div>
+                    $ {{$dato_prenda->refrendo2}}
                 </td>
-
                 <td>
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 2));
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                    $ {{$dato_prenda->desempeño2}}
                 </td>
-
+                <td>
+                    {{$dato_prenda->mes2}}
+                </td>
             </tr>
             <tr>
                 <th>3° Mes</th>
 
-                <td>${{ $dato_prenda->prestamo_prenda }}.00</td>
-
                 <td>
-                    $<input type="text" name="interes3" class="numT col-md-5" id="interes3" value="" disabled>
+                    $ {{$dato_prenda->prestamo_prenda}}.00
                 </td>
-
                 <td>
-                    $<input type="text" name="alma3" class="numT col-md-5" id="alma3" value="" disabled>
+                    $ {{$dato_prenda->interes3}}
                 </td>
-
                 <td>
-                    $<input type="text" name="iva3" class="numT col-md-5" id="iva3" value="" disabled>
+                    $ {{$dato_prenda->almacenaje3}}
                 </td>
-
                 <td>
-                    $<input type="text" name="refre3" class="numT col-md-5" id="refre3" value="" disabled>
+                    $ {{$dato_prenda->iva3}}
                 </td>
-
-                <td> $<input type="text" name="desemp3" class="numT col-md-5" id="desemp3" value="" disabled>
-                </td>
-
                 <td>
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 3));
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                    $ {{$dato_prenda->refrendo3}}
                 </td>
-
+                <td>
+                    $ {{$dato_prenda->desempeño3}}
+                </td>
+                <td>
+                    {{$dato_prenda->mes3}}
+                </td>
             </tr>
             <tr>
                 <th>4° Mes</th>
 
-                <td>${{ $dato_prenda->prestamo_prenda }}.00</td>
-
                 <td>
-                    $<input type="text" name="interes4" class="numT col-md-5" id="interes4" value="" disabled>
+                    ${{ $dato_prenda->prestamo_prenda }}.00
                 </td>
-
                 <td>
-                    $<input type="text" name="alma4" class="numT col-md-5" id="alma4" value="" disabled>
+                    $ {{$dato_prenda->interes4}}
                 </td>
-
                 <td>
-                    $<input type="text" name="iva4" class="numT col-md-5" id="iva4" value="" disabled>
+                    $ {{$dato_prenda->almacenaje4}}
                 </td>
-
                 <td>
-                    $<input type="text" name="refre4" class="numT col-md-5" id="refre4" value="" disabled>
+                    $ {{$dato_prenda->iva4}}
                 </td>
-
                 <td>
-                    $<input type="text" name="desemp4" class="numT col-md-5" id="desemp4" value="" disabled>
+                    $ {{$dato_prenda->refrendo4}}
                 </td>
-
                 <td>
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 4));
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                    $ {{$dato_prenda->desempeño4}}
                 </td>
-
+                <td>
+                    {{$dato_prenda->mes4}}
+                </td>
             </tr>
             <tr>
                 <th>5° Mes</th>
 
-                <td>${{ $dato_prenda->prestamo_prenda }}.00</td>
-
                 <td>
-                    $<input type="text" name="interes5" class="numT col-md-5" id="interes5" value="" disabled>
+                    ${{ $dato_prenda->prestamo_prenda }}.00
                 </td>
-
                 <td>
-                    $<input type="text" name="alma5" class="numT col-md-5" id="alma5" value="" disabled>
+                    $ {{$dato_prenda->interes5}}
                 </td>
-
                 <td>
-                    $<input type="text" name="iva5" class="numT col-md-5" id="iva5" value="" disabled>
+                    $ {{$dato_prenda->almacenaje5}}
                 </td>
-
                 <td>
-                    $<input type="text" name="refre5" class="numT col-md-5" id="refre5" value="" disabled>
+                    $ {{$dato_prenda->iva5}}
                 </td>
-
                 <td>
-                    $<input type="text" name="desemp5" class="numT col-md-5" id="desemp5" value="" disabled>
+                    $ {{$dato_prenda->refrendo5}}
                 </td>
-
                 <td>
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 5));
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                    $ {{$dato_prenda->desempeño5}}
                 </td>
-
-
-
+                <td>
+                    {{$dato_prenda->mes5}}
+                </td>
             </tr>
 
             <tr>
@@ -437,11 +364,18 @@
 
             </tr>
             <tr>
+                @if ($dato_prenda->cliente->socio == 0.02)
+                <td colspan="5">Para fines informativos y de comparación: <br> <b>3.2917</b> % fijo sin IVA</td>
 
+                <td colspan="4">Para fines informativos y de comparación: <br> <b>0.1097</b> % fijo sin IVA</td>
+                @else
+                @endif
+                @if ($dato_prenda->cliente->socio == 0.025)
                 <td colspan="5">Para fines informativos y de comparación: <br> <b>3.9083</b> % fijo sin IVA</td>
 
                 <td colspan="4">Para fines informativos y de comparación: <br> <b>0.1303</b> % fijo sin IVA</td>
-
+                @else
+                @endif
             </tr>
             <tr>
                 <td colspan="9">
@@ -473,65 +407,81 @@
             </tr>
             <tr class="margen">
 
-                <td>Oro</td>
-                <td colspan="4">Cant. 1 Collas acapas de 10k, 15.6gr, completo.</td>
-                <td>$7,041.00</td>
-                <td>$6,300.00</td>
-                <td colspan="2">90%</td>
+                <th>
+                    @if ($dato_prenda->descripcion_generica == 1)
+                    ORO
+                    @else
+                    @endif
+                    @if ($dato_prenda->descripcion_generica == 2)
+                    PLATA
+                    @else
+                    @endif
+                </th>
+                <td colspan="4">
+                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
+                </td>
+                <td>$ {{$dato_prenda->avaluo_prenda}}.00</td>
+                <td>$ {{$dato_prenda->prestamo_prenda}}.00</td>
+                <td colspan="2">{{$dato_prenda->porcentaje_prestamo_sobre_avaluo}} %</td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Monto de avaluó: </td>
-                <td colspan="4"> $7,041.00 Son: Siete mil Cuarents y un pesos 00/100M.N</td>
+                <td colspan="4"><b>$ {{$dato_prenda->avaluo_prenda}}.00 Son: {{num2letras($dato_prenda->avaluo_prenda)}}</b></td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Porcentaje del préstamo sobre el avaluó: </td>
-                <td colspan="4"> 90%</td>
+                <td colspan="4"><b>{{$dato_prenda->porcentaje_prestamo_sobre_avaluo}} %</b></td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Fecha de inicio de comercialización:</td>
                 <td colspan="4">
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 6));
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                    <b>{{$dato_prenda->fecha_comercializacion}}</b>
                 </td>
             </tr>
             <tr>
-                <td class="iempresa" colspan="5">El monto del préstamo se realiza en:</td>
-                <td class="iempresa" colspan="4">Efectivo:<u> x </u>__ o a la cuenta bancaria del Consumidor al
+                <td class="iempresa text-center" colspan="5">El monto del préstamo se realiza en:</td>
+                <td class="iempresa text-center" colspan="4">Efectivo:<u> x </u>__ o a la cuenta bancaria del Consumidor al
                     <br>numero:
                 </td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Fecha límite de finiquito:</td>
-                <td class="iempresa" colspan="4">
-                    <script>
-                        var d = new Date(f);
-                        var r = new Date(new Date(d).setMonth(d.getMonth() + 5));
-                        document.write(r.getDate() + "-" + mesesAbr[r.getMonth()] + "-" + r.getFullYear());
-                    </script>
+                <td class="iempresa text-center" colspan="4">
+                    <b>{{$dato_prenda->mes5}}</b>
                 </td>
             </tr>
             <tr>
-                <td colspan="9">Terminos y condiciones para recibir pagos anticipados: Clausula 13 (decimo tercera,
-                    inciso b.) Pág. 5)</td>
+                <td colspan="9">
+                    @if ($dato_prenda->cliente->socio == 0.02)
+                    Terminos y condiciones para recibir pagos anticipados: Clausula 13 (decimo tercera,
+                    inciso b.) Pág. 5)
+                    @else
+                    @endif
+                    @if ($dato_prenda->cliente->socio == 0.025)
+                    Terminos y condiciones para recibir pagos anticipados: Clausula 13 (decimo tercera,
+                    inciso b.)
+
+                    @else
+                    @endif
+
+                </td>
             </tr>
         </table>
         <p class="letrapequeña">Estos conceptos causaran el pago de impuesto al valor agregado (IVA) a la tasa del
             16.00
-            % </p>
-
-        <footer>
-            <p>©Copyright 2022 Asociados Nueva Mutua. Reservados todos los derechos..</p>
-        </footer>
+            % 
+        <br>
+            <script type="text/javascript">
+            var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+            var f = new Date();
+            document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
+        </script>
+        </p>
+        
 </div>
-<input type="hidden" onkeyUp="calcular();" name="interes" class="form-control" id="interes" value="{{ $dato_prenda->interes }}" readonly>
-<input type="hidden" onkeyUp="calcular();" name="almacenaje" class="form-control" id="almacenaje" value="{{ $dato_prenda->almacenaje }}" readonly>
-<input type="hidden" onkeyUp="calcular();" name="prestamo" class="form-control" id="prestamo" value="{{ $dato_prenda->prestamo_prenda }}" readonly>
 
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.all.js"></script>
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
@@ -541,75 +491,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
-<script>
-    function formatear(dato) {
-        return dato.replace(/./g, function(c, i, a) {
-            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-        });
-    }
 
-    function calcular() {
-        var datopres = document.getElementById("interes").value;
-        var datoalma = document.getElementById("almacenaje").value;
-        var prestamo = document.getElementById("prestamo").value;
-        var interes2 = parseFloat(datopres) * 2;
-        var interes3 = parseFloat(datopres) * 3;
-        var interes4 = parseFloat(datopres) * 4;
-        var interes5 = parseFloat(datopres) * 5;
-
-        var almacenaje2 = parseFloat(datoalma) * 2;
-        var almacenaje3 = parseFloat(datoalma) * 3;
-        var almacenaje4 = parseFloat(datoalma) * 4;
-        var almacenaje5 = parseFloat(datoalma) * 5;
-
-        var iva2 = parseFloat(interes2 + almacenaje2) * 0.16;
-        var iva3 = parseFloat(interes3 + almacenaje3) * 0.16;
-        var iva4 = parseFloat(interes4 + almacenaje4) * 0.16;
-        var iva5 = parseFloat(interes5 + almacenaje5) * 0.16;
-
-        var refre2 = parseFloat(interes2 + almacenaje2 + iva2);
-        var refre3 = parseFloat(interes3 + almacenaje3 + iva3);
-        var refre4 = parseFloat(interes4 + almacenaje4 + iva4);
-        var refre5 = parseFloat(interes5 + almacenaje5 + iva5);
-
-
-        var prestamo1 = parseFloat(prestamo);
-        var desem2 = parseFloat(prestamo1 + refre2);
-        var desem3 = parseFloat(prestamo1 + refre3);
-        var desem4 = parseFloat(prestamo1 + refre4);
-        var desem5 = parseFloat(prestamo1 + refre5);
-
-
-        $("#interes2").val((interes2.toFixed(2)))
-        $("#interes3").val((interes3.toFixed(2)))
-        $("#interes4").val((interes4.toFixed(2)))
-        $("#interes5").val((interes5.toFixed(2)))
-
-        $("#alma2").val((almacenaje2.toFixed(2)))
-        $("#alma3").val((almacenaje3.toFixed(2)))
-        $("#alma4").val((almacenaje4.toFixed(2)))
-        $("#alma5").val((almacenaje5.toFixed(2)))
-
-        $("#iva2").val((iva2.toFixed(2)))
-        $("#iva3").val((iva3.toFixed(2)))
-        $("#iva4").val((iva4.toFixed(2)))
-        $("#iva5").val((iva5.toFixed(2)))
-
-        $("#refre2").val((refre2.toFixed(2)))
-        $("#refre3").val((refre3.toFixed(2)))
-        $("#refre4").val((refre4.toFixed(2)))
-        $("#refre5").val((refre5.toFixed(2)))
-
-        $("#desemp2").val((desem2.toFixed(2)))
-        $("#desemp3").val((desem3.toFixed(2)))
-        $("#desemp4").val((desem4.toFixed(2)))
-        $("#desemp5").val((desem5.toFixed(2)))
-
-        $("#desempcopia").val((desem5.toFixed(2)))
-
-
-    }
-    calcular();
-</script>
 
 </html>
