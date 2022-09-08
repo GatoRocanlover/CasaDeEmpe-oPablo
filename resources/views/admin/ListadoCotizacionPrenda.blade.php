@@ -7,6 +7,8 @@
 
     <title>CASA DE EMPEÑOS</title>
 
+    
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="">
@@ -31,6 +33,13 @@
         }
 
         th {
+            text-align: center;
+        }
+        .hover :hover{
+            background-color: #8E6E06 ;
+            border-color: #8E6E06 ;
+        }
+        td{
             text-align: center;
         }
     </style>
@@ -75,10 +84,10 @@
         <!-- ----------------------------------------------------------------------------->
 
         <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
-            <div class="size80  flex items-center justify-center ">
-                <div class="col-md-12">
+            <div class="max-w-6x2 size  flex items-center justify-center ">
+                <div class="col-md-12 table-responsive">
 
-                    <table class="mx-w-7x1 table table-hover">
+                    <table class="table table-sm table-striped mt-8  ">
 
 
                         <!-- OPCION BUSCAR -->
@@ -92,7 +101,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div>
+                            <div class="hover">
                                 <a class="btn btn-success me-2 fw-bold" href="{{route('cotizacion.agregar_prenda')}}" type="button"><i class="fa fa-plus-circle" style="font-size:24px"></i> &nbsp;AGREGAR COTIZACIÓN</a>
                             </div>
                         </div>
@@ -118,16 +127,16 @@
                             <tr>
                                 <th scope="row">{{$prenda->id_cotizacionprenda}}</th>
                                 <td>{{$prenda->nombre_prenda}}</td>
-                                <td class="text-center">@if($prenda->descripcion_generica == 1)
+                                <td>@if($prenda->descripcion_generica == 1)
                                     ORO
                                     @elseif($prenda->descripcion_generica ==2)
                                     PLATA
                                     @endif
                                 </td>
                                 <td>{{$prenda->caracteristicas_prenda.'.'.' '.' / '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$prenda->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$prenda->gramaje_prenda.'gr'}}</td>
-                                <td class="text-center"> {{'$ '.$prenda->avaluo_prenda}}</td>
+                                <td> {{'$ '.$prenda->avaluo_prenda}}</td>
 
-                                <td class="text-center"> @IF($prenda->porcentaje_prestamo_sobre_avaluo ==45 )
+                                <td> @IF($prenda->porcentaje_prestamo_sobre_avaluo ==45 )
                                     45 %
                                     @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
                                     50 %
@@ -153,11 +162,11 @@
                                     100 %
                                     @endif
                                 </td>
-                                <td class="text-center">{{'$'.$prenda->prestamo_prenda}}</td>
+                                <td>{{'$'.$prenda->prestamo_prenda}}</td>
                                 <td>{{$prenda->created_at->format('d/m/Y')}}</td>
-                                <td><a class="nav-link" href="{{route('ticket.vistaTicketCotiza', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
+                                <td><a class="nav-link text-center" href="{{route('ticket.vistaTicketCotiza', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px;  color:green "></i></a></td>
 
-                                <td><a class="nav-link" href="{{route('coti.altacotizacion', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-check-square" style="font-size:32px"></i></a></td>
+                                <td><a class="nav-link text-center" href="{{route('coti.altacotizacion', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-check-square" style="font-size:32px; color:green"></i></a></td>
 
                                 </td>
                             </tr>

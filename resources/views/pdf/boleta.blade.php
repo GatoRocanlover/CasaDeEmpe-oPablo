@@ -39,9 +39,11 @@
             justify-content: center;
             align-items: center;
         }
-        .subrayado{
-           
+        .container{
+            padding: 0;
+            margin: 0;
         }
+    
     </style>
 </head>
 
@@ -440,7 +442,7 @@
             </tr>
             <tr>
                 <td class="iempresa text-center" colspan="5">El monto del préstamo se realiza en:</td>
-                <td class="iempresa text-center" colspan="4">Efectivo:<u> x </u>__ o a la cuenta bancaria del Consumidor al
+                <td class="iempresa text-center" colspan="4">Efectivo:&nbsp;<u>&nbsp;&nbsp;  X &nbsp;&nbsp;</u>&nbsp;o a la cuenta bancaria del Consumidor al
                     <br>numero:
                 </td>
             </tr>

@@ -59,7 +59,7 @@
         @endif
 
         <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size60 fondoformulario">
-            <form action="{{Route('cliente.store')}}" method="POST" class="row g-3 needs-validation size95 items-center justify-center" novalidate>
+            <form action="{{Route('cliente.store')}}" method="POST" onsubmit="return enviar()" name="registroCliente" class="row g-3 needs-validation size95 items-center justify-center" novalidate>
 
                 @csrf
 
@@ -268,8 +268,38 @@
 
     </div>
 </body>
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>
+
+<script>
+     //MENSAJE DE ALERTA BOTTON
+
+
+     function enviar() {
+    event.preventDefault();
+
+    Swal.fire({
+title: '¿DESEA REGISTRAR EL CLIENTE?',
+text: "Esta seguro que desea realizar esta operación!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'SI, DESEO REGISTRAR EL CLIENTE!',
+cancelButtonText: "No"
+}).then((result) => {
+if (result.value) {
+document.registroCliente.submit();
+/* Swal.fire(
+  'Deleted!',
+  'Your file has been deleted.',
+  'success'
+)
+ */
+}
+})
+}
+</script>
 
 </html>
 <!-- -->

@@ -100,7 +100,7 @@ class ClienteController extends Controller
         $nombre_cliente->save();
 
 
-        return redirect()->route('listado_cliente', []);
+        return redirect()->route('listado_cliente', [])->with('registro', 'RegistroCliente');;
     }
 
     /**

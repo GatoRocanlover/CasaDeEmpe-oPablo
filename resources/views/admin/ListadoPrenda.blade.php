@@ -24,6 +24,12 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+        th{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -56,7 +62,7 @@
 
             @include('layout.nav')
         </div>
-        @include('pdf.flash-message')
+       
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
             <label for="validationCustom03" class="form-label  text-center h3 fw-bold"> BOLETAS GENERADAS:</label>
@@ -65,8 +71,8 @@
 
         <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
             <div class="max-w-6xl size  flex items-center justify-center ">
-                <div class="col-md-12">
-                    <table class="table table-hover">
+                <div class="col-md-12 table-responsive">
+                    <table class="table table-sm table-striped">
                         <thead class="letra-blanca bg-dark">
                             <tr>
                                 <th scope="col">FOLIO BOLETA</th>
@@ -74,7 +80,7 @@
                                 <th scope="col">PRENDA</th>
                                 <th scope="col">CARACTERISTICAS</th>
                                 <th scope="col">AVALUO</th>
-                                <th scope="col">% DE PRESTAMO</th>
+                                <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                 <th scope="col">PRESTAMO</th>
                                 <th scope="col">IMPRIMIR BOLETA</th>
                             </tr>
@@ -84,7 +90,7 @@
 
                             <tr>
                                 <th scope="row">{{$prenda->id_prendas}}</th>
-                                <th>{{$prenda->cliente->nombre_cliente}}</th>
+                                <td>{{$prenda->cliente->nombre_cliente}} {{$prenda->cliente->apellido_cliente}}</td>
                                 <td>{{$prenda->nombre_prenda}}</td>
                                 <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
                                 <td> {{'$ '.$prenda->avaluo_prenda}}</td>
