@@ -42,6 +42,19 @@
         td{
             text-align: center;
         }
+
+        .icons{
+            color: green;
+        }
+
+       .icons:hover{
+            color: #8E6E06 ;
+
+        }
+        a:hover i {
+            transform: scale(1.3);
+            
+        }
     </style>
 </head>
 
@@ -102,7 +115,7 @@
                                 </form>
                             </div>
                             <div class="hover">
-                                <a class="btn btn-success me-2 fw-bold" href="{{route('cotizacion.agregar_prenda')}}" type="button"><i class="fa fa-plus-circle" style="font-size:24px"></i> &nbsp;AGREGAR COTIZACIÓN</a>
+                                <a class="btn btn-success me-2 fw-bold" href="{{route('cotizacion.agregar_prenda')}}" type="button"><i class="fa fa-plus-circle" style="font-size:20px"></i> &nbsp;AGREGAR COTIZACIÓN</a>
                             </div>
                         </div>
 
@@ -164,9 +177,13 @@
                                 </td>
                                 <td>{{'$'.$prenda->prestamo_prenda}}</td>
                                 <td>{{$prenda->created_at->format('d/m/Y')}}</td>
-                                <td><a class="nav-link text-center" href="{{route('ticket.vistaTicketCotiza', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px;  color:green "></i></a></td>
+                                <td>
+                                    <br>
+                                    <a class="nav-link text-center" href="{{route('ticket.vistaTicketCotiza', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print icons" style="font-size:30px;   "></i></a></td>
 
-                                <td><a class="nav-link text-center" href="{{route('coti.altacotizacion', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-check-square" style="font-size:32px; color:green"></i></a></td>
+                                <td>
+                                    <br>
+                                    <a class="nav-link text-center" href="{{route('coti.altacotizacion', [$prenda->id_cotizacionprenda] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-check-square icons" style="font-size:32px;"></i></a></td>
 
                                 </td>
                             </tr>

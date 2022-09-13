@@ -33,6 +33,18 @@
         .tabla{
             max-width: 85rem;
         }
+        .icons{
+            color: green;
+        }
+
+       .icons:hover{
+            color: #8E6E06 ;
+
+        }
+        a:hover i {
+            transform: scale(1.3);
+            
+        }
     </style>
 
 
@@ -121,7 +133,8 @@
                                 <td class="text-center">$ {{$tickets->cambio_boleta}}</td>
                                 <td class="text-center">
                                     <div>
-                                        <a class="nav-link" href="{{route('ticket.vistaTicket', [$tickets->id_folio] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a>
+                                        
+                                        <a class="nav-link" href="{{route('ticket.vistaTicket', [$tickets->id_folio] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print icons" style="font-size:32px"></i></a>
                                     </div>
                                 </td>
                             </tr>

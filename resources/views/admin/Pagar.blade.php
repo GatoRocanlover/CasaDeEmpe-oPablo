@@ -55,6 +55,22 @@
             text-align: center;
             font-size: 16px;
         }
+        .icons{
+            color: green;
+        }
+
+       .icons:hover{
+            color: #8E6E06 ;
+
+        }
+        a:hover i {
+            transform: scale(1.3);
+            
+        }
+        .hover :hover{
+            background-color: #8E6E06 ;
+            border-color: #8E6E06 ;
+        }
     </style>
 
 </head>
@@ -120,7 +136,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div>
+                            <div class="hover">
                                 <a class="btn btn-success me-2" href="{{ route('Ticket_Desempeño') }}"
                                     type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS LIQUIDADAS</a>
                             </div>
@@ -193,10 +209,11 @@
                                     <td class="text-center">$&nbsp;{{ $prenda->prestamo_prenda }}</td>
 
                                     <td class="text-center">
+                                        <br>
                                         <a class="nav-link" href="{{ route('prenda1.edit', [$prenda->id_prendas]) }}"
                                             id="navbarDarkDropdownMenuLink" aria-expanded="false"><button
-                                                class="ntn btn-primary "><i
-                                                    class="fas fa-cash-register"></i></button></a>
+                                                ><i
+                                                    class="fas fa-cash-register icons" style="font-size:30px;" ></i></button></a>
                                     </td>
                                 </tr>
                             @endforeach

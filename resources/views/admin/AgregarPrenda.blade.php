@@ -147,9 +147,9 @@
                         <strong><label class="col-md-8 sub mt-2">REAFIRMA SI ES SOCIO:</label></strong><br>
                         <div class="col-md-11">
                             <select class="form-select text-center mt-1" id="socio" onchange="calcular();" name="socio" aria-label="Default select example">
-                                <option value="">¿ES SOCIO?</option>
-                                <option value="0.020">SI</option>
-                                <option value="0.025">NO</option>
+                                <option class="fw-bold" value="DISPONIBLE">¿ES SOCIO?</option>
+                                <option class="fw-bold" value="0.020">SI</option>
+                                <option class="fw-bold" value="0.025">NO</option>
                             </select>
                         </div>
                     </div>
@@ -259,7 +259,7 @@
 
 
             <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center">
-                <button class="size50 bordes btn btn-primary navbar1">GENERAR BOLETA</button>
+                <button id="idBoton" class="size50 bordes btn btn-primary navbar1">GENERAR BOLETA</button>
             </div>
     </div>
     </form>

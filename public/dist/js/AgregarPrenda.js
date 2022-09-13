@@ -107,3 +107,16 @@
   }
 })
     }
+
+
+//---------------ReafirmarsiesSocio------------------
+
+$("#socio").change(function() {
+
+  if( $("#socio").val()=="DISPONIBLE"){
+      $( "#idBoton" ).prop( "disabled", true );    
+  }else{
+      $( "#idBoton" ).prop( "disabled", false );
+  }    
+  });
+  $("#socio").trigger("change");
