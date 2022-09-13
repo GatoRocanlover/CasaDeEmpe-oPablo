@@ -79,7 +79,7 @@
 
         <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
             <div class="tabla size  flex items-center justify-center ">
-                <div class="col-md-12">
+                <div class="col-md-12 table-responsive">
 
                     <table class="table table-hover">
 
