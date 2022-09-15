@@ -61,18 +61,19 @@
         }
 
         .tabla1 {
-            width: 500px;
-            height: 840px;
+            width: 450px;
+            height: 860px;
             padding: 30px;
             background-color: #eaeaea;
         }
 
         .tabla2 {
             border-left: 2px solid black;
-            width: 600px;
-            height: 840px;
+            width: 500px;
+            height: 860px;
             padding: 30px;
             background-color: #f2f2f1;
+         
 
         }
 
@@ -229,7 +230,7 @@
                                 <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->almacenaje }}</label>
                             <input type="hidden" id="almacenaje" onkeyUp="calcular();" name="almacenaje" value="{{ $dato_prenda->almacenaje }}">
                         </div>
-                        <p>------------------------------------------------------</p>
+                        <p>----------------------------------------------</p>
                         <div class="col-md-12">
                             <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                     TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1" name="subtotal1" type="text" disabled></label>
@@ -238,7 +239,7 @@
                             <label for="prestamo_prenda" class="form-label">
                                 <strong>I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->iva}}</label>
                         </div>
-                        <p>------------------------------------------------------</p>
+                        <p>----------------------------------------------</p>
                         <div class="col-md-12 mt-4 text-center">
                             <label for="prestamo_prenda" class="form-label h2">
                                 <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño}} </strong></label>
