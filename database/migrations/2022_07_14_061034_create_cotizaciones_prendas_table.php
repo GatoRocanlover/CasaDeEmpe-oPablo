@@ -15,7 +15,7 @@ class CreateCotizacionesPrendasTable extends Migration
     {
         Schema::create('cotizaciones_prendas', function (Blueprint $table) {
             $table->id('id_cotizacionprenda');
-            $table->string('nombre_prenda', 60);
+            $table->string('nombre_prenda', 90);
             $table->tinyInteger('descripcion_generica');
             $table->string('valor_oro_plata', 20);
             $table->string('dato_1', 20);

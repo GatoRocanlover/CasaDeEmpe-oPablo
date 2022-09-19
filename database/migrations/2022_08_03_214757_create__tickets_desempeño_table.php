@@ -18,7 +18,7 @@ class CreateTicketsDesempeñoTable extends Migration
             $table->string('id_prendas', 30); 
             $table->string('promedio_socio', 30);  
             $table->string('nombre_cliente', 35);
-            $table->string('nombre_prenda', 30);
+            $table->string('nombre_prenda', 90);
             $table->string('cantidad_prenda', 30);
             $table->tinyInteger('descripcion_generica');
             $table->string('caracteristicas_prenda',300);
