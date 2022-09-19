@@ -68,8 +68,7 @@
         }
 
         .tabla2 {
-            border-left: 2px solid black;
-            width: 500px;
+            
             height: 860px;
             padding: 30px;
             background-color: #f2f2f1;
@@ -119,6 +118,23 @@
         .signo {
             font-size: 28px;
         }
+        @media only screen and (min-width: 268px) {
+
+.tabla2 {
+    border-left: none;
+    width: 450px;
+    height: 950px;
+}
+}
+@media only screen and (min-width: 1024px) {
+
+.tabla2 {
+    border-left: 2px solid black;
+    width: 500px;
+    height: 860px;
+}
+}
+
     </style>
 
 </head>

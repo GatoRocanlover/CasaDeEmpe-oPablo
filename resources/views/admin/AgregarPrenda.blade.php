@@ -38,17 +38,10 @@
         }
 
         .tabla2 {
-            border-left: 2px solid black;
+
             width: 500px;
             height: 455px;
             padding: 30px;
-        }
-
-        .tabla3 {
-            width: 1000px;
-            border-top: 2px solid black;
-            height: 50px;
-            padding: 10px;
         }
 
         textarea {
@@ -73,6 +66,22 @@
         .red1 :hover {
             background-color: green;
 
+        }
+
+        @media only screen and (min-width: 268px) {
+
+            .tabla2 {
+                border-left: none;
+                border-top: 2px solid black;
+            }
+        }
+
+        @media only screen and (min-width: 1024px) {
+
+            .tabla2 {
+                border-left: 2px solid black;
+                border-top: none;
+            }
         }
     </style>
 
@@ -155,7 +164,7 @@
                     </div>
                 </div>
                 <div class="tabla2">
-                    <label for="" class="h5 text-center col-md-11 fw-bold">DATOS DE LA PRENDA:</label>
+                    <label for="" class="h5 text-center col-md-11 fw-bold mt">DATOS DE LA PRENDA:</label>
                     <div class="col-md-12">
                         <br>
                         <br>
@@ -222,31 +231,31 @@
             <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
             <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
             <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{fechacomercial()}}" readonly>
-        
+
             <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
             <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
             <input type="hidden" name="iva" class="form-control" id="iva" value="" readonly>
             <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="" readonly>
             <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="" readonly>
-            
+
             <input type="hidden" name="interes2" class="sub uno" id="interes2" value="" readonly>
             <input type="hidden" name="almacenaje2" class="form-control" id="almacenaje2" value="" readonly>
             <input type="hidden" name="iva2" class="form-control" id="iva2" value="" readonly>
             <input type="hidden" name="refrendo2" class="form-control" id="refrendo2" value="" readonly>
             <input type="hidden" name="desempeño2" class="form-control" id="desempeño2" value="" readonly>
-            
+
             <input type="hidden" name="interes3" class="sub uno" id="interes3" value="" readonly>
             <input type="hidden" name="almacenaje3" class="form-control" id="almacenaje3" value="" readonly>
             <input type="hidden" name="iva3" class="form-control" id="iva3" value="" readonly>
             <input type="hidden" name="refrendo3" class="form-control" id="refrendo3" value="" readonly>
             <input type="hidden" name="desempeño3" class="form-control" id="desempeño3" value="" readonly>
-            
+
             <input type="hidden" name="interes4" class="sub uno" id="interes4" value="" readonly>
             <input type="hidden" name="almacenaje4" class="form-control" id="almacenaje4" value="" readonly>
             <input type="hidden" name="iva4" class="form-control" id="iva4" value="" readonly>
             <input type="hidden" name="refrendo4" class="form-control" id="refrendo4" value="" readonly>
             <input type="hidden" name="desempeño4" class="form-control" id="desempeño4" value="" readonly>
-            
+
             <input type="hidden" name="interes5" class="sub uno" id="interes5" value="" readonly>
             <input type="hidden" name="almacenaje5" class="form-control" id="almacenaje5" value="" readonly>
             <input type="hidden" name="iva5" class="form-control" id="iva5" value="" readonly>
