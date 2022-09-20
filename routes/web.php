@@ -63,6 +63,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/Desembolso', [AdminController::class, 'Desembolso'])->name('desembolso');
 
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
+    Route::get('Refrendo_prenda/{id}', [PrendaController::class, 'editRefrendo'])->name('Refrendo1.edit');
 
 
     Route::get('/boleta', function () {

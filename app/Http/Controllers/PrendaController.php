@@ -162,6 +162,19 @@ class PrendaController extends Controller
             ]
         );
     }
+
+    public function editRefrendo($id)
+    {
+        $prenda = Prenda::find($id);
+
+        return View::make('admin.RefrendoDato')->with(
+            [
+                "dato_prenda" => $prenda
+
+            ]
+        );
+    }
+    
     public function vistaboleta($id)
     {
         $prenda = Prenda::find($id);

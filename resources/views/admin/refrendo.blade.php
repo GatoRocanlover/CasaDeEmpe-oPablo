@@ -163,7 +163,7 @@
                   <td class="text-center">$&nbsp;{{$refrendo1->prestamo_prenda}}</td>
 
                   <td class="text-center">
-                    <a class="nav-link" href="{{route('prenda1.edit', [$refrendo1->id_prendas] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-cash-register"></i></button></a>
+                    <a class="nav-link" href="{{route('Refrendo1.edit', [$refrendo1->id_prendas] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-cash-register"></i></button></a>
                   </td>
                 </tr>
 

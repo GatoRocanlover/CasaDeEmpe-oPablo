@@ -166,14 +166,14 @@
                 </div>
                 <div class="col-md-4">
                     <label for="ciudad_cliente" class="form-label">CIUDAD Y ESTADO *</label>
-                    <input type="text" name="ciudad_cliente" class="form-control" id="ciudad_cliente" placeholder="Ciudad del cliente" required>
+                    <input type="text" name="ciudad_cliente" class="form-control" id="ciudad_cliente" placeholder="UMÁN, YUCATÁN" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
                 </div>
                 <div class="col-md-4">
                     <label for="codigo_postal_cliente" class="form-label">CODIGO POSTAL *</label>
-                    <input type="text" name="codigo_postal_cliente" class="form-control" id="codigo_postal_cliente" placeholder="Codigo postalx" required>
+                    <input type="text" name="codigo_postal_cliente" class="form-control" id="codigo_postal_cliente" placeholder="Codigo postal" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
@@ -231,7 +231,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="ciudad_cotitular" class="form-label">CIUDAD Y ESTADO</label>
-                    <input type="text" name="ciudad_cotitular" class="form-control" id="ciudad_cotitular" placeholder="Ciudad cotitular" required>
+                    <input type="text" name="ciudad_cotitular" class="form-control" id="ciudad_cotitular" placeholder="UMÁN, YUCATÁN" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>

@@ -239,6 +239,14 @@ function fechacomercial()
       echo date('d') . "-" . $meses[date('n') + 5] . "-" . date('Y');  
 }
 
+function mes_actual()
+{
+        $meses = array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre", 
+        "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
+   
+      echo date('d') . "-" . $meses[date('n')-1] . "-" . date('Y');  
+}
 
 
 
