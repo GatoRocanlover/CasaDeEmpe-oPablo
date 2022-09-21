@@ -66,7 +66,7 @@
         }
 
         .tabla1 {
-            width: 80%;
+            width: 65%;
             height: 100%;
             padding: 30px;
             background-color: #eaeaea;
@@ -74,7 +74,8 @@
 
         .tabla2 {
 
-            height: 860px;
+            width: 30%;
+            height: 100%;
             padding: 30px;
             background-color: #f2f2f1;
 
@@ -117,29 +118,11 @@
         }
 
         .letra1 {
-            font-size: 22px;
+            font-size: 16px;
         }
 
         .signo {
             font-size: 28px;
-        }
-
-        @media only screen and (min-width: 268px) {
-
-            .tabla2 {
-                border-left: none;
-                width: 450px;
-                height: 950px;
-            }
-        }
-
-        @media only screen and (min-width: 1024px) {
-
-            .tabla2 {
-
-                width: 500px;
-                height: 860px;
-            }
         }
 
         table,
@@ -201,56 +184,14 @@
 
         <div class="align">
             <div class="tabla1 ">
-                <br>
-                <!--    <div class="col-md-12 text-center">
-                    <label class="form-label h4"><strong>REFRENDO:</strong> </label>
-                </div> -->
-                <br>
-                <br>
-                <div class="d-flex row  justify-content-around">
-                    <div class="col-md-5">
-                        <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
-                    </div>
-                    <div class="col-md-5">
-                        <label class="letra1"><strong>SOCIO:</strong>
-                            @if ($dato_prenda->cliente->socio == 0.02)
-                            SI
-                            @ENDIF
-                            @if ($dato_prenda->cliente->socio == 0.025)
-                            NO
-                            @ENDIF
-                        </label>
-                    </div>
-                </div>
-                <div class="col-md-11 mt-3 letra1">
-                    <label><strong> CLIENTE:
-                            &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
-                    </label>
-                    <label class="mt-3"><strong>NOMBRE DE LA
-                            PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
-                    <label class="mt-3"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
-                        @if ($dato_prenda->descripcion_generica == 1)
-                        ORO
-                        @endif
-                        @if ($dato_prenda->descripcion_generica == 2)
-                        PLATA
-                        @endif
-                    </label>
-                    <br>
-                    <label class="mt-3"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                    <label class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
-                </div>
-
-                <div class="text-center mt-4">
-                    <label for="">----------------------------------------------------------------------------------------------------------------------</label>
-                </div>
-
+                <!--   
                 <div class="col-md-12 text-center mt-4">
                     <label class="form-label h4">TABLA DE REFRENDO/DESEMPEÑO:</label>
                 </div>
-
-                <div class="mt-3 table-responsive">
-                    <table class="table">
+ -->
+                <div class=" table-responsive">
+                    <label for="">TABLA DE PAGOS:</label>
+                    <table class="table table-sm">
                         <tr>
 
                             <th rowspan="2">
@@ -274,7 +215,7 @@
 
                             <th>&nbsp;ALMACENAJE&nbsp;</th>
 
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
                             <th style="background-color: yellow;">POR REFRENDO</th>
 
@@ -406,35 +347,91 @@
                     </table>
                 </div>
 
-                <div class="col-md-8 mt-4"><strong>COBRO DE MES A REFRENDAR:</strong></label>
-                    <select class="form-select text-center letracambio" id="interesrefre" name="interesrefre" onChange="imprimirValor()" aria-label="Default select example">
-                        @if($dato_prenda->mes == mes_actual())
-                        <option value="{{ $dato_prenda->refrendo }}">1° MES CON REFRENDO DEL: ${{$dato_prenda->refrendo }}</option>
+
+                <div class="text-center">
+                    <label for="">--------------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> ----------------------------------------</label>
+                </div>
+                <div class="d-flex row mt-2 justify-content-around">
+                    <div class="col-md-5">
+                        <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="letra1"><strong>SOCIO:</strong>
+                            @if ($dato_prenda->cliente->socio == 0.02)
+                            SI
+                            @ENDIF
+                            @if ($dato_prenda->cliente->socio == 0.025)
+                            NO
+                            @ENDIF
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-11 mt-3 letra1">
+                    <label><strong> CLIENTE:
+                            &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
+                    </label>
+                    <label class="mt-1"><strong>NOMBRE DE LA
+                            PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
+                    <label class="mt-1"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
+                        @if ($dato_prenda->descripcion_generica == 1)
+                        ORO
                         @endif
-                        @if($dato_prenda->mes2 == mes_actual())
-                        <option value="{{ $dato_prenda->refrendo2 }}">$ {{ $dato_prenda->refrendo2 }}</option>
+                        @if ($dato_prenda->descripcion_generica == 2)
+                        PLATA
                         @endif
-                        @if($dato_prenda->mes3 == mes_actual())
-                        <option value="{{ $dato_prenda->refrendo3 }}">$ {{ $dato_prenda->refrendo3 }}</option>
-                        @endif
-                        @if($dato_prenda->mes4 == mes_actual())
-                        <option value="{{ $dato_prenda->refrendo4 }}">$ {{ $dato_prenda->refrendo4 }}</option>
-                        @endif
-                        @if($dato_prenda->mes5 == mes_actual())
-                        <option value="{{ $dato_prenda->refrendo5 }}">$ {{ $dato_prenda->refrendo5 }}</option>
-                        @endif
+                    </label>
+                    <br>
+                    <label class="mt-1"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
+                    <label class="mt-1"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                </div>
+
+
+            </div>
+            <div class="tabla2">
+                <div class="col-md-12 mt-3"><strong>COBRO DE MES A REFRENDAR:</strong></label>
+                    <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" aria-label="Default select example">
+
+                        <option selected value="0.00">SELECCIONE EL MES A REFRENDAR</option>
+                        <option value="{{ $dato_prenda->refrendo }}">1° Mes / {{$dato_prenda->mes1}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}">2° Mes / {{$dato_prenda->mes2}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}">3° Mes / {{$dato_prenda->mes3}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}">4° Mes / {{$dato_prenda->mes4}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}">5° Mes / {{$dato_prenda->mes5}}</option>
                     </select>
                 </div>
 
-                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
 
+                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
+                <!--   <div class="col-md-12 mt-4"><strong>COBRO DE MES A REFRENDAR:</strong></label>
+                    <select class="form-select text-center" id="interesrefre2" name="interesrefre2" aria-label="Default select example">
+                        @if(mesnada($dato_prenda->mes1) == mes())
+                        <option value="{{ $dato_prenda->refrendo }}">{{$dato_prenda->mes1}}</option>
+                        @endif
+                        @if(mesnada($dato_prenda->mes2) == mes())
+                        <option value="{{ $dato_prenda->refrendo2 }}">$ {{ $dato_prenda->mes2 }}</option>
+                        @endif
+                        @if(mesnada($dato_prenda->mes3) == mes())
+                        <option value="{{ $dato_prenda->refrendo3 }}">$ {{ $dato_prenda->mes3 }}</option>
+                        @endif
+                        @if(mesnada($dato_prenda->mes4) == mes())
+                        <option value="{{ $dato_prenda->refrendo4 }}">$ {{ $dato_prenda->mes4 }}</option>
+                        @endif
+                        @if(mesnada($dato_prenda->mes5)== mes())
+                        <option value="{{ $dato_prenda->refrendo5 }}">$ {{ $dato_prenda->mes5 }}</option>
+                        @endif
+                    </select>
+                </div>
+                {{mesnada($dato_prenda->mes4)}}
+                {{mes()}} -->
 
                 <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
-                <p class="mt-1">
-                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+
+                <div class="mt-2">
+                    <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                         ABONAR A CAPITAL &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
-                    </a>
-                </p>
+                    </button>
+                    </p>
+                </div>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
                         <label for=""><strong>ABONO A CAPITAL </strong></label>
@@ -445,43 +442,47 @@
                         </div>
                     </div>
                 </div>
-
-
+                <br>
                 <div class="  d-flex  justify-center">
-                    <label for="" class="mt-4 h4"><strong>TOTAL A PAGAR:</strong></label>
+                    <label for="" class="mt-3 h4"><strong>TOTAL A PAGAR:</strong></label>
                 </div>
                 <div class="flex justify-center">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="input-group has-validation">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
                             <input type="number" id="totalpago1" name="totalpago1" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
                         </div>
                     </div>
                 </div>
-
-
-                <div class=" tabla justify-content-around ">
-                    <div class="col-md-5 mt-4">
-                        <label for="" class="negritas">PAGO RECIBIDO:</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
-                        </div>
-                    </div>
-                    <div class="col-md-5 mt-4">
-                        <label for="" class="negritas">CAMBIO ENTREGADO:</label>
-                        <div class="input-group has-validation">
-                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
-                        </div>
+                <br>
+                <br>
+                <div class="col-md-12">
+                    <label for="" class="negritas">PAGO RECIBIDO:</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                        <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
                     </div>
                 </div>
+                <div class="col-md-12 mt-4">
+                    <label for="" class="negritas">CAMBIO ENTREGADO:</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                        <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
+                    </div>
+                </div>
+
 
                 <div class=" mb-8 max-w-6xl  flex  justify-center mt-5">
                     <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
                 </div>
-                @include('admin.Modals.modaldesempeño')
+
+
+
+
+
+
             </div>
+            @include('admin.Modals.modaldesempeño')
         </div>
 
         <!-- 
@@ -550,15 +551,16 @@
     }
     calcular2();
 
-    window.onload = function() {
-        imprimirValor();
-    }
+    /*     window.onload = function() {
+            imprimirValor();
+        }
 
-    function imprimirValor() {
-        var select = document.getElementById("interesrefre");
-        $("#totalpago1").val(select.value)
+        function imprimirValor() {
+            var select = document.getElementById("interesrefre");
+            $("#totalpago1").val(select.value)
 
-    }
+        } */
+    /*  usar en donde va a poner la funcion de arriba ----> onChange="imprimirValor()" */
 </script>
 
 

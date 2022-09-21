@@ -28,7 +28,7 @@
     </style>
 
     <style>
-        body {
+ body {
             font-family: 'Nunito', sans-serif;
         }
 
@@ -56,23 +56,29 @@
 
         .tabla {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
 
         }
 
+        .align {
+            display: flex;
+            justify-content: center;
+        }
+
         .tabla1 {
-            width: 450px;
-            height: 860px;
+            width: 65%;
+            height: 100%;
             padding: 30px;
             background-color: #eaeaea;
         }
 
         .tabla2 {
-            
-            height: 860px;
+
+            width: 30%;
+            height: 100%;
             padding: 30px;
             background-color: #f2f2f1;
-         
+
 
         }
 
@@ -112,28 +118,24 @@
         }
 
         .letra1 {
-            font-size: 22px;
+            font-size: 16px;
         }
 
         .signo {
             font-size: 28px;
         }
-        @media only screen and (min-width: 268px) {
 
-.tabla2 {
-    border-left: none;
-    width: 450px;
-    height: 950px;
-}
-}
-@media only screen and (min-width: 1024px) {
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
 
-.tabla2 {
-    border-left: 2px solid black;
-    width: 500px;
-    height: 860px;
-}
-}
+        table {
+            background-color: white;
+            text-align: center;
+        }
+
 
     </style>
 
@@ -183,11 +185,164 @@
 
             <div class="tabla justify-content-center mt-4">
                 <div class="tabla1 ">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                  
+                <div class=" table-responsive">
+                    <label for="">TABLA DE PAGOS:</label>
+                    <table class="table table-sm">
+                        <tr>
+
+                            <th rowspan="2">
+                                <br>
+                                NUMERO
+                            </th>
+
+                            <th colspan="4">MONTO</th>
+
+                            <th colspan="2">TOTAL A PAGAR</th>
+
+                            <th rowspan="2">CUANDO SE REALIZAN LOS PAGOS</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>IMPORTE DE MUTUO</th>
+
+                            <th>&nbsp;INTERESES&nbsp;</th>
+
+                            <th>&nbsp;ALMACENAJE&nbsp;</th>
+
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                            <th >POR REFRENDO</th>
+
+                            <th style="background-color: yellow;">POR DESEMPEÑO</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>1° Mes</th>
+
+                            <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
+
+                            <td>$ {{ $dato_prenda->interes }}</td>
+
+                            <td>$ {{ $dato_prenda->almacenaje }}</td>
+
+                            <td>$ {{ $dato_prenda->iva }}</td>
+
+                            <td>$ {{ $dato_prenda->refrendo }}</td>
+
+                            <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->desempeño }}</td>
+
+                            <td>
+                                {{$dato_prenda->mes1}}
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>2° Mes</th>
+
+                            <td>
+                                $ {{$dato_prenda->prestamo_prenda}}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes2}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje2}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva2}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->refrendo2}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->desempeño2}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes2}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3° Mes</th>
+
+                            <td>
+                                $ {{$dato_prenda->prestamo_prenda}}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes3}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje3}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva3}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->refrendo3}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->desempeño3}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes3}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4° Mes</th>
+
+                            <td>
+                                $ {{ $dato_prenda->prestamo_prenda }}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes4}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje4}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva4}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->refrendo4}}
+                            </td>
+                            <td  style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->desempeño4}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes4}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5° Mes</th>
+
+                            <td>
+                                $ {{ $dato_prenda->prestamo_prenda }}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes5}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje5}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva5}}
+                            </td>
+                            <td >
+                                $ {{$dato_prenda->refrendo5}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->desempeño5}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes5}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
                     <div class="d-flex row justify-content-around">
                         <br>
                         <div class="col-md-5">
@@ -232,56 +387,49 @@
                     <div class="col-md-12 text-center">
                         <label class="form-label h4"><strong>DESEMPEÑO:</strong> </label>
                     </div>
-                    <label class="col-md-12 mt-4"><label class=" "><strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}</label>
-                        <input type="hidden" id="prestamo" onkeyUp="calcular();" name="prestamo" value="{{ $dato_prenda->prestamo_prenda }}">
 
-                        <div class="col-md-12 mt-2">
-                            <label for="prestamo_prenda" class="form-label">
-                                <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->interes }}</label>
-                            <input type="hidden" id="interes" onkeyUp="calcular();" name="interes" value="{{ $dato_prenda->interes }}">
+                    <div class="col-md-12 mt-3"><strong>COBRO DE MES A DESEMPEÑAR:</strong></label>
+                    <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();" aria-label="Default select example">
 
+                        <option selected value="0.00">SELECCIONE EL MES A DESEMPEÑAR</option>
+                        <option value="{{ $dato_prenda->desempeño }}">1° Mes / {{$dato_prenda->mes1}}</option>
+                        <option value="{{ $dato_prenda->desempeño2 }}">2° Mes / {{$dato_prenda->mes2}}</option>
+                        <option value="{{ $dato_prenda->desempeño3 }}">3° Mes / {{$dato_prenda->mes3}}</option>
+                        <option value="{{ $dato_prenda->desempeño4 }}">4° Mes / {{$dato_prenda->mes4}}</option>
+                        <option value="{{ $dato_prenda->desempeño5 }}">5° Mes / {{$dato_prenda->mes5}}</option>
+                    </select>
+                </div>
+        
+
+                        <div class="  d-flex  justify-center">
+                    <label for="" class="mt-3 h4"><strong>TOTAL A PAGAR:</strong></label>
+                </div>
+                <div class="flex justify-center">
+                    <div class="col-md-12">
+                        <div class="input-group has-validation">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="number" id="desempeño2" name="desempeño2" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
                         </div>
-                        <div class="col-md-12">
-                            <label for="prestamo_prenda" class="form-label">
-                                <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->almacenaje }}</label>
-                            <input type="hidden" id="almacenaje" onkeyUp="calcular();" name="almacenaje" value="{{ $dato_prenda->almacenaje }}">
-                        </div>
-                        <p>----------------------------------------------</p>
-                        <div class="col-md-12">
-                            <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                    TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1" name="subtotal1" type="text" disabled></label>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="prestamo_prenda" class="form-label">
-                                <strong>I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->iva}}</label>
-                        </div>
-                        <p>----------------------------------------------</p>
-                        <div class="col-md-12 mt-4 text-center">
-                            <label for="prestamo_prenda" class="form-label h2">
-                                <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño}} </strong></label>
-                            <input type="hidden" id="desempeño1" name="desempeño1" value="{{ $dato_prenda->desempeño}}">
-                        </div>
-                        <div class="text-center mt-2">
-                            <font size=4>
-                                <p>{{num2letras($dato_prenda->desempeño)}}</p>
-                            </font>
-                        </div>
-                        <div class=" tabla justify-content-center">
-                            <div class="col-md-8 mt-4">
+                    </div>
+                </div>
+
+
+                        
+                            <div class="col-md-12 mt-4">
                                 <label for="" class="negritas">PAGO RECIBIDO:</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
                                     <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
                                 </div>
                             </div>
-                            <div class="col-md-8 mt-4">
+                            <div class="col-md-12 mt-4">
                                 <label for="" class="negritas">CAMBIO ENTREGADO:</label>
                                 <div class="input-group has-validation">
                                     <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
                                     <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
                                 </div>
                             </div>
-                        </div>
+                        
 
                         <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
                             <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
@@ -308,6 +456,9 @@
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 <script src="{{ asset('dist/js/desempeño.js') }}"></script>
+<script>
+    
+</script>
 
 
 </html>

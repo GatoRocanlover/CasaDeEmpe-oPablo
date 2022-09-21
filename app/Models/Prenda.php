@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Prenda extends Model
 {
@@ -60,6 +61,10 @@ class Prenda extends Model
         
         
    
+    ];
+
+    protected $date = [
+            'mes1',
     ];
 
 
