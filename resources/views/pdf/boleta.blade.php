@@ -311,7 +311,7 @@
                 <th>4° Mes</th>
 
                 <td>
-                    ${{ $dato_prenda->prestamo_prenda }}.00
+                    $ {{ $dato_prenda->prestamo_prenda }}.00
                 </td>
                 <td>
                     $ {{$dato_prenda->interes4}}
@@ -336,7 +336,7 @@
                 <th>5° Mes</th>
 
                 <td>
-                    ${{ $dato_prenda->prestamo_prenda }}.00
+                    $ {{ $dato_prenda->prestamo_prenda }}.00
                 </td>
                 <td>
                     $ {{$dato_prenda->interes5}}

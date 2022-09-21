@@ -56,13 +56,18 @@
 
         .tabla {
             display: flex;
-            flex-wrap: wrap;
+            justify-content: center;
 
         }
 
+        .align {
+            display: flex;
+            justify-content: center;
+        }
+
         .tabla1 {
-            width: 450px;
-            height: 860px;
+            width: 80%;
+            height: 100%;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -131,18 +136,28 @@
         @media only screen and (min-width: 1024px) {
 
             .tabla2 {
-                border-left: 2px solid black;
+
                 width: 500px;
                 height: 860px;
             }
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        table {
+            background-color: white;
+            text-align: center;
         }
     </style>
 
 </head>
 
 <body class="antialiased ">
-    <div
-        class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
         <!-- encabezado -->
         <div class="size">
@@ -156,180 +171,330 @@
             </div>
             <!-- MENU -->
             @include('layout.nav')
+        </div>
+
+
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 
 
 
 
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+        <!-- <div class="row g-3 needs-validation size80 items-center justify-center"> -->
+
+        {{ csrf_field() }}
+
+
+        <div class="text-center mt-8">
+            <label for="validationCustom03" class="form-label h4    ">DATOS DE LA PRENDA A REFRENDAR</label>
+        </div>
+
+
+
+        <div class="align">
+            <div class="tabla1 ">
+                <br>
+                <!--    <div class="col-md-12 text-center">
+                    <label class="form-label h4"><strong>REFRENDO:</strong> </label>
+                </div> -->
+                <br>
+                <br>
+                <div class="d-flex row  justify-content-around">
+                    <div class="col-md-5">
+                        <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
+                    </div>
+                    <div class="col-md-5">
+                        <label class="letra1"><strong>SOCIO:</strong>
+                            @if ($dato_prenda->cliente->socio == 0.02)
+                            SI
+                            @ENDIF
+                            @if ($dato_prenda->cliente->socio == 0.025)
+                            NO
+                            @ENDIF
+                        </label>
+                    </div>
                 </div>
-            @endif
-
-
-
-
-            <!-- <div class="row g-3 needs-validation size80 items-center justify-center"> -->
-
-            {{ csrf_field() }}
-
-
-            <div class="text-center mt-8">
-                <label for="validationCustom03" class="form-label h4    ">DATOS DE LA PRENDA A REFRENDAR</label>
-            </div>
-
-
-            <div class="tabla justify-content-center mt-4">
-                <div class="tabla1 ">
+                <div class="col-md-11 mt-3 letra1">
+                    <label><strong> CLIENTE:
+                            &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
+                    </label>
+                    <label class="mt-3"><strong>NOMBRE DE LA
+                            PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
+                    <label class="mt-3"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
+                        @if ($dato_prenda->descripcion_generica == 1)
+                        ORO
+                        @endif
+                        @if ($dato_prenda->descripcion_generica == 2)
+                        PLATA
+                        @endif
+                    </label>
                     <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="d-flex row justify-content-around">
-                        <br>
-                        <div class="col-md-5">
-                            <label
-                                class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
-                        </div>
-                        <div class="col-md-5">
-                            <label class="letra1"><strong>SOCIO:</strong>
-                                @if ($dato_prenda->cliente->socio == 0.02)
-                                    SI
-                                @ENDIF
-                                @if ($dato_prenda->cliente->socio == 0.025)
-                                    NO
-                                @ENDIF
-                            </label>
-                        </div>
-                    </div>
-                    <div class="mt-2">&nbsp;</div>
-                    <div class="col-md-11 mt-8 letra1">
-                        <label><strong> CLIENTE:
-                                &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
-                        </label>
-                        <label class="mt-3"><strong>NOMBRE DE LA
-                                PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
-                        <label class="mt-3"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
-                            @if ($dato_prenda->descripcion_generica == 1)
-                                ORO
-                            @endif
-                            @if ($dato_prenda->descripcion_generica == 2)
-                                PLATA
-                            @endif
-                        </label>
-                        <label class="mt-3"><strong>CANTIDAD DE
-                                PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                        <label
-                            class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
-                    </div>
-
+                    <label class="mt-3"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
+                    <label class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
                 </div>
 
+                <div class="text-center mt-4">
+                    <label for="">----------------------------------------------------------------------------------------------------------------------</label>
+                </div>
 
-                <div class="tabla2 letra1">
-                    <div class="col-md-12 text-center">
-                        <label class="form-label h4"><strong>REFRENDO:</strong> </label>
+                <div class="col-md-12 text-center mt-4">
+                    <label class="form-label h4">TABLA DE REFRENDO/DESEMPEÑO:</label>
+                </div>
+
+                <div class="mt-3 table-responsive">
+                    <table class="table">
+                        <tr>
+
+                            <th rowspan="2">
+                                <br>
+                                NUMERO
+                            </th>
+
+                            <th colspan="4">MONTO</th>
+
+                            <th colspan="2">TOTAL A PAGAR</th>
+
+                            <th rowspan="2">CUANDO SE REALIZAN LOS PAGOS</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>IMPORTE DE MUTUO</th>
+
+                            <th>&nbsp;INTERESES&nbsp;</th>
+
+                            <th>&nbsp;ALMACENAJE&nbsp;</th>
+
+                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                            <th style="background-color: yellow;">POR REFRENDO</th>
+
+                            <th>POR DESEMPEÑO</th>
+
+                        </tr>
+
+                        <tr>
+
+                            <th>1° Mes</th>
+
+                            <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
+
+                            <td>$ {{ $dato_prenda->interes }}</td>
+
+                            <td>$ {{ $dato_prenda->almacenaje }}</td>
+
+                            <td>$ {{ $dato_prenda->iva }}</td>
+
+                            <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->refrendo }}</td>
+
+                            <td>$ {{ $dato_prenda->desempeño }}</td>
+
+                            <td>
+                                {{$dato_prenda->mes1}}
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <th>2° Mes</th>
+
+                            <td>
+                                $ {{$dato_prenda->prestamo_prenda}}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes2}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje2}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva2}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->refrendo2}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->desempeño2}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes2}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>3° Mes</th>
+
+                            <td>
+                                $ {{$dato_prenda->prestamo_prenda}}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes3}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje3}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva3}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->refrendo3}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->desempeño3}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes3}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>4° Mes</th>
+
+                            <td>
+                                $ {{ $dato_prenda->prestamo_prenda }}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes4}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje4}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva4}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->refrendo4}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->desempeño4}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes4}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>5° Mes</th>
+
+                            <td>
+                                $ {{ $dato_prenda->prestamo_prenda }}.00
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->interes5}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->almacenaje5}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->iva5}}
+                            </td>
+                            <td style="background-color: yellow;" class="fw-bold">
+                                $ {{$dato_prenda->refrendo5}}
+                            </td>
+                            <td>
+                                $ {{$dato_prenda->desempeño5}}
+                            </td>
+                            <td>
+                                {{$dato_prenda->mes5}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col-md-8 mt-4"><strong>COBRO DE MES A REFRENDAR:</strong></label>
+                    <select class="form-select text-center letracambio" id="interesrefre" name="interesrefre" onChange="imprimirValor()" aria-label="Default select example">
+                        @if($dato_prenda->mes == mes_actual())
+                        <option value="{{ $dato_prenda->refrendo }}">1° MES CON REFRENDO DEL: ${{$dato_prenda->refrendo }}</option>
+                        @endif
+                        @if($dato_prenda->mes2 == mes_actual())
+                        <option value="{{ $dato_prenda->refrendo2 }}">$ {{ $dato_prenda->refrendo2 }}</option>
+                        @endif
+                        @if($dato_prenda->mes3 == mes_actual())
+                        <option value="{{ $dato_prenda->refrendo3 }}">$ {{ $dato_prenda->refrendo3 }}</option>
+                        @endif
+                        @if($dato_prenda->mes4 == mes_actual())
+                        <option value="{{ $dato_prenda->refrendo4 }}">$ {{ $dato_prenda->refrendo4 }}</option>
+                        @endif
+                        @if($dato_prenda->mes5 == mes_actual())
+                        <option value="{{ $dato_prenda->refrendo5 }}">$ {{ $dato_prenda->refrendo5 }}</option>
+                        @endif
+                    </select>
+                </div>
+
+                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
+
+
+                <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
+                <p class="mt-1">
+                    <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        ABONAR A CAPITAL &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
+                    </a>
+                </p>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <label for=""><strong>ABONO A CAPITAL </strong></label>
+                        <label for="" class="negritas mt-4">CUANTO DESEA ABONAR A CAPITAL:</label>
+                        <div class="input-group has-validation ">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00">
+                        </div>
                     </div>
+                </div>
 
-                    {{ mes_actual() }}
 
+                <div class="  d-flex  justify-center">
+                    <label for="" class="mt-4 h4"><strong>TOTAL A PAGAR:</strong></label>
+                </div>
+                <div class="flex justify-center">
                     <div class="col-md-6">
-                        <select id="interesrefre" name="interesrefre" class="form-select" onchange="calcular();">
-                            <option value="null">SELECCIONAR MES</option>
-                            <option value="{{ $dato_prenda->refrendo }}">{{ $dato_prenda->mes1 }}</option>
-                            <option value="{{ $dato_prenda->refrendo2 }}">{{ $dato_prenda->mes2 }}</option>
-                            <option value="{{ $dato_prenda->refrendo3 }}">{{ $dato_prenda->mes3 }}</option>
-                            <option value="{{ $dato_prenda->refrendo4 }}">{{ $dato_prenda->mes4 }}</option>
-                        </select>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="number" id="totalpago1" name="totalpago1" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+                        </div>
                     </div>
+                </div>
 
- 
+
+                <div class=" tabla justify-content-around ">
+                    <div class="col-md-5 mt-4">
+                        <label for="" class="negritas">PAGO RECIBIDO:</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="col-md-5 mt-4">
+                        <label for="" class="negritas">CAMBIO ENTREGADO:</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
+                        </div>
+                    </div>
+                </div>
+
+                <div class=" mb-8 max-w-6xl  flex  justify-center mt-5">
+                    <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
+                </div>
+                @include('admin.Modals.modaldesempeño')
+            </div>
+        </div>
+
+        <!-- 
+                <form name="formulario">
+                    <input type="checkbox" value="1" class="form-check-input" onclick="capital.disabled = !this.checked"> ABONAR A CAPITAL
                     <div class="col-md-4">
                         <div class="input-group has-validation">
-                            <span class="input-group-text fw-bold " id="inputGroupPrepend">$</span>
-                            <input type="text" id="prestamo4" name="prestamo4"
-                                class="form-control  text-center " readonly
-                                placeholder="0.00">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="number" id="capital" name="capital"   class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off" disabled>
                         </div>
                     </div>
-                    
-
-
-                    <label class="col-md-12 mt-4"><label
-                            class=" "><strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}</label>
-                        <input type="hidden" id="prestamo" onkeyUp="calcular();" name="prestamo"
-                            value="{{ $dato_prenda->prestamo_prenda }}">
-
-                        <div class="col-md-12 mt-2">
-                            <label for="prestamo_prenda" class="form-label">
-                                <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->interes }}</label>
-                            <input type="hidden" id="interes" onkeyUp="calcular();" name="interes"
-                                value="{{ $dato_prenda->interes }}">
-
-                        </div>
-                        <div class="col-md-12">
-                            <label for="prestamo_prenda" class="form-label">
-                                <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->almacenaje }}</label>
-                            <input type="hidden" id="almacenaje" onkeyUp="calcular();" name="almacenaje"
-                                value="{{ $dato_prenda->almacenaje }}">
-                        </div>
-                        <p>----------------------------------------------</p>
-                        <div class="col-md-12">
-                            <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                    TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5 campo1" id="subtotal1"
-                                    name="subtotal1" type="text" disabled></label>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="prestamo_prenda" class="form-label">
-                                <strong>I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->iva }}</label>
-                        </div>
-                        <p>----------------------------------------------</p>
-                        <div class="col-md-12 mt-4 text-center">
-                            <label for="prestamo_prenda" class="form-label h2">
-                                <strong>TOTAL:&nbsp;&nbsp;$&nbsp;{{ $dato_prenda->desempeño }} </strong></label>
-                            <input type="hidden" id="desempeño1" name="desempeño1"
-                                value="{{ $dato_prenda->desempeño }}">
-                        </div>
-                        <div class="text-center mt-2">
-                            <font size=4>
-                                <p>{{ num2letras($dato_prenda->desempeño) }}</p>
-                            </font>
-                        </div>
-                        <div class=" tabla justify-content-center">
-                            <div class="col-md-8 mt-4">
-                                <label for="" class="negritas">PAGO RECIBIDO:</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                                    <input type="number" id="cantidad_pago1" name="cantidad_pago1"
-                                        class="form-control input_style tamañoletra text-center" placeholder="0.00"
-                                        onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col-md-8 mt-4">
-                                <label for="" class="negritas">CAMBIO ENTREGADO:</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                                    <input type="text" id="cambio_boleta1" name="cambio_boleta1"
-                                        class="form-control input_style letracambio text-center" readonly
-                                        placeholder="0.00">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
-                            <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit"
-                                id="btn-submit" data-toggle="modal"
-                                data-target="#exampleModal{{ $dato_prenda->id_prendas }}"
-                                data-item-prestamo="cantidad_pago">PAGAR</button>
-                        </div>
-                        @include('admin.Modals.modaldesempeño')
-                </div>
-            </div>
+                </form>
+ -->
 
 </body>
 
@@ -339,34 +504,61 @@
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 <script src="{{ asset('dist/js/refrendo.js') }}"></script>
 <script>
-
     //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
     function formatear(dato) {
-            return dato.replace(/./g, function(c, i, a) {
-                return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-            });
-        }
+        return dato.replace(/./g, function(c, i, a) {
+            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
+        });
+    }
 
-        function calcular() {
-            var valor = document.getElementById("interesrefre").value;
-            var porce = parseFloat(valor);
-            $("#prestamo4").val(formatear(porce.toFixed(2)))
-        }
-        calcular();
+    function calcular() {
+        var valor = document.getElementById("interesrefre").value;
+        var valor1 = document.getElementById("capital").value;
+        var porce = parseFloat(valor);
+        var porce1 = parseFloat(valor1)
+        /*         var porce2 = parseFloat(porce + porce1) */
+        $("#prestamo4").val(formatear(porce.toFixed(2)))
+        $("#totalpago1").val(formatear(porce.toFixed(2)))
+        /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
+
+
+    }
+    calcular();
+
+
+    function calcular2() {
+        var valor = document.getElementById("prestamo4").value;
+        var valor1 = document.getElementById("capital").value;
+        var porce = parseFloat(valor);
+        var porce1 = parseFloat(valor1)
+        var porce2 = parseFloat(porce + porce1)
+
+        $("#totalpago1").val(formatear(porce2.toFixed(2)))
+
+
+    }
+    calcular2();
+
+    window.onload = function() {
+        imprimirValor();
+    }
+
+    function imprimirValor() {
+        var select = document.getElementById("interesrefre");
+        $("#totalpago1").val(select.value)
+
+    }
 </script>
 
 

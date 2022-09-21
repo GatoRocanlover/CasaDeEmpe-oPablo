@@ -12,6 +12,8 @@ use App\Models\Cliente;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 use Symfony\Component\Console\Input\Input;
+use Carbon\Carbon;
+
 
 class PrendaController extends Controller
 {
@@ -173,6 +175,8 @@ class PrendaController extends Controller
 
             ]
         );
+
+  
     }
     
     public function vistaboleta($id)
