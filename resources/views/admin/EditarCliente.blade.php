@@ -131,12 +131,6 @@
                     <div class="col-md-6">SOCIO</label>
                         <select class="form-select" id="socio"  name="socio" aria-label="Default select example">
             
-                            @if($dato_cliente->SELECCIONA == -1)
-                                <option selected value="-1">SELECCIONA</option>
-                            @else
-                                <option value="-1" >SELECCIONA</option>
-                            @endif
-
                             @if($dato_cliente->SI == 1)
                                 <option selected value="1">SI</option>
                             @else
