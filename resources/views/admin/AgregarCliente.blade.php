@@ -82,7 +82,7 @@
 
                 <div class="col-md-6">IDENTIFICACION *</label>
                     <select class="form-select" name="tipo_de_identificacion" id="tipo_de_identificacion" aria-label="Default select example">
-                        <option selected value="-1">TIPO DE IDENTIFICACION </option>
+                        <option selected value="">TIPO DE IDENTIFICACION </option>
                         <option value="CREDENCIAL NACIONAL ELECTOR">INE</option>
                         <option value="CARTILLA MILITAR">CARTILLA MILITAR </option>
                         <option value="PASAPORTE">PASAPORTE</option>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="col-md-6">SOCIO *</label>
                     <select class="form-select" id="socio" name="socio" aria-label="Default select example">
-                        <option selected value="-1">SELECCIONA SI ES SOCIO</option>
+                        <option selected value="">SELECCIONA SI ES SOCIO</option>
                         <option value="0.020">SI</option>
                         <option value="0.025">NO </option>
                     </select>

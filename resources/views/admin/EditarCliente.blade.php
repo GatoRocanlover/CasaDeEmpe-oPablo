@@ -79,12 +79,6 @@
                     
                     <div class="col-md-6">IDENTIFICACION</label>
                         <select class="form-select" name="tipo_de_identificacion" id="tipo_de_identificacion" aria-label="Default select example">
-                           
-                            @if($dato_cliente->tipo_de_identificacion == -1)
-                                <option selected value="-1" >TIPO DE IDENTIFICACION</option>
-                            @else
-                                <option value="-1" >TIPO DE IDENTIFICACION</option>
-                            @endif
 
                             @if($dato_cliente->tipo_de_identificacion == "CREDENCIAL NACIONAL ELECTOR")
                                 <option value="CREDENCIAL NACIONAL ELECTOR" selected>INE</option>
