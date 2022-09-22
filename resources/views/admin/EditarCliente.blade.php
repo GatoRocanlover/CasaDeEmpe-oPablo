@@ -87,21 +87,21 @@
                             @endif
 
                             @if($dato_cliente->tipo_de_identificacion == "CREDENCIAL NACIONAL ELECTOR")
-                                <option value="1" selected>INE</option>
+                                <option value="CREDENCIAL NACIONAL ELECTOR" selected>INE</option>
                             @else
-                                <option value="1" >INE</option> 
+                                <option value="CREDENCIAL NACIONAL ELECTOR" >INE</option> 
                             @endif
                             
                             @if($dato_cliente->tipo_de_identificacion == "CARTILLA MILITAR")
-                                <option value="2" selected>CARTILLA MILITAR</option>
+                                <option value="CARTILLA MILITAR" selected>CARTILLA MILITAR</option>
                              @else
-                                <option value="2" >CARTILLA MILITAR</option> 
+                                <option value="CARTILLA MILITAR" >CARTILLA MILITAR</option> 
                             @endif
                             
                             @if($dato_cliente->tipo_de_identificacion == "PASAPORTE")
-                                <option value="3" selected>PASAPORTE</option>
+                                <option value="PASAPORTE" selected>PASAPORTE</option>
                             @else
-                                <option value="3" >PASAPORTE</option> 
+                                <option value="PASAPORTE" >PASAPORTE</option> 
                             @endif
                         </select>
                         <div class="valid-feedback">
