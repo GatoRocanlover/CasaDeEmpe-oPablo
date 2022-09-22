@@ -86,20 +86,20 @@
                                 <option value="-1" >TIPO DE IDENTIFICACION</option>
                             @endif
 
-                            @if($dato_cliente->tipo_de_identificacion == 1)
+                            @if($dato_cliente->tipo_de_identificacion == "CREDENCIAL NACIONAL ELECTOR")
                                 <option value="1" selected>INE</option>
                             @else
                                 <option value="1" >INE</option> 
                             @endif
                             
-                            @if($dato_cliente->tipo_de_identificacion == 2)
+                            @if($dato_cliente->tipo_de_identificacion == "CARTILLA MILITAR")
                                 <option value="2" selected>CARTILLA MILITAR</option>
                              @else
                                 <option value="" >CARTILLA MILITAR</option> 
                             @endif
                             
-                            @if($dato_cliente->tipo_de_identificacion == 3)
-                                <option value="3" selected>CPASAPORTE</option>
+                            @if($dato_cliente->tipo_de_identificacion == "PASAPORTE")
+                                <option value="3" selected>PASAPORTE</option>
                             @else
                                 <option value="" >PASAPORTE</option> 
                             @endif

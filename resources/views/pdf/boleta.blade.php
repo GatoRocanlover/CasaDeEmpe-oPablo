@@ -410,14 +410,7 @@
             <tr class="margen">
 
                 <th>
-                    @if ($dato_prenda->descripcion_generica == 1)
-                    ORO
-                    @else
-                    @endif
-                    @if ($dato_prenda->descripcion_generica == 2)
-                    PLATA
-                    @else
-                    @endif
+                    {{$dato_prenda->descripcion_generica}}
                 </th>
                 <td colspan="4">
                     Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.

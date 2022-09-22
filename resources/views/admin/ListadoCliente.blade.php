@@ -82,9 +82,9 @@
                                         <th scope="row">{{ $cliente->id_cliente }}</th>
                                         <td>{{ $cliente->nombre_cliente . ', ' . $cliente->apellido_cliente }}</td>
                                         <td>
-                                            @if ($cliente->tipo_de_identificacion == 1)
+                                            @if ($cliente->tipo_de_identificacion == "CREDENCIAL NACIONAL ELECTOR")
                                                 INE
-                                            @elseif($cliente->tipo_de_identificacion = 2)
+                                            @elseif($cliente->tipo_de_identificacion = "CARTILLA MILITAR")
                                                 CARTILLA MILITAR
                                             @else
                                                 PASAPORTE

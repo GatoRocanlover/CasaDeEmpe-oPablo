@@ -147,12 +147,8 @@
                                     <tr>
                                         <th scope="row">{{ $prenda->id_cotizacionprenda }}</th>
                                         <td>{{ $prenda->nombre_prenda }}</td>
-                                        <td>
-                                            @if ($prenda->descripcion_generica == 1)
-                                                ORO
-                                            @elseif($prenda->descripcion_generica == 2)
-                                                PLATA
-                                            @endif
+                                        <td> 
+                                            {{$prenda->descripcion_generica}}
                                         </td>
                                         <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
                                         </td>

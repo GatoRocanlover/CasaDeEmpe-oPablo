@@ -86,15 +86,7 @@
                 <td class="text-center">{{$dato_tickecoti->kilataje_prenda}} k</td>
             </tr>
             <tr>
-                <td class="textderecha fw-bold">PRECIO
-                    @if($dato_tickecoti->descripcion_generica == 1)
-                    ORO:
-                    @else
-                    @endif
-                    @if($dato_tickecoti->descripcion_generica == 2)
-                    PLATA:
-                    @else
-                    @endif &nbsp;&nbsp;</td>
+                <td class="textderecha fw-bold">PRECIO {{$dato_tickecoti->descripcion_generica}}: &nbsp;&nbsp;</td>
                 <td class="text-center">$ {{$dato_tickecoti->valor_oro_plata}}</td>
                 <td class="textderecha fw-bold">PESO:&nbsp;&nbsp;</td>
                 <td class="text-center">{{$dato_tickecoti->gramaje_prenda}} gr</td>
