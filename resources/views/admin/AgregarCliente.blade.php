@@ -83,9 +83,9 @@
                 <div class="col-md-6">IDENTIFICACION *</label>
                     <select class="form-select" name="tipo_de_identificacion" id="tipo_de_identificacion" aria-label="Default select example">
                         <option selected value="-1">TIPO DE IDENTIFICACION </option>
-                        <option value="CREDENCIAL NACIONAL ELECTOR">INE</option>
-                        <option value="CARTILLA MILITAR">CARTILLA MILITAR </option>
-                        <option value="PASAPORTE">PASAPORTE</option>
+                        <option value="1">INE</option>
+                        <option value="2">CARTILLA MILITAR </option>
+                        <option value="3">PASAPORTE</option>
                     </select>
                     <div class="valid-feedback">
                         Looks good!
