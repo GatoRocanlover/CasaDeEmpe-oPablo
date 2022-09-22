@@ -95,13 +95,13 @@
                             @if($dato_cliente->tipo_de_identificacion == "CARTILLA MILITAR")
                                 <option value="2" selected>CARTILLA MILITAR</option>
                              @else
-                                <option value="" >CARTILLA MILITAR</option> 
+                                <option value="2" >CARTILLA MILITAR</option> 
                             @endif
                             
                             @if($dato_cliente->tipo_de_identificacion == "PASAPORTE")
                                 <option value="3" selected>PASAPORTE</option>
                             @else
-                                <option value="" >PASAPORTE</option> 
+                                <option value="3" >PASAPORTE</option> 
                             @endif
                         </select>
                         <div class="valid-feedback">
