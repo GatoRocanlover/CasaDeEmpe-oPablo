@@ -84,9 +84,9 @@
                                         <td>
                                             @if ($cliente->tipo_de_identificacion == 1)
                                                 INE
-                                            @elseif($cliente->tipo_de_identificacion = 2)
+                                            @elseif($cliente->tipo_de_identificacion == 2)
                                                 CARTILLA MILITAR
-                                            @else
+                                            @elseif($cliente->tipo_de_identificacion == 3)
                                                 PASAPORTE
                                             @endif
                                         </td>
