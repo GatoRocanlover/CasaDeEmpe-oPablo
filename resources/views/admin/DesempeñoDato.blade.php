@@ -388,6 +388,8 @@
                         <label class="form-label h4"><strong>DESEMPEÑO:</strong> </label>
                     </div>
 
+              
+
                     <div class="col-md-12 mt-3"><strong>COBRO DE MES A DESEMPEÑAR:</strong></label>
                     <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();" aria-label="Default select example">
 
@@ -399,7 +401,6 @@
                         <option value="{{ $dato_prenda->desempeño5 }}">5° Mes / {{$dato_prenda->mes5}}</option>
                     </select>
                 </div>
-        
 
                         <div class="  d-flex  justify-center">
                     <label for="" class="mt-3 h4"><strong>TOTAL A PAGAR:</strong></label>

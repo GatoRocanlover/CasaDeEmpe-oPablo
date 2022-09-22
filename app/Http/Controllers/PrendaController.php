@@ -143,9 +143,11 @@ class PrendaController extends Controller
      */
     public function edit($id)
     {
+        $hoy = Carbon::today(); //Aquí se obtiene la fecha de hoy
         $prenda = Prenda::find($id);
 
-        return View::make('admin.EditarPrenda')->with(
+        return View::make('admin.EditarPrenda')
+        ->with(
             [
                 "dato_prenda" => $prenda
 
@@ -164,6 +166,17 @@ class PrendaController extends Controller
             ]
         );
     }
+
+
+    public function FechasMes(Request $request)
+    {
+        $prestamos = Prenda::where('mes1', '>=', $request->fercha_inicio)
+            ->where('mes2', '<=', $request->fecha_fin)
+            ->get(); 
+            $datos['prestamos'] = $prestamos;
+            return view('admin.DesempeñoDato', $datos); 
+    }
+
 
     public function editRefrendo($id)
     {

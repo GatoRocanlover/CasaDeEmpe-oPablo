@@ -87,8 +87,8 @@
                         <label for="validationCustomUsername" class="form-label">DESCRIPCIÓN GENERICA:</label>
                         <select class="form-select" aria-label="Default select example" name="descripcion_generica" id="descripcion_generica">
                             <option selected value="-1">SELECCIONE LA DESCRIPCIÓN GENERICA DE LA PRENDA</option>
-                            <option value="1">ORO</option>
-                            <option value="2">PLATA</option>
+                            <option value="ORO">ORO</option>
+                            <option value="PLATA">PLATA</option>
                         </select>
                         <div class="valid-feedback">
                             Looks good!

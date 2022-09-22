@@ -63,10 +63,9 @@ class Prenda extends Model
    
     ];
 
-    protected $date = [
-            'mes1',
-    ];
-
+    public function getFromDateAttribute($value) {
+        return \Carbon\Carbon::parse($value)->format('d-m-Y');
+    }
 
     public function cliente(){
         return $this->belongsTo(cliente::class, 'id_cliente', 'id_cliente');

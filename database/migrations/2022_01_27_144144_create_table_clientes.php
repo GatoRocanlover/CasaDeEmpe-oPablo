@@ -38,11 +38,10 @@ class CreateTableClientes extends Migration
             $table->string('colonia_cotitular', 30)->nullable()->default(null);
             $table->string('ciudad_cotitular', 30)->nullable()->default(null);
             $table->string('codigo_postal_cotitular', 10)->nullable()->default(null);
-            $table->timestamps();
              /** BNEFICIARIO */
             $table->string('nombre_beneficiario', 30)->nullable()->default(null);
             $table->string('apellido_beneficiario', 30)->nullable()->default(null);
-
+            $table->timestamps();
         });
     }
 

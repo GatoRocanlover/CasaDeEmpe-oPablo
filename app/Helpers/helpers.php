@@ -194,62 +194,60 @@ function dias()
 function diasmes2()
 {
    $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",    
    );
-
-   echo date('d') . "-" . $meses[date('n')] . "-" . date('Y');
+   echo date('Y') . "-" . $meses[date('m')+0]. "-" . date('d');
 }
 
 function diasmes3()
 {
    $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",   
    );
-
-   echo date('d') . "-" . $meses[date('n') + 1] . "-" . date('Y');
+   echo date('Y') . "-" . $meses[date('m') + 1] . "-" . date('d');
 }
 
 function diasmes4()
 {
    $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",  
    );
-
-   echo date('d') . "-" . $meses[date('n') + 2] . "-" . date('Y');
+   echo date('Y') . "-" . $meses[date('m') + 2] . "-" . date('d');
 }
 function diasmes5()
 {
    $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",  
    );
-
-   echo date('d') . "-" . $meses[date('n') + 3] . "-" . date('Y');
+   echo date('Y') . "-" . $meses[date('m') + 3] . "-" . date('d');
 }
 function diasmes6()
 {
-   $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-   );
 
-   echo date('d') . "-" . $meses[date('n') + 4] . "-" . date('Y');
+   $meses = array(
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",  
+   );
+   echo date('Y') . "-" . $meses[date('m') + 4] . "-" . date('d');
 }
 
 function fechacomercial()
 {
    $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12",   
    );
-
-   echo date('d') . "-" . $meses[date('n') + 5] . "-" . date('Y');
+   echo date('Y') . "-" . $meses[date('m') + 5] . "-" . date('d');
 }
 
 function mes_actual()
@@ -260,56 +258,8 @@ function mes_actual()
       "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
    );
 
-   echo date('d') . "-" . $meses[date('n') - 1] . "-" . date('Y');
+   echo date('d') . "-" . $meses[date('n')] . "-" . date('Y');
 }
 
-function mes()
-{
-   $meses = array(
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
-      "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-   );
 
-   echo $meses[date('n') +1];
-}
 
-function mesnada($Fecha)
-{
-   if (strlen(stristr($Fecha, 'Enero')) > 0) {
-      echo "Enero";
-   }
-   if (strlen(stristr($Fecha, 'Febrero')) > 0) {
-      echo "Febrero";
-   }
-   if (strlen(stristr($Fecha, 'Marzo')) > 0) {
-      echo "Marzo";
-   }
-   if (strlen(stristr($Fecha, 'Abril')) > 0) {
-      echo "Abril";
-   }
-   if (strlen(stristr($Fecha, 'Mayo')) > 0) {
-      echo "Mayo";
-   }
-   if (strlen(stristr($Fecha, 'Junio')) > 0) {
-      echo "Junio";
-   }
-   if (strlen(stristr($Fecha, 'Julio')) > 0) {
-      echo "Julio";
-   }
-   if (strlen(stristr($Fecha, 'Agosto')) > 0) {
-      echo "Agosto";
-   }
-   if (strlen(stristr($Fecha, 'Septiembre')) > 0) {
-      echo "Septiembre";
-   }
-   if (strlen(stristr($Fecha, 'Octubre')) > 0) {
-      echo "Obtubre";
-   }
-   if (strlen(stristr($Fecha, 'Noviembre')) > 0) {
-      echo "Noviembre";
-   }
-   if (strlen(stristr($Fecha, 'Diciembre')) > 0) {
-      echo "Diciembre";
-   }
-}

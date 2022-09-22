@@ -19,56 +19,53 @@ class CreateTablePrendas extends Migration
             $table->id('id_prendas');
             $table->string('folio_cotizacion', 20);
             $table->string('nombre_prenda', 90);
-            $table->tinyInteger('descripcion_generica');
-            $table->string('kilataje_prenda', 20);
-            $table->string('gramaje_prenda', 30);
+            $table->string('descripcion_generica');
+            $table->float('kilataje_prenda', 20);
+            $table->float('gramaje_prenda', 30);
             $table->longText('caracteristicas_prenda');
-            $table->string('avaluo_prenda', 30);
-            $table->tinyInteger('porcentaje_prestamo_sobre_avaluo');
-            $table->string('prestamo_inicial', 20);
-            $table->string('prestamo_prenda', 20);
+            $table->float('avaluo_prenda', 30);
+            $table->float('porcentaje_prestamo_sobre_avaluo');
+            $table->float('prestamo_inicial', 20);
+            $table->float('prestamo_prenda', 20);
             $table->string('fecha_prestamo', 90);
-            $table->string('fecha_comercializacion', 30);
+            $table->dateTime('fecha_comercializacion');
             //-----Primer mes ------ ///
-            $table->string('mes1', 20);
-            $table->string('interes', 20);
-            $table->string('almacenaje', 20);
-            $table->string('iva', 20);
-            $table->string('refrendo', 30);
-            $table->string('desempeño', 30);
+            $table->dateTime('mes1');
+            $table->float('interes', 20);
+            $table->float('almacenaje', 20);
+            $table->float('iva', 20);
+            $table->float('refrendo', 30);
+            $table->float('desempeño', 30);
             //-----Segundo mes ------ ///
-            $table->string('mes2', 20);
-            $table->string('interes2', 20);
-            $table->string('almacenaje2', 20);
-            $table->string('iva2', 20);
-            $table->string('refrendo2', 30);
-            $table->string('desempeño2', 30);
+            $table->dateTime('mes2');
+            $table->float('interes2', 20);
+            $table->float('almacenaje2', 20);
+            $table->float('iva2', 20);
+            $table->float('refrendo2', 30);
+            $table->float('desempeño2', 30);
             //-----Tercer mes ------ ///
-            $table->string('mes3', 20);
-            $table->string('interes3', 20);
-            $table->string('almacenaje3', 20);
-            $table->string('iva3', 20);
-            $table->string('refrendo3', 30);
-            $table->string('desempeño3', 30);
+            $table->dateTime('mes3');
+            $table->float('interes3', 20);
+            $table->float('almacenaje3', 20);
+            $table->float('iva3', 20);
+            $table->float('refrendo3', 30);
+            $table->float('desempeño3', 30);
             //-----Cuarto mes ------ ///
-            $table->string('mes4', 20);
-            $table->string('interes4', 20);
-            $table->string('almacenaje4', 20);
-            $table->string('iva4', 20);
-            $table->string('refrendo4', 30);
-            $table->string('desempeño4', 30);
+            $table->dateTime('mes4');
+            $table->float('interes4', 20);
+            $table->float('almacenaje4', 20);
+            $table->float('iva4', 20);
+            $table->float('refrendo4', 30);
+            $table->float('desempeño4', 30);
             //-----Quintno mes ------ ///
-            $table->string('mes5', 20);
-            $table->string('interes5', 20);
-            $table->string('almacenaje5', 20);
-            $table->string('iva5', 20);
-            $table->string('refrendo5', 30);
-            $table->string('desempeño5', 30);
+            $table->dateTime('mes5');
+            $table->float('interes5', 20);
+            $table->float('almacenaje5', 20);
+            $table->float('iva5', 20);
+            $table->float('refrendo5', 30);
+            $table->float('desempeño5', 30);
 
-            $table->string('abono_capital', 30);
-
-
-
+            $table->float('abono_capital', 30);
             $table->timestamps();
         });
     }

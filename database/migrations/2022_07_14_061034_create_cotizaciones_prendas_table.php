@@ -16,20 +16,20 @@ class CreateCotizacionesPrendasTable extends Migration
         Schema::create('cotizaciones_prendas', function (Blueprint $table) {
             $table->id('id_cotizacionprenda');
             $table->string('nombre_prenda', 90);
-            $table->tinyInteger('descripcion_generica');
+            $table->string('descripcion_generica');
             $table->string('valor_oro_plata', 20);
-            $table->string('dato_1', 20);
-            $table->string('dato_2', 20);
-            $table->string('dato_3', 20);
-            $table->string('dato_4', 20);
-            $table->string('promedio_prenda', 20);
-            $table->string('kilataje_prenda', 20);
-            $table->string('gramaje_prenda', 30);
+            $table->float('dato_1', 20);
+            $table->float('dato_2', 20);
+            $table->float('dato_3', 20);
+            $table->float('dato_4', 20);
+            $table->float('promedio_prenda', 20);
+            $table->float('kilataje_prenda', 20);
+            $table->float('gramaje_prenda', 30);
             $table->longText('caracteristicas_prenda');
-            $table->string('avaluo_prenda', 30);
-            $table->tinyInteger('porcentaje_prestamo_sobre_avaluo');
-            $table->string('prestamo_prenda', 20);  
-            $table->integer('cantidad_prenda');
+            $table->float('avaluo_prenda', 30);
+            $table->float('porcentaje_prestamo_sobre_avaluo');
+            $table->float('prestamo_prenda', 20);  
+            $table->float('cantidad_prenda');
             $table->timestamps();
         });
     }
