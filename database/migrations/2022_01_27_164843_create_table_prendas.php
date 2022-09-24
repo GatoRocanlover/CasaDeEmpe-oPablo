@@ -36,6 +36,7 @@ class CreateTablePrendas extends Migration
             $table->float('iva', 20);
             $table->float('refrendo', 30);
             $table->float('desempeño', 30);
+            $table->float('subtotal', 30);
             //-----Segundo mes ------ ///
             $table->dateTime('mes2');
             $table->float('interes2', 20);
@@ -43,6 +44,7 @@ class CreateTablePrendas extends Migration
             $table->float('iva2', 20);
             $table->float('refrendo2', 30);
             $table->float('desempeño2', 30);
+            $table->float('subtotal2', 30);
             //-----Tercer mes ------ ///
             $table->dateTime('mes3');
             $table->float('interes3', 20);
@@ -50,6 +52,7 @@ class CreateTablePrendas extends Migration
             $table->float('iva3', 20);
             $table->float('refrendo3', 30);
             $table->float('desempeño3', 30);
+            $table->float('subtotal3', 30);
             //-----Cuarto mes ------ ///
             $table->dateTime('mes4');
             $table->float('interes4', 20);
@@ -57,6 +60,7 @@ class CreateTablePrendas extends Migration
             $table->float('iva4', 20);
             $table->float('refrendo4', 30);
             $table->float('desempeño4', 30);
+            $table->float('subtotal4', 30);
             //-----Quintno mes ------ ///
             $table->dateTime('mes5');
             $table->float('interes5', 20);
@@ -64,6 +68,7 @@ class CreateTablePrendas extends Migration
             $table->float('iva5', 20);
             $table->float('refrendo5', 30);
             $table->float('desempeño5', 30);
+            $table->float('subtotal5', 30);
 
             $table->float('abono_capital', 30);
             $table->timestamps();

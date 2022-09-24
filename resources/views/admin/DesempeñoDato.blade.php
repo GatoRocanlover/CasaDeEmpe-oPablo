@@ -28,7 +28,7 @@
     </style>
 
     <style>
- body {
+        body {
             font-family: 'Nunito', sans-serif;
         }
 
@@ -135,8 +135,10 @@
             background-color: white;
             text-align: center;
         }
-
-
+        .negro{
+            color:black;
+            background-color: white;
+        }
     </style>
 
 </head>
@@ -185,165 +187,165 @@
 
             <div class="tabla justify-content-center mt-4">
                 <div class="tabla1 ">
-                  
-                <div class=" table-responsive">
-                    <label for="">TABLA DE PAGOS:</label>
-                    <table class="table table-sm">
-                        <tr>
 
-                            <th rowspan="2">
-                                <br>
-                                NUMERO
-                            </th>
+                    <div class=" table-responsive">
+                        <label for="">TABLA DE PAGOS:</label>
+                        <table class="table table-sm">
+                            <tr>
 
-                            <th colspan="4">MONTO</th>
+                                <th rowspan="2">
+                                    <br>
+                                    NUMERO
+                                </th>
 
-                            <th colspan="2">TOTAL A PAGAR</th>
+                                <th colspan="4">MONTO</th>
 
-                            <th rowspan="2">CUANDO SE REALIZAN LOS PAGOS</th>
+                                <th colspan="2">TOTAL A PAGAR</th>
 
-                        </tr>
+                                <th rowspan="2">CUANDO SE REALIZAN LOS PAGOS</th>
 
-                        <tr>
+                            </tr>
 
-                            <th>IMPORTE DE MUTUO</th>
+                            <tr>
 
-                            <th>&nbsp;INTERESES&nbsp;</th>
+                                <th>IMPORTE DE MUTUO</th>
 
-                            <th>&nbsp;ALMACENAJE&nbsp;</th>
+                                <th>&nbsp;INTERESES&nbsp;</th>
 
-                            <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                                <th>&nbsp;ALMACENAJE&nbsp;</th>
 
-                            <th >POR REFRENDO</th>
+                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
 
-                            <th style="background-color: yellow;">POR DESEMPEÑO</th>
+                                <th>POR REFRENDO</th>
 
-                        </tr>
+                                <th style="background-color: yellow;">POR DESEMPEÑO</th>
 
-                        <tr>
+                            </tr>
 
-                            <th>1° Mes</th>
+                            <tr>
 
-                            <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
+                                <th>1° Mes</th>
 
-                            <td>$ {{ $dato_prenda->interes }}</td>
+                                <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
 
-                            <td>$ {{ $dato_prenda->almacenaje }}</td>
+                                <td>$ {{ $dato_prenda->interes }}</td>
 
-                            <td>$ {{ $dato_prenda->iva }}</td>
+                                <td>$ {{ $dato_prenda->almacenaje }}</td>
 
-                            <td>$ {{ $dato_prenda->refrendo }}</td>
+                                <td>$ {{ $dato_prenda->iva }}</td>
 
-                            <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->desempeño }}</td>
+                                <td>$ {{ $dato_prenda->refrendo }}</td>
 
-                            <td>
-                                {{$dato_prenda->mes1}}
-                            </td>
+                                <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->desempeño }}</td>
 
-                        </tr>
-                        <tr>
-                            <th>2° Mes</th>
+                                <td>
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes1)->format('d-m-Y')}}
+                                </td>
 
-                            <td>
-                                $ {{$dato_prenda->prestamo_prenda}}.00
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->interes2}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->almacenaje2}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->iva2}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->refrendo2}}
-                            </td>
-                            <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->desempeño2}}
-                            </td>
-                            <td>
-                                {{$dato_prenda->mes2}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>3° Mes</th>
+                            </tr>
+                            <tr>
+                                <th>2° Mes</th>
 
-                            <td>
-                                $ {{$dato_prenda->prestamo_prenda}}.00
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->interes3}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->almacenaje3}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->iva3}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->refrendo3}}
-                            </td>
-                            <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->desempeño3}}
-                            </td>
-                            <td>
-                                {{$dato_prenda->mes3}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>4° Mes</th>
+                                <td>
+                                    $ {{$dato_prenda->prestamo_prenda}}.00
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->interes2}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->almacenaje2}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->iva2}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->refrendo2}}
+                                </td>
+                                <td style="background-color: yellow;" class="fw-bold">
+                                    $ {{$dato_prenda->desempeño2}}
+                                </td>
+                                <td>
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes2)->format('d-m-Y')}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>3° Mes</th>
 
-                            <td>
-                                $ {{ $dato_prenda->prestamo_prenda }}.00
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->interes4}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->almacenaje4}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->iva4}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->refrendo4}}
-                            </td>
-                            <td  style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->desempeño4}}
-                            </td>
-                            <td>
-                                {{$dato_prenda->mes4}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>5° Mes</th>
+                                <td>
+                                    $ {{$dato_prenda->prestamo_prenda}}.00
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->interes3}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->almacenaje3}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->iva3}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->refrendo3}}
+                                </td>
+                                <td style="background-color: yellow;" class="fw-bold">
+                                    $ {{$dato_prenda->desempeño3}}
+                                </td>
+                                <td>
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes3)->format('d-m-Y')}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>4° Mes</th>
 
-                            <td>
-                                $ {{ $dato_prenda->prestamo_prenda }}.00
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->interes5}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->almacenaje5}}
-                            </td>
-                            <td>
-                                $ {{$dato_prenda->iva5}}
-                            </td>
-                            <td >
-                                $ {{$dato_prenda->refrendo5}}
-                            </td>
-                            <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->desempeño5}}
-                            </td>
-                            <td>
-                                {{$dato_prenda->mes5}}
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                    <div class="d-flex row justify-content-around">
+                                <td>
+                                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->interes4}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->almacenaje4}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->iva4}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->refrendo4}}
+                                </td>
+                                <td style="background-color: yellow;" class="fw-bold">
+                                    $ {{$dato_prenda->desempeño4}}
+                                </td>
+                                <td>
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes4)->format('d-m-Y')}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>5° Mes</th>
+
+                                <td>
+                                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->interes5}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->almacenaje5}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->iva5}}
+                                </td>
+                                <td>
+                                    $ {{$dato_prenda->refrendo5}}
+                                </td>
+                                <td style="background-color: yellow;" class="fw-bold">
+                                    $ {{$dato_prenda->desempeño5}}
+                                </td>
+                                <td>
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes5)->format('d-m-Y')}}
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="d-flex row justify-content-around mt-4">
                         <br>
                         <div class="col-md-5">
                             <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
@@ -359,24 +361,19 @@
                             </label>
                         </div>
                     </div>
-                    <div class="mt-2">&nbsp;</div>
-                    <div class="col-md-11 mt-8 letra1">
+                    
+                    <div class="col-md-11 mt-2 letra1">
                         <label><strong> CLIENTE:
                                 &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                         </label>
-                        <label class="mt-3"><strong>NOMBRE DE LA
-                                PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
-                        <label class="mt-3"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
-                            @if ($dato_prenda->descripcion_generica == 1)
-                            ORO
-                            @endif
-                            @if ($dato_prenda->descripcion_generica == 2)
-                            PLATA
-                            @endif
-                        </label>
-                        <label class="mt-3"><strong>CANTIDAD DE
+                        <label class="mt-2"><strong>NOMBRE DE LA
+                                PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label> <br>
+                        <label class="mt-2"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
+                            {{$dato_prenda->descripcion_generica}}
+                        </label> <br>
+                        <label class="mt-2"><strong>CANTIDAD DE
                                 PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                        <label class="mt-3"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                        <label class="mt-2"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
                     </div>
 
                 </div>
@@ -388,54 +385,60 @@
                         <label class="form-label h4"><strong>DESEMPEÑO:</strong> </label>
                     </div>
 
-              
 
-                    <div class="col-md-12 mt-3"><strong>COBRO DE MES A DESEMPEÑAR:</strong></label>
-                    <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();" aria-label="Default select example">
+                    {{ $dato_prenda->multa }}
+                    {{ $dato_prenda->multa2 }}
 
-                        <option selected value="0.00">SELECCIONE EL MES A DESEMPEÑAR</option>
-                        <option value="{{ $dato_prenda->desempeño }}">1° Mes / {{$dato_prenda->mes1}}</option>
-                        <option value="{{ $dato_prenda->desempeño2 }}">2° Mes / {{$dato_prenda->mes2}}</option>
-                        <option value="{{ $dato_prenda->desempeño3 }}">3° Mes / {{$dato_prenda->mes3}}</option>
-                        <option value="{{ $dato_prenda->desempeño4 }}">4° Mes / {{$dato_prenda->mes4}}</option>
-                        <option value="{{ $dato_prenda->desempeño5 }}">5° Mes / {{$dato_prenda->mes5}}</option>
-                    </select>
-                </div>
 
-                        <div class="  d-flex  justify-center">
-                    <label for="" class="mt-3 h4"><strong>TOTAL A PAGAR:</strong></label>
-                </div>
-                <div class="flex justify-center">
-                    <div class="col-md-12">
-                        <div class="input-group has-validation">
-                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="desempeño2" name="desempeño2" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+
+
+                    <div class="col-md-12 mt-3"><strong>SELECCIONE EL COBRO DEL MES:</strong></label>
+                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();"  aria-label="Default select example">
+
+                            <option selected value="0.00">SELECCIONE EL MES A DESEMPEÑAR</option>
+                            <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->format('d-m-Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-subtotal="{{$dato_prenda->subtotal2}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->format('d-m-Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño3 }}"data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->format('d-m-Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-subtotal="{{$dato_prenda->subtotal4}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->format('d-m-Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-subtotal="{{$dato_prenda->subtotal5}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->format('d-m-Y')}}</option>
+                        </select>
+                    </div>
+
+                    <div class="  d-flex  justify-center">
+                        <label for="" class="mt-4 h4"><strong>TOTAL A PAGAR:</strong></label>
+                    </div>
+                    <div class="flex justify-center">
+                        <div class="col-md-12">
+                            <div class="input-group has-validation">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                                <input type="number" id="desempeño2" name="desempeño2" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                    <input type="hidden" id="prestamo" name="prestamo" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
 
 
-                        
-                            <div class="col-md-12 mt-4">
-                                <label for="" class="negritas">PAGO RECIBIDO:</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                                    <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col-md-12 mt-4">
-                                <label for="" class="negritas">CAMBIO ENTREGADO:</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                                    <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
-                                </div>
-                            </div>
-                        
-
-                        <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
-                            <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
+                    <div class="col-md-12 mt-4">
+                        <label for="" class="negritas">PAGO RECIBIDO:</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
                         </div>
-                        @include('admin.Modals.modaldesempeño')
+                    </div>
+                    <div class="col-md-12 mt-4">
+                        <label for="" class="negritas">CAMBIO ENTREGADO:</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                            <input type="text" id="cambio_boleta1" name="cambio_boleta1" class="form-control input_style letracambio text-center" readonly placeholder="0.00">
+                        </div>
+                    </div>
+
+
+                    <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-5">
+                        <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}">PAGAR</button>
+                    </div>
+                    @include('admin.Modals.modaldesempeño')
                 </div>
             </div>
 
@@ -458,7 +461,7 @@
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 <script src="{{ asset('dist/js/desempeño.js') }}"></script>
 <script>
-    
+
 </script>
 
 

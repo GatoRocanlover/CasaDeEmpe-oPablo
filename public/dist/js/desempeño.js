@@ -100,6 +100,7 @@ document.formulario_pago.submit();
 
 //FUNCION QUE PERMITE COMPIAR EL INPUT DE PAGO CLIENTE
 document.getElementById("cantidad_pago1",).addEventListener('keyup', autoCompleteNew);
+
 function autoCompleteNew(e) {            
     var value = $(this).val();         
     $("#cantidad_pago",).val(value.replace(/\s/g, '').toLowerCase()); 
@@ -173,10 +174,26 @@ function formatear(dato) {
 
 function calcular() {
     var valor = document.getElementById("desempeño1").value;
+
+//sacar sub total
+var valor1 = document.getElementById("prestamo").value;
+var valor2 = document.getElementById("interes").value;
+var valor3 = document.getElementById("almacenaje").value;
+
     var porce = parseFloat(valor);
     
     $("#desempeño2").val(formatear(porce.toFixed(2)))
+    $("#total").val(formatear(porce.toFixed(2)))
+    $("#interes").val($("#desempeño1 option:selected").data("interes"));
+    $("#prestamo").val($("#desempeño1 option:selected").data("prestamo"));
+    $("#almacenaje").val($("#desempeño1 option:selected").data("almacenaje"));
+    $("#iva").val($("#desempeño1 option:selected").data("iva"));
+    $("#subtotal").val($("#desempeño1 option:selected").data("subtotal"));
+   
 
 }
 calcular();
+
+
+
 

@@ -237,30 +237,35 @@
             <input type="hidden" name="iva" class="form-control" id="iva" value="" readonly>
             <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="" readonly>
             <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="" readonly>
+            <input type="hidden" name="subtotal" class="form-control" id="subtotal" value="" readonly>
 
             <input type="hidden" name="interes2" class="sub uno" id="interes2" value="" readonly>
             <input type="hidden" name="almacenaje2" class="form-control" id="almacenaje2" value="" readonly>
             <input type="hidden" name="iva2" class="form-control" id="iva2" value="" readonly>
             <input type="hidden" name="refrendo2" class="form-control" id="refrendo2" value="" readonly>
             <input type="hidden" name="desempeño2" class="form-control" id="desempeño2" value="" readonly>
+            <input type="hidden" name="subtotal2" class="form-control" id="subtotal2" value="" readonly>
 
             <input type="hidden" name="interes3" class="sub uno" id="interes3" value="" readonly>
             <input type="hidden" name="almacenaje3" class="form-control" id="almacenaje3" value="" readonly>
             <input type="hidden" name="iva3" class="form-control" id="iva3" value="" readonly>
             <input type="hidden" name="refrendo3" class="form-control" id="refrendo3" value="" readonly>
             <input type="hidden" name="desempeño3" class="form-control" id="desempeño3" value="" readonly>
+            <input type="hidden" name="subtotal3" class="form-control" id="subtotal3" value="" readonly>
 
             <input type="hidden" name="interes4" class="sub uno" id="interes4" value="" readonly>
             <input type="hidden" name="almacenaje4" class="form-control" id="almacenaje4" value="" readonly>
             <input type="hidden" name="iva4" class="form-control" id="iva4" value="" readonly>
             <input type="hidden" name="refrendo4" class="form-control" id="refrendo4" value="" readonly>
             <input type="hidden" name="desempeño4" class="form-control" id="desempeño4" value="" readonly>
+            <input type="hidden" name="subtotal4" class="form-control" id="subtotal4" value="" readonly>
 
             <input type="hidden" name="interes5" class="sub uno" id="interes5" value="" readonly>
             <input type="hidden" name="almacenaje5" class="form-control" id="almacenaje5" value="" readonly>
             <input type="hidden" name="iva5" class="form-control" id="iva5" value="" readonly>
             <input type="hidden" name="refrendo5" class="form-control" id="refrendo5" value="" readonly>
             <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
+            <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
 
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>
 

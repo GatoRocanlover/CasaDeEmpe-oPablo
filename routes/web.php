@@ -22,6 +22,8 @@ Route::prefix('admin')->group(function () {
     //PARTE PABLO 
 
     Route::get('Pago_prenda/{id}', [PrendaController::class, 'editPago'])->name('prenda1.edit');
+    Route::post('Pago_prenda/{id}', [PrendaController::class, 'FechasMes'])->name('prenda1.mes');
+
     Route::put('actualizar_prenda_pago/{id}', [PrendaController::class, 'updatePago'])->name('prenda1.update');
     Route::post('Tickets', [TicketController::class, 'store'])->name('Tickets.store');
 

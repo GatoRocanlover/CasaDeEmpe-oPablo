@@ -157,7 +157,9 @@ class PrendaController extends Controller
 
     public function editPago($id)
     {
+      
         $prenda = Prenda::find($id);
+       
 
         return View::make('admin.DesempeñoDato')->with(
             [
@@ -165,16 +167,6 @@ class PrendaController extends Controller
 
             ]
         );
-    }
-
-
-    public function FechasMes(Request $request)
-    {
-        $prestamos = Prenda::where('mes1', '>=', $request->fercha_inicio)
-            ->where('mes2', '<=', $request->fecha_fin)
-            ->get(); 
-            $datos['prestamos'] = $prestamos;
-            return view('admin.DesempeñoDato', $datos); 
     }
 
 
@@ -191,6 +183,7 @@ class PrendaController extends Controller
 
   
     }
+    
     
     public function vistaboleta($id)
     {

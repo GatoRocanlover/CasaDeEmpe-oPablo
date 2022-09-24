@@ -402,27 +402,7 @@
 
 
                 <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
-                <!--   <div class="col-md-12 mt-4"><strong>COBRO DE MES A REFRENDAR:</strong></label>
-                    <select class="form-select text-center" id="interesrefre2" name="interesrefre2" aria-label="Default select example">
-                        @if(mesnada($dato_prenda->mes1) == mes())
-                        <option value="{{ $dato_prenda->refrendo }}">{{$dato_prenda->mes1}}</option>
-                        @endif
-                        @if(mesnada($dato_prenda->mes2) == mes())
-                        <option value="{{ $dato_prenda->refrendo2 }}">$ {{ $dato_prenda->mes2 }}</option>
-                        @endif
-                        @if(mesnada($dato_prenda->mes3) == mes())
-                        <option value="{{ $dato_prenda->refrendo3 }}">$ {{ $dato_prenda->mes3 }}</option>
-                        @endif
-                        @if(mesnada($dato_prenda->mes4) == mes())
-                        <option value="{{ $dato_prenda->refrendo4 }}">$ {{ $dato_prenda->mes4 }}</option>
-                        @endif
-                        @if(mesnada($dato_prenda->mes5)== mes())
-                        <option value="{{ $dato_prenda->refrendo5 }}">$ {{ $dato_prenda->mes5 }}</option>
-                        @endif
-                    </select>
-                </div>
-                {{mesnada($dato_prenda->mes4)}}
-                {{mes()}} -->
+                
 
                 <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
 

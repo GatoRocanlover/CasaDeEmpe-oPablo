@@ -19,17 +19,17 @@ class CreateTicketsDesempeñoTable extends Migration
             $table->string('promedio_socio', 30);  
             $table->string('nombre_cliente', 35);
             $table->string('nombre_prenda', 90);
-            $table->string('cantidad_prenda', 30);
-            $table->tinyInteger('descripcion_generica');
+            $table->float('cantidad_prenda', 30);
+            $table->string('descripcion_generica');
             $table->string('caracteristicas_prenda',300);
-            $table->string('prestamo_prenda', 30);
-            $table->string('cantidad_pago', 30);    
-            $table->string('cambio_boleta', 30);
-            $table->string('interes', 30);
-            $table->string('almacenaje', 30);
-            $table->string('subtotal', 30);
-            $table->string('iva', 30);
-            $table->string('total', 30);
+            $table->float('prestamo_prenda', 30);
+            $table->float('cantidad_pago', 30);    
+            $table->float('cambio_boleta', 30);
+            $table->float('interes', 30);
+            $table->float('almacenaje', 30);
+            $table->float('subtotal', 30);
+            $table->float('iva', 30);
+            $table->float('total', 30);
             $table->timestamps();
 
         });
