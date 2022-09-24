@@ -252,9 +252,7 @@
 
                 <td>$ {{ $dato_prenda->desempeño }}</td>
 
-                <td>
-                    {{$dato_prenda->mes1}}
-                </td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes1)->format('d-m-Y')}}</td>
 
             </tr>
             <tr>
@@ -278,9 +276,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño2}}
                 </td>
-                <td>
-                    {{$dato_prenda->mes2}}
-                </td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes2)->format('d-m-Y')}}</td>
             </tr>
             <tr>
                 <th>3° Mes</th>
@@ -303,9 +299,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño3}}
                 </td>
-                <td>
-                    {{$dato_prenda->mes3}}
-                </td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes3)->format('d-m-Y')}}</td>
             </tr>
             <tr>
                 <th>4° Mes</th>
@@ -328,9 +322,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño4}}
                 </td>
-                <td>
-                    {{$dato_prenda->mes4}}
-                </td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes4)->format('d-m-Y')}}</td>
             </tr>
             <tr>
                 <th>5° Mes</th>
@@ -353,9 +345,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño5}}
                 </td>
-                <td>
-                    {{$dato_prenda->mes5}}
-                </td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->format('d-m-Y')}}</td>
             </tr>
 
             <tr>
@@ -466,13 +456,50 @@
             16.00
             % 
         <br>
-            <script type="text/javascript">
-            var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
-            var f = new Date();
-            document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
-        </script>
-        </p>
-        
+        <?php
+            $DateAndTime = date('d-m-Y h:i:s a', time());  
+            echo "$DateAndTime.";
+            ?> 
+        </P>
+        <p class="letrapequeña text-end">  Pág. 1/6  </p>
+        <p class="letrapequeña" > *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</p>
+        <table>
+            <tr>
+                <td colspan="9">
+                    <div class="iempresa">
+                        <b>Dudas, aclaraciones y reclamaciones:</b>
+                        <br>
+                        <p>*Para cualquier duda, aclaraciones o reclamación, favor de dirigirse a : Calle 23 Nº 100-B x 18 y 20 Col. Centro, Umán, Yucatán, C.P. 97390; teléfono: 988 933 0223, correo electrónico: asociadosnm2018@gmail.com;en un horario de Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 2:00 a 5:00 hras.</p>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="9">
+                    <div class="iempresa">
+                        <b>Estado de cuenta/consulta de movimientos: Consulta en sucursal</b>
+                    </div>
+                </td>
+                
+            </tr> 
+            <tr>
+                <td colspan="9">
+                    <div class="iempresa">
+                        Contrato de Adhesión registrado en el Registro Publico de Contratos de Adhesión de la Procuraduría Federal del Consumidor, EN TRAMITE El proveedor tiene la obligación de entregar al consumidor el documento en el cual se señale la descripción del préstamo, saldos, movimientos y la descripción de la Prenda en garantía.
+                    </div>
+                </td>
+            </tr> 
+            <tr>
+                <td >
+                    <div class="iempresa">
+                    <b>DESEMPEÑO</b>    
+                    </div>
+                </td>
+                <td >
+                    <div class="iempresa">
+                    <b>FIRMAS</b>    
+                    </div>
+                </td>
+            </tr> 
 </div>
 
 </body>
