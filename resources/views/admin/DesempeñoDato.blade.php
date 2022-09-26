@@ -239,7 +239,7 @@
                                 <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->desempeño }}</td>
 
                                 <td>
-                                    {{\Carbon\Carbon::parse($dato_prenda->mes1)->format('d-m-Y')}}
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}
                                 </td>
 
                             </tr>
@@ -265,7 +265,7 @@
                                     $ {{$dato_prenda->desempeño2}}
                                 </td>
                                 <td>
-                                    {{\Carbon\Carbon::parse($dato_prenda->mes2)->format('d-m-Y')}}
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}
                                 </td>
                             </tr>
                             <tr>
@@ -290,7 +290,7 @@
                                     $ {{$dato_prenda->desempeño3}}
                                 </td>
                                 <td>
-                                    {{\Carbon\Carbon::parse($dato_prenda->mes3)->format('d-m-Y')}}
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}
                                 </td>
                             </tr>
                             <tr>
@@ -315,7 +315,7 @@
                                     $ {{$dato_prenda->desempeño4}}
                                 </td>
                                 <td>
-                                    {{\Carbon\Carbon::parse($dato_prenda->mes4)->format('d-m-Y')}}
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}
                                 </td>
                             </tr>
                             <tr>
@@ -340,7 +340,7 @@
                                     $ {{$dato_prenda->desempeño5}}
                                 </td>
                                 <td>
-                                    {{\Carbon\Carbon::parse($dato_prenda->mes5)->format('d-m-Y')}}
+                                    {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
                                 </td>
                             </tr>
                         </table>
@@ -396,11 +396,11 @@
                         <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();"  aria-label="Default select example">
 
                             <option selected value="0.00">SELECCIONE EL MES A DESEMPEÑAR</option>
-                            <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->format('d-m-Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-subtotal="{{$dato_prenda->subtotal2}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->format('d-m-Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño3 }}"data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->format('d-m-Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-subtotal="{{$dato_prenda->subtotal4}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->format('d-m-Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-subtotal="{{$dato_prenda->subtotal5}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->format('d-m-Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-subtotal="{{$dato_prenda->subtotal2}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño3 }}"data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-subtotal="{{$dato_prenda->subtotal4}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-subtotal="{{$dato_prenda->subtotal5}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                         </select>
                     </div>
 

@@ -199,7 +199,7 @@
 
                 <td colspan="9">
                     <div class="iempresa">
-                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{$dato_prenda->fecha_comercializacion}}</u></b>.
+                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->fecha_comercializacion)->formatLocalized('%d-%B-%Y')}}</u></b>.
                         Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: EFECTIVO. En caso de que sea
                         día inhábil, se considera el día siguiente.
                     </div>
@@ -252,7 +252,7 @@
 
                 <td>$ {{ $dato_prenda->desempeño }}</td>
 
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes1)->format('d-m-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</td>
 
             </tr>
             <tr>
@@ -276,7 +276,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño2}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes2)->format('d-m-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
             <tr>
                 <th>3° Mes</th>
@@ -299,7 +299,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño3}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes3)->format('d-m-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
             <tr>
                 <th>4° Mes</th>
@@ -322,7 +322,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño4}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes4)->format('d-m-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
             <tr>
                 <th>5° Mes</th>
@@ -345,7 +345,7 @@
                 <td>
                     $ {{$dato_prenda->desempeño5}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->format('d-m-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
 
             <tr>
@@ -420,7 +420,9 @@
             <tr>
                 <td class="iempresa" colspan="5">Fecha de inicio de comercialización:</td>
                 <td colspan="4">
-                    <b>{{$dato_prenda->fecha_comercializacion}}</b>
+                    <b>
+                    {{ \Carbon\Carbon::parse($dato_prenda->fecha_comercializacion)->formatLocalized('%d-%B-%Y')}}
+                    </b>
                 </td>
             </tr>
             <tr>
@@ -432,7 +434,9 @@
             <tr>
                 <td class="iempresa" colspan="5">Fecha límite de finiquito:</td>
                 <td class="iempresa text-center" colspan="4">
-                    <b>{{$dato_prenda->mes5}}</b>
+                    <b>
+                    {{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
+                    </b>
                 </td>
             </tr>
             <tr>
