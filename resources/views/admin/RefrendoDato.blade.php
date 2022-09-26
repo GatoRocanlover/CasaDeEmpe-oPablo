@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>CASA DE EMPEÑOS</title>
+    <link rel="icon" type="image/png" href="/favicon.png"/>
 
 
 
     <!-- Fonts -->
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="">
     <!-- Styles -->
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css">
+   
 
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -131,6 +132,11 @@
             border: 1px solid black;
         }
 
+        table,
+        th {
+            font-size: 14px;
+        }
+
         table {
             background-color: white;
             text-align: center;
@@ -189,9 +195,10 @@
                     <label class="form-label h4">TABLA DE REFRENDO/DESEMPEÑO:</label>
                 </div>
  -->
+
                 <div class=" table-responsive">
-                    <label for="">TABLA DE PAGOS:</label>
-                    <table class="table table-sm">
+                    <label for=""><strong>TABLA DE PAGOS:</strong></label>
+                    <table class="table table-sm mt-3">
                         <tr>
 
                             <th rowspan="2">
@@ -240,7 +247,7 @@
                             <td>$ {{ $dato_prenda->desempeño }}</td>
 
                             <td>
-                                {{$dato_prenda->mes1}}
+                                {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}
                             </td>
 
                         </tr>
@@ -266,7 +273,7 @@
                                 $ {{$dato_prenda->desempeño2}}
                             </td>
                             <td>
-                                {{$dato_prenda->mes2}}
+                                {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}
                             </td>
                         </tr>
                         <tr>
@@ -291,7 +298,7 @@
                                 $ {{$dato_prenda->desempeño3}}
                             </td>
                             <td>
-                                {{$dato_prenda->mes3}}
+                                {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}
                             </td>
                         </tr>
                         <tr>
@@ -316,7 +323,7 @@
                                 $ {{$dato_prenda->desempeño4}}
                             </td>
                             <td>
-                                {{$dato_prenda->mes4}}
+                                {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}
                             </td>
                         </tr>
                         <tr>
@@ -341,17 +348,17 @@
                                 $ {{$dato_prenda->desempeño5}}
                             </td>
                             <td>
-                                {{$dato_prenda->mes5}}
+                                {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
                             </td>
                         </tr>
                     </table>
                 </div>
 
 
-                <div class="text-center">
+                <div class="text-center mt-3">
                     <label for="">--------------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> ----------------------------------------</label>
                 </div>
-                <div class="d-flex row mt-2 justify-content-around">
+                <div class="d-flex row mt-3 justify-content-around">
                     <div class="col-md-5">
                         <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
                     </div>
@@ -371,14 +378,9 @@
                             &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                     </label>
                     <label class="mt-1"><strong>NOMBRE DE LA
-                            PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label>
+                            PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label><br>
                     <label class="mt-1"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
-                        @if ($dato_prenda->descripcion_generica == 1)
-                        ORO
-                        @endif
-                        @if ($dato_prenda->descripcion_generica == 2)
-                        PLATA
-                        @endif
+                        {{$dato_prenda->descripcion_generica}}
                     </label>
                     <br>
                     <label class="mt-1"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
@@ -391,18 +393,18 @@
                 <div class="col-md-12 mt-3"><strong>COBRO DE MES A REFRENDAR:</strong></label>
                     <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" aria-label="Default select example">
 
-                        <option selected value="0.00">SELECCIONE EL MES A REFRENDAR</option>
-                        <option value="{{ $dato_prenda->refrendo }}">1° Mes / {{$dato_prenda->mes1}}</option>
-                        <option value="{{ $dato_prenda->refrendo2 }}">2° Mes / {{$dato_prenda->mes2}}</option>
-                        <option value="{{ $dato_prenda->refrendo3 }}">3° Mes / {{$dato_prenda->mes3}}</option>
-                        <option value="{{ $dato_prenda->refrendo4 }}">4° Mes / {{$dato_prenda->mes4}}</option>
-                        <option value="{{ $dato_prenda->refrendo5 }}">5° Mes / {{$dato_prenda->mes5}}</option>
+                        <option selected value="">MES A REFRENDAR</option>
+                        <option value="{{ $dato_prenda->refrendo }}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                     </select>
                 </div>
 
 
                 <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
-                
+
 
                 <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
 
@@ -422,9 +424,8 @@
                         </div>
                     </div>
                 </div>
-                <br>
-                <div class="  d-flex  justify-center">
-                    <label for="" class="mt-3 h4"><strong>TOTAL A PAGAR:</strong></label>
+                <div class="  d-flex mt-4 justify-center">
+                    <label for="" class=" h4"><strong>TOTAL A PAGAR:</strong></label>
                 </div>
                 <div class="flex justify-center">
                     <div class="col-md-12">
@@ -434,7 +435,6 @@
                         </div>
                     </div>
                 </div>
-                <br>
                 <br>
                 <div class="col-md-12">
                     <label for="" class="negritas">PAGO RECIBIDO:</label>
@@ -462,20 +462,8 @@
 
 
             </div>
-            @include('admin.Modals.modaldesempeño')
+            @include('admin.Modals.modalrefrendo')
         </div>
-
-        <!-- 
-                <form name="formulario">
-                    <input type="checkbox" value="1" class="form-check-input" onclick="capital.disabled = !this.checked"> ABONAR A CAPITAL
-                    <div class="col-md-4">
-                        <div class="input-group has-validation">
-                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="capital" name="capital"   class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off" disabled>
-                        </div>
-                    </div>
-                </form>
- -->
 
 </body>
 

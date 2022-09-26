@@ -113,7 +113,7 @@ pcantidadv.addEventListener("keyup", event => {
     //console.log("exit");
     //pcantidadv.style.fontSize="23px";
     const vcambio = document.querySelector("#cambio_boleta");
-    const ventventa = document.querySelector("#desempeño1");
+    const ventventa = document.querySelector("#totalpago1");
     const vcantidad = Number(pcantidadv2.value);
     const totalreplace = ventventa.value.replace(/\s+/g, '');
     const vtotal = Number.parseFloat(totalreplace);

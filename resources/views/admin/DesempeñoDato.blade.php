@@ -131,12 +131,18 @@
             border: 1px solid black;
         }
 
+        table,
+        th {
+            font-size: 14px;
+        }
+
         table {
             background-color: white;
             text-align: center;
         }
-        .negro{
-            color:black;
+
+        .negro {
+            color: black;
             background-color: white;
         }
     </style>
@@ -189,8 +195,8 @@
                 <div class="tabla1 ">
 
                     <div class=" table-responsive">
-                        <label for="">TABLA DE PAGOS:</label>
-                        <table class="table table-sm">
+                        <label for=""><strong>TABLA DE PAGOS:</strong></label>
+                        <table class="table table-sm mt-3">
                             <tr>
 
                                 <th rowspan="2">
@@ -345,6 +351,9 @@
                             </tr>
                         </table>
                     </div>
+                    <div class="text-center mt-3">
+                        <label for="">--------------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> ----------------------------------------</label>
+                    </div>
                     <div class="d-flex row justify-content-around mt-4">
                         <br>
                         <div class="col-md-5">
@@ -361,7 +370,7 @@
                             </label>
                         </div>
                     </div>
-                    
+
                     <div class="col-md-11 mt-2 letra1">
                         <label><strong> CLIENTE:
                                 &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
@@ -393,12 +402,12 @@
 
 
                     <div class="col-md-12 mt-3"><strong>SELECCIONE EL COBRO DEL MES:</strong></label>
-                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();"  aria-label="Default select example">
+                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();" aria-label="Default select example">
 
-                            <option selected value="0.00">SELECCIONE EL MES A DESEMPEÑAR</option>
+                            <option selected value="">MES A DESEMPEÑAR</option>
                             <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
                             <option value="{{ $dato_prenda->desempeño2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-subtotal="{{$dato_prenda->subtotal2}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño3 }}"data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
                             <option value="{{ $dato_prenda->desempeño4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-subtotal="{{$dato_prenda->subtotal4}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
                             <option value="{{ $dato_prenda->desempeño5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-subtotal="{{$dato_prenda->subtotal5}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                         </select>
