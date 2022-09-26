@@ -39,11 +39,11 @@
             justify-content: center;
             align-items: center;
         }
-        .container{
+
+        .container {
             padding: 0;
             margin: 0;
         }
-    
     </style>
 </head>
 
@@ -72,14 +72,14 @@
                     </header>
                     <div class="iempresa">
                         <div class="lineal">
-                             Fecha de celebración del contrato Umán, Yuc a
-                                {{ $dato_prenda->fecha_prestamo}}
-                                <!-- <script type="text/javascript">
+                            Fecha de celebración del contrato Umán, Yuc a
+                            {{ $dato_prenda->fecha_prestamo}}
+                            <!-- <script type="text/javascript">
                                     var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre");
                                     var f = new Date();
                                     document.write(f.getDate() + " de " + meses[f.getMonth()] + " de " + f.getFullYear());
                                 </script> -->
-                            
+
                         </div>
                         CONTRATO DE MUTUO CON INTERES Y GARANTIA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA
                         MUTUA S.A. DE C.V., EL PROVEEDOR,
@@ -425,7 +425,7 @@
             </tr>
             <tr>
                 <td class="iempresa text-center" colspan="5">El monto del préstamo se realiza en:</td>
-                <td class="iempresa text-center" colspan="4">Efectivo:&nbsp;<u>&nbsp;&nbsp;  X &nbsp;&nbsp;</u>&nbsp;o a la cuenta bancaria del Consumidor al
+                <td class="iempresa text-center" colspan="4">Efectivo:&nbsp;<u>&nbsp;&nbsp; X &nbsp;&nbsp;</u>&nbsp;o a la cuenta bancaria del Consumidor al
                     <br>numero:
                 </td>
             </tr>
@@ -454,22 +454,25 @@
         </table>
         <p class="letrapequeña">Estos conceptos causaran el pago de impuesto al valor agregado (IVA) a la tasa del
             16.00
-            % 
-        <br>
-        <?php
-            $DateAndTime = date('d-m-Y h:i:s a', time());  
+            %
+            <br>
+            <?php
+            $DateAndTime = date('d-m-Y h:i:s a', time());
             echo "$DateAndTime.";
-            ?> 
+            ?>
         </P>
-        <p class="letrapequeña text-end">  Pág. 1/6  </p>
-        <p class="letrapequeña" > *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</p>
+        <p class="letrapequeña text-end"> Pág. 1/6 </p>
+        <div class="letrapequeña"> *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</div>
         <table>
             <tr>
                 <td colspan="9">
                     <div class="iempresa">
                         <b>Dudas, aclaraciones y reclamaciones:</b>
                         <br>
-                        <p>*Para cualquier duda, aclaraciones o reclamación, favor de dirigirse a : Calle 23 Nº 100-B x 18 y 20 Col. Centro, Umán, Yucatán, C.P. 97390; teléfono: 988 933 0223, correo electrónico: asociadosnm2018@gmail.com;en un horario de Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 2:00 a 5:00 hras.</p>
+                        <p>*Para cualquier duda, aclaraciones o reclamación, favor de dirigirse a : <b>Calle 23 Nº 100-B x 18 y 20 Col. Centro, Umán, Yucatán, C.P. 97390;</b> teléfono: 988 933 0223, correo
+                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 2:00 a 5:00 hras.</b>
+                        </p>
+                        <div>*O en caso a <b>PROFECO</b> en los teléfonos: <b>55 68 87 22 o al 01-800-468-87-22</b>, pagina de internet: <b>www.gob.mx./profeco</b></div>
                     </div>
                 </td>
             </tr>
@@ -479,27 +482,43 @@
                         <b>Estado de cuenta/consulta de movimientos: Consulta en sucursal</b>
                     </div>
                 </td>
-                
-            </tr> 
+
+            </tr>
             <tr>
                 <td colspan="9">
-                    <div class="iempresa">
+                    <div>
                         Contrato de Adhesión registrado en el Registro Publico de Contratos de Adhesión de la Procuraduría Federal del Consumidor, EN TRAMITE El proveedor tiene la obligación de entregar al consumidor el documento en el cual se señale la descripción del préstamo, saldos, movimientos y la descripción de la Prenda en garantía.
                     </div>
                 </td>
-            </tr> 
+            </tr>
             <tr>
-                <td >
-                    <div class="iempresa">
-                    <b>DESEMPEÑO</b>    
+                <td>
+                    <div class="text-center">
+                        <b>DESEMPEÑO</b>
                     </div>
                 </td>
-                <td >
-                    <div class="iempresa">
-                    <b>FIRMAS</b>    
+                <td>
+                    <div class="text-center">
+                        <b>FIRMAS</b>
                     </div>
                 </td>
-            </tr> 
+            </tr>
+            <tr>
+                <td>
+                    EL CONSUMIDOR recoge en el acto y su entera satisfaccíon la(s) prenda(s) arriba <br>
+                    descrita(s), por lo que otorga a <b>ASOCIADOS NUEVA MUTUA S.A. DE C.V.</b>, el finiquito <br>
+                    más amplio que en derecho corresponda, liberandolo de cualquier responsabilidad <br>
+                    jurídica que hubiera surgido o pudiese surgir en relación al contrato y la prenda.
+                </td>
+                <td class="text-center">
+                    {{dias()}}
+                    <br>
+                    <br>
+                    <br>
+                    ____________________________________________ <br>
+                    <b>EL CONSUMIDOR</b>
+                </td>
+            </tr>
 </div>
 
 </body>
