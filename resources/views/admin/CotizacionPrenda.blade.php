@@ -206,7 +206,7 @@
         function calcular() {
             var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
             var valor2 = document.getElementById("avaluo_prenda").value;
-            var porce = parseInt(valor2) * valor / 100;
+            var porce = (parseFloat((valor2) * valor / 100)||0 );
             $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
         }
         calcular();
@@ -239,7 +239,7 @@
     function calcular1() {
         var valor11 = document.getElementById("valor_oro_plata").value;
         var valor22 = document.getElementById("gramaje_prenda").value;
-        var porce1 = parseInt(valor11 * valor22);
+        var porce1 = parseFloat(valor11 * valor22);
         $("#avaluo_prenda").val(formatear1(porce1.toFixed(0)))
     }
     calcular1();

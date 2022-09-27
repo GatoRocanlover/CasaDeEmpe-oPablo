@@ -269,13 +269,15 @@
 
 
 
-            <input type="hidden" name="interes_anterrior" class="form-control" id="interes_anterrior" value="0" readonly>
+            
             <input type="hidden" name="almacenaje_anterior" class="form-control" id="almacenaje_anterior" value="0" readonly>
             <input type="hidden" name="iva_anterior" class="form-control" id="iva_anterior" value="0" readonly>
             <input type="hidden" name="refrendo_anterior" class="form-control" id="refrendo_anterior" value="0" readonly>
             <input type="hidden" name="numeros_refrendos" class="form-control" id="numeros_refrendos" value="0" readonly>
             <input type="hidden" name="folio_refrendo" class="form-control" id="folio_refrendo" value="0" readonly>
-
+            <input type="hidden" name="interes_anterior" class="form-control" id="interes_anterior" value="0" readonly>
+            <input type="hidden" name="cantidad_pago" class="form-control" id="cantidad_pago" value="0" readonly>
+            <input type="hidden" name="cambio_boleta" class="form-control" id="cambio_boleta" value="0" readonly>
 
 
             <input type="hidden" name="importe_anterior" class="form-control" id="importe_anterior" value="0" readonly>

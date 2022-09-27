@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>CASA DE EMPEÑOS</title>
-    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="icon" type="image/png" href="/favicon.png" />
 
 
 
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css">
-   
+
 
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -356,7 +356,7 @@
 
 
                 <div class="text-center mt-3">
-                    <label for="">--------------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> ----------------------------------------</label>
+                    <label for="">---------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> -----------------------------------</label>
                 </div>
                 <div class="d-flex row mt-3 justify-content-around">
                     <div class="col-md-5">
@@ -394,11 +394,11 @@
                     <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" aria-label="Default select example">
 
                         <option selected value="">MES A REFRENDAR</option>
-                        <option value="{{ $dato_prenda->refrendo }}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo2 }}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo3 }}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo4 }}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo5 }}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes3}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes4}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes5}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->fecha_comercializacion}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                     </select>
                 </div>
 
@@ -424,6 +424,11 @@
                         </div>
                     </div>
                 </div>
+
+                <input type="hidden" id="abonototal" name="abonototal" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+               
+
+
                 <div class="  d-flex mt-4 justify-center">
                     <label for="" class=" h4"><strong>TOTAL A PAGAR:</strong></label>
                 </div>
@@ -451,9 +456,13 @@
                     </div>
                 </div>
 
+                <select class="form-select text-center mt-4" id="socio" onchange="calcular3();" name="socio" aria-label="Default select example">
+                    <option class="fw-bold" value="DISPONIBLE">¿CONFIRMASTE LOS DATOS?</option>
+                    <option class="fw-bold" value="{{$dato_prenda->cliente->socio}}">SI</option>
+                </select>
 
                 <div class=" mb-8 max-w-6xl  flex  justify-center mt-5">
-                    <button class="size60 bordes btn btn-primary navbar1 modal55" type="submit" id="btn-submit" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
+                    <button  type="submit" id="idBoton" class="size60 bordes btn btn-primary navbar1 modal55" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
                 </div>
 
 
@@ -509,11 +518,17 @@
     function calcular2() {
         var valor = document.getElementById("prestamo4").value;
         var valor1 = document.getElementById("capital").value;
+        var valor2 = document.getElementById("abonototal").value;
         var porce = parseFloat(valor);
         var porce1 = parseFloat(valor1)
+        var porce3 = parseFloat(valor2)
         var porce2 = parseFloat(porce + porce1)
+        var porce5 = (parseFloat(porce3 - porce1) || valor)
 
         $("#totalpago1").val(formatear(porce2.toFixed(2)))
+        $("#prestamo_prenda").val(porce5.toFixed(2))
+        $("#abono_capital").val(porce1.toFixed(2))
+
 
 
     }
@@ -529,6 +544,87 @@
 
         } */
     /*  usar en donde va a poner la funcion de arriba ----> onChange="imprimirValor()" */
+
+
+    function calcular3() {
+        var valor = document.getElementById("socio").value;
+        var datopres = document.getElementById("prestamo_prenda").value;
+        var porce = parseFloat(1 * valor * datopres); //almacenaje
+        var porce1 = parseInt(datopres) * 0.01 * 1; //interes
+        var porce2 = parseFloat((porce + porce1) * 0.16); //iva
+        var porce3 = parseFloat(porce + porce1 + porce2); //refrendo
+        var porce4 = parseFloat(datopres) //datodesempe
+        var porce5 = parseFloat(porce3 + porce4); // desempeño
+        var porce6 = parseFloat(porce4 + porce1 + porce); //subtotal
+
+        var inte2 = parseInt(datopres) * 0.01 * 2; //interes
+        var alma2 = parseFloat(2 * valor * datopres); //almacenaje
+        var iva2 = parseFloat((inte2 + alma2) * 0.16); //iva
+        var refre2 = parseFloat(inte2 + alma2 + iva2); //refrendo
+        var desem2 = parseFloat(refre2 + porce4); // desempeño
+        var sub2 = parseFloat(porce4 + inte2 + alma2); // subtotal
+
+        var inte3 = parseInt(datopres) * 0.01 * 3; //interes
+        var alma3 = parseFloat(3 * valor * datopres); //almacenaje
+        var iva3 = parseFloat((inte3 + alma3) * 0.16); //iva
+        var refre3 = parseFloat(inte3 + alma3 + iva3); //refrendo
+        var desem3 = parseFloat(refre3 + porce4); // desempeñ3
+        var sub3 = parseFloat(porce4 + inte3 + alma3); // subtotal
+
+        var inte4 = parseInt(datopres) * 0.01 * 4; //interes
+        var alma4 = parseFloat(4 * valor * datopres); //almacenaje
+        var iva4 = parseFloat((inte4 + alma4) * 0.16); //iva
+        var refre4 = parseFloat(inte4 + alma4 + iva4); //refrendo
+        var desem4 = parseFloat(refre4 + porce4); // desempeñ3
+        var sub4 = parseFloat(porce4 + inte4 + alma4); // subtotal
+
+        var inte5 = parseInt(datopres) * 0.01 * 5; //interes
+        var alma5 = parseFloat(5 * valor * datopres); //almacenaje
+        var iva5 = parseFloat((inte5 + alma5) * 0.16); //iva
+        var refre5 = parseFloat(inte5 + alma5 + iva5); //refrendo
+        var desem5 = parseFloat(refre5 + porce4); // desempeñ3
+        var sub5 = parseFloat(porce4 + inte5 + alma5); // subtotal
+
+
+        $("#almacenaje").val(porce.toFixed(2))
+        $("#iva").val(porce2.toFixed(2))
+        $("#interes").val((porce1.toFixed(2)))
+        $("#refrendo").val((porce3.toFixed(2)))
+        $("#desempeño").val((porce5.toFixed(2)))
+        $("#subtotal").val((porce6.toFixed(2)))
+
+        $("#almacenaje2").val(alma2.toFixed(2))
+        $("#iva2").val(iva2.toFixed(2))
+        $("#interes2").val((inte2.toFixed(2)))
+        $("#refrendo2").val((refre2.toFixed(2)))
+        $("#desempeño2").val((desem2.toFixed(2)))
+        $("#subtotal2").val((sub2.toFixed(2)))
+
+        $("#almacenaje3").val(formatear(alma3.toFixed(2)))
+        $("#iva3").val(iva3.toFixed(2))
+        $("#interes3").val((inte3.toFixed(2)))
+        $("#refrendo3").val((refre3.toFixed(2)))
+        $("#desempeño3").val((desem3.toFixed(2)))
+        $("#subtotal3").val((sub3.toFixed(2)))
+
+        $("#almacenaje4").val(formatear(alma4.toFixed(2)))
+        $("#iva4").val(iva4.toFixed(2))
+        $("#interes4").val((inte4.toFixed(2)))
+        $("#refrendo4").val((refre4.toFixed(2)))
+        $("#desempeño4").val((desem4.toFixed(2)))
+        $("#subtotal4").val((sub4.toFixed(2)))
+
+        $("#almacenaje5").val(formatear(alma5.toFixed(2)))
+        $("#iva5").val(iva5.toFixed(2))
+        $("#interes5").val((inte5.toFixed(2)))
+        $("#refrendo5").val((refre5.toFixed(2)))
+        $("#desempeño5").val((desem5.toFixed(2)))
+        $("#subtotal5").val((sub5.toFixed(2)))
+    }
+    calcular3();
+
+
+
 </script>
 
 

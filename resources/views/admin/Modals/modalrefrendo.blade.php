@@ -10,9 +10,9 @@
                 </button>
             </div>
 
-            <form method="POST" action="{{ Route('Tickets.store') }}" onsubmit="return enviar()" name="formulario_pago">
+            <form action="{{Route('prenda.update',$dato_prenda->id_prendas)}}" method="POST" onsubmit="return enviar()" name="formulario_pago">
                 @csrf
-
+                <input name="_method" type="hidden" value="PUT">
                 <div class="modal-body caja2" id="cont_modal">
 
                     <div class="d-flex  justify-content-around">
@@ -33,7 +33,7 @@
                                     @else
                                     @endif
                                 </label>
-                                <input type="hidden" name="promedio_socio" class="form-control text-center" id="promedio_socio" value="{{ $dato_prenda->cliente->socio }}" readonly>
+                                <!--  <input type="hidden" name="promedio_socio" class="form-control text-center" id="promedio_socio" value="{{ $dato_prenda->cliente->socio }}" readonly> -->
                             </div>
                         </div>
 
@@ -44,28 +44,28 @@
                         <label for="nombre_cliente" class="form-label"> <strong>CLIENTE: &nbsp;</strong>
                             {{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                         </label>
-                        <input type="hidden" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}" readonly>
+                        <!-- <input type="hidden" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}" readonly> -->
                     </div>
                     <div class="">
                         <label for="nombre_prenda" class="form-label"> <strong>NOMBRE DE LA PRENDA: &nbsp;</strong>
                             {{ $dato_prenda->nombre_prenda }} </label>
-                        <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{ $dato_prenda->nombre_prenda }}" readonly>
+                        <!-- <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{ $dato_prenda->nombre_prenda }}" readonly> -->
                     </div>
                     <div class="">
                         <label for="cantidad_prenda" class="form-label"><strong>CANTIDAD DE PRENDAS:
                                 &nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                        <input type="hidden" name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{ $dato_prenda->cantidad_prenda }}" readonly>
+                        <!-- <input type="hidden" name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{ $dato_prenda->cantidad_prenda }}" readonly> -->
                     </div>
                     <div class="">
                         <label for="" class="sub "><strong>DESCRIPCION GENERICA: </strong>
                             {{$dato_prenda->descripcion_generica}}
                         </label>
-                        <input type="hidden" name="descripcion_generica" class="form-control text-center" id="descripcion_generica" value="{{$dato_prenda->descripcion_generica}}" readonly>
+                        <!-- <input type="hidden" name="descripcion_generica" class="form-control text-center" id="descripcion_generica" value="{{$dato_prenda->descripcion_generica}}" readonly> -->
                     </div>
                     <div class="mt-1">
                         <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERISTICAS:
                                 &nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
-                        <input type="hidden" name="caracteristicas_prenda" class="form-control text-center" id="caracteristicas_prenda" value="{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}" readonly>
+                        <!-- <input type="hidden" name="caracteristicas_prenda" class="form-control text-center" id="caracteristicas_prenda" value="{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}" readonly> -->
                     </div>
                     <div class="text-center col-md-12">
                         <p>-----------------------------------------------------------------</p>
@@ -74,13 +74,16 @@
                         <label class="col-md-4">
                             <strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
                         </label>
-                        <input type="hidden" id="prestamo_prenda" name="prestamo_prenda" value="{{ $dato_prenda->prestamo_prenda }}">
                     </div>
                     <div class="col-md-12 mt-2">
-                        <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="interes" name="interes" type="text" readonly></label>
+                        <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;
+                            <!-- <input class="col-md-5" id="interes" name="interes" type="text" readonly> -->
+                        </label>
                     </div>
                     <div class="col-md-12">
-                        <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="almacenaje" name="almacenaje" type="text" readonly></label>
+                        <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;
+                            <!-- <input class="col-md-5" id="almacenaje" name="almacenaje" type="text" readonly> -->
+                        </label>
                     </div>
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
@@ -88,11 +91,15 @@
 
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="subtotal" name="subtotal" type="text" readonly></label>
+                                TOTAL:&nbsp;&nbsp;</strong>$&nbsp;
+                            <!-- <input class="col-md-5" id="subtotal" name="subtotal" type="text" readonly> -->
+                        </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="iva" name="iva" type="text" readonly></label>
+                                I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;
+                            <!-- <input class="col-md-5" id="iva" name="iva" type="text" readonly> -->
+                        </label>
                     </div>
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
@@ -103,8 +110,8 @@
                     <div class="flex justify-center">
                         <div class="col-md-18">
                             <div class="input-group has-validation">
-                            <span class=" fw-bold signo" id="inputGroupPrepend">$</span>
-                                <input class="tamañoletra text-center negro" id="total" name="total" type="text" readonly></label>
+                                <span class=" fw-bold signo" id="inputGroupPrepend">$</span>
+                                <!-- <input class="tamañoletra text-center negro" id="total" name="total" type="text" readonly> --></label>
                             </div>
                         </div>
                     </div>
@@ -129,6 +136,54 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
+                    <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{diasmes2()}}" readonly>
+                    <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{diasmes3()}}" readonly>
+                    <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{diasmes4()}}" readonly>
+                    <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
+                    <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
+                    <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{fechacomercial()}}" readonly>
+
+                    <input type="text" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+                    <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+
+                    <input type="text" name="interes" class="sub uno" id="interes" value="" readonly>
+                    <input type="text" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
+                    <input type="text" name="iva" class="form-control" id="iva" value="" readonly>
+                    <input type="text" name="refrendo" class="form-control" id="refrendo" value="" readonly>
+                    <input type="text" name="desempeño" class="form-control" id="desempeño" value="" readonly>
+                    <input type="text" name="subtotal" class="form-control" id="subtotal" value="" readonly>
+
+                    <input type="hidden" name="interes2" class="sub uno" id="interes2" value="" readonly>
+                    <input type="hidden" name="almacenaje2" class="form-control" id="almacenaje2" value="" readonly>
+                    <input type="hidden" name="iva2" class="form-control" id="iva2" value="" readonly>
+                    <input type="hidden" name="refrendo2" class="form-control" id="refrendo2" value="" readonly>
+                    <input type="hidden" name="desempeño2" class="form-control" id="desempeño2" value="" readonly>
+                    <input type="hidden" name="subtotal2" class="form-control" id="subtotal2" value="" readonly>
+
+                    <input type="hidden" name="interes3" class="sub uno" id="interes3" value="" readonly>
+                    <input type="hidden" name="almacenaje3" class="form-control" id="almacenaje3" value="" readonly>
+                    <input type="hidden" name="iva3" class="form-control" id="iva3" value="" readonly>
+                    <input type="hidden" name="refrendo3" class="form-control" id="refrendo3" value="" readonly>
+                    <input type="hidden" name="desempeño3" class="form-control" id="desempeño3" value="" readonly>
+                    <input type="hidden" name="subtotal3" class="form-control" id="subtotal3" value="" readonly>
+
+                    <input type="hidden" name="interes4" class="sub uno" id="interes4" value="" readonly>
+                    <input type="hidden" name="almacenaje4" class="form-control" id="almacenaje4" value="" readonly>
+                    <input type="hidden" name="iva4" class="form-control" id="iva4" value="" readonly>
+                    <input type="hidden" name="refrendo4" class="form-control" id="refrendo4" value="" readonly>
+                    <input type="hidden" name="desempeño4" class="form-control" id="desempeño4" value="" readonly>
+                    <input type="hidden" name="subtotal4" class="form-control" id="subtotal4" value="" readonly>
+
+                    <input type="hidden" name="interes5" class="sub uno" id="interes5" value="" readonly>
+                    <input type="hidden" name="almacenaje5" class="form-control" id="almacenaje5" value="" readonly>
+                    <input type="hidden" name="iva5" class="form-control" id="iva5" value="" readonly>
+                    <input type="hidden" name="refrendo5" class="form-control" id="refrendo5" value="" readonly>
+                    <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
+                    <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
+
+
+                    <input type="text" name="abono_capital" class="form-control" id="abono_capital" value="" readonly>
 
                 </div>
                 <div class="modal-footer">

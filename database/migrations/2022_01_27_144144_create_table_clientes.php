@@ -21,7 +21,7 @@ class CreateTableClientes extends Migration
             $table->string('numero_de_identificacion', 20);
             $table->string('correo_electronico_cliente', 30)->nullable()->default(null);
             $table->string('telefono_cliente', 10)->nullable()->default(null);
-            $table->string('socio', 20);
+            $table->float('socio', 20);
             $table->string('calle_cliente', 20);
             $table->string('numero_cliente', 20);
             $table->string('cruzamientos_cliente', 20);

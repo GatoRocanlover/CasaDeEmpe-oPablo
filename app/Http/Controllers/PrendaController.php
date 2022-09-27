@@ -211,18 +211,18 @@ class PrendaController extends Controller
         $prenda = Prenda::find($id);
 
         $reglas = [
-            "nombre_prenda" => "bail|required|min:3",
+          /*   "nombre_prenda" => "bail|required|min:3",
             "descripcion_generica" => "bail|required",
             "kilataje_prenda" => "bail|required",
             "gramaje_prenda" => 'bail|required',
             "caracteristicas_prenda" => 'bail|required',
             "avaluo_prenda" => "bail|required",
             "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
-            "prestamo_prenda" => 'bail|required',
+            "prestamo_prenda" => 'bail|required', */
         ];
 
         $mensajes = [
-
+/* 
             "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
             "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
             "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar",
@@ -232,7 +232,7 @@ class PrendaController extends Controller
             "avaluo_prenda.required" => "No ha ingresado el avaluo",
             "porcentaje_prestamo_sobre_avaluo.required" => "No ha seleccionado el porfentaje del avaluo",
             "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",
-
+ */
         ];
         $validator = Validator::make(
             $request->all(),

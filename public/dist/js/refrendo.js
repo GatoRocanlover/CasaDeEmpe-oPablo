@@ -171,7 +171,7 @@ function formatear(dato) {
     });
 }
 
-function calcular() {
+/* function calcular() {
     var valor = document.getElementById("prestamo").value;
     var valor1 = document.getElementById("interes").value;
     var valor2 = document.getElementById("almacenaje").value;
@@ -190,3 +190,14 @@ function calcular() {
 }
 calcular();
 
+ */
+
+$("#socio").change(function() {
+
+    if ($("#socio").val() == "DISPONIBLE") {
+        $("#idBoton").prop("disabled", true);
+    } else {
+        $("#idBoton").prop("disabled", false);
+    }
+});
+$("#socio").trigger("change");
