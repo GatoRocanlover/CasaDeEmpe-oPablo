@@ -30,6 +30,8 @@ Route::prefix('admin')->group(function () {
     //MI COMENTARIO
 
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
+    Route::post('alta_prenda2', [PrendaController::class, 'store2'])->name('prenda.store2');
+
     Route::get('editar_prenda/{id}', [PrendaController::class, 'edit'])->name('prenda.edit');
     Route::put('actualizar_prenda/{id}', [PrendaController::class, 'update'])->name('prenda.update');
 
@@ -54,6 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/ListadoUsuario', [AdminController::class, 'ListadoUsuario'])->name('listado_usuario');
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');
     Route::get('/ListadoPrenda', [AdminController::class, 'ListadoPrenda'])->name('listado_prenda');
+    Route::get('/listado_tickets_refrendo', [AdminController::class, 'listado_tickets_refrendo'])->name('listado_tickets_refrendo');
     Route::get('/GenerarBoleta', [AdminController::class, 'GenerarBoleta'])->name('generar_boleta');
     Route::get('/ListadoBoleta', [AdminController::class, 'ListadoBoleta'])->name('listado_boleta');
     Route::get('/ListadoBoletaPagar', [PrendaController::class, 'index'])->name('listado_boleta_pagar');

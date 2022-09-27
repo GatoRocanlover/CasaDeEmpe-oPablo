@@ -267,9 +267,20 @@
             <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
             <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
 
+
+
+            <input type="hidden" name="interes_anterrior" class="form-control" id="interes_anterrior" value="0" readonly>
+            <input type="hidden" name="almacenaje_anterior" class="form-control" id="almacenaje_anterior" value="0" readonly>
+            <input type="hidden" name="iva_anterior" class="form-control" id="iva_anterior" value="0" readonly>
+            <input type="hidden" name="refrendo_anterior" class="form-control" id="refrendo_anterior" value="0" readonly>
+            <input type="hidden" name="numeros_refrendos" class="form-control" id="numeros_refrendos" value="0" readonly>
+            <input type="hidden" name="folio_refrendo" class="form-control" id="folio_refrendo" value="0" readonly>
+
+
+
+            <input type="hidden" name="importe_anterior" class="form-control" id="importe_anterior" value="0" readonly>
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>
-
-
+            
 
 
             <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center">

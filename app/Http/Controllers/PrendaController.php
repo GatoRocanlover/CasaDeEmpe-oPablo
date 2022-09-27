@@ -130,6 +130,8 @@ class PrendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+
     public function show($id)
     {
         //
@@ -249,7 +251,7 @@ class PrendaController extends Controller
         $prenda->save();
 
 
-        return redirect()->route('listado_prenda', []);
+        return redirect()->route('listado_tickets_refrendo', []);
     }
 
 

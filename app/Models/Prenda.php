@@ -61,7 +61,13 @@ class Prenda extends Model
         'refrendo5',
         'desempeño5',
         'subtotal5',
-
+        'importe_anterior',
+        'interes_anterrior',
+        'almacenaje_anterior',
+        'iva_anterior',
+        'refrendo_anterior',
+        'numeros_refrendos',
+        'folio_refrendo',
         'abono_capital',
         
         
