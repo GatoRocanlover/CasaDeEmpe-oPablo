@@ -278,7 +278,8 @@
             <input type="hidden" name="interes_anterior" class="form-control" id="interes_anterior" value="0" readonly>
             <input type="hidden" name="cantidad_pago" class="form-control" id="cantidad_pago" value="0" readonly>
             <input type="hidden" name="cambio_boleta" class="form-control" id="cambio_boleta" value="0" readonly>
-
+            <input type="hidden" name="sub_refrendo" class="form-control" id="sub_refrendo" value="0" readonly>
+          
 
             <input type="hidden" name="importe_anterior" class="form-control" id="importe_anterior" value="0" readonly>
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>

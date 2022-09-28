@@ -395,15 +395,15 @@
 
                         <option selected value="">MES A REFRENDAR</option>
                         <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes3}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes4}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes5}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->fecha_comercializacion}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                     </select>
                 </div>
 
 
-                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
+                <input type="text" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
 
 
                 <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
@@ -420,13 +420,13 @@
                         <label for="" class="negritas mt-4">CUANTO DESEA ABONAR A CAPITAL:</label>
                         <div class="input-group has-validation ">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00">
+                            <input type="number" id="capital" name="capital" onkeyUp="calcular();" class="form-control input_style tamañoletra text-center" placeholder="0.00">
                         </div>
                     </div>
                 </div>
 
-                <input type="hidden" id="abonototal" name="abonototal" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" value="{{$dato_prenda->prestamo_prenda}}" readonly>
-               
+                <input type="text" id="abonototal" name="abonototal" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+
 
 
                 <div class="  d-flex mt-4 justify-center">
@@ -462,7 +462,7 @@
                 </select>
 
                 <div class=" mb-8 max-w-6xl  flex  justify-center mt-5">
-                    <button  type="submit" id="idBoton" class="size60 bordes btn btn-primary navbar1 modal55" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
+                    <button type="submit" id="idBoton" class="size60 bordes btn btn-primary navbar1 modal55" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
                 </div>
 
 
@@ -504,12 +504,20 @@
         var valor = document.getElementById("interesrefre").value;
         var valor1 = document.getElementById("capital").value;
         var porce = parseFloat(valor);
-        var porce1 = parseFloat(valor1)
+        var porce1 = parseFloat(valor1 || 0)
         /*         var porce2 = parseFloat(porce + porce1) */
         $("#prestamo4").val(formatear(porce.toFixed(2)))
         $("#totalpago1").val(formatear(porce.toFixed(2)))
+        $("#total").val(porce.toFixed(2))
         /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
 
+        $("#interes_anterior").val($("#interesrefre option:selected").data("interes"));
+        $("#prestamoT").val($("#interesrefre option:selected").data("prestamo"));
+        $("#almacenaje_anterior").val($("#interesrefre option:selected").data("almacenaje"));
+        $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
+        $("#subtotalT").val($("#interesrefre option:selected").data("mes"));
+        $("#abono_capital").val(porce1.toFixed(2))
+        $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
 
     }
     calcular();
@@ -526,11 +534,9 @@
         var porce5 = (parseFloat(porce3 - porce1) || valor)
 
         $("#totalpago1").val(formatear(porce2.toFixed(2)))
+        $("#total").val(formatear(porce2.toFixed(2)))
         $("#prestamo_prenda").val(porce5.toFixed(2))
-        $("#abono_capital").val(porce1.toFixed(2))
-
-
-
+ 
     }
     calcular2();
 
@@ -624,7 +630,20 @@
     calcular3();
 
 
+    /*    function calcular4() {
+           var valor = document.getElementById("abono_capital").value;
+           var valor1 = document.getElementById("sub_refrendo").value;
+          
+           var porce = parseFloat(valor);
+           var porce1 = parseFloat(valor1);
+           var porce3 = parseFloat(porce+porce1);
+      
+           $("#sub_capi").val((porce3.toFixed(2)))
+     
 
+       }
+       calcular4();
+    */
 </script>
 
 

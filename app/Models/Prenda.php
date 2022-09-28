@@ -71,9 +71,8 @@ class Prenda extends Model
         'abono_capital',
         'cantidad_pago',
         'cambio_boleta',
+        'sub_refrendo',
         
-        
-   
     ];
 
     public function getFromDateAttribute($value) {

@@ -77,12 +77,17 @@
                     </div>
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;
-                            <!-- <input class="col-md-5" id="interes" name="interes" type="text" readonly> -->
+                            <input class="col-md-5" id="interes_anterior"  name="interes_anterior" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;
-                            <!-- <input class="col-md-5" id="almacenaje" name="almacenaje" type="text" readonly> -->
+                            <input class="col-md-5" id="almacenaje_anterior"  name="almacenaje_anterior" type="text" readonly>
+                        </label>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="prestamo_prenda" class="form-label"> <strong>ABONO CAPITAL:&nbsp;&nbsp;</strong>$&nbsp;
+                            <input class="col-md-5" id="abono_capital"  name="abono_capital" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -92,13 +97,13 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 TOTAL:&nbsp;&nbsp;</strong>$&nbsp;
-                            <!-- <input class="col-md-5" id="subtotal" name="subtotal" type="text" readonly> -->
+                            <input class="col-md-5" id="sub_refrendo"  name="sub_refrendo" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;
-                            <!-- <input class="col-md-5" id="iva" name="iva" type="text" readonly> -->
+                            <input class="col-md-5" id="iva_anterior" name="iva_anterior" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -111,7 +116,7 @@
                         <div class="col-md-18">
                             <div class="input-group has-validation">
                                 <span class=" fw-bold signo" id="inputGroupPrepend">$</span>
-                                <!-- <input class="tamañoletra text-center negro" id="total" name="total" type="text" readonly> --></label>
+                                <input class="tamañoletra text-center negro" id="total" name="total" type="text" readonly></label>
                             </div>
                         </div>
                     </div>
@@ -183,8 +188,7 @@
                     <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
 
 
-                    <input type="text" name="abono_capital" class="form-control" id="abono_capital" value="" readonly>
-
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
