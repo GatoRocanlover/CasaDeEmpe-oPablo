@@ -391,7 +391,7 @@
             </div>
             <div class="tabla2">
                 <div class="col-md-12 mt-3"><strong>COBRO DE MES A REFRENDAR:</strong></label>
-                    <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" aria-label="Default select example">
+                    <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" onchange="calcular66();" aria-label="Default select example">
 
                         <option selected value="">MES A REFRENDAR</option>
                         <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
@@ -509,16 +509,19 @@
         $("#prestamo4").val(formatear(porce.toFixed(2)))
         $("#totalpago1").val(formatear(porce.toFixed(2)))
         $("#total").val(porce.toFixed(2))
+        $("#refrendo_anterior").val(porce.toFixed(2))
         /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
 
         $("#interes_anterior").val($("#interesrefre option:selected").data("interes"));
         $("#almacenaje_anterior").val($("#interesrefre option:selected").data("almacenaje"));
         $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
+        $("#sub_refrendo").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
 
        
            }
     calcular();
 
+  
 
     function calcular2() {
         var valor = document.getElementById("prestamo4").value;
@@ -540,11 +543,13 @@
         $("#total").val(porce2.toFixed(2))
         $("#abono_capital").val(porce1.toFixed(2))
         $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
-       
         $("#prestamo_prenda").val(porce5.toFixed(0))
 
     }
     calcular2();
+
+
+    
 
     /*     window.onload = function() {
             imprimirValor();

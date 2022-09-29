@@ -78,6 +78,16 @@
                         </label> 
                     </div>
                     <div class="col-md-12 mt-2">
+                        <label for="prestamo_prenda" class="form-label"> <strong>
+                               REFRENDO:&nbsp;&nbsp;</strong>$&nbsp;
+                            <input class="col-md-5" id="refrendo_anterior" name="refrendo_anterior" type="text" readonly>
+                        </label>
+                    </div>
+                    <div class="text-center col-md-12">
+                        <p>---------------------------------------------</p>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;
                             <input class="col-md-5" id="interes_anterior"  name="interes_anterior" type="text" readonly>
                         </label>
@@ -102,6 +112,7 @@
                             <input class="col-md-5" id="sub_refrendo"  name="sub_refrendo" type="text" readonly>
                         </label>
                     </div>
+                    
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;
