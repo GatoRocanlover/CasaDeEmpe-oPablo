@@ -376,7 +376,7 @@
                 <div class="col-md-11 mt-3 letra1">
                     <label><strong> CLIENTE:
                             &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
-                    </label>
+                    </label> <br>
                     <label class="mt-1"><strong>NOMBRE DE LA
                             PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label><br>
                     <label class="mt-1"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
@@ -391,7 +391,7 @@
             </div>
             <div class="tabla2">
                 <div class="col-md-12 mt-3"><strong>COBRO DE MES A REFRENDAR:</strong></label>
-                    <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" aria-label="Default select example">
+                    <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" aria-label="Default select example">
 
                         <option selected value="">MES A REFRENDAR</option>
                         <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
@@ -420,7 +420,7 @@
                         <label for="" class="negritas mt-4">CUANTO DESEA ABONAR A CAPITAL:</label>
                         <div class="input-group has-validation ">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="capital" name="capital" onkeyUp="calcular();" class="form-control input_style tamañoletra text-center" placeholder="0.00">
+                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00">
                         </div>
                     </div>
                 </div>
@@ -504,7 +504,7 @@
         var valor = document.getElementById("interesrefre").value;
         var valor1 = document.getElementById("capital").value;
         var porce = parseFloat(valor);
-        var porce1 = parseFloat(valor1 || 0)
+       /*  var porce1 = parseFloat(valor1 || 0)   es de capital */
         /*         var porce2 = parseFloat(porce + porce1) */
         $("#prestamo4").val(formatear(porce.toFixed(2)))
         $("#totalpago1").val(formatear(porce.toFixed(2)))
@@ -512,31 +512,37 @@
         /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
 
         $("#interes_anterior").val($("#interesrefre option:selected").data("interes"));
-        $("#prestamoT").val($("#interesrefre option:selected").data("prestamo"));
         $("#almacenaje_anterior").val($("#interesrefre option:selected").data("almacenaje"));
         $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
-        $("#subtotalT").val($("#interesrefre option:selected").data("mes"));
-        $("#abono_capital").val(porce1.toFixed(2))
-        $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
 
-    }
+       
+           }
     calcular();
 
 
     function calcular2() {
         var valor = document.getElementById("prestamo4").value;
         var valor1 = document.getElementById("capital").value;
-        var valor2 = document.getElementById("abonototal").value;
+        var valor2 = document.getElementById("pago6").value;
+        var valor3 = document.getElementById("interesrefre").value;
         var porce = parseFloat(valor);
-        var porce1 = parseFloat(valor1)
-        var porce3 = parseFloat(valor2)
+        var porce1 = parseFloat(valor1 ||0)
         var porce2 = parseFloat(porce + porce1)
-        var porce5 = (parseFloat(porce3 - porce1) || valor)
+        var porce3 = parseFloat(valor2)
+        
+        var porce5 = (parseFloat(porce3 - porce1))
+       /*  var porce5 = (parseFloat(porce3 - porce1) || valor) */
+       /* var porce5 = (parseFloat(porce3 - porce1)) */
 
-        $("#totalpago1").val(formatear(porce2.toFixed(2)))
-        $("#total").val(formatear(porce2.toFixed(2)))
-        $("#prestamo_prenda").val(porce5.toFixed(2))
- 
+   /*      $("#totalpago1").val(formatear(porce2.toFixed(2)))
+        $("#total").val(formatear(porce2.toFixed(2))) */
+        $("#totalpago1").val(porce2.toFixed(2))
+        $("#total").val(porce2.toFixed(2))
+        $("#abono_capital").val(porce1.toFixed(2))
+        $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
+       
+        $("#prestamo_prenda").val(porce5.toFixed(0))
+
     }
     calcular2();
 

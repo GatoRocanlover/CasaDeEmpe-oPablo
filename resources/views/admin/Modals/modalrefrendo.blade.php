@@ -73,7 +73,9 @@
                     <div>
                         <label class="col-md-4">
                             <strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
-                        </label>
+                            <input type="hidden" class="col-md-5" id="pago6" onkeyUp="calcular2();" name="pago6" value="{{ $dato_prenda->prestamo_prenda }}" readonly>
+
+                        </label> 
                     </div>
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;
@@ -87,7 +89,7 @@
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>ABONO CAPITAL:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="abono_capital"  name="abono_capital" type="text" readonly>
+                            <input class="col-md-5" id="abono_capital"   name="abono_capital" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -145,12 +147,13 @@
                     <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{diasmes2()}}" readonly>
                     <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{diasmes3()}}" readonly>
                     <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{diasmes4()}}" readonly>
-                    <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
-                    <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
+                    <input type="text" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
+                    <input type="text" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
+
                     <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{fechacomercial()}}" readonly>
 
                     <input type="text" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" readonly>
-                    <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+                    <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();"  id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
 
                     <input type="text" name="interes" class="sub uno" id="interes" value="" readonly>
                     <input type="text" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
