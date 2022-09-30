@@ -225,12 +225,12 @@
             </div>
 
             <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
-            <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{diasmes2()}}" readonly>
-            <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{diasmes3()}}" readonly>
-            <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{diasmes4()}}" readonly>
-            <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
-            <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
-            <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{fechacomercial()}}" readonly>
+            <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
+            <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{\Carbon\Carbon::now()->addMonths(2)}}" readonly>
+            <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{\Carbon\Carbon::now()->addMonths(3)}}" readonly>
+            <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{\Carbon\Carbon::now()->addMonths(4)}}" readonly>
+            <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{\Carbon\Carbon::now()->addMonths(5)}}" readonly>
+            <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{\Carbon\Carbon::now()->addMonths(6)}}" readonly>
 
             <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
             <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>

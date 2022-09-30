@@ -86,7 +86,7 @@
 
       <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
         <div class="max-w-6xl size  flex items-center justify-center ">
-          <div class="col-md-12">
+          <div class="col-md-12 table-responsive">
 
             <table class="table table-hover">
 
@@ -103,7 +103,7 @@
                   </form>
                 </div>
                 <div>
-                  <a hidden class="btn btn-success me-2"  href="{{route('1refrendo')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS LIQUIDADAS</a>
+                  <a class="btn btn-success mt-2"  href="{{route('listado_tickets_refrendo')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS Y TICKETS</a>
                 </div>
               </div>
 

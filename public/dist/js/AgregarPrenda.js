@@ -18,35 +18,35 @@
         var valor = document.getElementById("socio").value;
         var datopres = document.getElementById("prestamo_inicial").value;
         var porce = parseFloat(1 * valor * datopres); //almacenaje
-        var porce1 = parseInt(datopres) * 0.01 * 1; //interes
+        var porce1 = parseFloat(datopres) * 0.01 * 1; //interes
         var porce2 = parseFloat((porce + porce1) * 0.16); //iva
         var porce3 = parseFloat(porce + porce1 + porce2); //refrendo
         var porce4 = parseFloat(datopres) //datodesempe
         var porce5 = parseFloat(porce3 + porce4); // desempeño
         var porce6 = parseFloat(porce4+porce1+porce);//subtotal
 
-        var inte2 = parseInt(datopres) * 0.01 * 2; //interes
+        var inte2 = parseFloat(datopres) * 0.01 * 2; //interes
         var alma2 = parseFloat(2 * valor * datopres); //almacenaje
         var iva2 = parseFloat((inte2 + alma2) * 0.16); //iva
         var refre2 = parseFloat(inte2 + alma2 + iva2); //refrendo
         var desem2 = parseFloat(refre2 + porce4); // desempeño
         var sub2 = parseFloat(porce4+inte2+alma2); // subtotal
         
-        var inte3 = parseInt(datopres) * 0.01 * 3; //interes
+        var inte3 = parseFloat(datopres) * 0.01 * 3; //interes
         var alma3 = parseFloat(3 * valor * datopres); //almacenaje
         var iva3 = parseFloat((inte3 + alma3) * 0.16); //iva
         var refre3 = parseFloat(inte3 + alma3 + iva3); //refrendo
         var desem3 = parseFloat(refre3 + porce4); // desempeñ3
         var sub3 = parseFloat(porce4+inte3+alma3); // subtotal
 
-        var inte4 = parseInt(datopres) * 0.01 * 4; //interes
+        var inte4 = parseFloat(datopres) * 0.01 * 4; //interes
         var alma4 = parseFloat(4 * valor * datopres); //almacenaje
         var iva4 = parseFloat((inte4 + alma4) * 0.16); //iva
         var refre4 = parseFloat(inte4 + alma4 + iva4); //refrendo
         var desem4 = parseFloat(refre4 + porce4); // desempeñ3
         var sub4 = parseFloat(porce4+inte4+alma4); // subtotal
 
-        var inte5 = parseInt(datopres) * 0.01 * 5; //interes
+        var inte5 = parseFloat(datopres) * 0.01 * 5; //interes
         var alma5 = parseFloat(5 * valor * datopres); //almacenaje
         var iva5 = parseFloat((inte5 + alma5) * 0.16); //iva
         var refre5 = parseFloat(inte5 + alma5 + iva5); //refrendo

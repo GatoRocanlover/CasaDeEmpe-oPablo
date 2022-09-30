@@ -44,28 +44,23 @@
                         <label for="nombre_cliente" class="form-label"> <strong>CLIENTE: &nbsp;</strong>
                             {{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                         </label>
-                        <!-- <input type="hidden" name="nombre_cliente" class="form-control letranom" id="nombre_cliente" value="{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}" readonly> -->
                     </div>
                     <div class="">
                         <label for="nombre_prenda" class="form-label"> <strong>NOMBRE DE LA PRENDA: &nbsp;</strong>
                             {{ $dato_prenda->nombre_prenda }} </label>
-                        <!-- <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{ $dato_prenda->nombre_prenda }}" readonly> -->
                     </div>
                     <div class="">
                         <label for="cantidad_prenda" class="form-label"><strong>CANTIDAD DE PRENDAS:
                                 &nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                        <!-- <input type="hidden" name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{ $dato_prenda->cantidad_prenda }}" readonly> -->
                     </div>
                     <div class="">
                         <label for="" class="sub "><strong>DESCRIPCION GENERICA: </strong>
                             {{$dato_prenda->descripcion_generica}}
                         </label>
-                        <!-- <input type="hidden" name="descripcion_generica" class="form-control text-center" id="descripcion_generica" value="{{$dato_prenda->descripcion_generica}}" readonly> -->
                     </div>
                     <div class="mt-1">
                         <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERISTICAS:
                                 &nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
-                        <!-- <input type="hidden" name="caracteristicas_prenda" class="form-control text-center" id="caracteristicas_prenda" value="{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}" readonly> -->
                     </div>
                     <div class="text-center col-md-12">
                         <p>-----------------------------------------------------------------</p>
@@ -75,11 +70,11 @@
                             <strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
                             <input type="hidden" class="col-md-5" id="pago6" onkeyUp="calcular2();" name="pago6" value="{{ $dato_prenda->prestamo_prenda }}" readonly>
 
-                        </label> 
+                        </label>
                     </div>
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>
-                               REFRENDO:&nbsp;&nbsp;</strong>$&nbsp;
+                                REFRENDO:&nbsp;&nbsp;</strong>$&nbsp;
                             <input class="col-md-5" id="refrendo_anterior" name="refrendo_anterior" type="text" readonly>
                         </label>
                     </div>
@@ -89,17 +84,17 @@
 
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="interes_anterior"  name="interes_anterior" type="text" readonly>
+                            <input class="col-md-5" id="interes_anterior" name="interes_anterior" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="almacenaje_anterior"  name="almacenaje_anterior" type="text" readonly>
+                            <input class="col-md-5" id="almacenaje_anterior" name="almacenaje_anterior" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>ABONO CAPITAL:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="abono_capital"   name="abono_capital" type="text" readonly>
+                            <input class="col-md-5" id="abono_capital" name="abono_capital" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -109,10 +104,10 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 TOTAL:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="sub_refrendo"  name="sub_refrendo" type="text" readonly>
+                            <input class="col-md-5" id="sub_refrendo" name="sub_refrendo" type="text" readonly>
                         </label>
                     </div>
-                    
+
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;
@@ -155,23 +150,22 @@
                     </div>
 
                     <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
-                    <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{diasmes2()}}" readonly>
-                    <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{diasmes3()}}" readonly>
-                    <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{diasmes4()}}" readonly>
-                    <input type="text" name="mes4" class="sub uno" id="mes4" value="{{diasmes5()}}" readonly>
-                    <input type="text" name="mes5" class="sub uno" id="mes5" value="{{diasmes6()}}" readonly>
+                    <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
+                    <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{\Carbon\Carbon::now()->addMonths(2)}}" readonly>
+                    <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{\Carbon\Carbon::now()->addMonths(3)}}" readonly>
+                    <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{\Carbon\Carbon::now()->addMonths(4)}}" readonly>
+                    <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{\Carbon\Carbon::now()->addMonths(5)}}" readonly>
+                    <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{\Carbon\Carbon::now()->addMonths(6)}}" readonly>
 
-                    <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{fechacomercial()}}" readonly>
+                    <input type="hidden" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+                    <input type="hidden" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
 
-                    <input type="text" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" readonly>
-                    <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();"  id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
-
-                    <input type="text" name="interes" class="sub uno" id="interes" value="" readonly>
-                    <input type="text" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
-                    <input type="text" name="iva" class="form-control" id="iva" value="" readonly>
-                    <input type="text" name="refrendo" class="form-control" id="refrendo" value="" readonly>
-                    <input type="text" name="desempeño" class="form-control" id="desempeño" value="" readonly>
-                    <input type="text" name="subtotal" class="form-control" id="subtotal" value="" readonly>
+                    <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
+                    <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
+                    <input type="hidden" name="iva" class="form-control" id="iva" value="" readonly>
+                    <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="" readonly>
+                    <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="" readonly>
+                    <input type="hidden" name="subtotal" class="form-control" id="subtotal" value="" readonly>
 
                     <input type="hidden" name="interes2" class="sub uno" id="interes2" value="" readonly>
                     <input type="hidden" name="almacenaje2" class="form-control" id="almacenaje2" value="" readonly>
@@ -202,7 +196,7 @@
                     <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
 
 
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

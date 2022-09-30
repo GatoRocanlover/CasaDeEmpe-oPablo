@@ -62,6 +62,7 @@ class CreateTablePrendas extends Migration
             $table->float('desempeño4', 30);
             $table->float('subtotal4', 30);
             //-----Quintno mes ------ ///
+          
             $table->dateTime('mes5');
             $table->float('interes5', 20);
             $table->float('almacenaje5', 20);

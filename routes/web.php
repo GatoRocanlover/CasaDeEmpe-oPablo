@@ -77,6 +77,7 @@ Route::prefix('admin')->group(function () {
 
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
     Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
+    Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
 
 
 

@@ -92,13 +92,14 @@ class AdminController extends BaseController
         );
     }
 
+
     public function listado_tickets_refrendo()
     {
         $prendas = Prenda::get();
 
         return view('admin.listado_tickets_refrendo')->with(
             [
-                "listado_tickets_refrendo" => $prendas
+                "lista_prendas" => $prendas
             ]
         );
     }

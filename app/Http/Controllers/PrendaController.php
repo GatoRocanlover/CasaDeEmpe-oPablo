@@ -93,9 +93,9 @@ class PrendaController extends Controller
     public function store(Request $request)
     {
         $reglas = [
-      
+
             "id_cliente" => "bail|required",
-  
+
         ];
 
         $mensajes = [
@@ -149,19 +149,19 @@ class PrendaController extends Controller
         $prenda = Prenda::find($id);
 
         return View::make('admin.EditarPrenda')
-        ->with(
-            [
-                "dato_prenda" => $prenda
+            ->with(
+                [
+                    "dato_prenda" => $prenda
 
-            ]
-        );
+                ]
+            );
     }
 
     public function editPago($id)
     {
-      
+
         $prenda = Prenda::find($id);
-       
+
 
         return View::make('admin.DesempeñoDato')->with(
             [
@@ -182,16 +182,25 @@ class PrendaController extends Controller
 
             ]
         );
-
-  
     }
-    
-    
+
+
     public function vistaboleta($id)
     {
         $prenda = Prenda::find($id);
 
         return View::make('pdf.boleta')->with(
+            [
+                "dato_prenda" => $prenda
+
+            ]
+        );
+    }
+    public function vistarefreboleta($id)
+    {
+        $prenda = Prenda::find($id);
+
+        return View::make('pdf.ticket_refre')->with(
             [
                 "dato_prenda" => $prenda
 
@@ -211,7 +220,11 @@ class PrendaController extends Controller
         $prenda = Prenda::find($id);
 
         $reglas = [
-          /*   "nombre_prenda" => "bail|required|min:3",
+
+            "cantidad_pago" => 'bail|required',
+            "cambio_boleta" => 'bail|required',
+
+            /*   "nombre_prenda" => "bail|required|min:3",
             "descripcion_generica" => "bail|required",
             "kilataje_prenda" => "bail|required",
             "gramaje_prenda" => 'bail|required',
@@ -222,7 +235,10 @@ class PrendaController extends Controller
         ];
 
         $mensajes = [
-/* 
+            "cantidad_pago.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
+            "cambio_boleta.required" => "LA CANTIDAD QUE SE INGRESO ES MENOR A LA CANTIDAD TOTAL A DESEMPEÑAR, VERIFICAR LA INFORMACIÓN!!",
+
+            /* 
             "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
             "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
             "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar",
@@ -251,7 +267,7 @@ class PrendaController extends Controller
         $prenda->save();
 
 
-        return redirect()->route('listado_tickets_refrendo', []);
+        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket', 'Se genero la boleta');;
     }
 
 
@@ -261,12 +277,12 @@ class PrendaController extends Controller
         $prenda = Prenda::find($id);
 
         $reglas = [
-         //   "cantidad_pago" => 'bail|required',       
+            //   "cantidad_pago" => 'bail|required',       
         ];
 
         $mensajes = [
 
-          //  "cantidad_pago.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
+            //  "cantidad_pago.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
 
         ];
         $validator = Validator::make(
@@ -302,19 +318,18 @@ class PrendaController extends Controller
 
     public function buscarPrenda(Request $request)
     {
-        
 
-        $prendas = Prenda::where(  
-            'nombre_prenda', 'LIKE', "%".$request->nombre_prenda."%"
+
+        $prendas = Prenda::where(
+            'nombre_prenda',
+            'LIKE',
+            "%" . $request->nombre_prenda . "%"
         )
-        ->get();
+            ->get();
 
 
         return response()->json([
             'data' => $prendas
         ]);
-
-
     }
-
 }
