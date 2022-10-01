@@ -45,6 +45,23 @@
 
       width: 100%;
     }
+    .icons {
+            color: green;
+        }
+
+        .icons:hover {
+            color: #8E6E06;
+
+        }
+
+        a:hover i {
+            transform: scale(1.3);
+
+        }
+        .hover :hover {
+            background-color: #8E6E06;
+            border-color: #8E6E06;
+        }
   </style>
 
 </head>
@@ -88,88 +105,97 @@
         <div class="max-w-6xl size  flex items-center justify-center ">
           <div class="col-md-12 table-responsive">
 
-            <table class="table table-hover">
 
 
-              <!-- OPCION BUSCAR -->
-              <label class="mt-2">BUSCAR FOLIO O NOMBRE DEL CLIENTE:</label>
-              <div class="searchSep mt-1">
-                <div>
-                  <form action="{{route('1refrendo')}}" method="GET">
-                    <div class="col-md-12 d-flex  mt-2 ">
-                      <input class="col-md-4 form-control text-center  me-2" type="search" placeholder="ingrese folio o número del cliente" name="search" aria-label="Search" value="{{request('search')}}">
-                      <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Buscar</button>
-                    </div>
-                  </form>
-                </div>
-                <div>
-                  <a class="btn btn-success mt-2"  href="{{route('listado_tickets_refrendo')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS Y TICKETS</a>
-                </div>
+
+            <!-- OPCION BUSCAR -->
+            <label class="mt-2">BUSCAR FOLIO O NOMBRE DEL CLIENTE:</label>
+            <div class="searchSep mt-1">
+              <div>
+                <form action="{{route('1refrendo')}}" method="GET">
+                  <div class="col-md-12 d-flex  mt-2 ">
+                    <input class="col-md-4 form-control text-center  me-2" type="search" placeholder="ingrese folio o número del cliente" name="search" aria-label="Search" value="{{request('search')}}">
+                    <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Buscar</button>
+                  </div>
+                </form>
               </div>
+              <div>
+                <a class="btn btn-success mt-2" href="{{route('listado_tickets_refrendo')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS Y TICKETS</a>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-sm table-striped">
+                <div class="mt-4"></div>
+                <thead class="letra-blanca bg-dark">
+                  <tr>
+                    <th class="text-center" scope="col">FOLIO</th>
+                    <th class="text-center" scope="col">CLIENTE</th>
+                    <th class="text-center" scope="col">PRENDA</th>
+                    <th class="text-center" scope="col">DESCRIPCION</th>
+                    <th class="text-center" scope="col">AVALUO</th>
+                    <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
+                    <th class="text-center" scope="col">REFRENDOS</th>
+                    <th class="text-center" scope="col">PRESTAMO INICIAL</th>
+                    <th class="text-center" scope="col">PRESTAMO: SALDO</th>
+                    <th class="text-center" scope="col">REFRENDAR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($refrendo as $refrendo1)
 
-              <div class="mt-4"></div>
-              <thead class="letra-blanca bg-dark">
-                <tr>
-                  <th class="text-center" scope="col">FOLIO</th>
-                  <th class="text-center" scope="col">CLIENTE</th>
-                  <th class="text-center" scope="col">PRENDA</th>
-                  <th class="text-center" scope="col">DESCRIPCION</th>
-                  <th class="text-center" scope="col">AVALUO</th>
-                  <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
-                  <th class="text-center" scope="col">REFRENDOS</th>
-                  <th class="text-center" scope="col">PRESTAMO</th>
-                  <th class="text-center" scope="col">REFRENDAR</th>
-                </tr>
-              </thead>
-              <tbody>
-                @foreach($refrendo as $refrendo1)
+                  <tr>
+                    <th class="text-center" scope="row">{{$refrendo1->id_prendas}}</th>
 
-                <tr>
-                  <th class="text-center" scope="row">{{$refrendo1->id_prendas}}</th>
+                    <td class="text-center">{{$refrendo1->cliente->nombre_cliente.' '.$refrendo1->cliente->apellido_cliente}}</td>
 
-                  <td class="text-center">{{$refrendo1->cliente->nombre_cliente.' '.$refrendo1->cliente->apellido_cliente}}</td>
+                    <td>{{$refrendo1->nombre_prenda}}</td>
+                    <td>{{$refrendo1->caracteristicas_prenda.'.'.' '.' / '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$refrendo1->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$refrendo1->gramaje_prenda.'gr'}}</td>
+                    <td class="text-center"> {{'$ '.$refrendo1->avaluo_prenda}}</td>
 
-                  <td>{{$refrendo1->nombre_prenda}}</td>
-                  <td>{{$refrendo1->caracteristicas_prenda.'.'.' '.' / '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$refrendo1->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$refrendo1->gramaje_prenda.'gr'}}</td>
-                  <td class="text-center"> {{'$ '.$refrendo1->avaluo_prenda}}</td>
+                    <td class="text-center"> @IF($refrendo1->porcentaje_prestamo_sobre_avaluo == 45)
+                      45 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 50)
+                      50 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 55)
+                      55 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 60)
+                      60 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 65)
+                      65 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 70)
+                      70 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 75)
+                      75 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 80)
+                      80 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 85)
+                      85 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 90)
+                      90 %
+                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 95)
+                      95 %
+                      @else
+                      100 %
+                      @endif
+                    </td>
+                    <td class="text-center">#{{$refrendo1->numeros_refrendos}}</td>
+                    <td class="text-center">$&nbsp;{{$refrendo1->prestamo_inicial}}</td>
+                    <td class="text-center">$&nbsp;{{$refrendo1->prestamo_prenda}}</td>
 
-                  <td class="text-center"> @IF($refrendo1->porcentaje_prestamo_sobre_avaluo == 45)
-                    45 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 50)
-                    50 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 55)
-                    55 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 60)
-                    60 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 65)
-                    65 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 70)
-                    70 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 75)
-                    75 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 80)
-                    80 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 85)
-                    85 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 90)
-                    90 %
-                    @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 95)
-                    95 %
-                    @else
-                    100 %
-                    @endif
-                  </td>
-                  <td class="text-center">#{{$refrendo1->numeros_refrendos}}</td>
-                  <td class="text-center">$&nbsp;{{$refrendo1->prestamo_prenda}}</td>
+                    <td class="text-center">
+                      <br>
+                      <a class="nav-link" href="{{route('Refrendo1.edit', [$refrendo1->id_prendas] )}}"
+                       id="navbarDarkDropdownMenuLink" aria-expanded="false"><button><i
+                                                        class="fas fa-cash-register icons"
+                                                        style="font-size:30px;"></i></button></a>
+                    </td>
+                  </tr>
 
-                  <td class="text-center">
-                    <a class="nav-link" href="{{route('Refrendo1.edit', [$refrendo1->id_prendas] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-cash-register"></i></button></a>
-                  </td>
-                </tr>
+                  @endforeach
+                </tbody>
+              </table>
 
-                @endforeach
-              </tbody>
-            </table>
+            </div>
 
             <div class="d-flex  justify-content-end">
               {!! $refrendo ->links() !!}

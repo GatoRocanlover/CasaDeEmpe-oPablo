@@ -26,7 +26,8 @@ class RefrendoController extends Controller
                 'avaluo_prenda',
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
-                'numeros_refrendos'
+                'numeros_refrendos',
+                'prestamo_inicial'
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
             ->orWhereHas('cliente', function ($query) use ($request) {
