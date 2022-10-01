@@ -44,6 +44,9 @@
             padding: 0;
             margin: 0;
         }
+        .letrapequeña2{
+            font-size: 9px;
+        }
     </style>
 </head>
 
@@ -421,7 +424,7 @@
                 <td class="iempresa" colspan="5">Fecha de inicio de comercialización:</td>
                 <td colspan="4">
                     <b>
-                    {{ \Carbon\Carbon::parse($dato_prenda->fecha_comercializacion)->formatLocalized('%d-%B-%Y')}}
+                        {{ \Carbon\Carbon::parse($dato_prenda->fecha_comercializacion)->formatLocalized('%d-%B-%Y')}}
                     </b>
                 </td>
             </tr>
@@ -435,7 +438,7 @@
                 <td class="iempresa" colspan="5">Fecha límite de finiquito:</td>
                 <td class="iempresa text-center" colspan="4">
                     <b>
-                    {{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
+                        {{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
                     </b>
                 </td>
             </tr>
@@ -461,12 +464,13 @@
             %
             <br>
             <?php
-            $DateAndTime = date('d-m-Y h:i:s a', time());
+            $DateAndTime = date('d/m/Y h:i:s a', time());
             echo "$DateAndTime.";
             ?>
         </P>
         <p class="letrapequeña text-end"> Pág. 1/6 </p>
-        <div class="letrapequeña"> *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</div>
+        <br>
+        <div class="letrapequeña mt-3"> *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</div>
         <table>
             <tr>
                 <td colspan="9">
@@ -496,25 +500,25 @@
                 </td>
             </tr>
             <tr>
-                <td>
+                <td colspan="4">
                     <div class="text-center">
                         <b>DESEMPEÑO</b>
                     </div>
                 </td>
-                <td>
+                <td colspan="4">
                     <div class="text-center">
                         <b>FIRMAS</b>
                     </div>
                 </td>
             </tr>
             <tr>
-                <td>
+                <td colspan="4">
                     EL CONSUMIDOR recoge en el acto y su entera satisfaccíon la(s) prenda(s) arriba <br>
                     descrita(s), por lo que otorga a <b>ASOCIADOS NUEVA MUTUA S.A. DE C.V.</b>, el finiquito <br>
                     más amplio que en derecho corresponda, liberandolo de cualquier responsabilidad <br>
                     jurídica que hubiera surgido o pudiese surgir en relación al contrato y la prenda.
                 </td>
-                <td class="text-center">
+                <td colspan="2" class="text-center">
                     {{dias()}}
                     <br>
                     <br>
@@ -523,6 +527,40 @@
                     <b>EL CONSUMIDOR</b>
                 </td>
             </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <br>
+                    <br>
+                    <br>
+                    <b>EL CONSUMIDOR</b>
+                </td>
+                <td colspan="2" class="text-center">
+                    <br>
+                    <br>
+                    <br>
+                    <b>EL PROVEEDOR</b>
+                </td>
+                <td class="text-center">
+                    <br>
+                    <br>
+                    <br>
+                    <b>EL VALUADOR</b>
+                </td>
+            </tr>
+        </table>
+        <div class="letrapequeña2 mt-2">
+            EL HORARIO DE SERVICIO AL publico EN ESTE ESTABLECIMIENTO ES DE: <b>LUNES A MIÉRCOLES DE 8:00 A 11:30 HRS Y 3:30 A 6:00 HRS, JUEVES A VIERNES DE 8:00 A 12:00 HRS Y SÁBADOS DE 3:00 A 6:00 HRS.</b> Para todo lo relativo
+             a la interpretación, aplicación y cumplimiento del contrato, LAS PARTES acuerdan someterse en la via administrativa a la Procuraduría Federal del Consumidor, y en caso de subsistir diferencias, a la jurisdicción de los tribunales competentes del lugar donde se celebra este contrato.
+        </div>
+        <p class="letrapequeña mt-4">
+        <?php
+            $DateAndTime = date('d/m/Y h:i:s a', time());
+            echo "$DateAndTime.";
+            ?>
+        </p>
+        <p class="letrapequeña text-start">Fin de texto de Pág 2/6 </p>
+        <p class="letrapequeña text-end"> Pág. 2/6 </p>
+
 </div>
 
 </body>

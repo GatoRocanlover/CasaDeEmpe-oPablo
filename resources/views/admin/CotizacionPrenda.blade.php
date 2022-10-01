@@ -102,7 +102,7 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="cantidad_prenda" class="form-label">CANTIDAD:</label>
+                        <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
                         <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" placeholder="Ingrese las unidades cotizadas" required>
                         <div class="valid-feedback">
                             Looks good!

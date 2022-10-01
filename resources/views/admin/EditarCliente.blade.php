@@ -131,16 +131,16 @@
                     <div class="col-md-6">SOCIO</label>
                         <select class="form-select" id="socio"  name="socio" aria-label="Default select example">
             
-                            @if($dato_cliente->SI == 1)
-                                <option selected value="1">SI</option>
+                            @if($dato_cliente->socio== 0.020)
+                                <option selected value="0.020">SI</option>
                             @else
-                                <option value="1" >SI</option>
+                                <option value="0.020" >SI</option>
                             @endif
                             
-                            @if($dato_cliente->NO == 2)
-                                <option selected value="2">NO </option>
+                            @if($dato_cliente->socio == 0.025)
+                                <option selected value="0.025">NO </option>
                             @else
-                                <option value="2" >NO</option>
+                                <option value="0.025" >NO</option>
                             @endif
                             
                         </select>

@@ -150,7 +150,7 @@ class ClienteController extends Controller
             "nombre_cliente" => "bail|required|min:3",
             "apellido_cliente" => "bail|required",
             "tipo_de_identificacion" => 'bail|required',
-            "numero_de_identificacion" => "bail|requiredmin:13|max:13",
+            "numero_de_identificacion" => "bail|required|min:13|max:13",
             "correo_electronico_cliente" => 'bail|nullable',
             "telefono_cliente" => 'bail|nullable|max:10',
             "socio" => "bail|required",
@@ -163,9 +163,9 @@ class ClienteController extends Controller
             "codigo_postal_cliente" => "bail|required",
             "nombre_cotitular" => 'bail|nullable',
             "apellido_cotitular" => 'bail|nullable',
-            "telefono_cotitular" => 'bail|nullable',
+            "telefono_cotitular" => 'bail|nullable|max:10',
             "calle_cotitular" => 'bail|nullable',
-            "numero_cotitular" => 'bail|nullable|max:10',
+            "numero_cotitular" => 'bail|nullable',
             "cruzamientos_cotitular" => 'bail|nullable',
             "colonia_cotitular" => 'bail|nullable',
             "ciudad_cotitular" => 'bail|nullable',
@@ -179,16 +179,16 @@ class ClienteController extends Controller
             "nombre_cliente.min" => "Los caracteres mínimos para el cliente deben ser :min",
             "tipo_de_identificacion" => "No ha seleccionado el tipo de identificacion",
             "numero_de_identificacion" => "No ingreso el número de identificación.",
+            "numero_de_identificacion.min" => "Los caracteres mínimos para el numero de identificacion deben ser :min",
+            "numero_de_identificacion.max" => "Los caracteres maximos para el numero de identificacion deben ser :max",
             "socio.required" => "No ha seleccionado si es socio",
             "numero_socio.required" => "No ingreso el número de socio",
+            "telefono_cliente.max" => "Los caracteres maximos para el numero de telefono deben ser :max",
+            "telefono_cotitular.max" => "Los caracteres maximos para el numero de telefono del cotitular deben ser :max",
             "calle_cliente.required" => "No ingreso el número de calle del cliente",
             "colonia_cliente.required" => "No ha ingresado la colonia del cliente",
             "ciudad_cliente.required" => "No ha ingresado la ciudad del cliente",
             "codigo_postal_cliente.required" => "No ha ingresado el codigo postal del cliente. ",
-            "telefono_cliente.max" => "Los caracteres maximos para el numero de telefono deben ser :max",
-            "telefono_cotitular.max" => "Los caracteres maximos para el numero de telefono del cotitular deben ser :max",
-            "numero_de_identificacion.min" => "Los caracteres mínimos para el numero de identificacion deben ser :min",
-            "numero_de_identificacion.max" => "Los caracteres maximos para el numero de identificacion deben ser :max",
 
         ];
         $validator = Validator::make(
@@ -209,7 +209,7 @@ class ClienteController extends Controller
         $nombre_cliente->save();
 
 
-        return redirect()->route('listado_cliente', []);
+        return redirect()->route('listado_cliente');
     }
 
     /**
