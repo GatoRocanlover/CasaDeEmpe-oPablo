@@ -72,21 +72,25 @@
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">CLIENTE:&nbsp;&nbsp;</td>
-      <td colspan="3" class="text-center borde"></td>
+      <td colspan="3" class="text-center borde">{{$dato_prenda->cliente->nombre_cliente. " ".$dato_prenda->cliente->apellido_cliente}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">BOLETA:&nbsp;&nbsp;</td>
-      <td class="text-center borde"></td>
+      <td class="text-center borde"> {{$dato_prenda->id_prendas}}</td>
       <td class="textderecha fw-bold borde">FOLIO:&nbsp;&nbsp;</td>
       <td class="text-center borde"></td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">PRENDA:&nbsp;&nbsp;</td>
-      <td class="text-center borde" colspan="3"></td>
+      <td class="text-center borde" colspan="3">{{$dato_prenda->nombre_prenda}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">TIPO DE&nbsp;&nbsp; MOVIMIENTO:&nbsp;&nbsp;</td>
-      <td colspan="3" class="borde">&nbsp;&nbsp;DESEMPEÑO</td>
+      <td colspan="3" class="borde">&nbsp;&nbsp;REFRENDO</td>
+    </tr>
+    <tr>
+      <td class="textderecha fw-bold borde">REFRENDOS REALIZADOS:&nbsp;&nbsp;</td>
+      <td colspan="3" class="borde">&nbsp;&nbsp;#{{$dato_prenda->numeros_refrendos}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">TIPO DE&nbsp;&nbsp; INTERES:&nbsp;&nbsp;</td>
@@ -96,45 +100,45 @@
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="3" class="fw-bold textderecha">PRESTAMO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >$ </td>
+      <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
+      <td class="text-center numeros" >${{$dato_prenda->interes_anterior}}</td>
     </tr>
     <tr>
-      <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >$ </td>
+      <td colspan="3" class="fw-bold textderecha">ABONO A CAPITAL:&nbsp;&nbsp;</td>
+      <td class="text-center numeros" >${{$dato_prenda->abono_capital}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
-      <td class="text-center numeros " >$ </td>
+      <td class="text-center numeros " >${{$dato_prenda->almacenaje_anterior}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
-      <td class="text-center bordeup numeros" >$ </td>
+      <td class="text-center bordeup numeros" >${{$dato_prenda->sub_refrendo}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >$ </td>
+      <td class="text-center numeros" >${{$dato_prenda->iva_anterior}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
-      <td class="text-center bordeup numeros" >$ </td>
+      <td class="text-center bordeup numeros" >${{$dato_prenda->total}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="4" class="text-center fw-bold numeros2"></td>
+      <td colspan="4" class="text-center fw-bold numeros2">{{num2letras($dato_prenda->total)}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">PAGO RECIBIDO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >$ </td>
+      <td class="text-center numeros" >${{$dato_prenda->cantidad_pago}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >$ </td>
+      <td class="text-center numeros" >${{$dato_prenda->cambio_boleta}}</td>
     </tr>
     <tr>
       <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
@@ -162,16 +166,19 @@
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="4">&nbsp;</td>
+      <td colspan="2" class="textderecha fw-bold">SALDO ANTERIOR:</td>
+      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_anterior}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="textderecha fw-bold">SALDO ACTUAL:</td>
+      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->prestamo_prenda}}</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="textderecha fw-bold">PROXIMO REFRENDO:</td>
+      <td colspan="2">&nbsp;&nbsp;{{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="4" class="text-center">__________________________________________</td>
-    </tr>
-    <tr>
-      <td colspan="4" class="text-center">FIRMA TITULAR</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>

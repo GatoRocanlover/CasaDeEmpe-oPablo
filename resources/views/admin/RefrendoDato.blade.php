@@ -384,7 +384,9 @@
                     </label>
                     <br>
                     <label class="mt-1"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                    <label class="mt-1"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                    <label class="mt-1"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label> <br>
+                    <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
+                    <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>$ {{ $dato_prenda->prestamo_inicial}}</label>
                 </div>
 
 
@@ -528,10 +530,19 @@
         var valor1 = document.getElementById("capital").value;
         var valor2 = document.getElementById("pago6").value;
         var valor3 = document.getElementById("interesrefre").value;
+        var valor4 = document.getElementById("refrendos22").value;
+        var valor44 = document.getElementById("refrendos44").value;
+
         var porce = parseFloat(valor);
         var porce1 = parseFloat(valor1 ||0)
         var porce2 = parseFloat(porce + porce1)
         var porce3 = parseFloat(valor2)
+        var porce4 = parseFloat(valor4)
+        var porce44 = parseFloat(valor44)
+
+        var porce6 = parseFloat(porce4+porce44)
+        
+
         
         var porce5 = (parseFloat(porce3 - porce1))
        /*  var porce5 = (parseFloat(porce3 - porce1) || valor) */
@@ -544,6 +555,7 @@
         $("#abono_capital").val(porce1.toFixed(2))
         $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
+        $("#numeros_refrendos").val(porce6.toFixed(0))
 
     }
     calcular2();

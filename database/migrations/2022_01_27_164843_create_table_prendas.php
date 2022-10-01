@@ -83,6 +83,7 @@ class CreateTablePrendas extends Migration
             $table->float('cambio_boleta', 30);
             $table->float('folio_refrendo', 30);
             $table->float('sub_refrendo', 30);
+            $table->float('total', 50);
 
             $table->timestamps();
         });

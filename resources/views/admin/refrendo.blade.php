@@ -159,7 +159,7 @@
                     100 %
                     @endif
                   </td>
-                  <td class="text-center">#</td>
+                  <td class="text-center">#{{$refrendo1->numeros_refrendos}}</td>
                   <td class="text-center">$&nbsp;{{$refrendo1->prestamo_prenda}}</td>
 
                   <td class="text-center">

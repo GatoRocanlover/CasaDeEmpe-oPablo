@@ -72,6 +72,7 @@ class Prenda extends Model
         'cantidad_pago',
         'cambio_boleta',
         'sub_refrendo',
+        'total',
         
     ];
 

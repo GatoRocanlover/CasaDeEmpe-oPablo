@@ -171,26 +171,7 @@ function formatear(dato) {
     });
 }
 
-/* function calcular() {
-    var valor = document.getElementById("prestamo").value;
-    var valor1 = document.getElementById("interes").value;
-    var valor2 = document.getElementById("almacenaje").value;
 
-    var porce = parseFloat(valor);
-    var porce1 = parseFloat(valor1);
-    var porce2 = parseFloat(valor2);
-    var porce3 = parseFloat(porce+porce1+porce2);
-    var porce4 = parseFloat(porce+porce1+porce2);
-
-    
-    $("#subtotal1").val(formatear(porce3.toFixed(2)))
-    $("#subtotal").val(porce4.toFixed(2))
-
-   
-}
-calcular();
-
- */
 
 $("#socio").change(function() {
 

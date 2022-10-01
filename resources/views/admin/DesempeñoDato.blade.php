@@ -352,7 +352,7 @@
                         </table>
                     </div>
                     <div class="text-center mt-3">
-                        <label for="">------------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> --------------------------------------</label>
+                        <label for="">--------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> ----------------------------------</label>
                     </div>
                     <div class="d-flex row justify-content-around mt-4">
                         <br>

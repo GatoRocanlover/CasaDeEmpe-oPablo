@@ -78,6 +78,14 @@
                             <input class="col-md-5" id="refrendo_anterior" name="refrendo_anterior" type="text" readonly>
                         </label>
                     </div>
+                    <div class="col-md-12 mt-2">
+                        <label for="prestamo_prenda" class="form-label"> <strong>
+                                NÚMEROS DE REFRENDOS:&nbsp;&nbsp;</strong>#&nbsp;{{ $dato_prenda->numeros_refrendos}} <br>
+                            <input class="col-md-5" id="refrendos22" onkeyUp="calcular2();" name="refrendos22" type="hidden" value="{{$dato_prenda->numeros_refrendos}}" readonly>
+                            <input class="col-md-5" id="refrendos44" onkeyUp="calcular2();" name="refrendos44" type="hidden" value="1" readonly>
+                            <input class="col-md-5" id="numeros_refrendos" name="numeros_refrendos" type="hidden" value="" readonly>
+                        </label>
+                    </div>
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
                     </div>
@@ -117,6 +125,16 @@
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
                     </div>
+                    <div class="col-md-12">
+                        <label for="prestamo_prenda" class="form-label"> <strong>
+                                NUEVO SALDO:&nbsp;&nbsp;</strong>$&nbsp;
+                                <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+                        </label>
+                    </div>
+
+                    <div class="text-center col-md-12">
+                        <p>---------------------------------------------</p>
+                    </div>
                     <div class="  d-flex  justify-center">
                         <label for="" class="mt-3 h4"><strong>TOTAL A PAGAR:</strong></label>
                     </div>
@@ -149,6 +167,7 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" placeholder="anterior" readonly>
                     <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
                     <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
                     <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{\Carbon\Carbon::now()->addMonths(2)}}" readonly>
@@ -157,8 +176,8 @@
                     <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{\Carbon\Carbon::now()->addMonths(5)}}" readonly>
                     <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{\Carbon\Carbon::now()->addMonths(6)}}" readonly>
 
-                    <input type="hidden" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" readonly>
-                    <input type="hidden" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+
+
 
                     <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
                     <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
