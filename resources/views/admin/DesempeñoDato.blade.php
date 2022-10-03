@@ -385,7 +385,7 @@
                         <label class="mt-2"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
                     </div>
 
-           
+
                 </div>
 
 
@@ -403,16 +403,46 @@
 
 
                     <div class="col-md-12 mt-3"><strong>SELECCIONE EL COBRO DEL MES:</strong></label>
-                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();" aria-label="Default select example">
+                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();"  aria-label="Default select example">
 
                             <option selected value="">MES A DESEMPEÑAR</option>
-                            <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-subtotal="{{$dato_prenda->subtotal2}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-subtotal="{{$dato_prenda->subtotal4}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
-                            <option value="{{ $dato_prenda->desempeño5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-subtotal="{{$dato_prenda->subtotal5}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}" data-refrendo="{{$dato_prenda->refrendo}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-subtotal="{{$dato_prenda->subtotal2}}" data-refrendo="{{$dato_prenda->refrendo2}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-subtotal="{{$dato_prenda->subtotal3}}" data-refrendo="{{$dato_prenda->refrendo3}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-subtotal="{{$dato_prenda->subtotal4}}" data-refrendo="{{$dato_prenda->refrendo4}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                            <option value="{{ $dato_prenda->desempeño5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-subtotal="{{$dato_prenda->subtotal5}}" data-refrendo="{{$dato_prenda->refrendo5}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                         </select>
                     </div>
+
+
+                    <div class="mt-3">
+                        <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            AGREGAR MULTA POR ATRASO &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
+                        </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <label for=""><strong>RECARGO POR DIA:</strong></label>
+                            <label for="" class="negritas mt-4">PONGA LOS DIAS DE DIREFENCIA:</label>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Dias:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <input type="number" id="multa" name="multa" onkeyUp="calcular2();" value="" class="form-control input_style tamañoletra text-center" placeholder="0">
+                                                           </div>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Por dia:</span>
+                                <input type="number" id="multa2" name="multa2" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
+                            </div>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
+                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();"  class="form-control input_style text-center" disabled>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
 
                     <div class="  d-flex  justify-center">
                         <label for="" class="mt-4 h4"><strong>TOTAL A PAGAR:</strong></label>
@@ -422,6 +452,8 @@
                             <div class="input-group has-validation">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
                                 <input type="number" id="desempeño2" name="desempeño2" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+                                <input type="hidden" id="desempeño22" name="desempeño22" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+
                             </div>
                         </div>
                     </div>

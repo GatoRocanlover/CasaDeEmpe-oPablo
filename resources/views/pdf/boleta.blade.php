@@ -44,7 +44,8 @@
             padding: 0;
             margin: 0;
         }
-        .letrapequeña2{
+
+        .letrapequeña2 {
             font-size: 9px;
         }
     </style>
@@ -58,7 +59,8 @@
                 <th colspan="9">
                     <header>
                         <div>
-                            <h5>Folio:&nbsp;{{ $dato_prenda->id_prendas }}
+                            <h5>
+                                Folio:&nbsp;{{ $dato_prenda->id_prendas }}&nbsp;&nbsp;/&nbsp;&nbsp;REF000{{$dato_prenda->numeros_refrendos}}
                                 <h5>
                         </div>
                         <div>
@@ -550,10 +552,10 @@
         </table>
         <div class="letrapequeña2 mt-2">
             EL HORARIO DE SERVICIO AL publico EN ESTE ESTABLECIMIENTO ES DE: <b>LUNES A MIÉRCOLES DE 8:00 A 11:30 HRS Y 3:30 A 6:00 HRS, JUEVES A VIERNES DE 8:00 A 12:00 HRS Y SÁBADOS DE 3:00 A 6:00 HRS.</b> Para todo lo relativo
-             a la interpretación, aplicación y cumplimiento del contrato, LAS PARTES acuerdan someterse en la via administrativa a la Procuraduría Federal del Consumidor, y en caso de subsistir diferencias, a la jurisdicción de los tribunales competentes del lugar donde se celebra este contrato.
+            a la interpretación, aplicación y cumplimiento del contrato, LAS PARTES acuerdan someterse en la via administrativa a la Procuraduría Federal del Consumidor, y en caso de subsistir diferencias, a la jurisdicción de los tribunales competentes del lugar donde se celebra este contrato.
         </div>
         <p class="letrapequeña mt-4">
-        <?php
+            <?php
             $DateAndTime = date('d/m/Y h:i:s a', time());
             echo "$DateAndTime.";
             ?>

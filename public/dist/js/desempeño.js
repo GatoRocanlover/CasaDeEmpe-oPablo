@@ -4,7 +4,7 @@
      //console.log("exit");
      //pcantidadv.style.fontSize="23px";
      const vcambio = document.querySelector("#cambio_boleta1");
-     const ventventa = document.querySelector("#desempeño1");
+     const ventventa = document.querySelector("#desempeño2");
      const vcantidad = Number(pcantidadv.value);
      const totalreplace = ventventa.value.replace(/\s+/g, '');
      const vtotal = Number.parseFloat(totalreplace);
@@ -114,7 +114,7 @@ pcantidadv.addEventListener("keyup", event => {
     //console.log("exit");
     //pcantidadv.style.fontSize="23px";
     const vcambio = document.querySelector("#cambio_boleta");
-    const ventventa = document.querySelector("#desempeño1");
+    const ventventa = document.querySelector("#desempeño2");
     const vcantidad = Number(pcantidadv2.value);
     const totalreplace = ventventa.value.replace(/\s+/g, '');
     const vtotal = Number.parseFloat(totalreplace);
@@ -180,20 +180,45 @@ var valor1 = document.getElementById("prestamo").value;
 var valor2 = document.getElementById("interes").value;
 var valor3 = document.getElementById("almacenaje").value;
 
+
+
+
     var porce = parseFloat(valor);
     
     $("#desempeño2").val(formatear(porce.toFixed(2)))
+    $("#desempeño22").val(porce.toFixed(2))
     $("#total").val(formatear(porce.toFixed(2)))
     $("#interes").val($("#desempeño1 option:selected").data("interes"));
     $("#prestamo").val($("#desempeño1 option:selected").data("prestamo"));
     $("#almacenaje").val($("#desempeño1 option:selected").data("almacenaje"));
     $("#iva").val($("#desempeño1 option:selected").data("iva"));
     $("#subtotal").val($("#desempeño1 option:selected").data("subtotal"));
-   
+    $("#multa2").val(($("#desempeño1 option:selected").data("refrendo")/30).toFixed(2));
+  
+  
 
 }
 calcular();
 
 
+function calcular2() {
+    var valor9 = document.getElementById("multa").value;
+    var valor10 = document.getElementById("multa2").value;
+    var valor = document.getElementById("desempeño22").value;//
+    var valor2 = document.getElementById("multa3").value;
 
+    var porce = parseFloat(valor);//
+    var porce11 = parseFloat(valor2)
+    
+    var porce9 = parseFloat(valor9);
+    var porce10 = parseFloat(valor10);
+    var porce9 = parseFloat((porce9*porce10)||0)
+    var porce2 = parseFloat(porce+porce11);
 
+     $("#multa3").val(formatear(porce9.toFixed(2)))
+     $("#multa4").val(porce9.toFixed(2))
+     $("#desempeño2").val(porce2.toFixed(2))
+     $("#total").val(porce2.toFixed(2))
+
+}
+calcular2();
