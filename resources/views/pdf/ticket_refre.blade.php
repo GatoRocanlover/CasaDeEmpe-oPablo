@@ -175,7 +175,7 @@
     </tr>
     <tr>
       <td colspan="2" class="textderecha fw-bold">SALDO ACTUAL:</td>
-      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->prestamo_prenda}}</td>
+      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_actual}}</td>
     </tr>
     <tr>
       <td colspan="2" class="textderecha fw-bold">PROXIMO REFRENDO:</td>
