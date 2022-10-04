@@ -183,7 +183,7 @@
 
 
         <div class="text-center mt-8">
-            <label for="validationCustom03" class="form-label h4    ">DATOS DE LA PRENDA A REFRENDAR</label>
+            <label for="validationCustom03" class="form-label h4    ">DATOS PARA ABONO A CAPITAL</label>
         </div>
 
 
@@ -392,10 +392,10 @@
 
             </div>
             <div class="tabla2">
-                <div class="col-md-12 mt-3"><strong>SELECCIONE EL MES A REFRENDAR:</strong></label>
+                <div class="col-md-12 mt-3"><strong>SELECCIONE EL MES PARA ABONO A CAPITAL:</strong></label>
                     <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" onchange="calcular66();" aria-label="Default select example">
 
-                        <option selected value="">MES A REFRENDAR</option>
+                        <option selected value="">MES PARA ABONAR A CAPITAL</option>
                         <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
                         <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
                         <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
@@ -408,22 +408,14 @@
                 <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();"  class="form-control tamañoletra  text-center " readonly placeholder="0.00">
 
 
-                <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
-
-                <div class="mt-2">
-                    <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        ABONAR A CAPITAL &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
-                    </button>
-                    </p>
-                </div>
-                <div class="collapse" id="collapseExample1">
+                <div class="mt-4">
                     <div class="card card-body">
-                        <label for=""><strong>ABONO A CAPITAL </strong></label>
-                        <label for="" class="negritas mt-4">CUANTO DESEA ABONAR A CAPITAL:</label>
-                        <div class="input-group has-validation ">
+                        <label for="" class="negritas">CUANTO DESEA ABONAR A CAPITAL:</label>
+                        <div class="input-group has-validation mt-2 ">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00" disabled>
+                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00"  disabled>
                         </div>
+                        <b class="mt-1 text-center" style="color:red;">Enter al poner un valor</b>
                     </div>
                 </div>
 
@@ -471,8 +463,8 @@
                 <div class="col-md-12">
                     <label for="" class="negritas">PAGO RECIBIDO:</label>
                     <div class="input-group has-validation">
-                        <span class="input-group-text fw-bold signo" style=" background-color:white" id="inputGroupPrepend">$</span>
-                        <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off">
+                        <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
+                        <input type="number" id="cantidad_pago1" name="cantidad_pago1" class="form-control input_style tamañoletra text-center" placeholder="0.00" onkeypress="return filterFloatdecimal2(event,this);" autocomplete="off" disabled>
                     </div>
                 </div>
                 <div class="col-md-12 mt-4">
@@ -498,7 +490,7 @@
 
 
             </div>
-            @include('admin.Modals.modalrefrendo')
+            @include('admin.Modals.modalcapital')
         </div>
 
 </body>
@@ -518,7 +510,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
-<script src="{{ asset('dist/js/refrendo.js') }}"></script>
+<script src="{{ asset('dist/js/capital.js') }}"></script>
 <script>
     //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
     function formatear(dato) {
@@ -602,7 +594,6 @@
         $("#abono_capital").val(porce1.toFixed(2))
         $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
-        $("#importe_actual").val(porce5.toFixed(0))
         $("#numeros_refrendos").val(porce6.toFixed(0))
         $("#multa3").val(porce444.toFixed(2))
         $("#recargo_des").val(porce444.toFixed(2))
@@ -702,7 +693,17 @@
     }
     calcular3();
 
-    $( function() {
+
+  
+
+/*     function calcular4() {
+
+    }
+    calcular4();
+ */
+
+
+$( function() {
     $("#interesrefre").change( function() {
         if ($(this).val() === "") {
             $("#capital").prop("disabled", true);
@@ -712,13 +713,17 @@
     });
 });
 
-  
 
-/*     function calcular4() {
+$( function() {
+    $("#capital").change( function() {
+        if ($(this).val() === "") {
+            $("#cantidad_pago1").prop("disabled", true);
+        } else {
+            $("#cantidad_pago1").prop("disabled", false);
+        }
+    });
+});
 
-    }
-    calcular4();
- */
 </script>
 
 

@@ -184,7 +184,7 @@
 
                     <td class="text-center">
                       <br>
-                      <a class="nav-link" href="{{route('Refrendo1.edit', [$capital1->id_prendas] )}}"
+                      <a class="nav-link" href="{{route('Capital1.edit', [$capital1->id_prendas] )}}"
                        id="navbarDarkDropdownMenuLink" aria-expanded="false"><button><i
                                                         class="fas fa-cash-register icons"
                                                         style="font-size:30px;"></i></button></a>

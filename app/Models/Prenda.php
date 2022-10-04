@@ -66,6 +66,7 @@ class Prenda extends Model
         'almacenaje_anterior',
         'iva_anterior',
         'refrendo_anterior',
+        'refrendo_actual',
         'numeros_refrendos',
         'folio_refrendo',
         'abono_capital',

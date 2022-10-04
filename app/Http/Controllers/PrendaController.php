@@ -184,6 +184,19 @@ class PrendaController extends Controller
         );
     }
 
+    public function editCapital($id)
+    {
+        $prenda = Prenda::find($id);
+
+        return View::make('admin.CapitalDato')->with(
+            [
+                "dato_prenda" => $prenda
+
+            ]
+        );
+    }
+
+
 
     public function vistaboleta($id)
     {

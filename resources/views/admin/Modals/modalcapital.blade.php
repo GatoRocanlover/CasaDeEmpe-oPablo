@@ -41,6 +41,7 @@
                 </div>
                 <div class=" caja">
                     <div class="col-md-12 ">
+                        capitalllllllllllllllllllllllllllll
                         <label for="nombre_cliente" class="form-label"> <strong>CLIENTE: &nbsp;</strong>
                             {{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                         </label>
@@ -185,7 +186,7 @@
 
 
 
-                    <input type="hidden" name="importe_actual" class="sub uno" id="importe_actual" value="" readonly>
+
                     <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
                     <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
                     <input type="hidden" name="iva" class="form-control" id="iva" value="" readonly>

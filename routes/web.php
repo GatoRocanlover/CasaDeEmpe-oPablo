@@ -72,6 +72,7 @@ Route::prefix('admin')->group(function () {
     Route::get('Refrendo_prenda/{id}', [PrendaController::class, 'editRefrendo'])->name('Refrendo1.edit');
 
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
+    Route::get('Capital_prenda/{id}', [PrendaController::class, 'editCapital'])->name('Capital1.edit');
 
     Route::get('/boleta', function () {
         return view('pdf.boleta');
