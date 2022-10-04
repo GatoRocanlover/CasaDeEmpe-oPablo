@@ -439,15 +439,15 @@
                             <label for="" class="negritas mt-4">PONGA LOS DIAS DE DIREFENCIA:</label>
                             <div class="input-group has-validation ">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Dias:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <input type="number" id="multa" name="multa"  value="" onkeyUp="calcular();" class="form-control input_style tamañoletra text-center" placeholder="0">
+                                <input type="number" id="multa" name="multa"  value="" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0">
                                                            </div>
                             <div class="input-group has-validation ">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Por dia:</span>
-                                <input type="number" id="multa2" name="multa2" onkeyUp="calcular();" class="form-control input_style text-center" disabled>
+                                <input type="number" id="multa2" name="multa2" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
                             </div>
                             <div class="input-group has-validation ">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
-                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();"  class="form-control input_style text-center" disabled>
+                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
                             </div>
                         </div>
                     </div>
@@ -535,20 +535,13 @@
         var valor = document.getElementById("interesrefre").value;
         var valor1 = document.getElementById("capital").value;
 
-        
-        var valor333 = document.getElementById("multa").value;
-        var valor444 = document.getElementById("multa2").value;
-
-        var porce222 = parseFloat(valor333);
-        var porce333 = parseFloat(valor444);
-        var porce444 = parseFloat(porce222*porce333);
        
         var porce = parseFloat(valor);
        
        /*  var porce1 = parseFloat(valor1 || 0)   es de capital */
         /*         var porce2 = parseFloat(porce + porce1) */
         $("#prestamo4").val(formatear(porce.toFixed(2)))
-        $("#totalpago1").val(formatear(porce.toFixed(2)))
+        $("#totalpago1").val(porce.toFixed(2))
         $("#multa2").val((porce/30).toFixed(2))
         $("#total").val(porce.toFixed(2))
         $("#refrendo_anterior").val(porce.toFixed(2))
@@ -560,7 +553,7 @@
         $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
         $("#sub_refrendo").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
 
-        $("#multa3").val(porce444.toFixed(2))
+        
            }
     calcular();
 
@@ -573,6 +566,15 @@
         var valor3 = document.getElementById("interesrefre").value;
         var valor4 = document.getElementById("refrendos22").value;
         var valor44 = document.getElementById("refrendos44").value;
+
+        var valor333 = document.getElementById("multa").value;
+        var valor444 = document.getElementById("multa2").value;
+        var valor555 = document.getElementById("multa3").value;
+
+        var porce444 = parseFloat(valor333);
+        var porce333 = parseFloat(valor444);
+        var porce555 = parseFloat(valor555);
+        var porce444 = parseFloat((porce444*porce333)||0);
      
         
 
@@ -580,7 +582,7 @@
         var porce1 = parseFloat(valor1 ||0)
 
 
-        var porce2 = parseFloat(porce + porce1)
+        var porce2 = parseFloat(porce + porce1 + porce444)
         var porce3 = parseFloat(valor2)
         var porce4 = parseFloat(valor4)
         var porce44 = parseFloat(valor44)
@@ -601,7 +603,8 @@
         $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
         $("#numeros_refrendos").val(porce6.toFixed(0))
-
+        $("#multa3").val(porce444.toFixed(2))
+        $("#recargo_refrendo").val(porce444.toFixed(2))
 
     }
     calcular2();
@@ -702,14 +705,7 @@
   
 
 /*     function calcular4() {
-        var valor333 = document.getElementById("multa3").value;
-        var valor444 = document.getElementById("prestamo4").value;
 
-        var porce222 = parseFloat(valor333);
-        var porce333 = parseFloat(valor444);
-        var porce444 = parseFloat(porce222+porce333);
-
-        $("#totalpago1").val(formatear(porce444.toFixed(2)))
     }
     calcular4();
  */
