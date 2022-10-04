@@ -8,6 +8,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CotizacionPrendaController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\RefrendoController;
+use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\AjaxController;
 use App\Models\CotizacionPrenda;
 
@@ -70,6 +71,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
     Route::get('Refrendo_prenda/{id}', [PrendaController::class, 'editRefrendo'])->name('Refrendo1.edit');
 
+    Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
 
     Route::get('/boleta', function () {
         return view('pdf.boleta');
@@ -82,8 +84,8 @@ Route::prefix('admin')->group(function () {
 
 
 
-    Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital');
-    Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch');
+  /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
+   /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
 });
 
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');

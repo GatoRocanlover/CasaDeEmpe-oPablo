@@ -90,7 +90,7 @@
         <form class="container-fluid justify-content-start">
           <a class="btn btn-sm btn-outline-secondary me-2" href="{{route('Pagar')}}" type="button">DESEMPEÑO</a>
           <a class="btn btn-success me-2" type="button">REFRENDO</a>
-          <a class="btn btn-sm btn-outline-secondary" type="button" href="{{route('abonocapital')}}">ABONO A CAPITAL</a>
+          <a class="btn btn-sm btn-outline-secondary" type="button" href="{{route('1capital')}}">ABONO A CAPITAL</a>
         </form>
       </nav>
 

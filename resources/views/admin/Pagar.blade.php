@@ -106,7 +106,7 @@
                 <button class="btn btn-success me-2" type="button">DESEMPEÑO</button>
                 <a class="btn btn-sm btn-outline-secondary me-2" type="button"
                     href="{{ route('1refrendo') }}">REFRENDO</a>
-                <a class="btn btn-sm btn-outline-secondary" type="button" href="{{ route('abonocapital') }}">ABONO A
+                <a class="btn btn-sm btn-outline-secondary" type="button" href="{{ route('1capital') }}">ABONO A
                     CAPITAL</a>
             </form>
         </nav>
