@@ -78,7 +78,7 @@
       <td class="textderecha fw-bold borde">BOLETA:&nbsp;&nbsp;</td>
       <td class="text-center borde"> {{$dato_prenda->id_prendas}}</td>
       <td class="textderecha fw-bold borde">FOLIO:&nbsp;&nbsp;</td>
-      <td class="text-center borde"></td>
+      <td class="text-center borde">{{$dato_prenda->folio_refrendo}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">PRENDA:&nbsp;&nbsp;</td>

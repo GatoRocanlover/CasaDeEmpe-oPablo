@@ -173,6 +173,7 @@
                         </div>
                     </div>
 
+                    <input type="hidden" name="folio_refrendo" class="sub uno" id="folio_refrendo" value="{{'REF'.$dato_prenda->id_prendas.''.$dato_prenda->numeros_refrendos}}" readonly>
                     <input type="hidden" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" placeholder="anterior" readonly>
                     <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
                     <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
