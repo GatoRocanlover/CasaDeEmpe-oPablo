@@ -280,7 +280,7 @@
             <input type="hidden" name="cambio_boleta" class="form-control" id="cambio_boleta" value="0" readonly>
             <input type="hidden" name="sub_refrendo" class="form-control" id="sub_refrendo" value="0" readonly>
             <input type="hidden" name="total" class="sub uno" id="total" value="0" readonly>
-          
+            <input type="hidden" name="recargo_des" class="sub uno" id="recargo_des" value="0" readonly>
 
             <input type="hidden" name="importe_anterior" class="form-control" id="importe_anterior" value="0" readonly>
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>

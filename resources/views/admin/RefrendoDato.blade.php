@@ -604,7 +604,7 @@
         $("#prestamo_prenda").val(porce5.toFixed(0))
         $("#numeros_refrendos").val(porce6.toFixed(0))
         $("#multa3").val(porce444.toFixed(2))
-        $("#recargo_refrendo").val(porce444.toFixed(2))
+        $("#recargo_des").val(porce444.toFixed(2))
 
     }
     calcular2();

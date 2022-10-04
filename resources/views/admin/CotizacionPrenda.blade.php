@@ -95,20 +95,13 @@
                         </div>
                     </div>
                     <div class="col-md-8">
-                        <label for="cantidad_prenda" class="form-label">VALOR GENERICO:</label>
-                        <input type="text" name="valor_oro_plata" onkeyUp="calcular1();" class="form-control" id="valor_oro_plata" value="" placeholder="Ingrese el precio del Oro / Plata" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-8">
                         <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
                         <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" placeholder="Ingrese las unidades cotizadas" required>
                         <div class="valid-feedback">
                             Looks good!
                         </div>
                     </div>
-                    <div class="col-md-8 mt-8">
+                    <div class="col-md-8 mt-7">
                         <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
                         <input type="text" oninput="cal()" name="dato_1" class="monto form-control" id="dato_1" value="" placeholder="Ingrese el dato #1" required>
                         <input type="text" oninput="cal()" name="dato_2" class="monto form-control" id="dato_2" value="" placeholder="Ingrese el dato #2" required>
@@ -132,6 +125,13 @@
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="cantidad_prenda" class="form-label">VALOR GENERICO:</label>
+                        <input type="text" name="valor_oro_plata" onkeyUp="calcular1();" class="form-control" id="valor_oro_plata" value="" placeholder="Valor del Oro / Plata" required>
+                        <div class="valid-feedback">
+                            Looks good!
                         </div>
                     </div>
                     <div class="col-md-8">

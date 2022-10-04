@@ -120,6 +120,10 @@
       <td class="text-center numeros" >${{$dato_prenda->iva_anterior}} </td>
     </tr>
     <tr>
+      <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
+      <td class="text-center numeros" >${{$dato_prenda->recargo_des}} </td>
+    </tr>
+    <tr>
       <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
       <td class="text-center bordeup numeros" >${{$dato_prenda->total}}</td>
     </tr>

@@ -30,6 +30,7 @@ class CreateTicketsDesempeñoTable extends Migration
             $table->float('subtotal', 30);
             $table->float('iva', 30);
             $table->float('total', 30);
+            $table->float('recargo_des', 30);
             $table->timestamps();
 
         });

@@ -26,6 +26,7 @@ class TicketsDesempeño extends Model
         'subtotal',
         'iva',
         'total',
+        'recargo_des',
         'created_at',
     
     ];

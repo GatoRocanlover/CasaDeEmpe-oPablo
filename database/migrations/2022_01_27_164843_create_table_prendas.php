@@ -71,8 +71,8 @@ class CreateTablePrendas extends Migration
             $table->float('desempeño5', 30);
             $table->float('subtotal5', 30);
 
+            //----refrendo---------//
             $table->float('abono_capital', 30);
-
             $table->float('importe_anterior', 30);
             $table->float('interes_anterior', 30);
             $table->float('almacenaje_anterior', 30);
@@ -84,6 +84,7 @@ class CreateTablePrendas extends Migration
             $table->float('folio_refrendo', 30);
             $table->float('sub_refrendo', 30);
             $table->float('total', 50);
+            $table->float('recargo_des', 50);
 
             $table->timestamps();
         });

@@ -383,6 +383,8 @@
                         <label class="mt-2"><strong>CANTIDAD DE
                                 PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
                         <label class="mt-2"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                        <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
+                    <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>$ {{ $dato_prenda->prestamo_inicial}}</label>
                     </div>
 
 

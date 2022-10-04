@@ -202,9 +202,9 @@ calcular();
 
 
 function calcular2() {
+    var valor = document.getElementById("desempeño22").value;//
     var valor9 = document.getElementById("multa").value;
     var valor10 = document.getElementById("multa2").value;
-    var valor = document.getElementById("desempeño22").value;//
     var valor2 = document.getElementById("multa3").value;
 
     var porce = parseFloat(valor);//
@@ -215,10 +215,10 @@ function calcular2() {
     var porce9 = parseFloat((porce9*porce10)||0)
     var porce2 = parseFloat(porce+porce11);
 
-     $("#multa3").val(formatear(porce9.toFixed(2)))
-     $("#multa4").val(porce9.toFixed(2))
      $("#desempeño2").val(porce2.toFixed(2))
-     $("#total").val(porce2.toFixed(2))
+     $("#total").val(porce2.toFixed(2)) 
+     $("#multa3").val(formatear(porce9.toFixed(2)))
+     $("#recargo_des").val(porce9.toFixed(2))
 
 }
 calcular2();

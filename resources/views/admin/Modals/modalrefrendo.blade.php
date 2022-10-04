@@ -125,7 +125,7 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>
                                 RECARGO:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="recargo_refrendo" name="recargo_refrendo" type="text" readonly>
+                            <input class="col-md-5" id="recargo_des" name="recargo_des" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">

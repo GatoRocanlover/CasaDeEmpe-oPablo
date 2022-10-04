@@ -116,6 +116,10 @@
         <td class="text-center numeros" >$ {{$dato_desempeño->iva}}</td>
       </tr>
       <tr>
+        <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
+        <td class="text-center numeros" >$ {{$dato_desempeño->recargo_des}}</td>
+      </tr>
+      <tr>
         <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
         <td class="text-center bordeup numeros" >$ {{$dato_desempeño->total}}</td>
       </tr>
