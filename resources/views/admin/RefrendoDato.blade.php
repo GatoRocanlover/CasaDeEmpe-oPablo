@@ -405,18 +405,18 @@
                 </div>
 
 
-                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
+                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();"  class="form-control tamañoletra  text-center " readonly placeholder="0.00">
 
 
                 <label for="" class="negritas mt-4">PULSE EL BOTON SI DESEA ABONAR A CAPITAL:</label>
 
                 <div class="mt-2">
-                    <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                         ABONAR A CAPITAL &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
                     </button>
                     </p>
                 </div>
-                <div class="collapse" id="collapseExample">
+                <div class="collapse" id="collapseExample1">
                     <div class="card card-body">
                         <label for=""><strong>ABONO A CAPITAL </strong></label>
                         <label for="" class="negritas mt-4">CUANTO DESEA ABONAR A CAPITAL:</label>
@@ -426,6 +426,31 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="mt-3">
+                        <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            AGREGAR RECARGO POR DIA &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
+                        </button>
+                        </p>
+                    </div>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <label for=""><strong>RECARGO POR DIA:</strong></label>
+                            <label for="" class="negritas mt-4">PONGA LOS DIAS DE DIREFENCIA:</label>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Dias:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                <input type="number" id="multa" name="multa"  value="" onkeyUp="calcular();" class="form-control input_style tamañoletra text-center" placeholder="0">
+                                                           </div>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Por dia:</span>
+                                <input type="number" id="multa2" name="multa2" onkeyUp="calcular();" class="form-control input_style text-center" disabled>
+                            </div>
+                            <div class="input-group has-validation ">
+                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
+                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();"  class="form-control input_style text-center" disabled>
+                            </div>
+                        </div>
+                    </div>
 
                 <input type="hidden" id="abonototal" name="abonototal" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" value="{{$dato_prenda->prestamo_prenda}}" readonly>
 
@@ -438,7 +463,7 @@
                     <div class="col-md-12">
                         <div class="input-group has-validation">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="totalpago1" name="totalpago1" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+                            <input type="number" id="totalpago1" name="totalpago1"  class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
                         </div>
                     </div>
                 </div>
@@ -502,16 +527,32 @@
         });
     }
 
+
+  
+
+
     function calcular() {
         var valor = document.getElementById("interesrefre").value;
         var valor1 = document.getElementById("capital").value;
+
+        
+        var valor333 = document.getElementById("multa").value;
+        var valor444 = document.getElementById("multa2").value;
+
+        var porce222 = parseFloat(valor333);
+        var porce333 = parseFloat(valor444);
+        var porce444 = parseFloat(porce222*porce333);
+       
         var porce = parseFloat(valor);
+       
        /*  var porce1 = parseFloat(valor1 || 0)   es de capital */
         /*         var porce2 = parseFloat(porce + porce1) */
         $("#prestamo4").val(formatear(porce.toFixed(2)))
         $("#totalpago1").val(formatear(porce.toFixed(2)))
+        $("#multa2").val((porce/30).toFixed(2))
         $("#total").val(porce.toFixed(2))
         $("#refrendo_anterior").val(porce.toFixed(2))
+
         /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
 
         $("#interes_anterior").val($("#interesrefre option:selected").data("interes"));
@@ -519,7 +560,7 @@
         $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
         $("#sub_refrendo").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
 
-       
+        $("#multa3").val(porce444.toFixed(2))
            }
     calcular();
 
@@ -532,9 +573,13 @@
         var valor3 = document.getElementById("interesrefre").value;
         var valor4 = document.getElementById("refrendos22").value;
         var valor44 = document.getElementById("refrendos44").value;
+     
+        
 
         var porce = parseFloat(valor);
         var porce1 = parseFloat(valor1 ||0)
+
+
         var porce2 = parseFloat(porce + porce1)
         var porce3 = parseFloat(valor2)
         var porce4 = parseFloat(valor4)
@@ -556,6 +601,7 @@
         $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
         $("#numeros_refrendos").val(porce6.toFixed(0))
+
 
     }
     calcular2();
@@ -653,22 +699,20 @@
     calcular3();
 
 
-    /*    function calcular4() {
-           var valor = document.getElementById("abono_capital").value;
-           var valor1 = document.getElementById("sub_refrendo").value;
-          
-           var porce = parseFloat(valor);
-           var porce1 = parseFloat(valor1);
-           var porce3 = parseFloat(porce+porce1);
-      
-           $("#sub_capi").val((porce3.toFixed(2)))
-     
+  
 
-       }
-       calcular4();
-    */
+/*     function calcular4() {
+        var valor333 = document.getElementById("multa3").value;
+        var valor444 = document.getElementById("prestamo4").value;
 
+        var porce222 = parseFloat(valor333);
+        var porce333 = parseFloat(valor444);
+        var porce444 = parseFloat(porce222+porce333);
 
+        $("#totalpago1").val(formatear(porce444.toFixed(2)))
+    }
+    calcular4();
+ */
 </script>
 
 

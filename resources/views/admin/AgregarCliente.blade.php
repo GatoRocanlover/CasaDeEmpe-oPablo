@@ -84,8 +84,8 @@
                     <select class="form-select" name="tipo_de_identificacion" id="tipo_de_identificacion" aria-label="Default select example">
                         <option selected value="">TIPO DE IDENTIFICACION </option>
                         <option value="CREDENCIAL NACIONAL ELECTOR">INE</option>
-                        <option value="CARTILLA MILITAR">CARTILLA MILITAR </option>
-                        <option value="PASAPORTE">PASAPORTE</option>
+                        <option value="CARTILLA MILITAR" disabled>CARTILLA MILITAR </option>
+                        <option value="PASAPORTE" disabled>PASAPORTE</option>
                     </select>
                     <div class="valid-feedback">
                         Looks good!
