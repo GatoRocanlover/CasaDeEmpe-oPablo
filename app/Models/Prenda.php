@@ -75,7 +75,19 @@ class Prenda extends Model
         'sub_refrendo',
         'recargo_des',
         'total',
-        
+        'folio_capi',
+        'abono_capital_capi',
+        'interes_anterior_capi',
+        'almacenaje_anterior_capi',
+        'sub_capital',
+        'iva_anterior_capi',
+        'total_capi',
+        'cantidad_pago_capi',
+        'cambio_boleta_capi',
+        'importe_anterior_capi',
+        'importe_actual_capi',  
+        'recargo_des_capi',
+        'numeros_capital',      
     ];
 
     public function getFromDateAttribute($value) {

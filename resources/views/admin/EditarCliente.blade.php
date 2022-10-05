@@ -87,15 +87,15 @@
                             @endif
                             
                             @if($dato_cliente->tipo_de_identificacion == "CARTILLA MILITAR")
-                                <option value="CARTILLA MILITAR" selected>CARTILLA MILITAR</option>
+                                <option value="CARTILLA MILITAR" disabled>CARTILLA MILITAR</option>
                              @else
-                                <option value="CARTILLA MILITAR" >CARTILLA MILITAR</option> 
+                                <option value="CARTILLA MILITAR" disabled>CARTILLA MILITAR</option> 
                             @endif
                             
                             @if($dato_cliente->tipo_de_identificacion == "PASAPORTE")
-                                <option value="PASAPORTE" selected>PASAPORTE</option>
+                                <option value="PASAPORTE" disabled>PASAPORTE</option>
                             @else
-                                <option value="PASAPORTE" >PASAPORTE</option> 
+                                <option value="PASAPORTE" disabled>PASAPORTE</option> 
                             @endif
                         </select>
                         <div class="valid-feedback">

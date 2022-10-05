@@ -10,7 +10,7 @@
                 </button>
             </div>
 
-            <form action="{{Route('prenda.update',$dato_prenda->id_prendas)}}" method="POST" onsubmit="return enviar()" name="formulario_pago">
+            <form action="{{Route('prenda_capi.update',$dato_prenda->id_prendas)}}" method="POST" onsubmit="return enviar()" name="formulario_pago">
                 @csrf
                 <input name="_method" type="hidden" value="PUT">
                 <div class="modal-body caja2" id="cont_modal">
@@ -41,7 +41,6 @@
                 </div>
                 <div class=" caja">
                     <div class="col-md-12 ">
-                        capitalllllllllllllllllllllllllllll
                         <label for="nombre_cliente" class="form-label"> <strong>CLIENTE: &nbsp;</strong>
                             {{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                         </label>
@@ -76,15 +75,20 @@
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>
                                 REFRENDO:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="refrendo_anterior" name="refrendo_anterior" type="text" readonly>
+                            <input class="col-md-5" id="refrendo_anterior_capi" name="refrendo_anterior_capi" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>
                                 NÚMEROS DE REFRENDOS:&nbsp;&nbsp;</strong>#&nbsp;{{ $dato_prenda->numeros_refrendos}} <br>
-                            <input class="col-md-5" id="refrendos22" onkeyUp="calcular2();" name="refrendos22" type="hidden" value="{{$dato_prenda->numeros_refrendos}}" readonly>
+                            <input class="col-md-5" id="refrendos22" onkeyUp="calcular2();" name="refrendos22" type="hidden" value="{{$dato_prenda->numeros_capital}}" readonly>
                             <input class="col-md-5" id="refrendos44" onkeyUp="calcular2();" name="refrendos44" type="hidden" value="1" readonly>
-                            <input class="col-md-5" id="numeros_refrendos" name="numeros_refrendos" type="hidden" value="" readonly>
+                            <input class="col-md-5" id="numeros_capital" name="numeros_capital" type="hidden" value="" readonly>
+                        </label>
+                    </div>
+                    <div class="col-md-12 mt-2">
+                        <label for="prestamo_prenda" class="form-label"> <strong>
+                               NÚMEROS DE ABONOS A CAPITAL REALIZADOS:&nbsp;&nbsp;</strong>#&nbsp;{{ $dato_prenda->numeros_capital}} <br>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -93,17 +97,17 @@
 
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="interes_anterior" name="interes_anterior" type="text" readonly>
+                            <input class="col-md-5" id="interes_anterior_capi" name="interes_anterior_capi" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="almacenaje_anterior" name="almacenaje_anterior" type="text" readonly>
+                            <input class="col-md-5" id="almacenaje_anterior_capi" name="almacenaje_anterior_capi" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
-                        <label for="prestamo_prenda" class="form-label"> <strong>ABONO CAPITAL:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="abono_capital" name="abono_capital" type="text" readonly>
+                        <label for="prestamo_prenda" class="form-label"> <strong>ABONO CAPITAL:&nbsp;&nbsp;</strong><b style="color:green">$</b>&nbsp;
+                            <input class="col-md-5 fw-bold" id="abono_capital_capi" style="color:green" name="abono_capital_capi" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -113,20 +117,20 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 TOTAL:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="sub_refrendo" name="sub_refrendo" type="text" readonly>
+                            <input class="col-md-5" id="sub_capital" name="sub_capital" type="text" readonly>
                         </label>
                     </div>
 
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
                                 I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="iva_anterior" name="iva_anterior" type="text" readonly>
+                            <input class="col-md-5" id="iva_anterior_capi" name="iva_anterior_capi" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>
                                 RECARGO:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="recargo_des" name="recargo_des" type="text" readonly>
+                            <input class="col-md-5" id="recargo_des_capi" name="recargo_des_capi" type="text" readonly>
                         </label>
                     </div>
                     <div class="text-center col-md-12">
@@ -135,7 +139,7 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>
                                 NUEVO SALDO:&nbsp;&nbsp;</strong>$&nbsp;
-                                <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+                            <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
                         </label>
                     </div>
 
@@ -149,7 +153,7 @@
                         <div class="col-md-18">
                             <div class="input-group has-validation">
                                 <span class=" fw-bold signo" id="inputGroupPrepend">$</span>
-                                <input class="tamañoletra text-center negro" id="total" name="total" type="text" readonly></label>
+                                <input class="tamañoletra text-center negro" id="total_capi" name="total_capi" type="text" readonly></label>
                             </div>
                         </div>
                     </div>
@@ -163,19 +167,20 @@
                         <label for="" class="negritas">CANTIDAD PAGADA:</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="cantidad_pago" name="cantidad_pago" class="form-control input_style text-center tamañoletra" readonly>
+                            <input type="number" id="cantidad_pago_capi" name="cantidad_pago_capi" class="form-control input_style text-center tamañoletra" readonly>
                         </div>
                     </div>
                     <div class="col-md-12 mt-3">
                         <label for="" class="negritas">CAMBIO:</label>
                         <div class="input-group has-validation">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="text" id="cambio_boleta" name="cambio_boleta" class="form-control input_style text-center letracambio" readonly>
+                            <input type="text" id="cambio_boleta_capi" name="cambio_boleta_capi" class="form-control input_style text-center letracambio" readonly>
                         </div>
                     </div>
 
-                    <input type="hidden" name="folio_refrendo" class="sub uno" id="folio_refrendo" value="{{'REF'.$dato_prenda->id_prendas.''.$dato_prenda->numeros_refrendos}}" readonly>
-                    <input type="hidden" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" placeholder="anterior" readonly>
+                    <input type="hidden" name="importe_actual_capi" class="sub uno" id="importe_actual_capi" value="" readonly>
+                    <input type="hidden" name="folio_capi" class="sub uno" id="capi" value="{{'ABA'.$dato_prenda->id_prendas.''.$dato_prenda->numeros_capital}}" readonly>
+                    <input type="hidden" name="importe_anterior_capi" class="sub uno" id="importe_anterior_capi" value="{{$dato_prenda->prestamo_prenda}}" placeholder="anterior" readonly>
                     <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
                     <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
                     <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{\Carbon\Carbon::now()->addMonths(2)}}" readonly>

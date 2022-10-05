@@ -74,8 +74,8 @@
                     </div>
                     <div class="col-md-12 mt-2">
                         <label for="prestamo_prenda" class="form-label"> <strong>
-                                REFRENDO:&nbsp;&nbsp;</strong>$&nbsp;
-                            <input class="col-md-5" id="refrendo_anterior" name="refrendo_anterior" type="text" readonly>
+                                REFRENDO:&nbsp;&nbsp;</strong><b style="color:green">$</b>&nbsp;
+                            <input class="col-md-5 fw-bold" id="refrendo_anterior" style="color:green" name="refrendo_anterior" type="text" readonly>
                         </label>
                     </div>
                     <div class="col-md-12 mt-2">

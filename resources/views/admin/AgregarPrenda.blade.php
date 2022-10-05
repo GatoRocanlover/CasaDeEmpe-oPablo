@@ -184,16 +184,7 @@
                             </strong>{{ $datoCotizar->caracteristicas_prenda }}</label>
                         <input type="hidden" name="caracteristicas_prenda" class="form-control" id="caracteristicas_prenda" value="{{ $datoCotizar->caracteristicas_prenda }}" readonly>
                         <br>
-                        <label for="" class="sub mt-1"><strong>DESCRIPCIÓN GENERICA: </strong>
-                            @if ($datoCotizar->descripcion_generica == 1)
-                            ORO
-                            @else
-                            @endif
-                            @if ($datoCotizar->descripcion_generica == 2)
-                            PLATA
-                            @else
-                            @endif
-                        </label>
+                        <label for="" class="sub mt-1"><strong>DESCRIPCIÓN GENERICA: </strong>{{$datoCotizar->descripcion_generica}}</label>
                         <input type="hidden" name="descripcion_generica" class="form-control" id="descripcion_generica" value="{{ $datoCotizar->descripcion_generica }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>KILATAJE:
@@ -266,10 +257,7 @@
             <input type="hidden" name="refrendo5" class="form-control" id="refrendo5" value="" readonly>
             <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
             <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
-
-
-
-            
+     
             <input type="hidden" name="almacenaje_anterior" class="form-control" id="almacenaje_anterior" value="0" readonly>
             <input type="hidden" name="iva_anterior" class="form-control" id="iva_anterior" value="0" readonly>
             <input type="hidden" name="refrendo_anterior" class="form-control" id="refrendo_anterior" value="0" readonly>
@@ -282,11 +270,23 @@
             <input type="hidden" name="total" class="sub uno" id="total" value="0" readonly>
             <input type="hidden" name="recargo_des" class="sub uno" id="recargo_des" value="0" readonly>
             <input type="hidden" name="importe_actual" class="form-control" id="importe_actual" value="0" readonly>
-          
-
             <input type="hidden" name="importe_anterior" class="form-control" id="importe_anterior" value="0" readonly>
             <input type="hidden" name="abono_capital" class="form-control" id="abono_capital" value="0" readonly>
             
+
+            <input type="hidden" name="folio_capi" class="form-control" id="folio_capi" value="0" readonly>
+            <input type="hidden" name="abono_capital_capi" class="form-control" id="abono_capital_capi" value="0" readonly>
+            <input type="hidden" name="interes_anterior_capi" class="form-control" id="interes_anterior_capi" value="0" readonly>
+            <input type="hidden" name="almacenaje_anterior_capi" class="form-control" id="almacenaje_anterior_capi" value="0" readonly>
+            <input type="hidden" name="sub_capital" class="form-control" id="sub_capital" value="0" readonly>
+            <input type="hidden" name="iva_anterior_capi" class="form-control" id="iva_anterior_capi" value="0" readonly>
+            <input type="hidden" name="total_capi" class="form-control" id="total_capi" value="0" readonly>
+            <input type="hidden" name="cantidad_pago_capi" class="form-control" id="cantidad_pago_capi" value="0" readonly>
+            <input type="hidden" name="cambio_boleta_capi" class="form-control" id="cambio_boleta_capi" value="0" readonly>
+            <input type="hidden" name="importe_anterior_capi" class="form-control" id="importe_anterior_capi" value="0" readonly>
+            <input type="hidden" name="importe_actual_capi" class="form-control" id="importe_actual_capi" value="0" readonly>
+            <input type="hidden" name="recargo_des_capi" class="form-control" id="recargo_des_capi" value="0" readonly>
+            <input type="hidden" name="numeros_capital" class="form-control" id="numeros_capital" value="0" readonly>
 
 
             <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center">

@@ -66,9 +66,9 @@
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">FECHA:&nbsp;&nbsp;</td>
-      <td class="text-center borde">{{$dato_prenda->created_at->format('d-m-Y')}}</td>
+      <td class="text-center borde">{{$dato_prenda->updated_at->format('d-m-Y')}}</td>
       <td class="textderecha fw-bold borde">HORA:&nbsp;&nbsp;</td>
-      <td class="text-center borde">{{$dato_prenda->created_at->format('H:m:s A')}}</td>
+      <td class="text-center borde">{{$dato_prenda->updated_at->format('H:m:s A')}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">CLIENTE:&nbsp;&nbsp;</td>

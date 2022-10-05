@@ -535,15 +535,15 @@
         $("#prestamo4").val(formatear(porce.toFixed(2)))
         $("#totalpago1").val(porce.toFixed(2))
         $("#multa2").val((porce/30).toFixed(2))
-        $("#total").val(porce.toFixed(2))
-        $("#refrendo_anterior").val(porce.toFixed(2))
+        $("#total_capi").val(porce.toFixed(2))
+        $("#refrendo_anterior_capi").val(porce.toFixed(2))
 
         /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
 
-        $("#interes_anterior").val($("#interesrefre option:selected").data("interes"));
-        $("#almacenaje_anterior").val($("#interesrefre option:selected").data("almacenaje"));
-        $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
-        $("#sub_refrendo").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
+        $("#interes_anterior_capi").val($("#interesrefre option:selected").data("interes"));
+        $("#almacenaje_anterior_capi").val($("#interesrefre option:selected").data("almacenaje"));
+        $("#iva_anterior_capi").val($("#interesrefre option:selected").data("iva"));
+        $("#sub_capital").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
 
         
            }
@@ -590,13 +590,14 @@
    /*      $("#totalpago1").val(formatear(porce2.toFixed(2)))
         $("#total").val(formatear(porce2.toFixed(2))) */
         $("#totalpago1").val(porce2.toFixed(2))
-        $("#total").val(porce2.toFixed(2))
-        $("#abono_capital").val(porce1.toFixed(2))
-        $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
+        $("#total_capi").val(porce2.toFixed(2))
+        $("#abono_capital_capi").val(porce1.toFixed(2))
+        $("#sub_capital").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
-        $("#numeros_refrendos").val(porce6.toFixed(0))
+        $("#importe_actual_capi").val(porce5.toFixed(0))
+        $("#numeros_capital").val(porce6.toFixed(0))
         $("#multa3").val(porce444.toFixed(2))
-        $("#recargo_des").val(porce444.toFixed(2))
+        $("#recargo_des_capi").val(porce444.toFixed(2))
 
     }
     calcular2();

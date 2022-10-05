@@ -280,8 +280,65 @@ class PrendaController extends Controller
         $prenda->save();
 
 
-        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket', 'Se genero la boleta');;
+        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket', 'Se genero la boleta');
     }
+
+
+    public function update_capital(Request $request, $id)
+    {
+        $prenda = Prenda::find($id);
+
+        $reglas = [
+
+            "cantidad_pago_capi" => 'bail|required',
+            "cambio_boleta_capi" => 'bail|required',
+
+            /*   "nombre_prenda" => "bail|required|min:3",
+            "descripcion_generica" => "bail|required",
+            "kilataje_prenda" => "bail|required",
+            "gramaje_prenda" => 'bail|required',
+            "caracteristicas_prenda" => 'bail|required',
+            "avaluo_prenda" => "bail|required",
+            "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
+            "prestamo_prenda" => 'bail|required', */
+        ];
+
+        $mensajes = [
+            "cantidad_pago_capi.required" => "NO SE INGRESO EL MONTO A PAGAR, FAVOR DE VERIFICAR LOS DATOS CORRECTAMENTE!!",
+            "cambio_boleta_capi.required" => "LA CANTIDAD QUE SE INGRESO ES MENOR A LA CANTIDAD TOTAL A DESEMPEÑAR, VERIFICAR LA INFORMACIÓN!!",
+
+            /* 
+            "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
+            "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
+            "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar",
+            "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar",
+            "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
+            "caracteristicas_prenda.required" => "No ingreso las caracteristicas de la pieza a refrendar",
+            "avaluo_prenda.required" => "No ha ingresado el avaluo",
+            "porcentaje_prestamo_sobre_avaluo.required" => "No ha seleccionado el porfentaje del avaluo",
+            "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",
+ */
+        ];
+        $validator = Validator::make(
+            $request->all(),
+            $reglas,
+            $mensajes
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+
+        $prenda->fill($request->all());
+        $prenda->save();
+
+
+        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket', 'Se genero la boleta'); // agregar-05-10-22
+    }
+
 
 
 

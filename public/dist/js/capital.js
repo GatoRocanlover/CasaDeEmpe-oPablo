@@ -102,7 +102,7 @@ document.formulario_pago.submit();
 document.getElementById("cantidad_pago1",).addEventListener('keyup', autoCompleteNew);
 function autoCompleteNew(e) {            
     var value = $(this).val();         
-    $("#cantidad_pago",).val(value.replace(/\s/g, '').toLowerCase()); 
+    $("#cantidad_pago_capi",).val(value.replace(/\s/g, '').toLowerCase()); 
 }
 //---------------
 
@@ -112,7 +112,7 @@ const pcantidadv2 = document.querySelector("#cantidad_pago1");
 pcantidadv.addEventListener("keyup", event => {
     //console.log("exit");
     //pcantidadv.style.fontSize="23px";
-    const vcambio = document.querySelector("#cambio_boleta");
+    const vcambio = document.querySelector("#cambio_boleta_capi");
     const ventventa = document.querySelector("#totalpago1");
     const vcantidad = Number(pcantidadv2.value);
     const totalreplace = ventventa.value.replace(/\s+/g, '');

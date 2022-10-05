@@ -87,6 +87,24 @@ class CreateTablePrendas extends Migration
             $table->float('total', 50);
             $table->float('recargo_des', 50);
 
+            
+            //------------capital------------///
+
+            $table->string('folio_capi', 40);
+            $table->float('abono_capital_capi', 30);
+            $table->float('interes_anterior_capi', 30);
+            $table->float('almacenaje_anterior_capi', 30);
+            $table->float('sub_capital', 30);
+            $table->float('iva_anterior_capi', 30);
+            $table->float('total_capi', 30);
+            $table->float('cantidad_pago_capi', 30);
+            $table->float('cambio_boleta_capi', 30);
+            $table->float('importe_anterior_capi', 30);
+            $table->float('importe_actual_capi', 30);
+            $table->float('recargo_des_capi', 30);
+            $table->float('numeros_capital', 30);
+
+
             $table->timestamps();
         });
     }
