@@ -75,6 +75,9 @@ class Prenda extends Model
         'sub_refrendo',
         'recargo_des',
         'total',
+        'hora_refrendo', 
+        'fecha_refrendo', 
+        'mes2_refrendo', 
         'folio_capi',
         'abono_capital_capi',
         'interes_anterior_capi',
@@ -87,7 +90,9 @@ class Prenda extends Model
         'importe_anterior_capi',
         'importe_actual_capi',  
         'recargo_des_capi',
-        'numeros_capital',      
+        'numeros_capital', 
+        'hora_capital',
+        'fecha_capital',   
     ];
 
     public function getFromDateAttribute($value) {

@@ -120,7 +120,7 @@
                 </form>
               </div>
               <div>
-                <a class="btn btn-success mt-2" href="{{route('listado_tickets_refrendo')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS Y TICKETS</a>
+                <a class="btn btn-success mt-2" href="{{route('listado_tickets_capital')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS Y TICKETS</a>
               </div>
             </div>
             <div class="table-responsive">

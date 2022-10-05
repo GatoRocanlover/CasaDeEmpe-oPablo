@@ -66,7 +66,7 @@
        
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
-            <label for="validationCustom03" class="form-label  text-center h3 fw-bold"> PAGOS: BOLETAS Y TICKETS REFRENDO:</label>
+            <label for="validationCustom03" class="form-label  text-center h3 fw-bold"> PAGOS: BOLETAS Y TICKETS CAPITAL:</label>
         </div>
 
 
@@ -127,7 +127,7 @@
                                 <td>$&nbsp;{{$prenda->prestamo_inicial}}</td>
                                 <td>$&nbsp;{{$prenda->prestamo_prenda}}</td>
                                 <td><a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
-                                <td><a class="nav-link text-center" href="{{route('boleta.vistarefre', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-file-text-o" style="font-size:30px"></i></a></td>
+                                <td><a class="nav-link text-center" href="{{route('boleta.vistacapital', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-file-text-o" style="font-size:30px"></i></a></td>
                             </tr>
                             <tr>
                                 @endforeach
@@ -156,7 +156,7 @@
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 
-@if (session('registro_ticket_refrendo') == 'Se genero la boleta')
+@if (session('registro_ticket_capital') == 'Se genero la boleta')
 <script>
     Swal.fire(
       'SE GENERO EL PAGO CON EXITO!',
@@ -164,5 +164,6 @@
       'success')
 </script>
 @endif
+
 
 </html>

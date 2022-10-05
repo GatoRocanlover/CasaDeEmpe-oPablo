@@ -179,7 +179,7 @@
                     </div>
 
                     <input type="hidden" name="importe_actual_capi" class="sub uno" id="importe_actual_capi" value="" readonly>
-                    <input type="hidden" name="folio_capi" class="sub uno" id="capi" value="{{'ABA'.$dato_prenda->id_prendas.''.$dato_prenda->numeros_capital}}" readonly>
+                    <input type="hidden" name="folio_capi" class="sub uno" id="capi" value="{{'ABACA'.$dato_prenda->id_prendas.''.$dato_prenda->numeros_capital}}" readonly>
                     <input type="hidden" name="importe_anterior_capi" class="sub uno" id="importe_anterior_capi" value="{{$dato_prenda->prestamo_prenda}}" placeholder="anterior" readonly>
                     <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
                     <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
@@ -226,7 +226,8 @@
                     <input type="hidden" name="refrendo5" class="form-control" id="refrendo5" value="" readonly>
                     <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
                     <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
-
+                    
+                    <input type="hidden" name="hora_capital" class="sub uno" id="hora_capital" value="{{\Carbon\Carbon::now()}}" readonly>
 
 
                 </div>

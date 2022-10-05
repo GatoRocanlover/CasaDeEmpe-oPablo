@@ -86,6 +86,8 @@ class CreateTablePrendas extends Migration
             $table->float('sub_refrendo', 30);
             $table->float('total', 50);
             $table->float('recargo_des', 50);
+            $table->dateTime('hora_refrendo')->nullable()->default(null);
+            $table->dateTime('mes2_refrendo')->nullable()->default(null);
 
             
             //------------capital------------///
@@ -103,8 +105,8 @@ class CreateTablePrendas extends Migration
             $table->float('importe_actual_capi', 30);
             $table->float('recargo_des_capi', 30);
             $table->float('numeros_capital', 30);
-
-
+            $table->dateTime('hora_capital')->nullable()->default(null);
+   
             $table->timestamps();
         });
     }

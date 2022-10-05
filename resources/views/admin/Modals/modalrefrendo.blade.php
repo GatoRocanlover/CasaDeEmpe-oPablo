@@ -221,6 +221,8 @@
                     <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
                     <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
 
+                    <input type="hidden" name="hora_refrendo" class="sub uno" id="hora_refrendo" value="{{\Carbon\Carbon::now()}}" readonly>
+                    <input type="hidden" name="mes2_refrendo" class="sub uno" id="mes2_refrendo" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
 
 
                 </div>

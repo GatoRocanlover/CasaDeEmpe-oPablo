@@ -104,6 +104,17 @@ class AdminController extends BaseController
         );
     }
 
+    public function listado_tickets_capital()
+    {
+        $prendas = Prenda::get();
+
+        return view('admin.listado_tickets_capital')->with(
+            [
+                "lista_prendas" => $prendas
+            ]
+        );
+    }
+
 
 
     public function ListadoBoletaPagar()

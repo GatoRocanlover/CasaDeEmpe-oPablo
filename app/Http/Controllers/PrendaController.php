@@ -221,6 +221,18 @@ class PrendaController extends Controller
         );
     }
 
+    public function vistacapitalboleta($id)
+    {
+        $prenda = Prenda::find($id);
+
+        return View::make('pdf.ticket_capital')->with(
+            [
+                "dato_prenda" => $prenda
+
+            ]
+        );
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -280,7 +292,7 @@ class PrendaController extends Controller
         $prenda->save();
 
 
-        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket', 'Se genero la boleta');
+        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket_refrendo', 'Se genero la boleta');
     }
 
 
@@ -336,7 +348,7 @@ class PrendaController extends Controller
         $prenda->save();
 
 
-        return redirect()->route('listado_tickets_refrendo')->with('registro_ticket', 'Se genero la boleta'); // agregar-05-10-22
+        return redirect()->route('listado_tickets_capital')->with('registro_ticket_capital', 'Se genero la boleta'); // agregar-05-10-22
     }
 
 

@@ -66,9 +66,9 @@
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">FECHA:&nbsp;&nbsp;</td>
-      <td class="text-center borde">{{\Carbon\Carbon::parse($dato_prenda->hora_refrendo)->formatLocalized('%d-%B-%Y')}}</td>
+      <td class="text-center borde">{{\Carbon\Carbon::parse($dato_prenda->hora_capital)->formatLocalized('%d-%B-%Y')}}</td>
       <td class="textderecha fw-bold borde">HORA:&nbsp;&nbsp;</td>
-      <td class="text-center borde">{{\Carbon\Carbon::parse($dato_prenda->hora_refrendo)->toTimeString()}}</td>
+      <td class="text-center borde">{{\Carbon\Carbon::parse($dato_prenda->hora_capital)->toTimeString()}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">CLIENTE:&nbsp;&nbsp;</td>
@@ -78,7 +78,7 @@
       <td class="textderecha fw-bold borde">BOLETA:&nbsp;&nbsp;</td>
       <td class="text-center borde"> {{$dato_prenda->id_prendas}}</td>
       <td class="textderecha fw-bold borde">FOLIO:&nbsp;&nbsp;</td>
-      <td class="text-center borde">{{$dato_prenda->folio_refrendo}}</td>
+      <td class="text-center borde">{{$dato_prenda->folio_capi}}</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">PRENDA:&nbsp;&nbsp;</td>
@@ -86,7 +86,7 @@
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">TIPO DE&nbsp;&nbsp; MOVIMIENTO:&nbsp;&nbsp;</td>
-      <td colspan="3" class="borde">&nbsp;&nbsp;REFRENDO</td>
+      <td colspan="3" class="borde">&nbsp;&nbsp;ABONO A CAPITAL</td>
     </tr>
     <tr>
       <td class="textderecha fw-bold borde">REFRENDOS REALIZADOS:&nbsp;&nbsp;</td>
@@ -101,48 +101,48 @@
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->interes_anterior}}</td>
+      <td class="text-center numeros" >${{$dato_prenda->interes_anterior_capi}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">ABONO A CAPITAL:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->abono_capital}}</td>
+      <td class="text-center numeros" >${{$dato_prenda->abono_capital_capi}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
-      <td class="text-center numeros " >${{$dato_prenda->almacenaje_anterior}} </td>
+      <td class="text-center numeros " >${{$dato_prenda->almacenaje_anterior_capi}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
-      <td class="text-center bordeup numeros" >${{$dato_prenda->sub_refrendo}} </td>
+      <td class="text-center bordeup numeros" >${{$dato_prenda->sub_capital}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->iva_anterior}} </td>
+      <td class="text-center numeros" >${{$dato_prenda->iva_anterior_capi}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->recargo_des}} </td>
+      <td class="text-center numeros" >${{$dato_prenda->recargo_des_capi}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
-      <td class="text-center bordeup numeros" >${{$dato_prenda->total}}</td>
+      <td class="text-center bordeup numeros" >${{$dato_prenda->total_capi}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
-      <td colspan="4" class="text-center fw-bold numeros2">{{num2letras($dato_prenda->total)}}</td>
+      <td colspan="4" class="text-center fw-bold numeros2">{{num2letras($dato_prenda->total_capi)}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">PAGO RECIBIDO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->cantidad_pago}}</td>
+      <td class="text-center numeros" >${{$dato_prenda->cantidad_pago_capi}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->cambio_boleta}}</td>
+      <td class="text-center numeros" >${{$dato_prenda->cambio_boleta_capi}}</td>
     </tr>
     <tr>
       <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
@@ -171,15 +171,11 @@
     </tr>
     <tr>
       <td colspan="2" class="textderecha fw-bold">SALDO ANTERIOR:</td>
-      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_anterior}}</td>
+      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_anterior_capi}}</td>
     </tr>
     <tr>
       <td colspan="2" class="textderecha fw-bold">SALDO ACTUAL:</td>
-      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_actual}}</td>
-    </tr>
-    <tr>
-      <td colspan="2" class="textderecha fw-bold">PROXIMO REFRENDO:</td>
-      <td colspan="2">&nbsp;&nbsp;{{\Carbon\Carbon::parse($dato_prenda->mes2_refrendo)->formatLocalized('%d-%B-%Y')}}</td>
+      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_actual_capi}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>

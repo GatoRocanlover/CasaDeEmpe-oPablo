@@ -59,9 +59,9 @@
                 <th colspan="9">
                     <header>
                         <div>
-                            <h5>
-                                Folio:&nbsp;{{ $dato_prenda->id_prendas }}&nbsp;&nbsp;/&nbsp;&nbsp;REF000{{$dato_prenda->numeros_refrendos}}
-                                <h5>
+                            <h6>
+                                Folio:&nbsp;{{ $dato_prenda->id_prendas }}&nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}{{$dato_prenda->numeros_refrendos}}&nbsp;/&nbsp;{{$dato_prenda->folio_capi}}{{$dato_prenda->numeros_capital}}
+                            </h6>
                         </div>
                         <div>
                             <h5>Asociados Nueva Mutua S.A. DE C.V.</h5>

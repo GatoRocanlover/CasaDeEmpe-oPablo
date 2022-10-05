@@ -59,6 +59,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');
     Route::get('/ListadoPrenda', [AdminController::class, 'ListadoPrenda'])->name('listado_prenda');
     Route::get('/listado_tickets_refrendo', [AdminController::class, 'listado_tickets_refrendo'])->name('listado_tickets_refrendo');
+    Route::get('/listado_tickets_capital', [AdminController::class, 'listado_tickets_capital'])->name('listado_tickets_capital');
     Route::get('/GenerarBoleta', [AdminController::class, 'GenerarBoleta'])->name('generar_boleta');
     Route::get('/ListadoBoleta', [AdminController::class, 'ListadoBoleta'])->name('listado_boleta');
     Route::get('/ListadoBoletaPagar', [PrendaController::class, 'index'])->name('listado_boleta_pagar');
@@ -82,6 +83,7 @@ Route::prefix('admin')->group(function () {
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
     Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
     Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
+    Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
 
 
 
