@@ -429,7 +429,7 @@
 
                 <div class="mt-3">
                         <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            AGREGAR RECARGO POR DIA &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
+                            RECARGO POR DIA &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
                         </button>
                         </p>
                     </div>
