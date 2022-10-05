@@ -717,11 +717,15 @@ $( function() {
 
 $( function() {
     $("#capital").change( function() {
-        if ($(this).val() === "") {
+        if ($(this).val() == "") {
             $("#cantidad_pago1").prop("disabled", true);
-        } else {
+        }if ($(this).val() == 0) {
+            $("#cantidad_pago1").prop("disabled", true);
+        }
+         else {
             $("#cantidad_pago1").prop("disabled", false);
         }
+ 
     });
 });
 
