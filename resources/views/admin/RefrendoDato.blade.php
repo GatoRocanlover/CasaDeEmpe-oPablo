@@ -422,7 +422,7 @@
                         <label for="" class="negritas mt-4">CUANTO DESEA ABONAR A CAPITAL:</label>
                         <div class="input-group has-validation ">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00" disabled>
+                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00" min="0" disabled>
                         </div>
                     </div>
                 </div>
@@ -712,6 +712,10 @@
     });
 });
 
+
+
+
+
   
 
 /*     function calcular4() {
@@ -719,6 +723,35 @@
     }
     calcular4();
  */
+
+ //funcion para que acepte solo numeros positivos y sin punto en abono a capital
+function filterInteger(evt,input) {
+    // ASCII https://elcodigoascii.com.ar/
+    // ‘0′ = 48, ‘9′ = 57, ‘-’ = 45
+    // Backspace = 8, Enter = 13, NULL = 0
+    var key = window.Event ? evt.which : evt.keyCode;    
+    var chark = String.fromCharCode(key);
+    var tempValue = input.value+chark;
+    if((key >= 48 && key <= 57) /* || key == 45 */) {
+        return filter(tempValue);
+    } else {
+        return key == 8 || key == 13 || key == 0;
+    }
+}
+
+function filter(__val__) {
+    // /^-?[0-9]*$/; // positivos y negativos
+    // /^[0-9]*$/; // solo positivos
+    var preg = /^[0-9]*$/;
+    return preg.test(__val__);
+}
+
+document.getElementById('capital').addEventListener('keypress', function(evt) {
+    if (filterInteger(evt, evt.target) === false) {
+        evt.preventDefault();
+    }
+});
+
 </script>
 
 
