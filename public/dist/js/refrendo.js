@@ -104,6 +104,7 @@ function autoCompleteNew(e) {
     var value = $(this).val();         
     $("#cantidad_pago",).val(value.replace(/\s/g, '').toLowerCase()); 
 }
+
 //---------------
 
 

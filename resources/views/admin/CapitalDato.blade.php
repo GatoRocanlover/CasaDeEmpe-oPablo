@@ -594,6 +594,13 @@
         $("#abono_capital_capi").val(porce1.toFixed(2))
         $("#sub_capital").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
+
+        $("#prestamo_prenda1").val(porce5.toFixed(2))
+        $("#prestamo_prenda2").val(porce5.toFixed(2))
+        $("#prestamo_prenda3").val(porce5.toFixed(2))
+        $("#prestamo_prenda4").val(porce5.toFixed(2))
+        $("#prestamo_prenda5").val(porce5.toFixed(2))
+        
         $("#importe_actual_capi").val(porce5.toFixed(0))
         $("#numeros_capital").val(porce6.toFixed(0))
         $("#multa3").val(porce444.toFixed(2))

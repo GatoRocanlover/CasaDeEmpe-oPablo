@@ -58,9 +58,15 @@
                             {{$dato_prenda->descripcion_generica}}
                         </label>
                     </div>
-                    <div class="mt-1">
+                    <div class="mt-2">
                         <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERISTICAS:
                                 &nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="prestamo_prenda" class="form-label"> <strong>
+                                FECHA Y HORA:&nbsp;&nbsp;</strong>
+                                <input type="text" name="hora_refrendo" id="hora_refrendo" value="{{\Carbon\Carbon::now()}}" readonly>
+                            </label>
                     </div>
                     <div class="text-center col-md-12">
                         <p>-----------------------------------------------------------------</p>
@@ -134,9 +140,208 @@
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>
                                 NUEVO SALDO:&nbsp;&nbsp;</strong>$&nbsp;
-                                <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
+                            <input type="text" name="prestamo_prenda" class="sub uno" onkeyUp="calcular3();" id="prestamo_prenda" value="{{$dato_prenda->prestamo_prenda}}" readonly>
                         </label>
                     </div>
+
+
+                    <div class="text-center mt-3">
+                        <a data-toggle="modal" href="#myModal2" class="btn btn-primary">VER NUEVA TABLA DE PAGOS</a>
+                    </div>
+
+
+
+
+                    <div class="modal" id="myModal2">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title text-center">NUEVA TABLA DE PAGOS:</h4>
+                                </div>
+                                <div class="container"></div>
+                                <div class="modal-body">
+
+
+                                    <!-- /inicio modal/ -->
+                                    <input type="text" name="fecha_prestamo" class="col-md-12 text-center" id="fecha_prestamo" value="{{dias()}}" readonly>
+
+                                    <div class=" table-responsive">
+
+                                        <table class="table table-sm mt-3">
+                                            <tr>
+
+                                                <th rowspan="2">
+                                                    <br>
+                                                    NUMERO
+                                                </th>
+
+                                                <th colspan="4">MONTO</th>
+
+                                                <th colspan="2">TOTAL A PAGAR</th>
+
+                                                <th rowspan="2">CUANDO SE REALIZAN LOS PAGOS</th>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <th>IMPORTE DE MUTUO</th>
+
+                                                <th>&nbsp;INTERESES&nbsp;</th>
+
+                                                <th>&nbsp;ALMACENAJE&nbsp;</th>
+
+                                                <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IVA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+
+                                                <th>POR REFRENDO</th>
+
+                                                <th>POR DESEMPEÑO</th>
+
+                                            </tr>
+
+                                            <tr>
+
+                                                <th>1° Mes</th>
+
+                                                <td>$<input type="text" name="prestamo_prenda1" class="col-md-8 text-center" id="prestamo_prenda1" value="" readonly></td>
+
+                                                <td>$<input type="text" name="interes" class="col-md-8 text-center" id="interes" value="" readonly></td>
+
+                                                <td>$<input type="text" name="almacenaje" class="col-md-8 text-center" id="almacenaje" value="" readonly></td>
+
+                                                <td>$<input type="text" name="iva" class="col-md-8 text-center" id="iva" value="" readonly></td>
+
+                                                <td>$<input type="text" name="refrendo" class="col-md-8 text-center" id="refrendo" value="" readonly></td>
+
+                                                <td>$<input type="text" name="desempeño" class="col-md-8 text-center" id="desempeño" value="" readonly></td>
+
+                                                <td>
+                                                    <input type="text" name="mes11" class="text-center" id="mes11" value="{{\Carbon\Carbon::now()->addMonths(1)->formatLocalized('%d-%B-%Y')}}" readonly>
+                                                    <input type="hidden" name="mes1" class="text-center" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <th>2° Mes</th>
+
+                                                <td>
+                                                    $<input type="text" name="prestamo_prenda2" class="col-md-8 text-center" id="prestamo_prenda2" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="interes2" class="col-md-8 text-center" id="interes2" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="almacenaje2" class="col-md-8 text-center" id="almacenaje2" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="iva2" class="col-md-8 text-center" id="iva2" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="refrendo2" class="col-md-8 text-center" id="refrendo2" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="desempeño2" class="col-md-8 text-center" id="desempeño2" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="mes22" class="text-center" id="mes22" value="{{\Carbon\Carbon::now()->addMonths(2)->formatLocalized('%d-%B-%Y')}}" readonly>
+                                                    <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{\Carbon\Carbon::now()->addMonths(2)}}" readonly>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>3° Mes</th>
+
+                                                <td>
+                                                    $<input type="text" name="prestamo_prenda3" class="col-md-8 text-center" id="prestamo_prenda3" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="interes3" class="col-md-8 text-center" id="interes3" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="almacenaje3" class="col-md-8 text-center" id="almacenaje3" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="iva3" class="col-md-8 text-center" id="iva3" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="refrendo3" class="col-md-8 text-center" id="refrendo3" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="desempeño3" class="col-md-8 text-center" id="desempeño3" value="" readonly>
+                                                <td>
+                                                    <input type="text" name="mes33" class="text-center" id="mes33" value="{{\Carbon\Carbon::now()->addMonths(3)->formatLocalized('%d-%B-%Y')}}" readonly>
+                                                    <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{\Carbon\Carbon::now()->addMonths(3)}}" readonly>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>4° Mes</th>
+
+                                                <td>
+                                                    $<input type="text" name="prestamo_prenda4" class="col-md-8 text-center" id="prestamo_prenda4" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="interes4" class="col-md-8 text-center" id="interes4" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="almacenaje4" class="col-md-8 text-center" id="almacenaje4" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="iva4" class="col-md-8 text-center" id="iva4" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="refrendo4" class="col-md-8 text-center" id="refrendo4" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="desempeño4" class="col-md-8 text-center" id="desempeño4" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    <input type="text" name="mes44" class="text-center" id="mes44" value="{{\Carbon\Carbon::now()->addMonths(4)->formatLocalized('%d-%B-%Y')}}" readonly>
+                                                    <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{\Carbon\Carbon::now()->addMonths(4)}}" readonly>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th>5° Mes</th>
+
+                                                <td>
+                                                    $<input type="text" name="prestamo_prenda5" class="col-md-8 text-center" id="prestamo_prenda5" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="interes5" class="col-md-8 text-center" id="interes5" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="almacenaje5" class="col-md-8 text-center" id="almacenaje5" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="iva5" class="col-md-8 text-center" id="iva5" value="" readonly>
+                                                </td>
+                                                <td class="fw-bold">
+                                                    $<input type="text" name="refrendo5" class="col-md-8 text-center" id="refrendo5" value="" readonly>
+                                                </td>
+                                                <td>
+                                                    $<input type="text" name="desempeño5" class="col-md-8 text-center" id="desempeño5" value="" readonly>
+                                                </td>
+                                                <td>
+                                                <input type="text" name="mes55" class="text-center" id="mes55" value="{{\Carbon\Carbon::now()->addMonths(5)->formatLocalized('%d-%B-%Y')}}" readonly>
+                                                <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{\Carbon\Carbon::now()->addMonths(5)}}" readonly>  
+                                            </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+
+
+                                    <!-- /fin modal/ -->
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    VERIFIQUE QUE LA INFORMACIÓN ESTE CORRECTA.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
 
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
@@ -175,53 +380,13 @@
 
                     <input type="hidden" name="folio_refrendo" class="sub uno" id="folio_refrendo" value="{{'REF'.$dato_prenda->id_prendas.''.$dato_prenda->numeros_refrendos}}" readonly>
                     <input type="hidden" name="importe_anterior" class="sub uno" id="importe_anterior" value="{{$dato_prenda->prestamo_prenda}}" placeholder="anterior" readonly>
-                    <input type="hidden" name="fecha_prestamo" class="sub uno" id="fecha_prestamo" value="{{dias()}}" readonly>
-                    <input type="hidden" name="mes1" class="sub uno" id="mes1" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
-                    <input type="hidden" name="mes2" class="sub uno" id="mes2" value="{{\Carbon\Carbon::now()->addMonths(2)}}" readonly>
-                    <input type="hidden" name="mes3" class="sub uno" id="mes3" value="{{\Carbon\Carbon::now()->addMonths(3)}}" readonly>
-                    <input type="hidden" name="mes4" class="sub uno" id="mes4" value="{{\Carbon\Carbon::now()->addMonths(4)}}" readonly>
-                    <input type="hidden" name="mes5" class="sub uno" id="mes5" value="{{\Carbon\Carbon::now()->addMonths(5)}}" readonly>
                     <input type="hidden" name="fecha_comercializacion" class="sub uno" id="fecha_comercializacion" value="{{\Carbon\Carbon::now()->addMonths(6)}}" readonly>
-
-
-
                     <input type="hidden" name="importe_actual" class="sub uno" id="importe_actual" value="" readonly>
-                    <input type="hidden" name="interes" class="sub uno" id="interes" value="" readonly>
-                    <input type="hidden" name="almacenaje" class="form-control" id="almacenaje" value="" readonly>
-                    <input type="hidden" name="iva" class="form-control" id="iva" value="" readonly>
-                    <input type="hidden" name="refrendo" class="form-control" id="refrendo" value="" readonly>
-                    <input type="hidden" name="desempeño" class="form-control" id="desempeño" value="" readonly>
-                    <input type="hidden" name="subtotal" class="form-control" id="subtotal" value="" readonly>
-
-                    <input type="hidden" name="interes2" class="sub uno" id="interes2" value="" readonly>
-                    <input type="hidden" name="almacenaje2" class="form-control" id="almacenaje2" value="" readonly>
-                    <input type="hidden" name="iva2" class="form-control" id="iva2" value="" readonly>
-                    <input type="hidden" name="refrendo2" class="form-control" id="refrendo2" value="" readonly>
-                    <input type="hidden" name="desempeño2" class="form-control" id="desempeño2" value="" readonly>
-                    <input type="hidden" name="subtotal2" class="form-control" id="subtotal2" value="" readonly>
-
-                    <input type="hidden" name="interes3" class="sub uno" id="interes3" value="" readonly>
-                    <input type="hidden" name="almacenaje3" class="form-control" id="almacenaje3" value="" readonly>
-                    <input type="hidden" name="iva3" class="form-control" id="iva3" value="" readonly>
-                    <input type="hidden" name="refrendo3" class="form-control" id="refrendo3" value="" readonly>
-                    <input type="hidden" name="desempeño3" class="form-control" id="desempeño3" value="" readonly>
-                    <input type="hidden" name="subtotal3" class="form-control" id="subtotal3" value="" readonly>
-
-                    <input type="hidden" name="interes4" class="sub uno" id="interes4" value="" readonly>
-                    <input type="hidden" name="almacenaje4" class="form-control" id="almacenaje4" value="" readonly>
-                    <input type="hidden" name="iva4" class="form-control" id="iva4" value="" readonly>
-                    <input type="hidden" name="refrendo4" class="form-control" id="refrendo4" value="" readonly>
-                    <input type="hidden" name="desempeño4" class="form-control" id="desempeño4" value="" readonly>
-                    <input type="hidden" name="subtotal4" class="form-control" id="subtotal4" value="" readonly>
-
-                    <input type="hidden" name="interes5" class="sub uno" id="interes5" value="" readonly>
-                    <input type="hidden" name="almacenaje5" class="form-control" id="almacenaje5" value="" readonly>
-                    <input type="hidden" name="iva5" class="form-control" id="iva5" value="" readonly>
-                    <input type="hidden" name="refrendo5" class="form-control" id="refrendo5" value="" readonly>
-                    <input type="hidden" name="desempeño5" class="form-control" id="desempeño5" value="" readonly>
-                    <input type="hidden" name="subtotal5" class="form-control" id="subtotal5" value="" readonly>
-
-                    <input type="hidden" name="hora_refrendo" class="sub uno" id="hora_refrendo" value="{{\Carbon\Carbon::now()}}" readonly>
+                    <input type="hidden" name="subtotal" id="subtotal" value="" readonly>
+                    <input type="hidden" name="subtotal2" id="subtotal2" value="" readonly>
+                    <input type="hidden" name="subtotal3" id="subtotal3" value="" readonly>
+                    <input type="hidden" name="subtotal4" id="subtotal4" value="" readonly>
+                    <input type="hidden" name="subtotal5" id="subtotal5" value="" readonly>
                     <input type="hidden" name="mes2_refrendo" class="sub uno" id="mes2_refrendo" value="{{\Carbon\Carbon::now()->addMonths(1)}}" readonly>
 
 

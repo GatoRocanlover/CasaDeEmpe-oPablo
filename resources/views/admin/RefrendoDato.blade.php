@@ -197,6 +197,8 @@
  -->
 
                 <div class=" table-responsive">
+
+                
                     <label for=""><strong>TABLA DE PAGOS:</strong></label>
                     <table class="table table-sm mt-3">
                         <tr>
@@ -602,6 +604,13 @@
         $("#abono_capital").val(porce1.toFixed(2))
         $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
         $("#prestamo_prenda").val(porce5.toFixed(0))
+
+        $("#prestamo_prenda1").val(porce5.toFixed(2))
+        $("#prestamo_prenda2").val(porce5.toFixed(2))
+        $("#prestamo_prenda3").val(porce5.toFixed(2))
+        $("#prestamo_prenda4").val(porce5.toFixed(2))
+        $("#prestamo_prenda5").val(porce5.toFixed(2))
+
         $("#importe_actual").val(porce5.toFixed(0))
         $("#numeros_refrendos").val(porce6.toFixed(0))
         $("#multa3").val(porce444.toFixed(2))
@@ -751,6 +760,16 @@ document.getElementById('capital').addEventListener('keypress', function(evt) {
         evt.preventDefault();
     }
 });
+
+
+
+
+
+
+
+
+
+
 
 </script>
 
