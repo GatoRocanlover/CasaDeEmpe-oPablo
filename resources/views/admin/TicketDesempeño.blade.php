@@ -102,7 +102,7 @@
                         </form>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-hover ">
+                        <table class="table table-sm table-striped ">
 
 
 

@@ -94,7 +94,7 @@
                 <div class="col-md-6">
                     <label for="numero_de_identificacion" class="form-label">NUMERO DE IDENTIFICACION *</label>
                     <div class="input-group has-validation">
-                        <input type="text" name="numero_de_identificacion" class="form-control" id="numero_de_identificacion" placeholder="Ingrese el tipo de indentificación seleccionado" aria-describedby="inputGroupPrepend" required>
+                        <input type="text" name="numero_de_identificacion" class="form-control" id="numero_de_identificacion" placeholder="Digite los 13 números del INE" aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please choose a username.
                         </div>

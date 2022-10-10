@@ -204,6 +204,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="d-flex  justify-content-end">
+                            {!! $lista_cotizacionprendas->links() !!}
+                        </div>
                     </div>
                     
                 </div>

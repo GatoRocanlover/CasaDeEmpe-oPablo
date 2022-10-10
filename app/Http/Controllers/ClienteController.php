@@ -107,6 +107,29 @@ class ClienteController extends Controller
         return redirect()->route('listado_cliente', [])->with('registro', 'RegistroCliente');;
     }
 
+
+    public function ListadoCliente(Request $request)
+    {
+        $search = trim($request->get('search'));
+        $clientes = Cliente::select(
+            'id_cliente',
+            'nombre_cliente',
+            'apellido_cliente',
+            'tipo_de_identificacion',
+            'telefono_cliente',
+            'calle_cliente',
+            'numero_cliente',
+            'colonia_cliente',
+            'ciudad_cliente',    
+           
+        )->where('id_cliente', 'LIKE', '%' . $search . '%')
+        ->orWhere('nombre_cliente', 'LIKE', '%' . $search . '%')
+        ->orWhere('apellido_cliente', 'LIKE', '%' . $search . '%')
+        ->paginate(5);
+        return view('admin.ListadoCliente', compact('clientes'));
+
+    }
+
     /**
      * Display the specified resource.
      *
@@ -209,7 +232,7 @@ class ClienteController extends Controller
         $nombre_cliente->save();
 
 
-        return redirect()->route('listado_cliente');
+        return redirect()->route('listado_cliente')->with('updateCliente', 'Se actualizo');
     }
 
     /**

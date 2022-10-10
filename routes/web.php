@@ -53,7 +53,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/AgregarCliente', [AdminController::class, 'AgregarCliente'])->name('agregar_cliente');
-    Route::get('/ListadoCliente', [AdminController::class, 'ListadoCliente'])->name('listado_cliente');
+    Route::get('/ListadoCliente', [clienteController::class, 'ListadoCliente'])->name('listado_cliente');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
     Route::get('/ListadoUsuario', [AdminController::class, 'ListadoUsuario'])->name('listado_usuario');
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');

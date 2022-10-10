@@ -46,17 +46,7 @@ class AdminController extends BaseController
             ]
         );
     }
-    public function ListadoCliente()
-    {
-        $clientes = Cliente::get();
-
-        return view('admin.ListadoCliente')->with(
-
-            [
-                "lista_clientes" => $clientes
-            ]
-        );
-    }
+    
     public function AgregarUsuario()
     {
         return view('admin.AgregarUsuario');

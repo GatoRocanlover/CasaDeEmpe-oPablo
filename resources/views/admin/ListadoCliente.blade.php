@@ -25,6 +25,17 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
+
+        tr th {
+            text-align: center;
+        }
+
+        .searchSep {
+            display: flex;
+            justify-content: space-between;
+
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -61,14 +72,34 @@
 
             @include('layout.nav')
 
-            <div class="mt-8 size95 mx-auto items-center justify-center flex negritas" >
+            <br>
+            <br>
+            <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
+                <label for="validationCustom03" class="form-label  text-center h3 fw-bold">
+                    LISTADO DE CLIENTES</label>
+            </div>
+
+            <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
                 <div class="max-w-6xl size  flex items-center justify-center ">
 
                     <div class="table-responsive">
-                        <table class="table table-striped">
+                        <div class="searchSep mt-3">
+                            <div>
+                                <form action="{{ route('listado_cliente') }}" method="GET">
+                                    <div class="col-md-12 d-flex  mt-2 ">
+                                        <input class="col-md-4 form-control text-center  me-2" type="search"
+                                            placeholder="ingrese folio o número del cliente" name="search"
+                                            aria-label="Search" value="{{ request('search') }}">
+                                        <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0"
+                                            type="submit">Buscar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <table class="table table-sm table-striped mt-4">
                             <thead class="letra-blanca bg-dark">
                                 <tr>
-                                    <th scope="col">#</th>
+                                    <th scope="col">Folio</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Identificación</th>
                                     <th scope="col">Celular</th>
@@ -76,27 +107,30 @@
                                     <th scope="col">EDITAR</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                @foreach ($lista_clientes as $cliente)
-                                    <tr>
-                                        <th scope="row">{{ $cliente->id_cliente }}</th>
-                                        <td>{{ $cliente->nombre_cliente . ', ' . $cliente->apellido_cliente }}</td>
-                                        <td>
-                                            {{$cliente->tipo_de_identificacion}}
-                                        </td>
-                                        <td>{{ $cliente->telefono_cliente }} </td>
-                                        <td>{{ 'C.' . $cliente->calle_cliente . ', N°' . $cliente->numero_cliente . ', ' . $cliente->colonia_cliente . ', ' . $cliente->ciudad_cliente }}
-                                        </td>
-                                        <td><a class="nav-link"
-                                                href="{{ route('cliente.edit', [$cliente->id_cliente]) }}"
-                                                id="navbarDarkDropdownMenuLink" aria-expanded="false"><button
-                                                    class="ntn btn-primary btn1 "><i
-                                                        class="fas fa-edit"></i></button></a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
+
+                            @foreach ($clientes as $cliente)
+                                <tr>
+                                    <th scope="row">{{ $cliente->id_cliente }}</th>
+                                    <td>{{ $cliente->nombre_cliente . ' ' . $cliente->apellido_cliente }}</td>
+                                    <td>
+                                        {{ $cliente->tipo_de_identificacion }}
+                                    </td>
+                                    <td>{{ $cliente->telefono_cliente }} </td>
+                                    <td>{{ 'C.' . $cliente->calle_cliente . ', N°' . $cliente->numero_cliente . ', ' . $cliente->colonia_cliente . ', ' . $cliente->ciudad_cliente }}
+                                    </td>
+                                    <td>
+                                        <a class="nav-link" href="{{ route('cliente.edit', [$cliente->id_cliente]) }}"
+                                            id="navbarDarkDropdownMenuLink" aria-expanded="false"><button
+                                                class="ntn btn-primary btn1 "><i class="fas fa-edit"></i></button></a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </table>
+                        <div class="d-flex  justify-content-end">
+                            {!! $clientes->links() !!}
+                        </div>
+
                     </div>
 
                 </div>
@@ -110,6 +144,34 @@
             'SE REGISTRO CON EXITO!',
             'VALIDAR INFORMACIÓN EN LA SIGUIENTE TABLA!!',
             'success')
+    </script>
+@endif
+
+@if (session('updateCliente') == 'Se actualizo')
+    <script>
+        /* Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'SE ACTUALIZO LA INFORMACIÓN!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }) */
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'success',
+            title: 'SE ACTUALIZO LA INFORMACIÓN!'
+        })
     </script>
 @endif
 
