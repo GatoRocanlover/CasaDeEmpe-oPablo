@@ -181,6 +181,18 @@
       <td colspan="4">&nbsp;</td>
     </tr>
     <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4">&nbsp;</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">__________________________________________</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="text-center">FIRMA TITULAR</td>
+      </tr>
+    <tr>
       <td colspan="4">&nbsp;</td>
     </tr>
   </table>
