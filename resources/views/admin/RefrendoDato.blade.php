@@ -68,7 +68,7 @@
 
         .tabla1 {
             width: 65%;
-            height: 100%;
+            height: 832px;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -357,10 +357,10 @@
                 </div>
 
 
-                <div class="text-center mt-3">
+                <div class="text-center mt-4">
                     <label for="">---------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> -----------------------------------</label>
                 </div>
-                <div class="d-flex row mt-3 justify-content-around">
+                <div class="d-flex row mt-4 justify-content-around">
                     <div class="col-md-5">
                         <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
                     </div>

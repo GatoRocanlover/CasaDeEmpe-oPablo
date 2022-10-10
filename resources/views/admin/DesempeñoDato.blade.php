@@ -67,7 +67,7 @@
 
         .tabla1 {
             width: 65%;
-            height: 100%;
+            height: 705px;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -371,10 +371,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-11 mt-2 letra1">
+                    <div class="col-md-11 mt-4 letra1">
                         <label><strong> CLIENTE:
                                 &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
-                        </label>
+                        </label><br>
                         <label class="mt-2"><strong>NOMBRE DE LA
                                 PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label> <br>
                         <label class="mt-2"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>

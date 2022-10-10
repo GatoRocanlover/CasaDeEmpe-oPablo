@@ -68,7 +68,7 @@
 
         .tabla1 {
             width: 65%;
-            height: 100%;
+            height: 915px;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -358,7 +358,7 @@
                 <div class="text-center mt-3">
                     <label for="">---------------------------------- <strong>DATOS DEL CLIENTE/PRENDA</strong> -----------------------------------</label>
                 </div>
-                <div class="d-flex row mt-3 justify-content-around">
+                <div class="d-flex row mt-4 justify-content-around">
                     <div class="col-md-5">
                         <label class="letra1"><strong>FOLIO:&nbsp;&nbsp;</strong>{{ $dato_prenda->id_prendas }}</label>
                     </div>
@@ -373,7 +373,7 @@
                         </label>
                     </div>
                 </div>
-                <div class="col-md-11 mt-3 letra1">
+                <div class="col-md-11 mt-4 letra1">
                     <label><strong> CLIENTE:
                             &nbsp;&nbsp;</strong>{{ $dato_prenda->cliente->nombre_cliente . ' ' . $dato_prenda->cliente->apellido_cliente }}
                     </label> <br>
