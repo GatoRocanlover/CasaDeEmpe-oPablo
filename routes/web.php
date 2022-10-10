@@ -57,7 +57,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
     Route::get('/ListadoUsuario', [AdminController::class, 'ListadoUsuario'])->name('listado_usuario');
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');
-    Route::get('/ListadoPrenda', [AdminController::class, 'ListadoPrenda'])->name('listado_prenda');
+    Route::get('/ListadoPrenda', [PrendaController::class, 'ListadoPrenda'])->name('listado_prenda');
     Route::get('/listado_tickets_refrendo', [AdminController::class, 'listado_tickets_refrendo'])->name('listado_tickets_refrendo');
     Route::get('/listado_tickets_capital', [AdminController::class, 'listado_tickets_capital'])->name('listado_tickets_capital');
     Route::get('/GenerarBoleta', [AdminController::class, 'GenerarBoleta'])->name('generar_boleta');

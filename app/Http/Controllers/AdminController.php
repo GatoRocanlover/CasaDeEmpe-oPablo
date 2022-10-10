@@ -12,6 +12,7 @@ use App\Models\Cliente;
 use App\Models\CotizacionPrenda; 
 use Illuminate\http\Request;
 use Illuminate\Support\Facades\View; 
+use Symfony\Component\Console\Input\Input;
 
 class AdminController extends BaseController
 {
@@ -88,7 +89,9 @@ class AdminController extends BaseController
     public function ListadoPrenda(Request $request)
     {
         $search = trim($request->get('search'));
-        $lista_prendas = Prenda::orderBy('id_prendas','desc')->select(
+        $lista_prendas = Prenda::orderBy('id_prendas','desc')
+        ->select(
+            'id_prendas',
             'id_cliente',
             'folio_cotizacion',
             'nombre_prenda',

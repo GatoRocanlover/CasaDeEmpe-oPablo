@@ -92,7 +92,7 @@
                     </div>
 
 
-                    <table class="table table-sm mt-4 table-striped">
+                    <table class="table table-sm mt-4 table-striped ">
                         <thead class="letra-blanca bg-dark">
                             <tr>
                                 <th scope="col">FOLIO BOLETA</th>
@@ -105,11 +105,11 @@
                                 <th scope="col">IMPRIMIR BOLETA</th>
                             </tr>
                         </thead>
-                        <tbody>
+                      
                             @foreach($lista_prendas as $prenda )
 
                             <tr>
-                                <th scope="row">{{$prenda->id_prendas}}</th>
+                                <td scope="row">{{$prenda->id_prendas}}</td>
                                 <td>{{$prenda->cliente->nombre_cliente}} {{$prenda->cliente->apellido_cliente}}</td>
                                 <td>{{$prenda->nombre_prenda}}</td>
                                 <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
@@ -144,15 +144,10 @@
                                 <td>$&nbsp;{{$prenda->prestamo_prenda}}</td>
                                 <td><a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
 
-                            </tr>
-                            <tr>
-                                @endforeach
-
-
-
-                        </tbody>
-
+                            </tr>             
+                        @endforeach
                     </table>
+                    
                     {!! $lista_prendas->links() !!}
                     
                 </div>

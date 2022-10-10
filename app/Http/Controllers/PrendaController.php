@@ -72,6 +72,45 @@ class PrendaController extends Controller
         return view('admin.Pagar', compact('prendaPagarr'));
     }
 
+
+
+
+
+    
+    public function ListadoPrenda(Request $request)
+    {
+        $search = trim($request->get('search'));
+        $lista_prendas = Prenda::orderBy('id_prendas','desc')
+        ->select(
+            'id_prendas',
+            'id_cliente',
+            'folio_cotizacion',
+            'nombre_prenda',
+            'id_prendas',
+            'kilataje_prenda',
+            'gramaje_prenda',
+            'cantidad_prenda',
+            'caracteristicas_prenda',
+            'avaluo_prenda',
+            'porcentaje_prestamo_sobre_avaluo',
+            'prestamo_prenda'
+        )
+        ->where('id_prendas', 'LIKE', '%' . $search . '%')
+        ->orWhereHas('cliente', function ($query) use ($request) {
+            $query->where('nombre_cliente', 'LIKE', "%{$request->search}%");
+        })
+        ->orWhereHas('cliente', function ($query) use ($request) {
+            $query->where('apellido_cliente', 'LIKE', "%{$request->search}%");
+        })
+        ->orWhere('prestamo_prenda', 'LIKE', '%' . $search . '%')
+        ->paginate(5);
+
+        return view('admin.ListadoPrenda', compact('lista_prendas'));
+
+     
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
