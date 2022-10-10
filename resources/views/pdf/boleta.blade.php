@@ -521,7 +521,7 @@
                     jurídica que hubiera surgido o pudiese surgir en relación al contrato y la prenda.
                 </td>
                 <td colspan="2" class="text-center">
-                    {{dias()}}
+                    {{ $dato_prenda->fecha_prestamo}}
                     <br>
                     <br>
                     <br>
