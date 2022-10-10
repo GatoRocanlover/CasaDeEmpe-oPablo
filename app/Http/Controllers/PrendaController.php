@@ -15,6 +15,7 @@ use Symfony\Component\Console\Input\Input;
 use Carbon\Carbon;
 
 
+
 class PrendaController extends Controller
 {
     /**
@@ -108,6 +109,75 @@ class PrendaController extends Controller
         return view('admin.ListadoPrenda', compact('lista_prendas'));
 
      
+    }
+
+
+    public function listado_tickets_refrendo(Request $request)
+    {
+       
+        $search = trim($request->get('search'));
+        $lista_prendas = Prenda::orderBy('id_prendas','desc')
+        ->select(
+            'id_prendas',
+            'id_cliente',
+            'folio_cotizacion',
+            'nombre_prenda',
+            'id_prendas',
+            'kilataje_prenda',
+            'gramaje_prenda',
+            'cantidad_prenda',
+            'caracteristicas_prenda',
+            'avaluo_prenda',
+            'porcentaje_prestamo_sobre_avaluo',
+            'prestamo_prenda',
+            'prestamo_inicial'
+        )
+        ->where('id_prendas', 'LIKE', '%' . $search . '%')
+        ->orWhereHas('cliente', function ($query) use ($request) {
+            $query->where('nombre_cliente', 'LIKE', "%{$request->search}%");
+        })
+        ->orWhereHas('cliente', function ($query) use ($request) {
+            $query->where('apellido_cliente', 'LIKE', "%{$request->search}%");
+        })
+        ->orWhere('prestamo_prenda', 'LIKE', '%' . $search . '%')
+        ->paginate(5);
+
+        return view('admin.listado_tickets_refrendo', compact('lista_prendas'));
+
+  
+    }
+
+    public function listado_tickets_capital(Request $request)
+    {
+        $search = trim($request->get('search'));
+        $lista_prendas = Prenda::orderBy('id_prendas','desc')
+        ->select(
+            'id_prendas',
+            'id_cliente',
+            'folio_cotizacion',
+            'nombre_prenda',
+            'id_prendas',
+            'kilataje_prenda',
+            'gramaje_prenda',
+            'cantidad_prenda',
+            'caracteristicas_prenda',
+            'avaluo_prenda',
+            'porcentaje_prestamo_sobre_avaluo',
+            'prestamo_prenda',
+            'prestamo_inicial'
+        )
+        ->where('id_prendas', 'LIKE', '%' . $search . '%')
+        ->orWhereHas('cliente', function ($query) use ($request) {
+            $query->where('nombre_cliente', 'LIKE', "%{$request->search}%");
+        })
+        ->orWhereHas('cliente', function ($query) use ($request) {
+            $query->where('apellido_cliente', 'LIKE', "%{$request->search}%");
+        })
+        ->orWhere('prestamo_prenda', 'LIKE', '%' . $search . '%')
+        ->paginate(5);
+
+        return view('admin.listado_tickets_capital', compact('lista_prendas'));
+
     }
 
 
@@ -250,6 +320,7 @@ class PrendaController extends Controller
     }
     public function vistarefreboleta($id)
     {
+    
         $prenda = Prenda::find($id);
 
         return View::make('pdf.ticket_refre')->with(
@@ -258,6 +329,7 @@ class PrendaController extends Controller
 
             ]
         );
+
     }
 
     public function vistacapitalboleta($id)

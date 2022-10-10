@@ -94,7 +94,7 @@
         </form>
       </nav>
 
-
+      <br>
       <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
         <label for="validationCustom03" class="form-label  text-center h3"> MODULO ABONO A CAPITAL</label>
       </div>
