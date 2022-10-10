@@ -24,11 +24,18 @@
         body {
             font-family: 'Nunito', sans-serif;
         }
-        th{
+
+        th {
             text-align: center;
         }
-        td{
+
+        td {
             text-align: center;
+        }
+        .searchSep {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
         }
     </style>
 </head>
@@ -62,17 +69,30 @@
 
             @include('layout.nav')
         </div>
-       
+
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
             <label for="validationCustom03" class="form-label  text-center h3 fw-bold"> BOLETAS GENERADAS:</label>
         </div>
-
-
         <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
             <div class="max-w-6xl size  flex items-center justify-center ">
                 <div class="col-md-12 table-responsive">
-                    <table class="table table-sm table-striped">
+
+                    <!-- OPCION BUSCAR -->
+                    <label class="mt-2 fw-bold">BUSCAR FOLIO DE COTIZACION:</label>
+                    <div class="searchSep mt-1 ">
+                        <div>
+                            <form action="{{ route('listado_prenda') }}" method="GET">
+                                <div class="col-md-12 d-flex  mt-2 ">
+                                    <input class="col-md-4 form-control text-center  me-2" type="search" placeholder="ingrese folio o nombre de la prenda" name="search" aria-label="Search" value="{{request('search') }}">
+                                    <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0 fw-bold" type="submit">Buscar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <table class="table table-sm mt-4 table-striped">
                         <thead class="letra-blanca bg-dark">
                             <tr>
                                 <th scope="col">FOLIO BOLETA</th>
@@ -133,19 +153,18 @@
                         </tbody>
 
                     </table>
+                    {!! $lista_prendas->links() !!}
+                    
                 </div>
 </body>
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
@@ -155,9 +174,9 @@
 @if (session('registro') == 'Se genero la boleta')
 <script>
     Swal.fire(
-      'SE GENERO LA BOLETA CON EXITO!',
-      'PUEDE VALIDAR EN LA PRIMERA FILA DE LA TABLA!!',
-      'success')
+        'SE GENERO LA BOLETA CON EXITO!',
+        'PUEDE VALIDAR EN LA PRIMERA FILA DE LA TABLA!!',
+        'success')
 </script>
 @endif
 

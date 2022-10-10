@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-md-8">
                         <label for="contrasenia" class="form-label">AGREGAR CONTRASEÑA</label>
-                        <input type="text" class="form-control" name="contrasenia" id="contrasenia" value="" required>
+                        <input type="password" class="form-control" name="contrasenia" id="contrasenia" value="" required>
                         <div class="valid-feedback">
                         Looks good!
                         </div>
