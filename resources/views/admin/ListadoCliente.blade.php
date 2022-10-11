@@ -88,7 +88,7 @@
                                 <form action="{{ route('listado_cliente') }}" method="GET">
                                     <div class="col-md-12 d-flex  mt-2 ">
                                         <input class="col-md-4 form-control text-center  me-2" type="search"
-                                            placeholder="ingrese folio o número del cliente" name="search"
+                                            placeholder="ingrese folio o nombre del cliente" name="search"
                                             aria-label="Search" value="{{ request('search') }}">
                                         <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0"
                                             type="submit">Buscar</button>
