@@ -49,7 +49,7 @@
  <!-- encabezado -->
             <div class="size">
                 <div class="navbar1 flex size">
-                    <div class="mx-auto ml-2 titulo letratitulo texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
+                    <div class="mx-auto ml-2 titulo letratitulo texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA UMAN S.A. DE C.V.</a></div>
                 
                 </div>
                 <div class="franja"></div>

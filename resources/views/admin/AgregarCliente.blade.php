@@ -41,7 +41,7 @@
                 <div class="max-w-6xl mx-auto mr-2">
                     <img class="icono" src="{{asset('img/logo.png')}}" width="450px" height="450px">
                 </div>
-                <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA S.A. DE C.V.</a></div>
+                <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA UMAN S.A. DE C.V.</a></div>
 
             </div>
             <!-- MENU -->
