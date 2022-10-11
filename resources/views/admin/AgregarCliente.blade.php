@@ -104,7 +104,7 @@
                     <label for="correo_electronico_cliente" class="form-label">CORREO ELECTRONICO</label>
                     <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
-                        <input type="text" name="correo_electronico_cliente" class="form-control" id="correo_electronico_cliente" placeholder="Example@gmail.com" aria-describedby="inputGroupPrepend" required>
+                        <input type="email" name="correo_electronico_cliente" class="form-control" id="correo_electronico_cliente" placeholder="Example@gmail.com" aria-describedby="inputGroupPrepend" required>
                         <div class="invalid-feedback">
                             Please choose a username.
                         </div>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="telefono_cliente" class="form-label">TELEFONO</label>
-                    <input type="text" name="telefono_cliente" class="form-control" id="telefono_cliente" placeholder="Ingrese el número teléfonico" value="" required>
+                    <input type="tel" name="telefono_cliente" class="form-control" id="telefono_cliente" placeholder="Ingrese el número teléfonico" value="" required>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
