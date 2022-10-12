@@ -55,7 +55,7 @@
                     @endif
 
                     {{ __('¡¡Has iniciado sesión!!') }}
-
+                    {{ Auth::user()->name }}
 
                     <div class="max-w-6xl mx-auto flex .sm\:items-center texto">
                         <div class="max-w-6xl size  flex items-center justify-center ">
