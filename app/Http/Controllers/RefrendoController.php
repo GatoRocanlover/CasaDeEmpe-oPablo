@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 
 class RefrendoController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['refrendopago']]);
+    }
     public function refrendopago(Request $request)
     {
         $search = trim($request->get('search'));

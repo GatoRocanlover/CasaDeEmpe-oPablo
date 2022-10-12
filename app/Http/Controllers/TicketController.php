@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\View;
 
 class TicketController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['index','store','vistaTicket']]);
+    }
 
     public function index(Request $request)
     {

@@ -51,7 +51,7 @@
             USUARIO
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{route('agregar_usuario')}}">AGREGAR</a></li>
+            <li><a class="dropdown-item" href="{{ route('register') }}">AGREGAR</a></li>
             <li><a class="dropdown-item" href="{{route('listado_usuario')}}">LISTADO</a></li>
           </ul>
         </li>

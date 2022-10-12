@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::prefix('admin')->group(function () {
-
+    Auth::routes();
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
     Route::put('actualizar_usuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');

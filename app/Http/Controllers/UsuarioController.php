@@ -175,15 +175,4 @@ class UsuarioController extends Controller
     {
         //
     }
-    public function download()
-        {
-            $data = [
-                'titulo' => 'Styde.net'
-            ];
-
-            return \PDF::loadView('vista-pdf', $data)
-                ->setPaper('a4', 'landscape')
-                ->download('archivo.pdf');
-        }
-
-    }
+}

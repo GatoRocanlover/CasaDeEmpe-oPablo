@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Prenda;
 class CapitalController extends Controller
 {
+    public function __construct(){
+        $this->middleware('auth', ['only'=>['capitalpago']]);
+    }
     public function capitalpago(Request $request)
     {
         $search = trim($request->get('search'));

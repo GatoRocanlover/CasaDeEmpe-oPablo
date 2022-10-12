@@ -27,7 +27,7 @@ class PrendaController extends Controller
 
 
 public function __construct(){
-    $this->middleware('auth', ['only'=>['index','PrendaPagar','listado_tickets_refrendo',
+    $this->middleware('auth', ['only'=>['index','prendaPagar','listado_tickets_refrendo',
     'ListadoPrenda','listado_tickets_capital','store','edit','editPago','editRefrendo','editCapital',
     'vistaboleta','vistarefreboleta'.'vistacapitalboleta','update','update_capital','updatePago']]);
 }

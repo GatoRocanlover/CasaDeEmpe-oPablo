@@ -19,7 +19,10 @@ class AdminController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>[]]);
+        $this->middleware('auth', ['only'=>['iniciarsesion','AdminInicio','AgregarCliente','EditarCliente',
+        'AgregarUsuario','EditarUsuario','ListadoUsuario','AgregarPrenda','EditarPrenda',
+        'ListadoBoletaPagar','AgregarCotizacionPrenda','EditarCotizacionPrenda','GenerarBoleta',
+        'ListadoBoleta','ListadoBoletaDesembolsar','refrendo','Desembolso']]);
     }
 
     public function iniciarsesion()
