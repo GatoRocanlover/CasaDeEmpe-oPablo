@@ -11,8 +11,11 @@ use App\Http\Controllers\RefrendoController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\AjaxController;
 use App\Models\CotizacionPrenda;
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
+/* Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion'); */
+
+
 
 Route::prefix('admin')->group(function () {
 
@@ -95,5 +98,4 @@ Route::prefix('admin')->group(function () {
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

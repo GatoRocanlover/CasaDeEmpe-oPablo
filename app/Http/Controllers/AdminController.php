@@ -18,6 +18,10 @@ class AdminController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+    public function __construct(){
+        $this->middleware('auth', ['only'=>[]]);
+    }
+
     public function iniciarsesion()
     {
         return view('admin.IniciarSesion');

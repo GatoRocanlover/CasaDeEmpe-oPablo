@@ -82,7 +82,7 @@
                     </div>
                 </div>
     </body>
-    <script type="text/javascript">
+ <!--    <script type="text/javascript">
         function AdminInicio(){
 
             
@@ -90,6 +90,6 @@
                 view('admin.admininicio')
             }
         }
-    </script>
+    </script> -->
 
 </html>

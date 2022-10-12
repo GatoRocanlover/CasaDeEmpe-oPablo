@@ -55,6 +55,7 @@
             <li><a class="dropdown-item" href="{{route('listado_usuario')}}">LISTADO</a></li>
           </ul>
         </li>
+        
       </ul>
     </div>
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
@@ -65,18 +66,24 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
             <li><a class="dropdown-item" href="{{route('Pagar')}}">PAGAR</a></li>
-            <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">LISTADO BOLETAS</a></li>
+          <!--   <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">LISTADO BOLETAS</a></li>
             <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">DESEMBOLSAR</a></li>
-          </ul>
+ -->          </ul>
         </li>
       </ul>
     </div>
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item ">
-          <a class="nav-link" href="{{route('inicio_sesion')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false">
-            SALIR
-          </a>
+        <li class="nav-item dropdown">
+        <a class="dropdown-item" style="color:white" id="navbarDarkDropdownMenuLink"  href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        SALIR
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
         </li>
       </ul>
     </div>

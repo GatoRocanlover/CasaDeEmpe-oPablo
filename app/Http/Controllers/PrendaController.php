@@ -23,6 +23,14 @@ class PrendaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
+public function __construct(){
+    $this->middleware('auth', ['only'=>['index','PrendaPagar','listado_tickets_refrendo',
+    'ListadoPrenda','listado_tickets_capital','store','edit','editPago','editRefrendo','editCapital',
+    'vistaboleta','vistarefreboleta'.'vistacapitalboleta','update','update_capital','updatePago']]);
+}
     public function index(Request $request)
     {
         $search = trim($request->get('search'));
