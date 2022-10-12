@@ -13,7 +13,7 @@ class RegisterController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['create','validator']]);
+        $this->middleware('auth');  
     }
     /*
     |--------------------------------------------------------------------------

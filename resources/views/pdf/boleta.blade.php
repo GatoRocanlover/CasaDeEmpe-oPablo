@@ -470,7 +470,7 @@
             echo "$DateAndTime.";
             ?>
         </P>
-        <p class="letrapequeña text-end"> Pág. 1/6 </p>
+        <p class="letrapequeña text-end">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 1/6 </p>
         <br>
         <div class="letrapequeña mt-3"> *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</div>
         <table>
@@ -561,7 +561,7 @@
             ?>
         </p>
         <p class="letrapequeña text-start">Fin de texto de Pág 2/6 </p>
-        <p class="letrapequeña text-end"> Pág. 2/6 </p>
+        <p class="letrapequeña text-end">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 2/6 </p>
 
 </div>
 

@@ -109,6 +109,11 @@
             </tr>
             <tr>
                 <th colspan="4" class="text-center">
+                   USUARIO: {{ Auth::user()->name }}
+                </th>
+            </tr>
+            <tr>
+                <th colspan="4" class="text-center">
 
                     Fecha de impresión: Umán, Yuc a
                     <script type="text/javascript">
@@ -119,7 +124,7 @@
                 </th>
             </tr>
         </table>
-
+        
     </body>
     </div>
 

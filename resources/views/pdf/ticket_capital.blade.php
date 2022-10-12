@@ -195,6 +195,17 @@
     <tr>
       <td colspan="4">&nbsp;</td>
     </tr>
+    <tr>
+      <td colspan="4">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="4" class="text-end">
+        User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      </td>
+    </tr>
+    <tr>
+      <td colspan="4">&nbsp;</td>
+    </tr>
   </table>
 
 

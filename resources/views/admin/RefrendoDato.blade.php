@@ -68,7 +68,7 @@
 
         .tabla1 {
             width: 65%;
-            height: 832px;
+            height: 100%;
             padding: 30px;
             background-color: #eaeaea;
         }
@@ -152,9 +152,9 @@
         <div class="size">
             <div class="navbar1 flex size">
                 <div class="max-w-6xl mx-auto mr-2">
-                    <img class="icono" src="{{ asset('img/logo.png') }}" width="450px" height="450px">
+                    <a href="{{ route('inicio_admin') }}"><img class="icono" src="{{ asset('img/logo.png') }}"></a>
                 </div>
-                <div class="mx-auto ml-2 titulo neritas texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA
+                <div class="mx-auto ml-2 titulo neritas texto-grande size"> CASA DE EMPEÑOS <br> ASOCIADOS NUEVA MUTUA DE UMÁN
                     S.A. DE C.V.</a></div>
 
             </div>

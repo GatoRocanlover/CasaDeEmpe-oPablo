@@ -11,7 +11,7 @@
 @extends('layouts.app')
 <div class="size">
     <div class="navbar1 flex size">
-        <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA UMAN S.A. DE C.V.</a></div>
+        <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIADOS NUEVA MUTUA DE UMÁN S.A. DE C.V.</a></div>
 
     </div>
 </div>
@@ -21,7 +21,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header text-center">{{ __('Acceso') }}</div>
 
                 <div class="max-w-6xl mx-auto text-center mr-2 mt-2">
                         <img class="mr-2" src="{{asset('img/logo.png')}}" width="150px" height="150px">

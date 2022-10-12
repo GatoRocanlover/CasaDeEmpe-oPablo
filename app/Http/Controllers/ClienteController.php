@@ -13,7 +13,7 @@ class ClienteController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('auth', ['only'=>['store','ListadoCliente','edit','update','buscarCliente']]);
+        $this->middleware('auth', ['only'=>['store','ListadoCliente','edit','update']]);
     }
         /**
      * Display a listing of the resource.

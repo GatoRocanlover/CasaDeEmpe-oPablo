@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::prefix('admin')->group(function () {
+/* Route::prefix('admin')->group(function () { */
     Auth::routes();
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
@@ -93,10 +93,11 @@ Route::prefix('admin')->group(function () {
 
   /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
    /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
-});
+/* }); */
 
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
 
+    
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
