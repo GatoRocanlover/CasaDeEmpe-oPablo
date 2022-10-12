@@ -7,7 +7,7 @@
    <!-- Styles -->
    <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
-
+ 
 @extends('layouts.app')
 <div class="size">
     <div class="navbar1 flex size">
@@ -21,9 +21,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-center">{{ __('Acceso') }}</div>
+                <div class="card-header text-center fw-bold h5" style="background-color:black; color:white;">{{ __('Acceso') }}</div>
 
-                <div class="max-w-6xl mx-auto text-center mr-2 mt-2">
+                <div class="max-w-6xl mx-auto text-center mr-2 mt-4">
                         <img class="mr-2" src="{{asset('img/logo.png')}}" width="150px" height="150px">
                     </div>
                 <div class="card-body">
@@ -31,7 +31,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row mb-3 mt-2">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Correo Electronico') }}</label>
 
                             <div class="col-md-6">

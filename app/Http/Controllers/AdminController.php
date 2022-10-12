@@ -72,6 +72,7 @@ class AdminController extends BaseController
             ]
         );
     }
+ 
     public function AgregarPrenda()
     {
         return view('admin.AgregarPrenda');
