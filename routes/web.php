@@ -98,4 +98,5 @@ Route::prefix('admin')->group(function () {
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
 
 Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
