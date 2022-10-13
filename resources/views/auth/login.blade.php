@@ -7,7 +7,8 @@
    <!-- Styles -->
    <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
- 
+    <title>CASA DE EMPEÑOS</title>
+
 @extends('layouts.app')
 <div class="size">
     <div class="navbar1 flex size">
