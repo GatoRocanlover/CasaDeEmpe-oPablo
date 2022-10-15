@@ -27,6 +27,12 @@
             body {
                 font-family: 'Nunito', sans-serif;  
             }
+            tr th{
+                text-align:center;
+            }
+            tr td{
+                text-align:center;
+            }
         </style>
         
     </head>
@@ -51,45 +57,28 @@
                     <table class="table table-hover">
                         <thead class="letra-blanca bg-dark">
                             <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">USUARIO</th>
-                            <th scope="col">NOMBRE</th>
-                            <th scope="col">TIPO DE USUARIO</th>
-                            <th scope="col">STATUS</th>
+                            <th scope="col">EMAIL</th>
+                            <th scope="col">ROL DE USUARIO</th>
+                            <th scope="col">FECHA DE CREACIÓN</th>
                             <th scope="col">EDITAR</th>
+
                             </tr>
                         </thead>
-                        <tbody>
-
-                            @foreach($lista_usuarios as $usuario)
+                            @foreach($list_user as $user)
                                 <tr>
-                                    <th scope="row">{{$usuario->id_usuario}}</th>
-                                    <td>{{$usuario->usuario}}</td>
-                                    <td>{{$usuario->nombre_usuario." ".$usuario->apellido_usuario}}</td>
-                                       
-                                    <td> @if($usuario->tipo_de_usuario == 1)
-                                        ADMINISTRADOR
-                                        @elseif($usuario->tipo_de_usuario ==2)
-                                        EVALUADOR
-                                        @else 
-                                        CAJERO
-                                        @endif
-                                    </td>
-                                    
-                                    <td>
-                                    @if($usuario->status == 1)
-                                            ACTIVO
-                                        @else 
-                                            INACTIVO
-                                    @endif
-                                    </td>
-                                   
-                                    <td><a class="nav-link" href="{{route('usuario.edit', [$usuario->id_usuario] )}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
+                                    <th scope="row">{{$user->id}}</th>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>     
+                                    <td></td>
+                                    <td>{{$user->created_at->format('d-m-Y')}}</td>
+                                    <td><a class="nav-link" href="" id="navbarDarkDropdownMenuLink"  aria-expanded="false"><button class="ntn btn-primary "><i class="fas fa-edit"></i></button></a></td>
                                 </tr>
                             @endforeach
-                        </tbody>
                     </table>
                 </div>
+
     </body>
 
   <script src="{{asset('dist/js/bootstrap.js')}}"></script>
