@@ -57,7 +57,7 @@ use Illuminate\Support\Facades\Auth;
     Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/AgregarCliente', [AdminController::class, 'AgregarCliente'])->name('agregar_cliente');
-    Route::get('/ListadoCliente', [Controller::class, 'ListadoCliente'])->name('listado_cliente');
+    Route::get('/ListadoCliente', [ClienteController::class, 'ListadoCliente'])->name('listado_cliente');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
     Route::get('/ListadoUsuario', [UserController::class, 'ListUser'])->name('listado_usuario');
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');

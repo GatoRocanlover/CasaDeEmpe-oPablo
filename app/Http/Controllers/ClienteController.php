@@ -112,7 +112,7 @@ class ClienteController extends Controller
     }
 
 
-/*     public function ListadoCliente(Request $request)
+    public function ListadoCliente(Request $request)
     {
         $search = trim($request->get('search'));
         $clientes = Cliente::select(
@@ -132,7 +132,7 @@ class ClienteController extends Controller
         ->paginate(5);
         return view('admin.ListadoCliente', compact('clientes'));
 
-    } */
+    }
 
     /**
      * Display the specified resource.

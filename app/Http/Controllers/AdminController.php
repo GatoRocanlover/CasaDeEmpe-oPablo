@@ -62,7 +62,7 @@ class AdminController extends BaseController
     {
         return view('admin.EditarUsuario');
     }
-/*     public function ListadoUsuario()
+    public function ListadoUsuario()
     {
         $usuarios = Usuario::get();
 
@@ -71,7 +71,7 @@ class AdminController extends BaseController
                 "lista_usuarios" => $usuarios
             ]
         );
-    } */
+    }
  
     public function AgregarPrenda()
     {
