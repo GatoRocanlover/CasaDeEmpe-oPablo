@@ -1,38 +1,35 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\PrendaController;
+use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CotizacionPrendaController;
-use App\Http\Controllers\TicketController;
+use App\Http\Controllers\PrendaController;
 use App\Http\Controllers\RefrendoController;
-use App\Http\Controllers\CapitalController;
+use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AjaxController;
-use App\Models\CotizacionPrenda;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-/* Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion'); */
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['middleware' => ['auth']], function () {
 
+    Route::resource('roles', RolController::class);
 
-/* Route::prefix('admin')->group(function () { */
-    Auth::routes();
+    ///rutas con acceso a login
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
     Route::put('actualizar_usuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
-
-    //PARTE PABLO 
 
     Route::get('Pago_prenda/{id}', [PrendaController::class, 'editPago'])->name('prenda1.edit');
     Route::post('Pago_prenda/{id}', [PrendaController::class, 'FechasMes'])->name('prenda1.mes');
 
     Route::put('actualizar_prenda_pago/{id}', [PrendaController::class, 'updatePago'])->name('prenda1.update');
     Route::post('Tickets', [TicketController::class, 'store'])->name('Tickets.store');
-
-    //MI COMENTARIO
 
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
     Route::post('alta_prenda2', [PrendaController::class, 'store2'])->name('prenda.store2');
@@ -54,7 +51,7 @@ use Illuminate\Support\Facades\Auth;
     Route::get('ticket_cotizacion/{id}', [CotizacionPrendaController::class, 'vistaTicket'])->name('ticket.vistaTicketCotiza');
 
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
-    Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
+
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/AgregarCliente', [AdminController::class, 'AgregarCliente'])->name('agregar_cliente');
     Route::get('/ListadoCliente', [ClienteController::class, 'ListadoCliente'])->name('listado_cliente');
@@ -80,25 +77,21 @@ use Illuminate\Support\Facades\Auth;
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
     Route::get('Capital_prenda/{id}', [PrendaController::class, 'editCapital'])->name('Capital1.edit');
 
-    Route::get('/boleta', function () {
-        return view('pdf.boleta');
-    })->name('Boleta_pagar');
-
     Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
     Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
     Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
     Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
+    Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+    Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
 
+});
 
+// Otros
+/* Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion'); */
+/* Route::prefix('admin')->group(function () { */
 
-
-  /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
-   /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
+/*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
+/*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
 /* }); */
 
-Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
-
-    
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//https://github.com/infodp checarjaj

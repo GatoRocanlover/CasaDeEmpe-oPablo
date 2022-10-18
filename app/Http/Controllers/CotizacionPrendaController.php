@@ -12,10 +12,7 @@ use Illuminate\Support\Facades\Validator;
 class CotizacionPrendaController extends Controller
 {
 
-    public function __construct(){
-        $this->middleware('auth', ['only'=>['index','store','edit','vistaaltacoti'
-        ,'update','AgregarPrenda','vistaTicket']]);
-    }
+    
     /**
      * Display a listing of the resource.
      *
