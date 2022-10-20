@@ -104,6 +104,6 @@ class RolController extends Controller
     public function destroy($id)
     {
         DB::table('roles')->where('id',$id)->delete();
-        return redirect('roles.index');
+        return redirect('roles.index');                 
     }
 }

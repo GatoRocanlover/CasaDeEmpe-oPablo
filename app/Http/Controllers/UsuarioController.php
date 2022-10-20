@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+
+use App\Http\Controllers\Controller;
+use App\Models\User;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Validator;//VALIDAR LO QUE MANDA LOS USUARIOS
-use App\Models\Usuario; // PARA USAR LA TABLA usuarios
 use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 
 class UsuarioController extends Controller
@@ -16,7 +23,15 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+       //Sin paginación
+        /* $usuarios = User::all();
+        return view('usuarios.index',compact('usuarios')); */
+
+        //Con paginación
+        $usuarios = User::paginate(5);
+        return view('usuarios.index',compact('usuarios'));
+
+        //al usar esta paginacion, recordar poner en el el index.blade.php este codigo  {!! $usuarios->links() !!}
     }
 
     /**
@@ -26,7 +41,9 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        //aqui trabajamos con name de las tablas de users
+        $roles = Role::pluck('name','name')->all();
+        return view('usuarios.crear',compact('roles'));
     }
 
     /**
@@ -38,46 +55,20 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         
-        $reglas = [
-           "usuario"=>"bail|required|min:5|max:30",
-           "nombre_usuario" => "bail|required|max:30",
-           "apellido_usuario" => 'bail|required|max:30',
-           "tipo_de_usuario" => "bail|required|min:1",
-           "contrasenia" => "bail|required",
-        ];
-
-        $mensajes = [
-             "usuario.required" => "No ingreso el usuario",
-             "usuario.min" => "Los caracteres mínimos para el usuario deben ser :min",
-             "usuario.max" => "Los caracteres máximos para el usuario deben ser :max", 
-             "nombre_usuario.required" => "Los caracteres máximos para el nombre del usuario deben ser :max", 
-             "apellido_usuario.required" => "Los caracteres máximos para el apellido del usuario deben ser :max", 
-             "nombre_usuario.required" => "No ingreso el nombre del usuario", 
-             "tipo_de_usuario.required" => "No ingreso el tipo de usuario",
-             "contrasenia.required" => "No ingreso la contraseña",       
-        ];
-
-
-        $validator = Validator::make($request->all(), 
-        $reglas, $mensajes 
-        
-);
-
-    if ($validator->fails()) {
-        return redirect()->back()
-                    ->withErrors($validator)
-                ->withInput();
-    }
-
-
-    $usuario = Usuario::make($request->all());
-   
-    $usuario->save();
-
-
-    return redirect()->route('listado_usuario', []);
-
-
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'roles' => 'required'
+        ]);
+    
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']);
+    
+        $user = User::create($input);
+        $user->assignRole($request->input('roles'));
+    
+        return redirect()->route('usuarios.index');
 
 }
     
@@ -101,14 +92,11 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $usuario = Usuario::find($id);
-
-        return View::make('admin.EditarUsuario')->with(
-            [
-                "dato_usuario" => $usuario
-            
-            ]
-        );
+        $user = User::find($id);
+        $roles = Role::pluck('name','name')->all();
+        $userRole = $user->roles->pluck('name','name')->all();
+    
+        return view('usuarios.editar',compact('user','roles','userRole'));
     }
 
     /**                     
@@ -121,47 +109,27 @@ class UsuarioController extends Controller
 
     public function update(Request $request, $id)
     {
-        $usuario = Usuario::find($id);
-
-        $reglas = [
-            "usuario"=>"bail|required|min:5|max:30",
-            "nombre_usuario" => "bail|required|max:30",
-            "apellido_usuario" => 'bail|required|max:30',
-            "tipo_de_usuario" => "bail|required|min:1",
-            "contrasenia" => "bail|required",
-         ];
- 
-         $mensajes = [
-              "usuario.required" => "No ingreso el usuario",
-              "usuario.min" => "Los caracteres mínimos para el usuario deben ser :min",
-              "usuario.max" => "Los caracteres máximos para el usuario deben ser :max", 
-              "nombre_usuario.required" => "Los caracteres máximos para el nombre del usuario deben ser :max", 
-              "apellido_usuario.required" => "Los caracteres máximos para el apellido del usuario deben ser :max", 
-              "nombre_usuario.required" => "No ingreso el nombre del usuario", 
-              "tipo_de_usuario.required" => "No ingreso el tipo de usuario",
-              "contrasenia.required" => "No ingreso la contraseña",       
-         ];
- 
- 
-         $validator = Validator::make($request->all(), 
-         $reglas, $mensajes 
-         
- );
- 
-     if ($validator->fails()) {
-         return redirect()->back()
-                     ->withErrors($validator)
-                 ->withInput();
-     }
- 
- 
-     $usuario->fill($request->all());
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'password' => 'same:confirm-password',
+           /*  'roles' => 'required' */
+        ]);
     
-     $usuario->save();
- 
- 
-     return redirect()->route('listado_usuario', []);
-
+        $input = $request->all();
+        if(!empty($input['password'])){ 
+            $input['password'] = Hash::make($input['password']);
+        }else{
+            $input = Arr::except($input,array('password'));    
+        }
+    
+        $user = User::find($id);
+        $user->update($input);
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+    
+        $user->assignRole($request->input('roles'));
+    
+        return redirect()->route('usuarios.index');
 
     }
 
@@ -173,6 +141,7 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::find($id)->delete();
+        return redirect()->route('usuarios.index');
     }
 }

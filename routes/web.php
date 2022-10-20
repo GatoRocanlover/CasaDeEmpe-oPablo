@@ -19,6 +19,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RolController::class);
+    Route::resource('usuarios', UsuarioController::class);
 
     ///rutas con acceso a login
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
