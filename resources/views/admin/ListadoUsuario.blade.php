@@ -1,5 +1,5 @@
 
-
+<!-- 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
   
@@ -10,17 +10,17 @@
 
         <title>CASA DE EMPEÑOS</title> 
 
-        <!-- Fonts -->
+        
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
         <link href="">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
-        <!-- Styles -->
+      
         <link href="{{asset('dist/css/bootstrap.css')}}" rel="stylesheet">
         <link href="{{asset('dist/fontawesome/css/all.css')}}" rel="stylesheet">
         <link href="{{asset('dist/css/estilos.css')}}" rel="stylesheet">
         <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+      
             </style>
 
         <style>
@@ -39,7 +39,7 @@
     <body class="antialiased ">
         <div class="sinborde relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
           
- <!-- encabezado -->
+
             <div class="size">
                 <div class="navbar1 flex size">
                     <div class="max-w-6xl mx-auto mr-2"> 
@@ -84,3 +84,4 @@
   <script src="{{asset('dist/js/bootstrap.js')}}"></script>
 
 </html>
+ -->

@@ -59,6 +59,8 @@
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('register') }}">AGREGAR</a></li>
                         <li><a class="dropdown-item" href="{{ route('listado_usuario') }}">LISTADO</a></li>
+                        <li><a class="dropdown-item" href="{{ route('usuarios.index') }}">LISTA DE USUARIOS</a></li>
+                        <li><a class="dropdown-item" href="{{ route('roles.index') }}">ROLES</a></li>
                     </ul>
                 </li>
 
