@@ -56,7 +56,7 @@
                         <div class="card-body">
 
                             @can('crear-rol')
-                            <a class="btn btn-warning" href="{{ route('roles.create') }}">Nuevo</a>
+                            <a class="btn btn-warning fw-bold" href="{{ route('roles.create') }}">Nuevo Rol</a>
                             @endcan
 
 
@@ -71,7 +71,7 @@
                                         <td>{{ $role->name }}</td>
                                         <td>
                                             @can('editar-rol')
-                                            <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
+                                            <a class="btn btn-info" href="{{ route('roles.edit',$role->id) }}">Editar</a>
                                             @endcan
 
                                             @can('borrar-rol')
@@ -85,7 +85,7 @@
                                 </tbody>
                             </table>
 
-                            <!-- Centramos la paginacion a la derecha -->
+               
                             <div class="pagination justify-content-end">
                                 {!! $roles->links() !!}
                             </div>

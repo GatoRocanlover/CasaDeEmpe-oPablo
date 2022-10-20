@@ -20,7 +20,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.AgregarCliente');
     }
 
     /**
@@ -245,7 +245,8 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Cliente::find($id)->delete();
+        return redirect()->route('listado_cliente');
     }
 
 

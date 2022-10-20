@@ -32,13 +32,8 @@ class AdminController extends BaseController
         return view('admin.admininicio');
     }
 
-    public function AgregarCliente()
-    {
-
-
-        return view('admin.AgregarCliente');
-    }
-    public function EditarCliente()
+   
+    /* public function EditarCliente()
     {
         $clientes = Cliente::get();
         return view('admin.EditarCliente')->with(
@@ -47,7 +42,7 @@ class AdminController extends BaseController
                 "lista_clientes" => $clientes
             ]
         );
-    }
+    } */
     
     public function AgregarUsuario()
     {

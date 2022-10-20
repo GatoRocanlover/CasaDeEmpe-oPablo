@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
 
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     ///rutas con acceso a login
     Route::post('alta_usuario', [UsuarioController::class, 'store'])->name('usuario.store');
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
+    Route::delete('editar_cliente/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
     Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
 
     Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
@@ -55,7 +56,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
 
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
-    Route::get('/AgregarCliente', [AdminController::class, 'AgregarCliente'])->name('agregar_cliente');
+    Route::get('/AgregarCliente', [ClienteController::class, 'index'])->name('agregar_cliente');
     Route::get('/ListadoCliente', [ClienteController::class, 'ListadoCliente'])->name('listado_cliente');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
     Route::get('/ListadoUsuario', [UserController::class, 'ListUser'])->name('listado_usuario');
