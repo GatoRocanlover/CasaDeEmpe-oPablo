@@ -48,81 +48,89 @@
         @include('layout.nav')
 
 
-        <div class="section-header">
+        <div class="text-center mt-4">
             <h3 class="">Alta de Usuarios</h3>
         </div>
-        <div class="section-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-body">
 
-                            @if ($errors->any())
-                            <div class="alert alert-dark alert-dismissible fade show" role="alert">
-                                <strong>¡Revise los campos!</strong>
-                                @foreach ($errors->all() as $error)
-                                <span class="badge badge-danger">{{ $error }}</span>
-                                @endforeach
-                                
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            @endif
+        <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size50 fondoformulario">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
 
-                            {!! Form::open(array('route' => 'usuarios.store','method'=>'POST')) !!}
+                                @if ($errors->any())
+                                <div class="alert alert-dark alert-dismissible fade show" role="alert">
+                                    <strong>¡Revise los campos!</strong>
+                                    @foreach ($errors->all() as $error)
+                                    <span class="badge badge-danger">{{ $error }}</span>
+                                    @endforeach
 
-                            <div class="row">
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="name">Nombre</label>
-                                        <!-- <input type="text" name="name" id="name" class="form-control"> -->
-                                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                                    </div>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="email">E-mail</label>
-                                        <!-- <input type="text" name="email" id="email" class="form-control"> -->
-                                        {!! Form::text('email', null, ['class' => 'form-control']) !!}
+                                @endif
+
+                                {!! Form::open(array('route' => 'usuarios.store','method'=>'POST')) !!}
+
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-12 col-md-12">
+                                        <div class="form-group">
+                                            <label for="name">Nombre:</label>
+                                            <!-- <input type="text" name="name" id="name" class="form-control"> -->
+                                            {!! Form::text('name', null, ['class' => 'form-control mt-1','placeholder'=>'Ingrese Nombre de Usuario']) !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <!-- <input type="password" name="password" id="password" class="form-control"> -->
-                                        {!! Form::password('password', ['class' => 'form-control']) !!}
+                                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                                        <div class="form-group">
+                                            <label for="email">E-mail:</label>
+                                            <!-- <input type="text" name="email" id="email" class="form-control"> -->
+                                            {!! Form::text('email', null, ['class' => 'form-control mt-1','placeholder'=>'Email: example@example.com']) !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="confirm-password">Confirmar Password</label>
-                                        <!--  <input type="password" name="confirm-password" id="confirm-password"
+                                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                                        <div class="form-group">
+                                            <label for="password">Password:</label>
+                                            <!-- <input type="password" name="password" id="password" class="form-control"> -->
+                                            {!! Form::password('password', ['class' => 'form-control mt-1','placeholder'=>'Ingrese Una Contraseña']) !!}
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                                        <div class="form-group">
+                                            <label for="confirm-password">Confirmar Password:</label>
+                                            <!--  <input type="password" name="confirm-password" id="confirm-password"
                                                 class="form-control"> -->
-                                        {!! Form::password('confirm-password', ['class' => 'form-control']) !!}
+                                            {!! Form::password('confirm-password', ['class' => 'form-control mt-1','placeholder'=>'Valida Su Nueva Contraseña']) !!}
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <label for="">Roles</label>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Roles:</label>
 
-                                        {!! Form::select('roles[]', $roles, [], ['class' => 'form-control']) !!}
-                                        
+                                            {!! Form::select('roles[]', $roles, [], ['class' => 'form-control']) !!}
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 mt-4">
+                                        <button type="submit" class="btn btn-primary">Guardar</button>
                                     </div>
                                 </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                </div>
+                                {!! Form::close() !!}
+
+
                             </div>
-                            {!! Form::close() !!}
-
-
                         </div>
                     </div>
                 </div>
             </div>
+            </section>
         </div>
-        </section>
+        <div class="mt-8">
+            <br>
+            <br>
+        </div>
 </body>
 
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>

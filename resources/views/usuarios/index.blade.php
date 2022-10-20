@@ -16,15 +16,13 @@
     <!-- Styles -->
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
-    <style>
-        /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css
-            
-            */
-    </style>
 
     <style>
         body {
             font-family: 'Nunito', sans-serif;
+        }
+        table th{
+            text-align: center;
         }
     </style>
 
@@ -46,70 +44,58 @@
             <!-- MENU -->
             @include('layout.nav')
 
-            <section class="section">
-                <div class="section-header">
-                    <h3 class="page__heading">Usuarios</h3>
-                </div>
-                <div class="section-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
+            <div class="text-center mt-4">
+                <h3 class="page__heading">Usuarios</h3>
+            </div>
+            <div class="mt-8 size95 mx-auto items-center justify-center flex negritas">
+                <div class="max-w-6xl size  flex items-center justify-center ">
 
-                                    <table class="table table-sm table-striped mt-2">
-                                        <thead style="background-color:#6777ef">
-                                            <th style="display: none;">ID</th>
-                                            <th style="color:#fff;">Nombre</th>
-                                            <th style="color:#fff;">E-mail</th>
-                                            <th style="color:#fff;">Rol</th>
-                                            <th style="color:#fff;">Acciones</th>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($usuarios as $usuario)
-                                            <tr>
-                                                <td style="display: none;">{{ $usuario->id }}</td>
-                                                <td>{{ $usuario->name }}</td>
-                                                <td>{{ $usuario->email }}</td>
-                                                <td>
-                                                    @if (!empty($usuario->getRoleNames()))
-                                                    @foreach ($usuario->getRoleNames() as $rolNombre)
-                                                    <h5><span class="badge badge-dark" style="color:black">{{ $rolNombre }}</span>
-                                                    </h5>
-                                                    @endforeach
-                                                    @endif
-                                                </td>
+                    <div class="card">
+                        <div class="card-body">
+                            <a class="btn btn-warning" href="{{ route('usuarios.create') }}">Nuevo</a>
 
-                                                <td>
-                                                    <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-
-
-                                                    <!--  <form style="display:inline" method='POST'
-                                                            action="{{ route('usuarios.destroy', $usuario->id) }}">
-                                                            {{ csrf_field() }}
-                                                            {{ method_field('DELETE') }}
-                                                            <button type="submit"
-                                                                class="btn btn-danger">Borrar</button>
-                                                        </form> -->
-                                                    {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $usuario->id],'style'=>'display:inline']) !!}
-                                                    {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-                                                    {!! Form::close() !!}
-                                                </td>
-                                            </tr>
+                            <table class="table  table-striped mt-2">
+                                <thead class="letra-blanca bg-dark">
+                                    <th style="display: none;">ID</th>
+                                    <th style="color:#fff;">Nombre</th>
+                                    <th style="color:#fff;">E-mail</th>
+                                    <th style="color:#fff;">Rol</th>
+                                    <th style="color:#fff;">Acciones</th>
+                                </thead>
+                                <tbody>
+                                    @foreach ($usuarios as $usuario)
+                                    <tr>
+                                        <td style="display: none;">{{ $usuario->id }}</td>
+                                        <td>{{ $usuario->name }}</td>
+                                        <td>{{ $usuario->email }}</td>
+                                        <td>
+                                            @if (!empty($usuario->getRoleNames()))
+                                            @foreach ($usuario->getRoleNames() as $rolNombre)
+                                            <h5><span class="badge badge-dark" style="color:black">{{ $rolNombre }}</span>
+                                            </h5>
                                             @endforeach
-                                        </tbody>
-                                    </table>
+                                            @endif
+                                        </td>
 
-                                    <div class="pagination justify-content-end">
-                                        {!! $usuarios->links() !!}
-                                    </div>
+                                        <td>
+                                            <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
 
-                                </div>
+                                            {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $usuario->id],'style'=>'display:inline']) !!}
+                                            {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                            {!! Form::close() !!}
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+                            <div class="pagination justify-content-end">
+                                {!! $usuarios->links() !!}
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 </body>
 
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
