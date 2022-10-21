@@ -57,7 +57,7 @@
 <body class="antialiased ">
 
 
-
+@can('ver-listado-tickets-desempeño')
     <div
         class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
@@ -120,7 +120,9 @@
                                     <th class="text-center" scope="col">PRESTAMO</th>
                                     <th class="text-center" scope="col">MONTO RECIBIDO</th>
                                     <th class="text-center" scope="col">CAMBIO</th>
+                                    @can('imprimir-ticket-desempeño')
                                     <th class="text-center" scope="col">DESCARGAR TICKET:</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -141,6 +143,7 @@
                                         <td class="text-center">$ {{ $tickets->prestamo_prenda }}</td>
                                         <td class="text-center">$ {{ $tickets->cantidad_pago }}</td>
                                         <td class="text-center">$ {{ $tickets->cambio_boleta }}</td>
+                                      @can('imprimir-ticket-desempeño')
                                         <td class="text-center">
                                             <div>
 
@@ -150,6 +153,7 @@
                                                         class="fa fa-print icons" style="font-size:32px"></i></a>
                                             </div>
                                         </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -161,7 +165,9 @@
                     <div class="mt-8">
                     </div>
                 </div>
-
+                @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

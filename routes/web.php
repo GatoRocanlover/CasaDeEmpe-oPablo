@@ -27,15 +27,15 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('editar_usuario/{id}', [UsuarioController::class, 'edit'])->name('usuario.edit');
     Route::put('actualizar_usuario/{id}', [UsuarioController::class, 'update'])->name('usuario.update');
 
-    Route::get('Pago_prenda/{id}', [PrendaController::class, 'editPago'])->name('prenda1.edit');
-    Route::post('Pago_prenda/{id}', [PrendaController::class, 'FechasMes'])->name('prenda1.mes');
-
-    Route::put('actualizar_prenda_pago/{id}', [PrendaController::class, 'updatePago'])->name('prenda1.update');
     Route::post('Tickets', [TicketController::class, 'store'])->name('Tickets.store');
 
     Route::post('alta_prenda', [PrendaController::class, 'store'])->name('prenda.store');
     Route::post('alta_prenda2', [PrendaController::class, 'store2'])->name('prenda.store2');
 
+    
+    Route::get('Pago_prenda/{id}', [PrendaController::class, 'editPago'])->name('prenda1.edit');
+    Route::post('Pago_prenda/{id}', [PrendaController::class, 'FechasMes'])->name('prenda1.mes');
+    Route::put('actualizar_prenda_pago/{id}', [PrendaController::class, 'updatePago'])->name('prenda1.update');
     Route::get('editar_prenda/{id}', [PrendaController::class, 'edit'])->name('prenda.edit');
     Route::put('actualizar_prenda/{id}', [PrendaController::class, 'update'])->name('prenda.update');
     Route::put('prenda_capital/{id}', [PrendaController::class, 'update_capital'])->name('prenda_capi.update');
@@ -63,7 +63,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'index'])->name('cotizacionprenda.listado');
     Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
     Route::get('ticket_cotizacion/{id}', [CotizacionPrendaController::class, 'vistaTicket'])->name('ticket.vistaTicketCotiza');
-
+    Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+    Route::delete('delete_cotizacion/{id}', [CotizacionPrendaController::class, 'destroy'])->name('cotizacionprenda.destroy');
+    
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
@@ -81,8 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
-    Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
-    Route::delete('delete_cotizacion/{id}', [CotizacionPrendaController::class, 'destroy'])->name('cotizacionprenda.destroy');
+   
 });
 
 // Otros

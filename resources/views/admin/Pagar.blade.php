@@ -101,7 +101,7 @@
 
 
 
-        <nav class="navbar mt-3 navbar-light bg-light">
+       <!--  <nav class="navbar mt-3 navbar-light bg-light">
             <form class="container-fluid justify-content-start">
                 <button class="btn btn-success me-2" type="button">DESEMPEÑO</button>
                 <a class="btn btn-sm btn-outline-secondary me-2" type="button"
@@ -109,7 +109,7 @@
                 <a class="btn btn-sm btn-outline-secondary" type="button" href="{{ route('1capital') }}">ABONO A
                     CAPITAL</a>
             </form>
-        </nav>
+        </nav> -->
 
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
@@ -135,10 +135,12 @@
                                 </div>
                             </form>
                         </div>
+                        @can('ver-listado-tickets-desempeño')
                         <div class="hover">
                             <a class="btn btn-success me-2" href="{{ route('Ticket_Desempeño') }}" type="button"><i
                                     class="fas fa-cash-register"></i> &nbsp;BOLETAS LIQUIDADAS</a>
                         </div>
+                        @endcan
                     </div>
                     <div class="table-responsive">
                         <table class=" table table-sm table-striped">
@@ -154,7 +156,9 @@
                                     <th class="text-center" scope="col">AVALUO</th>
                                     <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
                                     <th class="text-center" scope="col">PRESTAMO</th>
+                                    @can('pago-desempeño')
                                     <th class="text-center" scope="col">DESEMPEÑAR</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -207,7 +211,7 @@
                                             @endif
                                         </td>
                                         <td class="text-center">$&nbsp;{{ $prenda->prestamo_prenda }}</td>
-
+                                        @can('pago-desempeño')
                                         <td class="text-center">
                                             <br>
                                             <a class="nav-link"
@@ -216,6 +220,7 @@
                                                         class="fas fa-cash-register icons"
                                                         style="font-size:30px;"></i></button></a>
                                         </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>

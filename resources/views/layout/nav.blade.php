@@ -74,7 +74,9 @@
                         CAJA
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ route('Pagar') }}">PAGAR</a></li>
+                        <li><a class="dropdown-item" href="{{ route('Pagar') }}">DESEMPEÑO</a></li>
+                        <li><a class="dropdown-item" href="{{ route('1refrendo') }}">REFRENDO</a></li>
+                        <li><a class="dropdown-item" href="{{route('1capital')}}">ABONO A CAPITAL</a></li>
                     </ul>
                 </li>
             </ul>

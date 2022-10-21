@@ -11,7 +11,14 @@ use Illuminate\Support\Facades\View;
 class TicketController extends Controller
 {
     
+    public function __contruct()
+    {
+        $this->middleware('permission:ver-listado-tickets-desempeño|imprimir-ticket-desempeño', ['only' => ['index']]);
+        $this->middleware('permission:imprimir-ticket-desempeño', ['only' => ['vistaTicket']]);
+        
+  ;
 
+    }
     public function index(Request $request)
     {
         $search_ticket = trim($request->get('search_ticket'));

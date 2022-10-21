@@ -18,6 +18,18 @@ use Carbon\Carbon;
 
 class PrendaController extends Controller
 {
+    public function __contruct()
+    {
+        $this->middleware('permission:ver-listado-boletas|imprimir-boleta|ver-desempeño|pago-desempeño', ['only' => ['index']]);
+        $this->middleware('permission:imprimir-boleta', ['only' => ['vistaboleta']]);
+        //desempeño
+        $this->middleware('permission:ver-desempeño', ['only' => ['PrendaPagar']]);
+        $this->middleware('permission:pago-desempeño', ['only' => ['editPago']]);
+
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *

@@ -86,14 +86,16 @@
 
 
 
-      <nav class="navbar mt-3 navbar-light bg-light">
+      <!-- <nav class="navbar mt-3 navbar-light bg-light">
         <form class="container-fluid justify-content-start">
+          @can('ver-desempeño')
           <a class="btn btn-sm btn-outline-secondary me-2" href="{{route('Pagar')}}" type="button">DESEMPEÑO</a>
+          @endcan
           <a class="btn btn-sm btn-outline-secondary me-2" type="button" href="{{route('1refrendo')}}">REFRENDO</a>
           <button class="btn btn-success" type="button">ABONO A CAPITAL</button>
         </form>
       </nav>
-
+ -->
       <br>
       <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
         <label for="validationCustom03" class="form-label  text-center h3"> MODULO ABONO A CAPITAL</label>

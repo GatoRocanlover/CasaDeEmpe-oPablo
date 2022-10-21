@@ -36,7 +36,15 @@ class SedeerTablaPermisos extends Seeder
             'impresion-cotizacion',
             'alta-cotizacion',
             'borrar-cotizacion',
-
+            //Operaciones sobre tabla boletas
+            'ver-listado-boletas',
+            'imprimir-boleta',
+            //Operaciones sobre tabla desempeño
+            'ver-desempeño',
+            'pago-desempeño',
+            //Operaciones sobre tabla tickets-desempeño
+            'ver-listado-tickets-desempeño',
+            'imprimir-ticket-desempeño',
 
 
 

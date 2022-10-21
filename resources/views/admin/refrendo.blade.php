@@ -45,23 +45,25 @@
 
       width: 100%;
     }
+
     .icons {
-            color: green;
-        }
+      color: green;
+    }
 
-        .icons:hover {
-            color: #8E6E06;
+    .icons:hover {
+      color: #8E6E06;
 
-        }
+    }
 
-        a:hover i {
-            transform: scale(1.3);
+    a:hover i {
+      transform: scale(1.3);
 
-        }
-        .hover :hover {
-            background-color: #8E6E06;
-            border-color: #8E6E06;
-        }
+    }
+
+    .hover :hover {
+      background-color: #8E6E06;
+      border-color: #8E6E06;
+    }
   </style>
 
 </head>
@@ -86,13 +88,15 @@
 
 
 
-      <nav class="navbar mt-3 navbar-light bg-light">
+     <!--  <nav class="navbar mt-3 navbar-light bg-light">
         <form class="container-fluid justify-content-start">
+          @can('ver-desempeño')
           <a class="btn btn-sm btn-outline-secondary me-2" href="{{route('Pagar')}}" type="button">DESEMPEÑO</a>
+          @endcan
           <a class="btn btn-success me-2" type="button">REFRENDO</a>
           <a class="btn btn-sm btn-outline-secondary" type="button" href="{{route('1capital')}}">ABONO A CAPITAL</a>
         </form>
-      </nav>
+      </nav> -->
 
       <br>
       <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
@@ -184,10 +188,7 @@
 
                     <td class="text-center">
                       <br>
-                      <a class="nav-link" href="{{route('Refrendo1.edit', [$refrendo1->id_prendas] )}}"
-                       id="navbarDarkDropdownMenuLink" aria-expanded="false"><button><i
-                                                        class="fas fa-cash-register icons"
-                                                        style="font-size:30px;"></i></button></a>
+                      <a class="nav-link" href="{{route('Refrendo1.edit', [$refrendo1->id_prendas] )}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button><i class="fas fa-cash-register icons" style="font-size:30px;"></i></button></a>
                     </td>
                   </tr>
 

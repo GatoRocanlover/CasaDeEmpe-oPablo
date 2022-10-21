@@ -88,7 +88,9 @@
                                 <th scope="col">AVALUO</th>
                                 <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                 <th scope="col">PRESTAMO</th>
+                                @can('imprimir-boleta')
                                 <th scope="col">IMPRIMIR BOLETA</th>
+                                @endcan
                             </tr>
                         </thead>
                       
@@ -128,8 +130,9 @@
                                     @endif
                                 </td>
                                 <td>$&nbsp;{{$prenda->prestamo_prenda}}</td>
+                                @can('imprimir-boleta')
                                 <td><a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
-
+                                @endcan
                             </tr>             
                         @endforeach
                     </table>
