@@ -54,7 +54,7 @@
 <div class="container">
 
     <body>
-    @can('imprimir-boleta')
+  
         <table>
             <tr>
                 <th colspan="9">
@@ -565,9 +565,7 @@
         <p class="letrapequeña text-end">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 2/6 </p>
 
 </div>
-@else
-    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
-@endcan
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

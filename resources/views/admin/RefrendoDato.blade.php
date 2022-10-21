@@ -160,6 +160,8 @@
             </div>
             <!-- MENU -->
             @include('layout.nav')
+
+            @can('pago-refrendo')
         </div>
 
 
@@ -502,7 +504,9 @@
             </div>
             @include('admin.Modals.modalrefrendo')
         </div>
-
+ @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 <div class="mt-8">
