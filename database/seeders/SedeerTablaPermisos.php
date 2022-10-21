@@ -20,16 +20,20 @@ class SedeerTablaPermisos extends Seeder
             'crear-rol',
             'editar-rol',
             'borrar-rol',
-             //Operaciones sobre tabla roles
-             'ver-usuario',
-             'crear-usuario',
-             'editar-usuario',
-             'borrar-usuario',
- 
+            //Operaciones sobre tabla usuarios
+            'ver-usuario',
+            'crear-usuario',
+            'editar-usuario',
+            'borrar-usuario',
+            //Operaciones sobre tabla clientes
+            'ver-cliente',
+            'crear-cliente',
+            'editar-cliente',
+            'borrar-cliente',
 
-    
-           
-           
+
+
+
         ];
 
         foreach ($permisos as $permiso) {

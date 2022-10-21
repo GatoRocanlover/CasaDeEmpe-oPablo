@@ -59,6 +59,9 @@
         </div>
         @endif
 
+
+
+        @can('crear-cliente')
         <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size60 fondoformulario">
             <form action="{{Route('cliente.store')}}" method="POST" onsubmit="return enviar()" name="registroCliente" class="row g-3 needs-validation size95 items-center justify-center" novalidate>
 
@@ -268,6 +271,9 @@
         </div>
 
     </div>
+    @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>

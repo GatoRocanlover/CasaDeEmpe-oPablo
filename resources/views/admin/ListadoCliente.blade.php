@@ -77,11 +77,13 @@
                                     </div>
                                 </form>
                             </div>
+                            @can('crear-cliente')
                             <div class=" justify-content-end">
-                            <a class="btn btn-warning fw-bold"  href="{{ route('agregar_cliente') }}">Agregar Nuevo Cliente</a>
+                                <a class="btn btn-warning fw-bold" href="{{ route('agregar_cliente') }}">Agregar Nuevo Cliente</a>
+                            </div>
+                            @endcan
                         </div>
-                        </div>
-                        
+
 
                         <table class="table table-sm table-striped mt-4">
                             <thead class="letra-blanca bg-dark">
@@ -106,13 +108,16 @@
                                 <td>{{ 'C.' . $cliente->calle_cliente . ', N°' . $cliente->numero_cliente . ', ' . $cliente->colonia_cliente . ', ' . $cliente->ciudad_cliente }}
                                 </td>
                                 <td>
+                                    @can('editar-cliente')
                                     <a class="btn btn-info" href="{{ route('cliente.edit', [$cliente->id_cliente]) }}">Editar</a>
+                                    @endcan
+                                    @can('borrar-cliente')
                                     <div class="d-flex">
                                         {!! Form::open(['method' => 'DELETE','route' => ['cliente.destroy', $cliente->id_cliente],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     </div>
-
+                                    @endcan
                                 </td>
                             </tr>
                             @endforeach

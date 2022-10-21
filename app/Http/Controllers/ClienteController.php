@@ -12,15 +12,40 @@ use Illuminate\Support\Facades\Validator;
 class ClienteController extends Controller
 {
 
+    public function __contruct()
+    {
+        $this->middleware('permission:ver-cliente|crear-cliente|editar-cliente|borrar-cliente', ['only' => ['index']]);
+        $this->middleware('permission:crear-cliente', ['only' => ['create','store']]);
+        $this->middleware('permission:editar-cliente', ['only' => ['edit, update']]);
+        $this->middleware('permission:borrar-cliente', ['only' => ['destroy']]);
+    }
     
         /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.AgregarCliente');
+
+        $search = trim($request->get('search'));
+        $clientes = Cliente::select(
+            'id_cliente',
+            'nombre_cliente',
+            'apellido_cliente',
+            'tipo_de_identificacion',
+            'telefono_cliente',
+            'calle_cliente',
+            'numero_cliente',
+            'colonia_cliente',
+            'ciudad_cliente',    
+           
+        )->where('id_cliente', 'LIKE', '%' . $search . '%')
+        ->orWhere('nombre_cliente', 'LIKE', '%' . $search . '%')
+        ->orWhere('apellido_cliente', 'LIKE', '%' . $search . '%')
+        ->paginate(5);
+        return view('admin.ListadoCliente', compact('clientes'));
+      
     }
 
     /**
@@ -110,25 +135,9 @@ class ClienteController extends Controller
     }
 
 
-    public function ListadoCliente(Request $request)
+    public function VistaAgregarCliente()
     {
-        $search = trim($request->get('search'));
-        $clientes = Cliente::select(
-            'id_cliente',
-            'nombre_cliente',
-            'apellido_cliente',
-            'tipo_de_identificacion',
-            'telefono_cliente',
-            'calle_cliente',
-            'numero_cliente',
-            'colonia_cliente',
-            'ciudad_cliente',    
-           
-        )->where('id_cliente', 'LIKE', '%' . $search . '%')
-        ->orWhere('nombre_cliente', 'LIKE', '%' . $search . '%')
-        ->orWhere('apellido_cliente', 'LIKE', '%' . $search . '%')
-        ->paginate(5);
-        return view('admin.ListadoCliente', compact('clientes'));
+        return view('admin.AgregarCliente');
 
     }
 

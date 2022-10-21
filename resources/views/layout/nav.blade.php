@@ -57,8 +57,8 @@
                         USUARIO
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                      <!--   <li><a class="dropdown-item" href="{{ route('register') }}">AGREGAR</a></li>
-                        <li><a class="dropdown-item" href="{{ route('listado_usuario') }}">LISTADO</a></li> -->
+                      <!--   <li><a class="dropdown-item" href="{{ route('register') }}">AGREGAR</a></li>-->
+                       
                         <li><a class="dropdown-item" href="{{ route('usuarios.index') }}">LISTA DE USUARIOS</a></li>
                         <li><a class="dropdown-item" href="{{ route('roles.index') }}">ROLES</a></li>
                     </ul>
@@ -75,9 +75,6 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('Pagar') }}">PAGAR</a></li>
-                        <!--   <li><a class="dropdown-item" href="{{ route('listado_boleta_pagar') }}">LISTADO BOLETAS</a></li>
-            <li><a class="dropdown-item" href="{{ route('listado_boleta_desembolsar') }}">DESEMBOLSAR</a></li>
- -->
                     </ul>
                 </li>
             </ul>

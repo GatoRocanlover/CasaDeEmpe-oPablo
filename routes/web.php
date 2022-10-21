@@ -39,54 +39,50 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('editar_prenda/{id}', [PrendaController::class, 'edit'])->name('prenda.edit');
     Route::put('actualizar_prenda/{id}', [PrendaController::class, 'update'])->name('prenda.update');
     Route::put('prenda_capital/{id}', [PrendaController::class, 'update_capital'])->name('prenda_capi.update');
+    Route::get('/ListadoPrenda', [PrendaController::class, 'ListadoPrenda'])->name('listado_prenda');
+    Route::get('/listado_tickets_refrendo', [PrendaController::class, 'listado_tickets_refrendo'])->name('listado_tickets_refrendo');
+    Route::get('/listado_tickets_capital', [PrendaController::class, 'listado_tickets_capital'])->name('listado_tickets_capital');
+    Route::get('/ListadoBoletaPagar', [PrendaController::class, 'index'])->name('listado_boleta_pagar');
+    Route::get('/Pagar', [PrendaController::class, 'prendaPagar'])->name('Pagar');
+    Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
+    Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
+    Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
+    Route::get('Capital_prenda/{id}', [PrendaController::class, 'editCapital'])->name('Capital1.edit');
+    Route::get('Refrendo_prenda/{id}', [PrendaController::class, 'editRefrendo'])->name('Refrendo1.edit');
 
     Route::post('alta_cliente', [ClienteController::class, 'store'])->name('cliente.store');
     Route::get('editar_cliente/{id}', [ClienteController::class, 'edit'])->name('cliente.edit');
-    Route::delete('editar_cliente/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
+    Route::delete('delete_cliente/{id}', [ClienteController::class, 'destroy'])->name('cliente.destroy');
     Route::put('actualizar_cliente/{id}', [ClienteController::class, 'update'])->name('cliente.update');
+    Route::get('/AgregarCliente', [ClienteController::class, 'VistaAgregarCliente'])->name('agregar_cliente');
+    Route::get('/ListadoCliente', [ClienteController::class, 'index'])->name('listado_cliente');
 
     Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
     Route::put('actualizar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'update'])->name('cotizacionprenda.update');
     Route::get('altacotizacion/{id}', [CotizacionPrendaController::class, 'vistaaltacoti'])->name('coti.altacotizacion');
-
     Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'index'])->name('cotizacionprenda.listado');
     Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
     Route::get('ticket_cotizacion/{id}', [CotizacionPrendaController::class, 'vistaTicket'])->name('ticket.vistaTicketCotiza');
 
     Route::get('/iniciarsesion', [AdminController::class, 'IniciarSesion'])->name('inicio_sesion');
-
     Route::get('/Admin', [AdminController::class, 'admin'])->name('admin');
-    Route::get('/AgregarCliente', [ClienteController::class, 'index'])->name('agregar_cliente');
-    Route::get('/ListadoCliente', [ClienteController::class, 'ListadoCliente'])->name('listado_cliente');
     Route::get('/AgregarUsuario', [AdminController::class, 'AgregarUsuario'])->name('agregar_usuario');
-    Route::get('/ListadoUsuario', [UserController::class, 'ListUser'])->name('listado_usuario');
     Route::get('/AgregarPrenda', [AdminController::class, 'AgregarPrenda'])->name('agregar_prenda');
-    Route::get('/ListadoPrenda', [PrendaController::class, 'ListadoPrenda'])->name('listado_prenda');
-    Route::get('/listado_tickets_refrendo', [PrendaController::class, 'listado_tickets_refrendo'])->name('listado_tickets_refrendo');
-    Route::get('/listado_tickets_capital', [PrendaController::class, 'listado_tickets_capital'])->name('listado_tickets_capital');
     Route::get('/GenerarBoleta', [AdminController::class, 'GenerarBoleta'])->name('generar_boleta');
     Route::get('/ListadoBoleta', [AdminController::class, 'ListadoBoleta'])->name('listado_boleta');
-    Route::get('/ListadoBoletaPagar', [PrendaController::class, 'index'])->name('listado_boleta_pagar');
+    Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
+/*     Route::get('/ListadoBoletaDesembolsar', [AdminController::class, 'ListadoBoletaDesembolsar'])->name('listado_boleta_desembolsar');
+    Route::get('/Desembolso', [AdminController::class, 'Desembolso'])->name('desembolso');  */
+    
+    /* Route::get('/ListadoUsuario', [UserController::class, 'ListUser'])->name('listado_usuario'); */
 
-    Route::get('/Pagar', [PrendaController::class, 'prendaPagar'])->name('Pagar');
     Route::get('/TicketDesempeño', [TicketController::class, 'index'])->name('Ticket_Desempeño');
-
-    Route::get('/ListadoBoletaDesembolsar', [AdminController::class, 'ListadoBoletaDesembolsar'])->name('listado_boleta_desembolsar');
-    Route::get('/Desembolso', [AdminController::class, 'Desembolso'])->name('desembolso');
+    Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
 
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
-    Route::get('Refrendo_prenda/{id}', [PrendaController::class, 'editRefrendo'])->name('Refrendo1.edit');
-
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
-    Route::get('Capital_prenda/{id}', [PrendaController::class, 'editCapital'])->name('Capital1.edit');
-
-    Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
-    Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
-    Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
-    Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
     Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
-    Route::get('/AdminInicio', [AdminController::class, 'AdminInicio'])->name('inicio_admin');
-
+   
 });
 
 // Otros
