@@ -73,6 +73,20 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            REPORTES
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="{{route('Pagar')}}">CLIENTES</a></li>
+            <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">BOLETAS</a></li>
+            <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">CONCENTRADO</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+      <ul class="navbar-nav">
         <li class="nav-item ">
           <a class="nav-link" href="{{route('inicio_sesion')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false">
             SALIR

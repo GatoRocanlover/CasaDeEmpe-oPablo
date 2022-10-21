@@ -204,14 +204,14 @@
                     
                     <div class="col-md-4">
                         <label for="nombre_cotitular" class="form-label">NOMBRE(S)</label>
-                        <input type="text" name="nombre_cotitular" class="form-control" id="nombre_cotitular" value="{{$dato_cliente->nombre_cotitular}}" required>
+                        <input type="text" name="nombre_cotitular" class="form-control" id="nombre_cotitular" value="{{$dato_cliente->nombre_cotitular}}"  onkeyup="PasarNombre();" required>
                         <div class="invalid-feedback">
                         Please provide a valid city.
                         </div>
                     </div>
                     <div class="col-md-4">
                         <label for="apellido_cotitular" class="form-label">APELLIDO(S)</label>
-                        <input type="text" name="apellido_cotitular" class="form-control" id="apellido_cotitular" value="{{$dato_cliente->apellido_cotitular}}" required>
+                        <input type="text" name="apellido_cotitular" class="form-control" id="apellido_cotitular" value="{{$dato_cliente->apellido_cotitular}}" onkeyup="PasarApellido();"  required>
                         <div class="invalid-feedback">
                         Please provide a valid zip.
                         </div>
@@ -268,14 +268,14 @@
                     <label for="validationCustom03" class="form-label">DATOS DEL BENEFICIARIO</label>
                     <div class="col-md-6">
                         <label for="nombre_beneficiario" class="form-label">NOMBRE(S)</label>
-                        <input type="text" name="nombre_beneficiario" class="form-control" id="nombre_beneficiario" value="{{$dato_cliente->nombre_beneficiario}}" required>
+                        <input type="text" name="nombre_beneficiario" class="form-control" id="nombre_beneficiario" value="{{$dato_cliente->nombre_beneficiario}}" readonly>
                         <div class="invalid-feedback">
                         Please provide a valid city.
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="apellido_beneficiario" class="form-label">APELLIDO(S)</label>
-                        <input type="text"  name="apellido_beneficiario"  class="form-control" id="apellido_beneficiario" value="{{$dato_cliente->apellido_beneficiario}}" required>
+                        <input type="text"  name="apellido_beneficiario"  class="form-control" id="apellido_beneficiario" value="{{$dato_cliente->apellido_beneficiario}}" readonly>
                         <div class="invalid-feedback">
                         Please provide a valid city.
                         </div>
@@ -290,7 +290,18 @@
          </div>
     </body>
 
-  <script src="{{asset('dist/js/bootstrap.js')}}"></script>
+  <script src="{{asset('dist/js/bootstrap.js')}}">
+
+function PasarNombre()
+{
+document.getElementById("nombre_beneficiario").value = document.getElementById("nombre_cotitular").value;
+}
+function PasarApellido()
+{
+document.getElementById("apellido_beneficiario").value = document.getElementById("apellido_cotitular").value;
+} 
+
+</script>
 
 </html>
  <!-- --> 

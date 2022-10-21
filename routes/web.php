@@ -11,6 +11,7 @@ use App\Http\Controllers\RefrendoController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\AjaxController;
 use App\Models\CotizacionPrenda;
+use App\Http\Controllers\ExportController;
 
 Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 
@@ -84,7 +85,7 @@ Route::prefix('admin')->group(function () {
     Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
     Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
     Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
-
+   
 
 
 
@@ -93,3 +94,5 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+
+ Route::get('exportfile', 'ExportController@export');
