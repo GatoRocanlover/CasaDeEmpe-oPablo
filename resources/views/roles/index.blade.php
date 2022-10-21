@@ -31,14 +31,13 @@
 <body class="antialiased ">
     <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
-        <!-- encabezado -->
-        <div class="size">
-            <div class="navbar1 flex size">
-                <div class="max-w-6xl mx-auto mr-2">
-                    <img class="icono" src="{{ asset('img/logo.png') }}" width="450px" height="450px">
-                </div>
-                <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIACION NUEVA MUTUA UMAN
-                    S.A. DE C.V.</a></div>
+         <!-- encabezado -->
+    <div class="size">
+      <div class="navbar1 flex size">
+        <div class="max-w-6xl mx-auto mr-2">
+          <a href="{{ route('inicio_admin') }}"><img class="icono" src="{{ asset('img/logo.png') }}"></a>
+        </div>
+        <div class="mx-auto ml-2 titulo texto-grande size"> CASA DE EMPEÑOS <br> ASOCIADOS NUEVA MUTUA DE UMÁN S.A. DE C.V.</a></div>
 
             </div>
         </div>
