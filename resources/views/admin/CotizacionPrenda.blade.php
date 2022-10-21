@@ -56,6 +56,7 @@
 
             <br>
             <br>
+            @can('crear-cotizacion')
             <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
                 <label for="validationCustom03" class="form-label  text-center h3 fw-bold">COTIZACIÓN PRENDA</label>
             </div>
@@ -186,6 +187,9 @@
                 </form>
             </div>
         </div>
+        @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

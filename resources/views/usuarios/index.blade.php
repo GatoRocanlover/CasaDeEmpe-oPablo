@@ -63,7 +63,12 @@
                                         <th style="color:#fff;">Nombre</th>
                                         <th style="color:#fff;">E-mail</th>
                                         <th style="color:#fff;">Rol</th>
-                                        <th style="color:#fff;">Acciones</th>
+                                        @can('editar-usuario')
+                                        <th style="color:#fff;">Editar</th>
+                                        @endcan
+                                        @can('borrar-usuario')
+                                        <th style="color:#fff;">Eliminar</th>
+                                        @endcan
                                     </thead>
                                     <tbody>
                                         @foreach ($usuarios as $usuario)
@@ -79,17 +84,18 @@
                                                 @endforeach
                                                 @endif
                                             </td>
-
-                                            <td>
-                                                @can('editar-usuario')
+                                            @can('editar-usuario')
+                                            <td> 
                                                 <a class="btn btn-info" href="{{ route('usuarios.edit', $usuario->id) }}">Editar</a>
-                                                @endcan
-                                                @can('borrar-usuario')
+                                            </td>
+                                            @endcan
+                                            @can('borrar-usuario')
+                                            <td>
                                                 {!! Form::open(['method' => 'DELETE','route' => ['usuarios.destroy', $usuario->id],'style'=>'display:inline']) !!}
                                                 {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
-                                                {!! Form::close() !!}
-                                                @endcan
+                                                {!! Form::close() !!} 
                                             </td>
+                                            @endcan
                                         </tr>
                                         @endforeach
                                     </tbody>

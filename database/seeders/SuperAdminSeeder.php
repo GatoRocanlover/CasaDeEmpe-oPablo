@@ -26,4 +26,4 @@ class SuperAdminSeeder extends Seeder
     }
 }
 
-//ejecutar php artisan db:seed  --class=SedeerTablaPermisos
+//ejecutar php artisan db:seed  --class=SuperAdminSeeder

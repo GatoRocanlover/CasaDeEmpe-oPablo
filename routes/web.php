@@ -82,7 +82,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
     Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
-   
+    Route::delete('delete_cotizacion/{id}', [CotizacionPrendaController::class, 'destroy'])->name('cotizacionprenda.destroy');
 });
 
 // Otros

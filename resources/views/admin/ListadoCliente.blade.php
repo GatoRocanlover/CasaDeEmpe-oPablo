@@ -93,7 +93,12 @@
                                     <th scope="col">Identificación</th>
                                     <th scope="col">Celular</th>
                                     <th scope="col">Domicilio</th>
+                                    @can('editar-cliente')
                                     <th scope="col">EDITAR</th>
+                                    @endcan
+                                    @can('borrar-cliente')
+                                    <th scope="col">ELIMINAR</th>
+                                    @endcan
                                 </tr>
                             </thead>
 
@@ -107,18 +112,18 @@
                                 <td>{{ $cliente->telefono_cliente }} </td>
                                 <td>{{ 'C.' . $cliente->calle_cliente . ', N°' . $cliente->numero_cliente . ', ' . $cliente->colonia_cliente . ', ' . $cliente->ciudad_cliente }}
                                 </td>
-                                <td>
-                                    @can('editar-cliente')
-                                    <a class="btn btn-info" href="{{ route('cliente.edit', [$cliente->id_cliente]) }}">Editar</a>
-                                    @endcan
-                                    @can('borrar-cliente')
-                                    <div class="d-flex">
+                                @can('editar-cliente')
+                                <td class="text-center">
+                                    <a class="btn btn-info" href="{{ route('cliente.edit', [$cliente->id_cliente]) }}">Editar</a>   
+                                </td>
+                                @endcan
+                                @can('borrar-cliente')
+                                <td class="text-center">                              
                                         {!! Form::open(['method' => 'DELETE','route' => ['cliente.destroy', $cliente->id_cliente],'style'=>'display:inline']) !!}
                                         {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
-                                    </div>
-                                    @endcan
                                 </td>
+                                @endcan
                             </tr>
                             @endforeach
 

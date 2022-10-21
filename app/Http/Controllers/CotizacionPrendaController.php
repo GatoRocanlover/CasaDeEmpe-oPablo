@@ -12,6 +12,14 @@ use Illuminate\Support\Facades\Validator;
 class CotizacionPrendaController extends Controller
 {
 
+    public function __contruct()
+    {
+        $this->middleware('permission:ver-cotizacion|crear-cotizacion|impresion-cotizacion|alta-cotizacion|borrar-cotizacion', ['only' => ['index']]);
+        $this->middleware('permission:crear-cotizacion', ['only' => ['create','store']]);
+        $this->middleware('permission:impresion-cotizacion', ['only' => ['vistaTicket']]);
+        $this->middleware('permission:alta-cotizacion', ['only' => ['vistaTicket']]);
+        $this->middleware('permission:borrar-cotizacion', ['only' => ['destroy']]);
+    }
     
     /**
      * Display a listing of the resource.
@@ -143,16 +151,16 @@ class CotizacionPrendaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    { {
-            $cotizacionprenda = CotizacionPrenda::find($id);
+    { 
+           /*  $cotizacionprenda = CotizacionPrenda::find($id);
 
             return View::make('admin.EditarCotizacionPrenda')->with(
                 [
                     "dato_prenda_cotizar" => $cotizacionprenda
 
                 ]
-            );
-        }
+            ); */
+        
     }
     public function vistaaltacoti($id)
     { {
@@ -171,7 +179,7 @@ class CotizacionPrendaController extends Controller
 
     public function update(Request $request, $id)
     {
-        $cotizacionprenda = CotizacionPrenda::find($id);
+        /* $cotizacionprenda = CotizacionPrenda::find($id);
 
         $reglas = [
             "nombre_prenda" => "bail|required|min:3",
@@ -214,7 +222,7 @@ class CotizacionPrendaController extends Controller
         $cotizacionprenda->save();
 
 
-        return redirect()->route('cotizacionprenda.listado', []);
+        return redirect()->route('cotizacionprenda.listado', []); */
     }
     /**
      * Remove the specified resource from storage.
@@ -224,7 +232,8 @@ class CotizacionPrendaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        CotizacionPrenda::find($id)->delete();
+        return redirect()->route('cotizacionprenda.listado');
     }
 
 

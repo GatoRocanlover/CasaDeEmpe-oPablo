@@ -47,6 +47,7 @@
         <!-- MENU -->
         @include('layout.nav')
 
+        @can('crear-rol')
         <div class="text-center mt-4">
                     <h3 class="page__heading">Crear Rol</h3>
                 </div>
@@ -106,6 +107,9 @@
             <br>
             <br>
         </div>
+        @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>

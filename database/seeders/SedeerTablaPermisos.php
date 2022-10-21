@@ -30,6 +30,12 @@ class SedeerTablaPermisos extends Seeder
             'crear-cliente',
             'editar-cliente',
             'borrar-cliente',
+            //Operaciones sobre tabla clientes
+            'ver-cotizacion',
+            'crear-cotizacion',
+            'impresion-cotizacion',
+            'alta-cotizacion',
+            'borrar-cotizacion',
 
 
 

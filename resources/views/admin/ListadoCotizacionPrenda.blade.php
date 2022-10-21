@@ -105,11 +105,13 @@
                                 </div>
                             </form>
                         </div>
+                        @can('crear-cotizacion')
                         <div class="hover">
                             <a class="btn btn-success me-2 fw-bold" href="{{ route('cotizacion.agregar_prenda') }}"
                                 type="button"><i class="fa fa-plus-circle" style="font-size:20px"></i> &nbsp;AGREGAR
                                 COTIZACIÓN</a>
                         </div>
+                        @endcan
                     </div>
                     <div class="table-responsive">
                         <table class="table table-sm table-striped mt-8  ">
@@ -124,8 +126,15 @@
                                     <th scope="col">PORCENTAJE DE EVALUO</th>
                                     <th scope="col">PRESTAMO</th>
                                     <th scope="col">FECHA DE ALTA PRENDA</th>
+                                    @can('impresion-cotizacion')
                                     <th scope="col">IMPRIMIR</th>
+                                    @endcan
+                                    @can('alta-cotizacion')
                                     <th scope="col">ALTA BOLETA</th>
+                                    @endcan
+                                    @can('borrar-cotizacion')
+                                    <th scope="col">BORRAR <br>COTIZACIÓN</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -169,6 +178,7 @@
                                         </td>
                                         <td>{{ '$' . $prenda->prestamo_prenda }}</td>
                                         <td>{{ $prenda->created_at->format('d/m/Y') }}</td>
+                                        @can('impresion-cotizacion')
                                         <td>
                                             <br>
                                             <a class="nav-link text-center"
@@ -176,7 +186,8 @@
                                                 id="navbarDarkDropdownMenuLink" aria-expanded="false"><i
                                                     class="fa fa-print icons" style="font-size:30px;   "></i></a>
                                         </td>
-
+                                        @endcan
+                                        @can('alta-cotizacion')
                                         <td>
                                             <br>
                                             <a class="nav-link text-center"
@@ -184,8 +195,15 @@
                                                 id="navbarDarkDropdownMenuLink" aria-expanded="false"><i
                                                     class="fa fa-check-square icons" style="font-size:32px;"></i></a>
                                         </td>
-
+                                        @endcan
+                                        @can('borrar-cotizacion')
+                                        <td>
+                                            <br>
+                                        {!! Form::open(['method' => 'DELETE','route' => ['cotizacionprenda.destroy', $prenda->id_cotizacionprenda],'style'=>'display:inline']) !!}
+                                        {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
                                         </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>

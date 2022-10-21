@@ -122,7 +122,7 @@
             </div>
         @endif
 
-
+        @can('alta-cotizacion')
 
         <br>
         <form action="{{ Route('prenda.store') }}" method="POST" onsubmit="return enviar()" name="formulario_boleta"
@@ -344,6 +344,9 @@
             </div>
     </div>
     </form>
+    @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
