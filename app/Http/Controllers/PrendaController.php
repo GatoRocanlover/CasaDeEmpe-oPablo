@@ -154,7 +154,8 @@ class PrendaController extends Controller
                 'avaluo_prenda',
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
-                'prestamo_inicial'
+                'prestamo_inicial',
+                'numeros_refrendos'
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
             ->orWhereHas('cliente', function ($query) use ($request) {

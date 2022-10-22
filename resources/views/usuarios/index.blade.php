@@ -111,6 +111,8 @@
             @else
         <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
     @endcan
+
+    
 </body>
 
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
@@ -122,5 +124,32 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+@if (session('updateUsuario') == 'Se actualizo')
+<script>
+    /* Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'SE ACTUALIZO LA INFORMACIÓN!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }) */
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'SE ACTUALIZO LA INFORMACIÓN!'
+    })
+</script>
+@endif
 
 </html>

@@ -144,10 +144,14 @@
                             <td>$&nbsp;{{ $prenda->prestamo_prenda }}</td>
                             @can('imprimir-boleta-refrendo')
                             <td><a class="nav-link text-center" href="{{ route('boleta.vistaboleta', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
-                           @endcan
+                            @endcan
                             @can('imprimir-ticket-refrendo')
                             <td>
+                                @if ($prenda->numeros_refrendos ==0)
+                                NO HAY REFRENDOS REALIZADOS
+                                @else
                                 <a class="nav-link text-center" href="{{ route('boleta.vistarefre', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-file-text-o" style="font-size:30px"></i></a>
+                                @endif
                             </td>
                             @endcan
                         </tr>

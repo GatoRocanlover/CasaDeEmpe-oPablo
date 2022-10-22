@@ -116,4 +116,32 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 
+@if (session('updateRol') == 'Se actualizo')
+<script>
+    /* Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'SE ACTUALIZO LA INFORMACIÓN!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    }) */
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    Toast.fire({
+        icon: 'success',
+        title: 'SE ACTUALIZO LA INFORMACIÓN!'
+    })
+</script>
+@endif
+
 </html>

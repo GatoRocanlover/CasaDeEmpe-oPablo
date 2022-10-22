@@ -136,7 +136,7 @@ class UsuarioController extends Controller
 
         $user->assignRole($request->input('roles'));
 
-        return redirect()->route('usuarios.index');
+        return redirect()->route('usuarios.index')->with('updateUsuario', 'Se actualizo');
     }
 
     /**
