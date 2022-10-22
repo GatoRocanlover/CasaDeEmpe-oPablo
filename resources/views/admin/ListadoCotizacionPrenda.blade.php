@@ -79,6 +79,8 @@
 
 
             @include('layout.nav')
+
+            @can('ver-cotizacion')
         </div>
         @include('pdf.flash-message')
         <br>
@@ -217,6 +219,9 @@
             </div>
 
         </div>
+        @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 
 </body>
 

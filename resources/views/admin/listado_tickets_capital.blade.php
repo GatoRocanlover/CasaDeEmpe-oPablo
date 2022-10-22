@@ -60,6 +60,8 @@
             </div>
 
             @include('layout.nav')
+
+            @can('ver-listado-tickets-capital')
         </div>
 
         <br>
@@ -96,8 +98,12 @@
                                 <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                 <th scope="col">PRESTAMO<br>INICIAL</th>
                                 <th scope="col">NUEVO<br>SALDO</th>
+                                @can('imprimir-boleta-capital')
                                 <th scope="col">IMPRIMIR BOLETA</th>
+                                @endcan
+                                @can('imprimir-ticket-capital')
                                 <th scope="col">TICKET DE PAGO</th>
+                                @endcan
                             </tr>
                         </thead>
                         @foreach ($lista_prendas as $prenda)
@@ -139,21 +145,28 @@
                                 </td>
                                 <td>$&nbsp;{{ $prenda->prestamo_inicial }}</td>
                                 <td>$&nbsp;{{ $prenda->prestamo_prenda }}</td>
+                                @can('imprimir-boleta-capital')
                                 <td><a class="nav-link text-center"
                                         href="{{ route('boleta.vistaboleta', [$prenda->id_prendas]) }}"
                                         id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print"
                                             style="font-size:30px"></i></a></td>
-                                <td><a class="nav-link text-center"
+                                            @endcan
+                                @can('imprimir-ticket-capital')
+                                            <td><a class="nav-link text-center"
                                         href="{{ route('boleta.vistacapital', [$prenda->id_prendas]) }}"
                                         id="navbarDarkDropdownMenuLink" aria-expanded="false"><i
                                             class="fa fa-file-text-o" style="font-size:30px"></i></a></td>
                             </tr>
+                            @endcan
                         @endforeach
                     </table>
                     <div class="d-flex  justify-content-end">
                         {!! $lista_prendas->links() !!}
                     </div>
                 </div>
+                @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 

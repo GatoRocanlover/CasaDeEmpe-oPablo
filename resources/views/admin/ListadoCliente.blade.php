@@ -57,6 +57,7 @@
 
             @include('layout.nav')
 
+            @can('ver-cliente')
             <br>
             <br>
             <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
@@ -135,6 +136,9 @@
                     </div>
 
                 </div>
+                @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -44,6 +44,7 @@
             <!-- MENU -->
             @include('layout.nav')
 
+            @can('ver-usuario')
             <div class="text-center mt-4">
                 <h3 class="page__heading">Usuarios</h3>
             </div>
@@ -107,6 +108,9 @@
                     </div>
                 </div>
             </div>
+            @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>

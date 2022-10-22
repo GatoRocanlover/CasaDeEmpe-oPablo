@@ -400,11 +400,11 @@
                     <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" onchange="calcular66();" aria-label="Default select example">
 
                         <option selected value="">MES A REFRENDAR</option>
-                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}" data-refrendo_r="{{$dato_prenda->refrendo}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}" data-refrendo_r="{{$dato_prenda->refrendo}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}" data-refrendo_r="{{$dato_prenda->refrendo}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}" data-refrendo_r="{{$dato_prenda->refrendo}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}" data-refrendo_r="{{$dato_prenda->refrendo}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                     </select>
                 </div>
 
@@ -548,7 +548,7 @@
         /*         var porce2 = parseFloat(porce + porce1) */
         $("#prestamo4").val(formatear(porce.toFixed(2)))
         $("#totalpago1").val(porce.toFixed(2))
-        $("#multa2").val((porce/30).toFixed(2))
+      
         $("#total").val(porce.toFixed(2))
         $("#refrendo_anterior").val(porce.toFixed(2))
 
@@ -558,7 +558,7 @@
         $("#almacenaje_anterior").val($("#interesrefre option:selected").data("almacenaje"));
         $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
         $("#sub_refrendo").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
-
+        $("#multa2").val(($("#interesrefre option:selected").data("refrendo_r")/30).toFixed(2));
         
            }
     calcular();

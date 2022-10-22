@@ -20,17 +20,22 @@ class PrendaController extends Controller
 {
     public function __contruct()
     {
-        $this->middleware('permission:ver-listado-boletas|imprimir-boleta|ver-desempeño|pago-desempeño|ver-refrendo|pago-refrendo|ver-listado-tickets-refrendo|imprimir-ticket-refrendo|imprimir-boleta-refrendo', ['only' => ['index']]);
+        $this->middleware('permission:ver-listado-boletas|imprimir-boleta|ver-desempeño|pago-desempeño|pago-refrendo|ver-listado-tickets-refrendo|imprimir-ticket-refrendo|imprimir-boleta-refrendo|pago-capital|ver-listado-tickets-capital|imprimir-ticket-capital|imprimir-boleta-capital', ['only' => ['index']]);
         $this->middleware('permission:imprimir-boleta', ['only' => ['vistaboleta']]);
         //desempeño
         $this->middleware('permission:ver-desempeño', ['only' => ['PrendaPagar']]);
         $this->middleware('permission:pago-desempeño', ['only' => ['editPago']]);
         //refrendo
-        $this->middleware('permission:ver-refrendo', ['only' => ['editRefrendo']]);
         $this->middleware('permission:pago-refrendo', ['only' => ['editRefrendo']]);
         $this->middleware('permission:ver-listado-tickets-refrendo', ['only' => ['listado_tickets_refrendo']]);
         $this->middleware('permission:imprimir-ticket-refrendo', ['only' => ['vistarefreboleta']]);
         $this->middleware('permission:imprimir-boleta-refrendo');
+        //capital
+        $this->middleware('permission:pago-capital', ['only' => ['editCapital']]);
+        $this->middleware('permission:ver-listado-tickets-capital', ['only' => ['listado_tickets_capital']]);
+        $this->middleware('permission:imprimir-ticket-capital', ['only' => ['vistacapitalboleta']]);
+        $this->middleware('permission:imprimir-boleta-capital');
+
     }
 
 

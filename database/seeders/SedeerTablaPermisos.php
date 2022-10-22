@@ -51,6 +51,12 @@ class SedeerTablaPermisos extends Seeder
             'ver-listado-tickets-refrendo',
             'imprimir-ticket-refrendo',
             'imprimir-boleta-refrendo',
+            //Operaciones sobre tabla refrendo
+            'ver-capital',
+            'pago-capital',
+            'ver-listado-tickets-capital',
+            'imprimir-ticket-capital',
+            'imprimir-boleta-capital',
 
 
         ];

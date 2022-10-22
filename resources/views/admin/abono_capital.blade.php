@@ -84,7 +84,7 @@
       <!-- MENU -->
       @include('layout.nav')
 
-
+@can('ver-capital')
 
       <!-- <nav class="navbar mt-3 navbar-light bg-light">
         <form class="container-fluid justify-content-start">
@@ -121,9 +121,11 @@
                   </div>
                 </form>
               </div>
+              @can('ver-listado-tickets-capital')
               <div>
                 <a class="btn btn-success mt-2" href="{{route('listado_tickets_capital')}}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS Y TICKETS</a>
               </div>
+              @endcan
             </div>
             <div class="table-responsive">
               <table class="table table-sm table-striped">
@@ -139,7 +141,9 @@
                     <th class="text-center" scope="col">REFRENDOS</th>
                     <th class="text-center" scope="col">PRESTAMO INICIAL</th>
                     <th class="text-center" scope="col">PRESTAMO: SALDO</th>
+                    @can('pago-capital')
                     <th class="text-center" scope="col">REFRENDAR</th>
+                    @endcan
                   </tr>
                 </thead>
                 <tbody>
@@ -183,7 +187,7 @@
                     <td class="text-center">#{{$capital1->numeros_refrendos}}</td>
                     <td class="text-center">$&nbsp;{{$capital1->prestamo_inicial}}</td>
                     <td class="text-center">$&nbsp;{{$capital1->prestamo_prenda}}</td>
-
+                    @can('pago-capital')
                     <td class="text-center">
                       <br>
                       <a class="nav-link" href="{{route('Capital1.edit', [$capital1->id_prendas] )}}"
@@ -191,6 +195,7 @@
                                                         class="fas fa-cash-register icons"
                                                         style="font-size:30px;"></i></button></a>
                     </td>
+                    @endcan
                   </tr>
 
                   @endforeach
@@ -331,6 +336,9 @@
 
     </div>
   </div>
+  @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 
