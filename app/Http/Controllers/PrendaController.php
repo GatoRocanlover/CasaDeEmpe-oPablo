@@ -140,10 +140,11 @@ class PrendaController extends Controller
     {
 
         $search = trim($request->get('search'));
-        $lista_prendas = Prenda::orderBy('id_prendas', 'desc')
+        $lista_prendas = Prenda::orderBy('updated_at', 'desc')
             ->select(
                 'id_prendas',
                 'id_cliente',
+                'updated_at',
                 'folio_cotizacion',
                 'nombre_prenda',
                 'id_prendas',
@@ -173,9 +174,10 @@ class PrendaController extends Controller
     public function listado_tickets_capital(Request $request)
     {
         $search = trim($request->get('search'));
-        $lista_prendas = Prenda::orderBy('id_prendas', 'desc')
+        $lista_prendas = Prenda::orderBy('updated_at', 'desc')
             ->select(
                 'id_prendas',
+                'updated_at',
                 'id_cliente',
                 'folio_cotizacion',
                 'nombre_prenda',
@@ -187,7 +189,8 @@ class PrendaController extends Controller
                 'avaluo_prenda',
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
-                'prestamo_inicial'
+                'prestamo_inicial',
+                'numeros_capital'
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
             ->orWhereHas('cliente', function ($query) use ($request) {

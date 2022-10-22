@@ -105,15 +105,52 @@
 
                         @foreach ($lista_prendas as $prenda)
                         <tr>
-                            <th scope="row">{{ $prenda->id_prendas }}</th>
-                            <td>{{ $prenda->cliente->nombre_cliente }} {{ $prenda->cliente->apellido_cliente }}
+                            <th scope="row">
+                                
+                            @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->id_prendas }}
+                                @endif
+                                
+                           </th>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->cliente->nombre_cliente }} {{ $prenda->cliente->apellido_cliente }}
+                                @endif
+
                             </td>
-                            <td>{{ $prenda->nombre_prenda }}</td>
-                            <td>{{ $prenda->kilataje_prenda . 'k ' . ', ' . $prenda->gramaje_prenda . 'gr ' . ', ' . $prenda->caracteristicas_prenda }}
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->nombre_prenda }}
+                                @endif
+
+
                             </td>
-                            <td> {{ '$ ' . $prenda->avaluo_prenda }}</td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->kilataje_prenda . 'k ' . ', ' . $prenda->gramaje_prenda . 'gr ' . ', ' . $prenda->caracteristicas_prenda }}
+                                @endif
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ '$ ' . $prenda->avaluo_prenda }}
+                                @endif
+
+                            </td>
 
                             <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
                                 @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
                                 45 %
                                 @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
@@ -139,19 +176,44 @@
                                 @else
                                 100 %
                                 @endif
+                                @endif
+
+
                             </td>
-                            <td>$&nbsp;{{ $prenda->prestamo_inicial }}</td>
-                            <td>$&nbsp;{{ $prenda->prestamo_prenda }}</td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                $&nbsp;{{ $prenda->prestamo_inicial }}
+                                @endif
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                $&nbsp;{{ $prenda->prestamo_prenda }}
+                                @endif
+
+                            </td>
                             @can('imprimir-boleta-refrendo')
-                            <td><a class="nav-link text-center" href="{{ route('boleta.vistaboleta', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                <a class="nav-link text-center" href="{{ route('boleta.vistaboleta', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a>
+                                @endif
+
+                            </td>
                             @endcan
                             @can('imprimir-ticket-refrendo')
                             <td>
+
                                 @if ($prenda->numeros_refrendos ==0)
-                                NO HAY REFRENDOS REALIZADOS
                                 @else
                                 <a class="nav-link text-center" href="{{ route('boleta.vistarefre', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-file-text-o" style="font-size:30px"></i></a>
                                 @endif
+
                             </td>
                             @endcan
                         </tr>
