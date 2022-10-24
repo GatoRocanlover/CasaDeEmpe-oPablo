@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-<link href="">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
-<!-- Styles -->
-<link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
-<link href="{{ asset('dist/fontawesome/css/all.css') }}" rel="stylesheet">
-<link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
+
 
 <head>
 
@@ -25,6 +17,8 @@
     <!-- Styles -->
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/ListadoDesempeño.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/fontawesome/css/all.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet"
@@ -32,48 +26,6 @@
 
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-    </style>
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-
-        }
-
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-
-            width: 100%;
-        }
-
-        .tabla {
-            max-width: 90rem;
-        }
-
-        th {
-            text-align: center;
-            font-size: 16px;
-        }
-
-        .icons {
-            color: green;
-        }
-
-        .icons:hover {
-            color: #8E6E06;
-
-        }
-
-        a:hover i {
-            transform: scale(1.3);
-
-        }
-
-        .hover :hover {
-            background-color: #8E6E06;
-            border-color: #8E6E06;
-        }
     </style>
 
 </head>
@@ -100,16 +52,6 @@
         @include('layout.nav')
         @can('ver-desempeño')
 
-
-       <!--  <nav class="navbar mt-3 navbar-light bg-light">
-            <form class="container-fluid justify-content-start">
-                <button class="btn btn-success me-2" type="button">DESEMPEÑO</button>
-                <a class="btn btn-sm btn-outline-secondary me-2" type="button"
-                    href="{{ route('1refrendo') }}">REFRENDO</a>
-                <a class="btn btn-sm btn-outline-secondary" type="button" href="{{ route('1capital') }}">ABONO A
-                    CAPITAL</a>
-            </form>
-        </nav> -->
 
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
@@ -153,7 +95,7 @@
                                     <th class="text-center" scope="col">PRENDA</th>
                                     <th class="text-center" scope="col">NO. PRENDAS</th>
                                     <th class="text-center" scope="col">DESCRIPCION DE LA PRENDA</th>
-                                    <th class="text-center" scope="col">AVALUO</th>
+                                    <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                     <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
                                     <th class="text-center" scope="col">PRESTAMO</th>
                                     @can('pago-desempeño')
@@ -181,7 +123,7 @@
                                         <td class="text-center">{{ $prenda->cantidad_prenda }}</td>
                                         <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
                                         </td>
-                                        <td class="text-center"> {{ '$ ' . $prenda->avaluo_prenda }}</td>
+                                        <td class="text-center"> {{toMoney($prenda->avaluo_prenda)}}</td>
 
                                         <td class="text-center">
                                             @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
@@ -210,7 +152,7 @@
                                                 100 %
                                             @endif
                                         </td>
-                                        <td class="text-center">$&nbsp;{{ $prenda->prestamo_prenda }}</td>
+                                        <td class="text-center">{{toMoney($prenda->prestamo_prenda)}}</td>
                                         @can('pago-desempeño')
                                         <td class="text-center">
                                             <br>
@@ -232,123 +174,6 @@
 
                 </div>
 
-                <!-- ----------------------------------------------------------------------------->
-
-
-
-                <!--  <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">BUSCAR FOLIO DE BOLETA</label>
-                        <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Search</button>
-                    </div>
-                    -->
-                <!--    -->
-
-                <!--   <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">NUMERO DE BOLETA:</label>
-                        <input type="text" class="form-control" name="id_prendas" value="{{ old('id_prendas') }}" readonly>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">NOMBRE:</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">AVALUO:</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">PORCENTAJE DE PRESTAMO:</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">TOTAL DE PRESTAMO:</label>
-                        <input type="text" class="form-control" id="monto_1" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div> -->
-                <!--
-                    <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
-                        <button class="size50 bordes btn btn-primary navbar1 negritas" type="button" data-toggle="modal" data-target="#exampleModal"> PAGAR</button>
-                    </div> -->
-
-
-
-
-                <!-- Modal -->
-
-
-                <!--    <div class="modal fade mb-8" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">CONTINUAR PAGO</h5>
-                                    <button type="button" data-toggle="modal" data-target="#EjemploModal" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <table class="table">
-                                        <thead class="letra-blanca bg-dark">
-                                            <tr>
-                                                <th scope="col">NUMERO DE BOLETA</th>
-                                                <th scope="col">NOMBRE</th>
-                                                <th scope="col">PRESTAMO</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>PEDRO</td>
-                                                <td>$4,000</td>
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
-
-                                    <div class="mt-8 col-md-8">
-                                        <label for="validationCustom02" class="form-label ">MONTO:</label>
-                                        <input type="text" class="form-control" value="" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="mt-3 col-md-8">
-                                        <label for="validationCustom02" class="form-label">CAMBIO:</label>
-                                        <input type="text" class="form-control" id="validationCustom02" value="" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-                                    <button type="button" class="btn btn-primary">CONTINUAR</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
- -->
-
-                <!--  </form> -->
             </div>
         </div>
 
@@ -376,6 +201,4 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
-
-
 </html>

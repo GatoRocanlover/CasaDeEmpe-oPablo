@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/DesempeñoDato.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -27,130 +28,11 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        textarea {
-            width: 150px;
-            height: 120px;
-        }
-
-        .input2 {
-            background-color: #e9ecef;
-
-        }
-
-        .tamañoletra {
-            font-size: 30px;
-            font-weight: bold;
-
-        }
-
-        .letracambio {
-            font-size: 30px;
-            font-weight: bold;
-            color: red;
-        }
-
-        .tabla {
-            display: flex;
-            justify-content: center;
-
-        }
-
-        .align {
-            display: flex;
-            justify-content: center;
-        }
-
-        .tabla1 {
-            width: 65%;
-            height: 100%;
-            padding: 30px;
-            background-color: #eaeaea;
-        }
-
-        .tabla2 {
-
-            width: 30%;
-            height: 100%;
-            padding: 30px;
-            background-color: #f2f2f1;
-
-
-        }
-
-        .campo1 {
-            background-color: #f2f2f1;
-            color: black;
-        }
-
-        .letrapago {
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .letranom {
-            font-size: 20px;
-        }
-
-        .btnpago {
-            background-color: green;
-        }
-
-        .btnpago:hover {
-            background-color: blue;
-        }
-
-        .btn-secondary:hover {
-            background-color: red;
-        }
-
-        .caja {
-            margin: 30px;
-        }
-
-        .caja2 {
-            padding: 0;
-            margin: 20px;
-        }
-
-        .letra1 {
-            font-size: 16px;
-        }
-
-        .signo {
-            font-size: 28px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        table,
-        th {
-            font-size: 14px;
-        }
-
-        table {
-            background-color: white;
-            text-align: center;
-        }
-
-        .negro {
-            color: black;
-            background-color: white;
-        }
-    </style>
 
 </head>
 
 <body class="antialiased ">
-@can('pago-desempeño')
+    @can('pago-desempeño')
     <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
         <!-- encabezado -->
@@ -232,17 +114,17 @@
 
                                 <th>1° Mes</th>
 
-                                <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
+                                <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
 
-                                <td>$ {{ $dato_prenda->interes }}</td>
+                                <td>{{toMoney($dato_prenda->interes)}}</td>
 
-                                <td>$ {{ $dato_prenda->almacenaje }}</td>
+                                <td>{{toMoney($dato_prenda->almacenaje)}}</td>
 
-                                <td>$ {{ $dato_prenda->iva }}</td>
+                                <td>{{toMoney($dato_prenda->iva)}}</td>
 
-                                <td>$ {{ $dato_prenda->refrendo }}</td>
+                                <td>{{toMoney($dato_prenda->refrendo)}}</td>
 
-                                <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->desempeño }}</td>
+                                <td style="background-color: yellow;" class="fw-bold">{{toMoney($dato_prenda->desempeño)}}</td>
 
                                 <td>
                                     {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}
@@ -253,22 +135,22 @@
                                 <th>2° Mes</th>
 
                                 <td>
-                                    $ {{$dato_prenda->prestamo_prenda}}.00
+                                    {{toMoney($dato_prenda->prestamo_prenda)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->interes2}}
+                                    {{toMoney($dato_prenda->interes2)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->almacenaje2}}
+                                    {{toMoney($dato_prenda->almacenaje2)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->iva2}}
+                                    {{toMoney($dato_prenda->iva2)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->refrendo2}}
+                                    {{toMoney($dato_prenda->refrendo2)}}
                                 </td>
                                 <td style="background-color: yellow;" class="fw-bold">
-                                    $ {{$dato_prenda->desempeño2}}
+                                    {{toMoney($dato_prenda->desempeño2)}}
                                 </td>
                                 <td>
                                     {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}
@@ -278,22 +160,22 @@
                                 <th>3° Mes</th>
 
                                 <td>
-                                    $ {{$dato_prenda->prestamo_prenda}}.00
+                                    {{toMoney($dato_prenda->prestamo_prenda)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->interes3}}
+                                    {{toMoney($dato_prenda->interes3)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->almacenaje3}}
+                                    {{toMoney($dato_prenda->almacenaje3)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->iva3}}
+                                    {{toMoney($dato_prenda->iva3)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->refrendo3}}
+                                    {{toMoney($dato_prenda->refrendo3)}}
                                 </td>
                                 <td style="background-color: yellow;" class="fw-bold">
-                                    $ {{$dato_prenda->desempeño3}}
+                                    {{toMoney($dato_prenda->desempeño3)}}
                                 </td>
                                 <td>
                                     {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}
@@ -303,22 +185,22 @@
                                 <th>4° Mes</th>
 
                                 <td>
-                                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                                    {{toMoney($dato_prenda->prestamo_prenda)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->interes4}}
+                                    {{toMoney($dato_prenda->interes4)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->almacenaje4}}
+                                    {{toMoney($dato_prenda->almacenaje4)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->iva4}}
+                                    {{toMoney($dato_prenda->iva4)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->refrendo4}}
+                                    {{toMoney($dato_prenda->refrendo4)}}
                                 </td>
                                 <td style="background-color: yellow;" class="fw-bold">
-                                    $ {{$dato_prenda->desempeño4}}
+                                    {{toMoney($dato_prenda->desempeño4)}}
                                 </td>
                                 <td>
                                     {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}
@@ -328,22 +210,22 @@
                                 <th>5° Mes</th>
 
                                 <td>
-                                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                                    {{toMoney($dato_prenda->prestamo_prenda)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->interes5}}
+                                    {{toMoney($dato_prenda->interes5)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->almacenaje5}}
+                                    {{toMoney($dato_prenda->almacenaje5)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->iva5}}
+                                    {{toMoney($dato_prenda->iva5)}}
                                 </td>
                                 <td>
-                                    $ {{$dato_prenda->refrendo5}}
+                                    {{toMoney($dato_prenda->refrendo5)}}
                                 </td>
                                 <td style="background-color: yellow;" class="fw-bold">
-                                    $ {{$dato_prenda->desempeño5}}
+                                    {{toMoney($dato_prenda->desempeño5)}}
                                 </td>
                                 <td>
                                     {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
@@ -384,7 +266,7 @@
                                 PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
                         <label class="mt-2"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
                         <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
-                    <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>$ {{ $dato_prenda->prestamo_inicial}}</label>
+                        <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->prestamo_inicial)}}</label>
                     </div>
 
 
@@ -405,7 +287,7 @@
 
 
                     <div class="col-md-12 mt-3"><strong>SELECCIONE EL COBRO DEL MES:</strong></label>
-                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();"  aria-label="Default select example">
+                        <select class="form-select text-center mt-2" id="desempeño1" name="desempeño1" onchange="calcular();" aria-label="Default select example">
 
                             <option selected value="">MES A DESEMPEÑAR</option>
                             <option value="{{ $dato_prenda->desempeño }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-subtotal="{{$dato_prenda->subtotal}}" data-refrendo="{{$dato_prenda->refrendo}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
@@ -430,14 +312,14 @@
                             <div class="input-group has-validation ">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Dias:&nbsp;&nbsp;&nbsp;&nbsp;</span>
                                 <input type="number" id="multa" name="multa" onkeyUp="calcular2();" value="" class="form-control input_style tamañoletra text-center" placeholder="0">
-                                                           </div>
+                            </div>
                             <div class="input-group has-validation ">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Por dia:</span>
                                 <input type="number" id="multa2" name="multa2" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
                             </div>
                             <div class="input-group has-validation ">
                                 <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
-                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();"  class="form-control input_style text-center" disabled>
+                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
                             </div>
 
 
@@ -486,8 +368,8 @@
                 </div>
             </div>
             @else
-    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
-@endcan
+            <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
+            @endcan
 </body>
 
 <div class="mt-8">

@@ -101,31 +101,31 @@
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->interes_anterior_capi}}</td>
+      <td class="text-center numeros" >{{toMoney($dato_prenda->interes_anterior_capi)}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">ABONO A CAPITAL:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->abono_capital_capi}}</td>
+      <td class="text-center numeros" >{{toMoney($dato_prenda->abono_capital_capi)}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
-      <td class="text-center numeros " >${{$dato_prenda->almacenaje_anterior_capi}} </td>
+      <td class="text-center numeros " >{{toMoney($dato_prenda->almacenaje_anterior_capi)}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
-      <td class="text-center bordeup numeros" >${{$dato_prenda->sub_capital}} </td>
+      <td class="text-center bordeup numeros" >{{toMoney($dato_prenda->sub_capital)}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->iva_anterior_capi}} </td>
+      <td class="text-center numeros" >{{toMoney($dato_prenda->iva_anterior_capi)}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->recargo_des_capi}} </td>
+      <td class="text-center numeros" >{{toMoney($dato_prenda->recargo_des_capi)}} </td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
-      <td class="text-center bordeup numeros" >${{$dato_prenda->total_capi}}</td>
+      <td class="text-center bordeup numeros" >{{toMoney($dato_prenda->total_capi)}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>
@@ -138,11 +138,11 @@
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">PAGO RECIBIDO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->cantidad_pago_capi}}</td>
+      <td class="text-center numeros" >{{toMoney($dato_prenda->cantidad_pago_capi)}}</td>
     </tr>
     <tr>
       <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
-      <td class="text-center numeros" >${{$dato_prenda->cambio_boleta_capi}}</td>
+      <td class="text-center numeros" >{{toMoney($dato_prenda->cambio_boleta_capi)}}</td>
     </tr>
     <tr>
       <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
@@ -171,11 +171,11 @@
     </tr>
     <tr>
       <td colspan="2" class="textderecha fw-bold">SALDO ANTERIOR:</td>
-      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_anterior_capi}}</td>
+      <td colspan="2">&nbsp;&nbsp;{{toMoney($dato_prenda->importe_anterior_capi)}}</td>
     </tr>
     <tr>
       <td colspan="2" class="textderecha fw-bold">SALDO ACTUAL:</td>
-      <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_actual_capi}}</td>
+      <td colspan="2">&nbsp;&nbsp;{{toMoney($dato_prenda->importe_actual_capi)}}</td>
     </tr>
     <tr>
       <td colspan="4">&nbsp;</td>

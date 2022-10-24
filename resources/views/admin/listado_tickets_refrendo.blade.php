@@ -20,27 +20,6 @@
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        th {
-            text-align: center;
-        }
-
-        td {
-            text-align: center;
-        }
-
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body class="antialiased ">
@@ -90,10 +69,10 @@
                                 <th scope="col">CLIENTE</th>
                                 <th scope="col">PRENDA</th>
                                 <th scope="col">CARACTERISTICAS</th>
-                                <th scope="col">AVALUO</th>
+                                <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                 <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                 <th scope="col">PRESTAMO<br>INICIAL</th>
-                                <th scope="col">NUEVO<br>SALDO</th>
+                                <th scope="col">NUEVO<br>&nbsp;&nbsp;&nbsp;SALDO&nbsp;&nbsp;&nbsp;</th>
                                 @can('imprimir-boleta-refrendo')
                                 <th scope="col">IMPRIMIR BOLETA</th>
                                 @endcan
@@ -142,7 +121,7 @@
 
                                 @if ($prenda->numeros_refrendos ==0)
                                 @else
-                                {{ '$ ' . $prenda->avaluo_prenda }}
+                                {{toMoney($prenda->avaluo_prenda)}}
                                 @endif
 
                             </td>
@@ -184,7 +163,7 @@
 
                                 @if ($prenda->numeros_refrendos ==0)
                                 @else
-                                $&nbsp;{{ $prenda->prestamo_inicial }}
+                                {{toMoney($prenda->prestamo_inicial)}}
                                 @endif
 
                             </td>
@@ -192,7 +171,7 @@
 
                                 @if ($prenda->numeros_refrendos ==0)
                                 @else
-                                $&nbsp;{{ $prenda->prestamo_prenda }}
+                                {{toMoney($prenda->prestamo_prenda)}}
                                 @endif
 
                             </td>

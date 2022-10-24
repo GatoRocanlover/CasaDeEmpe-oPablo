@@ -141,3 +141,39 @@ video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;
 .dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}
 .dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}
 .dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
+.searchSep {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+    }
+    body {
+        font-family: 'Nunito', sans-serif;
+    }
+    tr th {
+        text-align: center;
+    }
+    tr td {
+        text-align: center;
+    }
+    .letracliente{
+        font-size: 12px;
+    }
+    .hover :hover {
+        background-color: #8E6E06;
+        border-color: #8E6E06;
+    }
+
+    .icons {
+        color: green;
+    }
+
+    .icons:hover {
+        color: #8E6E06;
+
+    }
+
+    a:hover i {
+        transform: scale(1.3);
+
+    }

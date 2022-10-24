@@ -21,44 +21,6 @@
     <link href="{{ asset('dist/fontawesome/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        th {
-            text-align: center;
-        }
-
-        .hover :hover {
-            background-color: #8E6E06;
-            border-color: #8E6E06;
-        }
-
-        td {
-            text-align: center;
-        }
-
-        .icons {
-            color: green;
-        }
-
-        .icons:hover {
-            color: #8E6E06;
-
-        }
-
-        a:hover i {
-            transform: scale(1.3);
-
-        }
-    </style>
 </head>
 
 <body class="antialiased ">
@@ -124,7 +86,7 @@
                                     <th scope="col">PRENDA</th>
                                     <th scope="col">DESCIPCIÓN GENERICA</th>
                                     <th scope="col">CARACTERISTICAS</th>
-                                    <th scope="col">AVALUO</th>
+                                    <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                     <th scope="col">PORCENTAJE DE EVALUO</th>
                                     <th scope="col">PRESTAMO</th>
                                     <th scope="col">FECHA DE ALTA PRENDA</th>
@@ -149,7 +111,7 @@
                                         </td>
                                         <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
                                         </td>
-                                        <td> {{ '$ ' . $prenda->avaluo_prenda }}</td>
+                                        <td> {{toMoney($prenda->avaluo_prenda)}}</td>
 
                                         <td>
                                             @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
@@ -178,7 +140,7 @@
                                                 100 %
                                             @endif
                                         </td>
-                                        <td>{{ '$' . $prenda->prestamo_prenda }}</td>
+                                        <td>{{toMoney($prenda->prestamo_prenda)}}</td>
                                         <td>{{ $prenda->created_at->format('d/m/Y') }}</td>
                                         @can('impresion-cotizacion')
                                         <td>

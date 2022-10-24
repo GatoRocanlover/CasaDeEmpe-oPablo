@@ -21,23 +21,6 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        tr th {
-            text-align: center;
-        }
-
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-
-            width: 100%;
-        }
-    </style>
-
 </head>
 
 <body class="antialiased ">
@@ -143,6 +126,7 @@
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
+<script src="{{ asset('dist/js/ListadoCliente.js') }}"></script>
 @if (session('registro') == 'RegistroCliente')
 <script>
     Swal.fire(

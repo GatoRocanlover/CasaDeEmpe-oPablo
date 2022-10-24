@@ -17,15 +17,6 @@
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-        table th {
-            text-align: center;
-        }
-    </style>
-
 </head>
 
 <body class="antialiased ">

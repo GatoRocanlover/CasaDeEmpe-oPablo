@@ -33,39 +33,6 @@
     /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
   </style>
 
-  <style>
-    body {
-      font-family: 'Nunito', sans-serif;
-
-    }
-
-    .searchSep {
-      display: flex;
-      justify-content: space-between;
-
-      width: 100%;
-    }
-
-    .icons {
-      color: green;
-    }
-
-    .icons:hover {
-      color: #8E6E06;
-
-    }
-
-    a:hover i {
-      transform: scale(1.3);
-
-    }
-
-    .hover :hover {
-      background-color: #8E6E06;
-      border-color: #8E6E06;
-    }
-  </style>
-
 </head>
 
 <body class="antialiased ">
@@ -86,17 +53,8 @@
       <!-- MENU -->
       @include('layout.nav')
 
-@can('ver-refrendo')
+      @can('ver-refrendo')
 
-     <!--  <nav class="navbar mt-3 navbar-light bg-light">
-        <form class="container-fluid justify-content-start">
-          @can('ver-desempeño')
-          <a class="btn btn-sm btn-outline-secondary me-2" href="{{route('Pagar')}}" type="button">DESEMPEÑO</a>
-          @endcan
-          <a class="btn btn-success me-2" type="button">REFRENDO</a>
-          <a class="btn btn-sm btn-outline-secondary" type="button" href="{{route('1capital')}}">ABONO A CAPITAL</a>
-        </form>
-      </nav> -->
 
       <br>
       <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
@@ -138,7 +96,7 @@
                     <th class="text-center" scope="col">CLIENTE</th>
                     <th class="text-center" scope="col">PRENDA</th>
                     <th class="text-center" scope="col">DESCRIPCION</th>
-                    <th class="text-center" scope="col">AVALUO</th>
+                    <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                     <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
                     <th class="text-center" scope="col">REFRENDOS</th>
                     <th class="text-center" scope="col">PRESTAMO INICIAL</th>
@@ -158,7 +116,7 @@
 
                     <td>{{$refrendo1->nombre_prenda}}</td>
                     <td>{{$refrendo1->caracteristicas_prenda.'.'.' '.' / '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$refrendo1->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$refrendo1->gramaje_prenda.'gr'}}</td>
-                    <td class="text-center"> {{'$ '.$refrendo1->avaluo_prenda}}</td>
+                    <td class="text-center"> {{toMoney($refrendo1->avaluo_prenda)}}</td>
 
                     <td class="text-center"> @IF($refrendo1->porcentaje_prestamo_sobre_avaluo == 45)
                       45 %
@@ -187,8 +145,8 @@
                       @endif
                     </td>
                     <td class="text-center">#{{$refrendo1->numeros_refrendos}}</td>
-                    <td class="text-center">$&nbsp;{{$refrendo1->prestamo_inicial}}</td>
-                    <td class="text-center">$&nbsp;{{$refrendo1->prestamo_prenda}}</td>
+                    <td class="text-center">{{toMoney($refrendo1->prestamo_inicial)}}</td>
+                    <td class="text-center">{{toMoney($refrendo1->prestamo_prenda)}}</td>
                     @can('pago-refrendo')
                     <td class="text-center">
                       <br>
@@ -208,124 +166,6 @@
             </div>
 
           </div>
-
-          <!-- ----------------------------------------------------------------------------->
-
-
-
-          <!--  <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">BUSCAR FOLIO DE BOLETA</label>
-                        <input class="form-control  mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Search</button>
-                    </div>
-                    -->
-          <!--    -->
-
-          <!--   <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">NUMERO DE BOLETA:</label>
-                        <input type="text" class="form-control" name="id_prendas" value="{{old('id_prendas')}}" readonly>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="validationCustom01" class="form-label">NOMBRE:</label>
-                        <input type="text" class="form-control" id="validationCustom01" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">AVALUO:</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">PORCENTAJE DE PRESTAMO:</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-8">
-                        <label for="validationCustom02" class="form-label">TOTAL DE PRESTAMO:</label>
-                        <input type="text" class="form-control" id="monto_1" value="" required>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                    </div> -->
-          <!-- 
-                    <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
-                        <button class="size50 bordes btn btn-primary navbar1 negritas" type="button" data-toggle="modal" data-target="#exampleModal"> PAGAR</button>
-                    </div> -->
-
-
-
-
-          <!-- Modal -->
-
-
-          <!--    <div class="modal fade mb-8" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">CONTINUAR PAGO</h5>
-                                    <button type="button" data-toggle="modal" data-target="#EjemploModal" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <table class="table">
-                                        <thead class="letra-blanca bg-dark">
-                                            <tr>
-                                                <th scope="col">NUMERO DE BOLETA</th>
-                                                <th scope="col">NOMBRE</th>
-                                                <th scope="col">PRESTAMO</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>PEDRO</td>
-                                                <td>$4,000</td>
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
-
-                                    <div class="mt-8 col-md-8">
-                                        <label for="validationCustom02" class="form-label ">MONTO:</label>
-                                        <input type="text" class="form-control" value="" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-                                    <div class="mt-3 col-md-8">
-                                        <label for="validationCustom02" class="form-label">CAMBIO:</label>
-                                        <input type="text" class="form-control" id="validationCustom02" value="" required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
-                                    <button type="button" class="btn btn-primary">CONTINUAR</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
- -->
-
-          <!--  </form> -->
         </div>
       </div>
 
@@ -336,8 +176,8 @@
     </div>
   </div>
   @else
-        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
-    @endcan
+  <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
+  @endcan
 </body>
 
 

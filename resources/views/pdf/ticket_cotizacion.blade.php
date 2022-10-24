@@ -88,7 +88,7 @@
             </tr>
             <tr>
                 <td class="textderecha fw-bold">PRECIO {{$dato_tickecoti->descripcion_generica}}: &nbsp;&nbsp;</td>
-                <td class="text-center">$ {{$dato_tickecoti->valor_oro_plata}}</td>
+                <td class="text-center">{{toMoney($dato_tickecoti->valor_oro_plata)}}</td>
                 <td class="textderecha fw-bold">PESO:&nbsp;&nbsp;</td>
                 <td class="text-center">{{$dato_tickecoti->gramaje_prenda}} gr</td>
             </tr>
@@ -102,11 +102,11 @@
             </tr>
             <tr>
                 <td class="textderecha fw-bold">PRECIO DE&nbsp;&nbsp; <br>AVALUO:&nbsp;&nbsp;</td>
-                <td class="text-center">$ {{$dato_tickecoti->avaluo_prenda}}</td>
+                <td class="text-center">{{toMoney($dato_tickecoti->avaluo_prenda)}}</td>
             </tr>
             <tr>
                 <td class="textderecha fw-bold">PRESTAMO:&nbsp;&nbsp;</td>
-                <td class="text-center">$ {{$dato_tickecoti->prestamo_prenda}}</td>
+                <td class="text-center">{{toMoney($dato_tickecoti->prestamo_prenda)}}</td>
             </tr>
             <tr>
                 <th colspan="4" class="text-center">

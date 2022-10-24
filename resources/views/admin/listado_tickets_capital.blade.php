@@ -90,10 +90,10 @@
                                 <th scope="col">CLIENTE</th>
                                 <th scope="col">PRENDA</th>
                                 <th scope="col">CARACTERISTICAS</th>
-                                <th scope="col">AVALUO</th>
+                                <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                 <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                 <th scope="col">PRESTAMO<br>INICIAL</th>
-                                <th scope="col">NUEVO<br>SALDO</th>
+                                <th scope="col">NUEVO<br>&nbsp;&nbsp;&nbsp;SALDO&nbsp;&nbsp;&nbsp;</th>
                                 @can('imprimir-boleta-capital')
                                 <th scope="col">IMPRIMIR BOLETA</th>
                                 @endcan
@@ -135,7 +135,7 @@
                             <td>
                                 @if ($prenda->numeros_capital ==0)
                                 @else
-                                {{ '$ ' . $prenda->avaluo_prenda }}
+                                {{toMoney($prenda->avaluo_prenda)}}
                                 @endif
 
 
@@ -176,14 +176,14 @@
 
                                 @if ($prenda->numeros_capital ==0)
                                 @else
-                                $&nbsp;{{ $prenda->prestamo_inicial }}
+                                {{toMoney($prenda->prestamo_inicial)}}
                                 @endif
 
                             </td>
                             <td>
                                 @if ($prenda->numeros_capital ==0)
                                 @else
-                                $&nbsp;{{ $prenda->prestamo_prenda }}
+                                {{toMoney($prenda->prestamo_prenda)}}
                                 @endif
 
                             </td>
