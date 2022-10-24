@@ -6,15 +6,13 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\CotizacionPrendaController;
 use App\Http\Controllers\PrendaController;
 use App\Http\Controllers\RefrendoController;
-use App\Http\Controllers\TicketController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\UsuarioController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CapitalController;
+use App\Http\Controllers\AjaxController;
+use App\Models\CotizacionPrenda;
+use App\Http\Controllers\ExcelReporteController;
 
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
+Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
 
 Route::group(['middleware' => ['auth']], function () {
 

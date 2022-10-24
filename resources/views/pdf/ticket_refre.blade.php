@@ -50,14 +50,14 @@
 
   <body>
 
-    <table>
-      <tr>
-        <th class="text-center" colspan="4">
-          <strong>Asociados Nueva Mutua S.A de C.V.</strong><br>
-          RFC: ANM-180517PD6 <br>
-          MATRIZ: CALLE 23 NO. 100-B x 19 Y 20 <br>
-          Col. Centro Umán, Yucatán, <br>
-          México. C.P.97390
+  <table>
+    <tr>
+      <th class="text-center" colspan="4">
+        <strong>Asociados Nueva Mutua de Umán S.A de C.V.</strong><br>
+        RFC: ANM-180517PD6 <br>
+        MATRIZ: CALLE 23 NO. 100-B x 19 Y 20 <br>
+        Col. Centro Umán, Yucatán, <br>
+        México. C.P.97390
 
         </th>
       </tr>
