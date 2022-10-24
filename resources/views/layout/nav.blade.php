@@ -78,7 +78,7 @@
             REPORTES
           </a>
           <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{route('Pagar')}}">CLIENTES</a></li>
+            <li><a class="dropdown-item" href="{{route('reporte.excel1')}}">CLIENTES</a></li>
             <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">BOLETAS</a></li>
             <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">CONCENTRADO</a></li>
           </ul>

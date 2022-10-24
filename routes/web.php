@@ -11,9 +11,10 @@ use App\Http\Controllers\RefrendoController;
 use App\Http\Controllers\CapitalController;
 use App\Http\Controllers\AjaxController;
 use App\Models\CotizacionPrenda;
-use App\Http\Controllers\ExportController;
+use App\Http\Controllers\ExcelReporteController;
 
 Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
+Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
 
 Route::prefix('admin')->group(function () {
 
@@ -95,4 +96,3 @@ Route::prefix('admin')->group(function () {
 
 Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
 
- Route::get('exportfile', 'ExportController@export');
