@@ -9,10 +9,12 @@ use App\Http\Controllers\RefrendoController;
 use App\Http\Controllers\TicketController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsuarioController;
-use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelReporteController;
+use App\Http\Controllers\RolController;
+use App\Http\Controllers\ExcelReporteController;
+
 
 Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
@@ -85,8 +87,30 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
-   
+
+
+    Route::get('Capital_prenda/{id}', [PrendaController::class, 'editCapital'])->name('Capital1.edit');
+
+    Route::get('/boleta', function () {
+        return view('pdf.boleta');
+    })->name('Boleta_pagar');
+
+    Route::get('ticket_impre/{id}', [TicketController::class, 'vistaTicket'])->name('ticket.vistaTicket');
+    Route::get('boleta_cliente/{id}', [PrendaController::class, 'vistaboleta'])->name('boleta.vistaboleta');
+    Route::get('ticket_refre/{id}', [PrendaController::class, 'vistarefreboleta'])->name('boleta.vistarefre');
+    Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
+    Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+
+
+
+
+  /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
+   /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
 });
+
+Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+
+
 
 // Otros
 /* Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion'); */
