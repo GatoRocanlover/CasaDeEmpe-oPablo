@@ -175,14 +175,14 @@
 
                 <div class="col-md-4">
                     <label for="nombre_cotitular" class="form-label">NOMBRE(S) </label>
-                    <input type="text" name="nombre_cotitular" class="form-control" id="nombre_cotitular" placeholder="Nombres Cotitular" required>
+                    <input type="text" name="nombre_cotitular" class="form-control" id="nombre_cotitular"  onkeyup="PasarNombre();" required>
                     <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
                 </div>
                 <div class="col-md-4">
                     <label for="apellido_cotitular" class="form-label">APELLIDO(S)</label>
-                    <input type="text" name="apellido_cotitular" class="form-control" id="apellido_cotitular" placeholder="Apellidos Cotitular" required>
+                    <input type="text" name="apellido_cotitular" class="form-control" id="apellido_cotitular" onkeyup="PasarApellido();" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
@@ -239,14 +239,17 @@
                 <label for="validationCustom03" class="form-label">DATOS DEL BENEFICIARIO</label>
                 <div class="col-md-6">
                     <label for="nombre_beneficiario" class="form-label">NOMBRE(S)</label>
-                    <input type="text" name="nombre_beneficiario" class="form-control" id="nombre_beneficiario" placeholder="Nombre del beneficiario" required>
+                    <input type="text" name="nombre_beneficiario" class="form-control" id="nombre_beneficiario"  readonly>
                     <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
                 </div>
+    
                 <div class="col-md-6">
                     <label for="apellido_beneficiario" class="form-label">APELLIDO(S)</label>
-                    <input type="text" name="apellido_beneficiario" class="form-control" id="apellido_beneficiario" placeholder="Apellidos del beneficiario" required>
+                    <input type="text" name="apellido_beneficiario" class="form-control" id="apellido_beneficiario"  readonly
+                    
+                    >
                     <div class="invalid-feedback">
                         Please provide a valid city.
                     </div>
@@ -268,3 +271,41 @@
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>
 <script src="{{asset('dist/js/AgregarCliente.js')}}"></script>
 </html>
+<script>
+     function PasarNombre()
+{
+document.getElementById("nombre_beneficiario").value = document.getElementById("nombre_cotitular").value;
+}
+function PasarApellido()
+{
+document.getElementById("apellido_beneficiario").value = document.getElementById("apellido_cotitular").value;
+} 
+
+     function enviar() {
+    event.preventDefault();
+
+    Swal.fire({
+title: '¿DESEA REGISTRAR EL CLIENTE?',
+text: "Esta seguro que desea realizar esta operación!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'SI, DESEO REGISTRAR EL CLIENTE!',
+cancelButtonText: "No"
+}).then((result) => {
+if (result.value) {
+document.registroCliente.submit();
+/* Swal.fire(
+  'Deleted!',
+  'Your file has been deleted.',
+  'success'
+)
+ */
+}
+})
+}
+</script>
+
+</html>
+<!-- -->

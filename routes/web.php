@@ -12,8 +12,10 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ExcelReporteController;
 
-Auth::routes();
+Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
+Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
 
 Route::group(['middleware' => ['auth']], function () {
 
@@ -92,6 +94,6 @@ Route::group(['middleware' => ['auth']], function () {
 
 /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
 /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
-/* }); */
+/* }); 
 
-//https://github.com/infodp checarjaj
+//https://github.com/infodp checarjaj*/

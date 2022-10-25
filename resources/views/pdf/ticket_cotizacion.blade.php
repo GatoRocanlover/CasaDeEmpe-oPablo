@@ -44,7 +44,7 @@
 
                         </div>
                         <div>
-                            Asociados Nueva Mutua S.A. DE C.V. <br>
+                            Asociados Nueva Mutua de Umán S.A. DE C.V. <br>
                             RFC: ANM-180517PD6 <br>
                             Matriz: Calle 23 Nº 100-B x 18 y20<br>
                             Col. Centro, Umán, Yucatán, C.P. 97390

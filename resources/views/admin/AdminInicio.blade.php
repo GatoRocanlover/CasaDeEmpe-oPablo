@@ -22,27 +22,26 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 
-    <style>
-        body {
-
-            font-family: 'Nunito', sans-serif;
-
-        }
-    </style>
-
-</head>
-
-<body class="antialiased ">
-    <div class="sinborde relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-
-        <!-- encabezado -->
-        <div class="size">
-            <div class="navbar1 flex size">
-                <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIADOS NUEVA MUTUA DE UMÁN S.A. DE C.V.</a></div>
-
-            </div>
-
-            @include('layout.nav')
+        <style>
+            body {
+                
+                font-family: 'Nunito', sans-serif;  
+               
+            }
+        </style>
+        
+    </head>
+    <body class="antialiased ">
+        <div class="sinborde relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+           
+ <!-- encabezado -->
+            <div class="size">
+                <div class="navbar1 flex size">
+                    <div class="mx-auto ml-2 titulo  texto-grande size"> CASA DE EMPEÑOS <br> ASOCIADOS NUEVA MUTUA DE UMÁN S.A. DE C.V.</a></div>
+                
+                </div>
+                
+                @include('layout.nav')
 
             <div class="max-w-6xl mx-auto flex .sm\:items-center texto">
                 <div class="max-w-6xl size  flex items-center justify-center ">
