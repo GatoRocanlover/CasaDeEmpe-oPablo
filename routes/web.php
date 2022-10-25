@@ -12,6 +12,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\RolController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DesempeñoController;
 
 Auth::routes();
 
@@ -84,6 +85,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/refrendo', [RefrendoController::class, 'refrendopago'])->name('1refrendo');
     Route::get('/capital', [CapitalController::class, 'capitalpago'])->name('1capital');
    
+    Route::get('desempeños', [DesempeñoController::class, 'index'])->name('desempeños');
+    Route::get('boleta_desempeñada/{id}', [DesempeñoController::class, 'vistaboleta'])->name('boleta_desempeño.vistaboleta');
+
+
 });
 
 // Otros

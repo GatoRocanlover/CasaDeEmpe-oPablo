@@ -17,7 +17,7 @@ class TicketsDesempeño extends Model
         'nombre_prenda',
         'cantidad_prenda',
         'descripcion_generica',
-        'caracteristicas_prenda',
+        'caracteristicas_prenda1',
         'prestamo_prenda',
         'cantidad_pago',
         'cambio_boleta',

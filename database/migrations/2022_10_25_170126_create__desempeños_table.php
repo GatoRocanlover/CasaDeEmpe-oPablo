@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTablePrendas extends Migration
+class CreateDesempeñosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreateTablePrendas extends Migration
      */
     public function up()
     {
-        Schema::create('prendas', function (Blueprint $table) {
+        Schema::create('desempeños', function (Blueprint $table) {
 
 
             $table->id('id_prendas');
             $table->string('folio_cotizacion', 20);
+            $table->string('id_cliente', 20);
             $table->string('nombre_prenda', 90);
             $table->string('descripcion_generica');
             $table->float('kilataje_prenda', 20);
             $table->float('gramaje_prenda', 30);
             $table->longText('caracteristicas_prenda');
+            $table->float('cantidad_prenda', 30);
             $table->float('avaluo_prenda', 30);
             $table->float('porcentaje_prestamo_sobre_avaluo');
             $table->float('prestamo_inicial', 20);
@@ -80,8 +82,8 @@ class CreateTablePrendas extends Migration
             $table->float('iva_anterior', 30);
             $table->float('refrendo_anterior', 30);
             $table->float('numeros_refrendos', 30);
-            $table->float('cantidad_pago', 30);    
-            $table->float('cambio_boleta', 30);
+            $table->float('cantidad_pago1', 30);    
+            $table->float('cambio_boleta1', 30);
             $table->string('folio_refrendo', 40);
             $table->float('sub_refrendo', 30);
             $table->float('total', 50);
@@ -106,7 +108,7 @@ class CreateTablePrendas extends Migration
             $table->float('recargo_des_capi', 30);
             $table->float('numeros_capital', 30);
             $table->dateTime('hora_capital')->nullable()->default(null);
-            $table->float('status')->nullable()->default(null);
+            $table->string('status')->nullable()->default(null);
             $table->timestamps();
         });
     }
@@ -118,6 +120,6 @@ class CreateTablePrendas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prendas');
+        Schema::dropIfExists('desempeños');
     }
 }

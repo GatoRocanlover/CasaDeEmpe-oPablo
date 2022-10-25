@@ -17,11 +17,11 @@ class CreateTicketsDesempeñoTable extends Migration
             $table->id('id_folio');
             $table->string('id_prendas', 30); 
             $table->string('promedio_socio', 30);  
-            $table->string('nombre_cliente', 35);
+            $table->string('nombre_cliente', 90);
             $table->string('nombre_prenda', 90);
             $table->float('cantidad_prenda', 30);
             $table->string('descripcion_generica');
-            $table->string('caracteristicas_prenda',300);
+            $table->string('caracteristicas_prenda1',300);
             $table->float('prestamo_prenda', 30);
             $table->float('cantidad_pago', 30);    
             $table->float('cambio_boleta', 30);

@@ -57,6 +57,9 @@ class SedeerTablaPermisos extends Seeder
             'ver-listado-tickets-capital',
             'imprimir-ticket-capital',
             'imprimir-boleta-capital',
+             //Operaciones sobre tabla boletas-desempeñadas
+             'ver-listado-boletas-desempeñadas',
+             'ver-boleta-desempeñada',
 
 
         ];
