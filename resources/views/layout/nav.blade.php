@@ -16,7 +16,7 @@
                         CLIENTE
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <!-- <li><a class="dropdown-item"href="{{ route('agregar_cliente') }}">AGREGAR</a></li> -->
+                        
                         <li><a class="dropdown-item" href="{{ route('listado_cliente') }}">LISTADO DE CLIENTES</a></li>
                     </ul>
                 </li>
@@ -36,19 +36,7 @@
                 </li>
             </ul>
         </div>
-        <!-- <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            CONTRATO
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{ route('generar_boleta') }}">GENERAR</a></li>
-            <li><a class="dropdown-item" href="{{ route('listado_boleta') }}">LISTADO </a></li>
-          </ul>
-        </li>
-      </ul>
-    </div> -->
+       
         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
@@ -57,7 +45,7 @@
                         USUARIO
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                      <!--   <li><a class="dropdown-item" href="{{ route('register') }}">AGREGAR</a></li>-->
+                     
                        
                         <li><a class="dropdown-item" href="{{ route('usuarios.index') }}">LISTA DE USUARIOS</a></li>
                         <li><a class="dropdown-item" href="{{ route('roles.index') }}">ROLES</a></li>
@@ -89,8 +77,8 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                 <li><a class="dropdown-item" href="{{route('reporte.excel1')}}">CLIENTES</a></li>
-                <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">BOLETAS</a></li>
-                <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">CONCENTRADO</a></li>
+                <li><a class="dropdown-item" href="{{route('reporte.excel1')}}">BOLETAS</a></li>
+                <li><a class="dropdown-item" href="{{route('reporte.excel1')}}">CONCENTRADO</a></li>
               </ul>
             </li>
           </ul>
