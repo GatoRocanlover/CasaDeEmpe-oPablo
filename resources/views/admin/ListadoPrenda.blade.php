@@ -20,24 +20,6 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        th {
-            text-align: center;
-        }
-
-        td {
-            text-align: center;
-        }
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body class="antialiased ">
@@ -54,6 +36,8 @@
             </div>
 
             @include('layout.nav')
+
+            @can('ver-listado-boletas')
         </div>
 
         <br>
@@ -85,10 +69,12 @@
                                 <th scope="col">CLIENTE</th>
                                 <th scope="col">PRENDA</th>
                                 <th scope="col">CARACTERISTICAS</th>
-                                <th scope="col">AVALUO</th>
+                                <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;&nbsp;</th>
                                 <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
-                                <th scope="col">PRESTAMO</th>
+                                <th scope="col">&nbsp;&nbsp;PRESTAMO&nbsp;&nbsp;</th>
+                                @can('imprimir-boleta')
                                 <th scope="col">IMPRIMIR BOLETA</th>
+                                @endcan
                             </tr>
                         </thead>
                       
@@ -99,7 +85,7 @@
                                 <td>{{$prenda->cliente->nombre_cliente}} {{$prenda->cliente->apellido_cliente}}</td>
                                 <td>{{$prenda->nombre_prenda}}</td>
                                 <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
-                                <td> {{'$ '.$prenda->avaluo_prenda}}</td>
+                                <td> {{toMoney($prenda->avaluo_prenda)}}</td>
 
                                 <td> @IF($prenda->porcentaje_prestamo_sobre_avaluo == 45)
                                     45 %
@@ -127,9 +113,10 @@
                                     100 %
                                     @endif
                                 </td>
-                                <td>$&nbsp;{{$prenda->prestamo_prenda}}</td>
+                                <td>{{toMoney($prenda->prestamo_prenda)}}</td>
+                                @can('imprimir-boleta')
                                 <td><a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
-
+                                @endcan
                             </tr>             
                         @endforeach
                     </table>
@@ -137,6 +124,9 @@
                     {!! $lista_prendas->links() !!}
                     
                 </div>
+                @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 

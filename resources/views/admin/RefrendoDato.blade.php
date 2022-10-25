@@ -17,130 +17,14 @@
     <!-- Styles -->
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/Refrendodato.css') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.css">
-
-
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
-    </style>
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        textarea {
-            width: 150px;
-            height: 120px;
-        }
-
-        .input2 {
-            background-color: #e9ecef;
-
-        }
-
-        .tamañoletra {
-            font-size: 30px;
-            font-weight: bold;
-
-        }
-
-        .letracambio {
-            font-size: 30px;
-            font-weight: bold;
-            color: red;
-        }
-
-        .tabla {
-            display: flex;
-            justify-content: center;
-
-        }
-
-        .align {
-            display: flex;
-            justify-content: center;
-        }
-
-        .tabla1 {
-            width: 65%;
-            height: 100%;
-            padding: 30px;
-            background-color: #eaeaea;
-        }
-
-        .tabla2 {
-
-            width: 30%;
-            height: 100%;
-            padding: 30px;
-            background-color: #f2f2f1;
-
-
-        }
-
-        .campo1 {
-            background-color: #f2f2f1;
-            color: black;
-        }
-
-        .letrapago {
-            font-size: 30px;
-            font-weight: bold;
-        }
-
-        .letranom {
-            font-size: 20px;
-        }
-
-        .btnpago {
-            background-color: green;
-        }
-
-        .btnpago:hover {
-            background-color: blue;
-        }
-
-        .btn-secondary:hover {
-            background-color: red;
-        }
-
-        .caja {
-            margin: 30px;
-        }
-
-        .caja2 {
-            padding: 0;
-            margin: 20px;
-        }
-
-        .letra1 {
-            font-size: 16px;
-        }
-
-        .signo {
-            font-size: 28px;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        table,
-        th {
-            font-size: 14px;
-        }
-
-        table {
-            background-color: white;
-            text-align: center;
-        }
     </style>
 
 </head>
@@ -160,8 +44,9 @@
             </div>
             <!-- MENU -->
             @include('layout.nav')
-        </div>
 
+            @can('pago-refrendo')
+        </div>
 
 
         @if ($errors->any())
@@ -175,10 +60,6 @@
         @endif
 
 
-
-
-        <!-- <div class="row g-3 needs-validation size80 items-center justify-center"> -->
-
         {{ csrf_field() }}
 
 
@@ -190,11 +71,7 @@
 
         <div class="align">
             <div class="tabla1 ">
-                <!--   
-                <div class="col-md-12 text-center mt-4">
-                    <label class="form-label h4">TABLA DE REFRENDO/DESEMPEÑO:</label>
-                </div>
- -->
+
 
                 <div class=" table-responsive">
 
@@ -236,17 +113,17 @@
 
                             <th>1° Mes</th>
 
-                            <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
+                            <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
 
-                            <td>$ {{ $dato_prenda->interes }}</td>
+                            <td>{{toMoney($dato_prenda->interes)}}</td>
 
-                            <td>$ {{ $dato_prenda->almacenaje }}</td>
+                            <td>{{toMoney($dato_prenda->almacenaje)}}</td>
 
-                            <td>$ {{ $dato_prenda->iva }}</td>
+                            <td>{{toMoney($dato_prenda->iva)}}</td>
 
-                            <td style="background-color: yellow;" class="fw-bold">$ {{ $dato_prenda->refrendo }}</td>
+                            <td style="background-color: yellow;" class="fw-bold">{{toMoney($dato_prenda->refrendo)}}</td>
 
-                            <td>$ {{ $dato_prenda->desempeño }}</td>
+                            <td>{{toMoney($dato_prenda->desempeño)}}</td>
 
                             <td>
                                 {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}
@@ -257,22 +134,22 @@
                             <th>2° Mes</th>
 
                             <td>
-                                $ {{$dato_prenda->prestamo_prenda}}.00
+                                {{toMoney($dato_prenda->prestamo_prenda)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->interes2}}
+                                {{toMoney($dato_prenda->interes2)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->almacenaje2}}
+                                {{toMoney($dato_prenda->almacenaje2)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->iva2}}
+                                {{toMoney($dato_prenda->iva2)}}
                             </td>
                             <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->refrendo2}}
+                                {{toMoney($dato_prenda->refrendo2)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->desempeño2}}
+                                {{toMoney($dato_prenda->desempeño2)}}
                             </td>
                             <td>
                                 {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}
@@ -282,22 +159,22 @@
                             <th>3° Mes</th>
 
                             <td>
-                                $ {{$dato_prenda->prestamo_prenda}}.00
+                                {{toMoney($dato_prenda->prestamo_prenda)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->interes3}}
+                                {{toMoney($dato_prenda->interes3)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->almacenaje3}}
+                                {{toMoney($dato_prenda->almacenaje3)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->iva3}}
+                                {{toMoney($dato_prenda->iva3)}}
                             </td>
                             <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->refrendo3}}
+                                {{toMoney($dato_prenda->refrendo3)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->desempeño3}}
+                                {{toMoney($dato_prenda->desempeño3)}}
                             </td>
                             <td>
                                 {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}
@@ -307,22 +184,22 @@
                             <th>4° Mes</th>
 
                             <td>
-                                $ {{ $dato_prenda->prestamo_prenda }}.00
+                                {{toMoney($dato_prenda->prestamo_prenda)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->interes4}}
+                                {{toMoney($dato_prenda->interes4)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->almacenaje4}}
+                                {{toMoney($dato_prenda->almacenaje4)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->iva4}}
+                                {{toMoney($dato_prenda->iva4)}}
                             </td>
                             <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->refrendo4}}
+                                {{toMoney($dato_prenda->refrendo4)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->desempeño4}}
+                                {{toMoney($dato_prenda->desempeño4)}}
                             </td>
                             <td>
                                 {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}
@@ -332,22 +209,22 @@
                             <th>5° Mes</th>
 
                             <td>
-                                $ {{ $dato_prenda->prestamo_prenda }}.00
+                                {{toMoney($dato_prenda->prestamo_prenda)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->interes5}}
+                                {{toMoney($dato_prenda->interes5)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->almacenaje5}}
+                                {{toMoney($dato_prenda->almacenaje5)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->iva5}}
+                                {{toMoney($dato_prenda->iva5)}}
                             </td>
                             <td style="background-color: yellow;" class="fw-bold">
-                                $ {{$dato_prenda->refrendo5}}
+                                {{toMoney($dato_prenda->refrendo5)}}
                             </td>
                             <td>
-                                $ {{$dato_prenda->desempeño5}}
+                                {{toMoney($dato_prenda->desempeño5)}}
                             </td>
                             <td>
                                 {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}
@@ -388,7 +265,7 @@
                     <label class="mt-1"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
                     <label class="mt-1"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label> <br>
                     <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
-                    <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>$ {{ $dato_prenda->prestamo_inicial}}</label>
+                    <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->prestamo_inicial)}}</label>
                 </div>
 
 
@@ -398,11 +275,11 @@
                     <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" onchange="calcular66();" aria-label="Default select example">
 
                         <option selected value="">MES A REFRENDAR</option>
-                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}" data-refrendo_r="{{$dato_prenda->refrendo}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}" data-refrendo_r="{{$dato_prenda->refrendo}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}" data-refrendo_r="{{$dato_prenda->refrendo}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}" data-refrendo_r="{{$dato_prenda->refrendo}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}" data-refrendo_r="{{$dato_prenda->refrendo}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                     </select>
                 </div>
 
@@ -494,21 +371,17 @@
                     <button type="submit" id="idBoton" class="size60 bordes btn btn-primary navbar1 modal55" data-toggle="modal" data-target="#exampleModal{{ $dato_prenda->id_prendas }}" data-item-prestamo="cantidad_pago">PAGAR</button>
                 </div>
 
-
-
-
-
-
             </div>
             @include('admin.Modals.modalrefrendo')
         </div>
-
+ @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 </body>
 
 <div class="mt-8">
 
 </div>
-
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -521,231 +394,4 @@
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 <script src="{{ asset('dist/js/refrendo.js') }}"></script>
-<script>
-    //FUNCION PARA SACAR EL PORCENTAJE DEL AVALUO:
-    function formatear(dato) {
-        return dato.replace(/./g, function(c, i, a) {
-            return i > 0 && c !== "." && (a.length - i) % 3 === 0 ? "" + c : c; // "," que le x
-        });
-    }
-
-
-  
-
-
-    function calcular() {
-        var valor = document.getElementById("interesrefre").value;
-        var valor1 = document.getElementById("capital").value;
-
-       
-        var porce = parseFloat(valor);
-       
-       /*  var porce1 = parseFloat(valor1 || 0)   es de capital */
-        /*         var porce2 = parseFloat(porce + porce1) */
-        $("#prestamo4").val(formatear(porce.toFixed(2)))
-        $("#totalpago1").val(porce.toFixed(2))
-        $("#multa2").val((porce/30).toFixed(2))
-        $("#total").val(porce.toFixed(2))
-        $("#refrendo_anterior").val(porce.toFixed(2))
-
-        /*    $("#totalpago1").val(formatear(porce2.toFixed(2))) */
-
-        $("#interes_anterior").val($("#interesrefre option:selected").data("interes"));
-        $("#almacenaje_anterior").val($("#interesrefre option:selected").data("almacenaje"));
-        $("#iva_anterior").val($("#interesrefre option:selected").data("iva"));
-        $("#sub_refrendo").val((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))).toFixed(2));
-
-        
-           }
-    calcular();
-
-  
-
-    function calcular2() {
-        var valor = document.getElementById("prestamo4").value;
-        var valor1 = document.getElementById("capital").value;
-        var valor2 = document.getElementById("pago6").value;
-        var valor3 = document.getElementById("interesrefre").value;
-        var valor4 = document.getElementById("refrendos22").value;
-        var valor44 = document.getElementById("refrendos44").value;
-
-        var valor333 = document.getElementById("multa").value;
-        var valor444 = document.getElementById("multa2").value;
-        var valor555 = document.getElementById("multa3").value;
-
-        var porce444 = parseFloat(valor333);
-        var porce333 = parseFloat(valor444);
-        var porce555 = parseFloat(valor555);
-        var porce444 = parseFloat((porce444*porce333)||0);
-     
-        
-
-        var porce = parseFloat(valor);
-        var porce1 = parseFloat(valor1 ||0)
-
-
-        var porce2 = parseFloat(porce + porce1 + porce444)
-        var porce3 = parseFloat(valor2)
-        var porce4 = parseFloat(valor4)
-        var porce44 = parseFloat(valor44)
-
-        var porce6 = parseFloat(porce4+porce44)
-        
-
-        
-        var porce5 = (parseFloat(porce3 - porce1))
-       /*  var porce5 = (parseFloat(porce3 - porce1) || valor) */
-       /* var porce5 = (parseFloat(porce3 - porce1)) */
-
-   /*      $("#totalpago1").val(formatear(porce2.toFixed(2)))
-        $("#total").val(formatear(porce2.toFixed(2))) */
-        $("#totalpago1").val(porce2.toFixed(2))
-        $("#total").val(porce2.toFixed(2))
-        $("#abono_capital").val(porce1.toFixed(2))
-        $("#sub_refrendo").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
-        $("#prestamo_prenda").val(porce5.toFixed(0))
-
-        $("#prestamo_prenda1").val(porce5.toFixed(2))
-        $("#prestamo_prenda2").val(porce5.toFixed(2))
-        $("#prestamo_prenda3").val(porce5.toFixed(2))
-        $("#prestamo_prenda4").val(porce5.toFixed(2))
-        $("#prestamo_prenda5").val(porce5.toFixed(2))
-
-        $("#importe_actual").val(porce5.toFixed(0))
-        $("#numeros_refrendos").val(porce6.toFixed(0))
-        $("#multa3").val(porce444.toFixed(2))
-        $("#recargo_des").val(porce444.toFixed(2))
-
-    }
-    calcular2();
-
-
-    
-
-    /*     window.onload = function() {
-            imprimirValor();
-        }
-
-        function imprimirValor() {
-            var select = document.getElementById("interesrefre");
-            $("#totalpago1").val(select.value)
-
-        } */
-    /*  usar en donde va a poner la funcion de arriba ----> onChange="imprimirValor()" */
-
-
-    function calcular3() {
-        var valor = document.getElementById("socio").value;
-        var datopres = document.getElementById("prestamo_prenda").value;
-        var porce = parseFloat(1 * valor * datopres); //almacenaje
-        var porce1 = parseFloat(datopres) * 0.01 * 1; //interes
-        var porce2 = parseFloat((porce + porce1) * 0.16); //iva
-        var porce3 = parseFloat(porce + porce1 + porce2); //refrendo
-        var porce4 = parseFloat(datopres) //datodesempe
-        var porce5 = parseFloat(porce3 + porce4); // desempeño
-        var porce6 = parseFloat(porce4 + porce1 + porce); //subtotal
-
-        var inte2 = parseFloat(datopres) * 0.01 * 2; //interes
-        var alma2 = parseFloat(2 * valor * datopres); //almacenaje
-        var iva2 = parseFloat((inte2 + alma2) * 0.16); //iva
-        var refre2 = parseFloat(inte2 + alma2 + iva2); //refrendo
-        var desem2 = parseFloat(refre2 + porce4); // desempeño
-        var sub2 = parseFloat(porce4 + inte2 + alma2); // subtotal
-
-        var inte3 = parseFloat(datopres) * 0.01 * 3; //interes
-        var alma3 = parseFloat(3 * valor * datopres); //almacenaje
-        var iva3 = parseFloat((inte3 + alma3) * 0.16); //iva
-        var refre3 = parseFloat(inte3 + alma3 + iva3); //refrendo
-        var desem3 = parseFloat(refre3 + porce4); // desempeñ3
-        var sub3 = parseFloat(porce4 + inte3 + alma3); // subtotal
-
-        var inte4 = parseFloat(datopres) * 0.01 * 4; //interes
-        var alma4 = parseFloat(4 * valor * datopres); //almacenaje
-        var iva4 = parseFloat((inte4 + alma4) * 0.16); //iva
-        var refre4 = parseFloat(inte4 + alma4 + iva4); //refrendo
-        var desem4 = parseFloat(refre4 + porce4); // desempeñ3
-        var sub4 = parseFloat(porce4 + inte4 + alma4); // subtotal
-
-        var inte5 = parseFloat(datopres) * 0.01 * 5; //interes
-        var alma5 = parseFloat(5 * valor * datopres); //almacenaje
-        var iva5 = parseFloat((inte5 + alma5) * 0.16); //iva
-        var refre5 = parseFloat(inte5 + alma5 + iva5); //refrendo
-        var desem5 = parseFloat(refre5 + porce4); // desempeñ3
-        var sub5 = parseFloat(porce4 + inte5 + alma5); // subtotal
-
-
-        $("#almacenaje").val(porce.toFixed(2))
-        $("#iva").val(porce2.toFixed(2))
-        $("#interes").val((porce1.toFixed(2)))
-        $("#refrendo").val((porce3.toFixed(2)))
-        $("#desempeño").val((porce5.toFixed(2)))
-        $("#subtotal").val((porce6.toFixed(2)))
-
-        $("#almacenaje2").val(alma2.toFixed(2))
-        $("#iva2").val(iva2.toFixed(2))
-        $("#interes2").val((inte2.toFixed(2)))
-        $("#refrendo2").val((refre2.toFixed(2)))
-        $("#desempeño2").val((desem2.toFixed(2)))
-        $("#subtotal2").val((sub2.toFixed(2)))
-
-        $("#almacenaje3").val(formatear(alma3.toFixed(2)))
-        $("#iva3").val(iva3.toFixed(2))
-        $("#interes3").val((inte3.toFixed(2)))
-        $("#refrendo3").val((refre3.toFixed(2)))
-        $("#desempeño3").val((desem3.toFixed(2)))
-        $("#subtotal3").val((sub3.toFixed(2)))
-
-        $("#almacenaje4").val(formatear(alma4.toFixed(2)))
-        $("#iva4").val(iva4.toFixed(2))
-        $("#interes4").val((inte4.toFixed(2)))
-        $("#refrendo4").val((refre4.toFixed(2)))
-        $("#desempeño4").val((desem4.toFixed(2)))
-        $("#subtotal4").val((sub4.toFixed(2)))
-
-        $("#almacenaje5").val(formatear(alma5.toFixed(2)))
-        $("#iva5").val(iva5.toFixed(2))
-        $("#interes5").val((inte5.toFixed(2)))
-        $("#refrendo5").val((refre5.toFixed(2)))
-        $("#desempeño5").val((desem5.toFixed(2)))
-        $("#subtotal5").val((sub5.toFixed(2)))
-    }
-    calcular3();
-
-    $( function() {
-    $("#interesrefre").change( function() {
-        if ($(this).val() === "") {
-            $("#capital").prop("disabled", true);
-        } else {
-            $("#capital").prop("disabled", false);
-        }
-    });
-});
-
-
-
-
-
-  
-
-/*     function calcular4() {
-
-    }
-    calcular4();
- */
-
- 
-
-
-
-
-
-
-
-
-
-
-
-</script>
-
-
 </html>

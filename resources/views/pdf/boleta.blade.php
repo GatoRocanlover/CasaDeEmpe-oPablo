@@ -54,6 +54,7 @@
 <div class="container">
 
     <body>
+
         <table>
             <tr>
                 <th colspan="9">
@@ -160,11 +161,11 @@
                 <td>13.92% <BR> TASA FIJA</td>
 
                 <td>
-                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                    {{toMoney($dato_prenda->prestamo_prenda)}}
                 </td>
 
                 <td>
-                    $ {{$dato_prenda->desempeño5}}
+                    {{toMoney($dato_prenda->desempeño5)}}
                     <br>
                     (CON IVA)
                 </td>
@@ -245,17 +246,17 @@
 
                 <th>1° Mes</th>
 
-                <td>$ {{ $dato_prenda->prestamo_prenda }}.00</td>
+                <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
 
-                <td>$ {{ $dato_prenda->interes }}</td>
+                <td>{{toMoney($dato_prenda->interes)}}</td>
 
-                <td>$ {{ $dato_prenda->almacenaje }}</td>
+                <td>{{toMoney($dato_prenda->almacenaje)}}</td>
 
-                <td>$ {{ $dato_prenda->iva }}</td>
+                <td>{{toMoney($dato_prenda->iva)}}</td>
 
-                <td>$ {{ $dato_prenda->refrendo }}</td>
+                <td>{{toMoney($dato_prenda->refrendo)}}</td>
 
-                <td>$ {{ $dato_prenda->desempeño }}</td>
+                <td>{{toMoney($dato_prenda->desempeño)}}</td>
 
                 <td>{{ \Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</td>
 
@@ -264,22 +265,22 @@
                 <th>2° Mes</th>
 
                 <td>
-                    $ {{$dato_prenda->prestamo_prenda}}.00
+                    {{toMoney($dato_prenda->prestamo_prenda)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->interes2}}
+                    {{toMoney($dato_prenda->interes2)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->almacenaje2}}
+                    {{toMoney($dato_prenda->almacenaje2)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->iva2}}
+                    {{toMoney($dato_prenda->iva2)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->refrendo2}}
+                    {{toMoney($dato_prenda->refrendo2)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->desempeño2}}
+                    {{toMoney($dato_prenda->desempeño2)}}
                 </td>
                 <td>{{ \Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
@@ -287,22 +288,22 @@
                 <th>3° Mes</th>
 
                 <td>
-                    $ {{$dato_prenda->prestamo_prenda}}.00
+                    {{toMoney($dato_prenda->prestamo_prenda)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->interes3}}
+                    {{toMoney($dato_prenda->interes3)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->almacenaje3}}
+                    {{toMoney($dato_prenda->almacenaje3)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->iva3}}
+                    {{toMoney($dato_prenda->iva3)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->refrendo3}}
+                    {{toMoney($dato_prenda->refrendo)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->desempeño3}}
+                    {{toMoney($dato_prenda->desempeño3)}}
                 </td>
                 <td>{{ \Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
@@ -310,22 +311,22 @@
                 <th>4° Mes</th>
 
                 <td>
-                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                    {{toMoney($dato_prenda->prestamo_prenda)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->interes4}}
+                    {{toMoney($dato_prenda->interes4)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->almacenaje4}}
+                    {{toMoney($dato_prenda->almacenaje4)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->iva4}}
+                    {{toMoney($dato_prenda->iva4)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->refrendo4}}
+                    {{toMoney($dato_prenda->refrendo4)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->desempeño4}}
+                    {{toMoney($dato_prenda->desempeño4)}}
                 </td>
                 <td>{{ \Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
@@ -333,22 +334,22 @@
                 <th>5° Mes</th>
 
                 <td>
-                    $ {{ $dato_prenda->prestamo_prenda }}.00
+                    {{toMoney($dato_prenda->prestamo_prenda)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->interes5}}
+                    {{toMoney($dato_prenda->interes5)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->almacenaje5}}
+                    {{toMoney($dato_prenda->almacenaje5)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->iva5}}
+                    {{toMoney($dato_prenda->iva5)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->refrendo5}}
+                    {{toMoney($dato_prenda->refrendo5)}}
                 </td>
                 <td>
-                    $ {{$dato_prenda->desempeño5}}
+                    {{toMoney($dato_prenda->desempeño5)}}
                 </td>
                 <td>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
@@ -410,13 +411,13 @@
                 <td colspan="4">
                     Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
                 </td>
-                <td>$ {{$dato_prenda->avaluo_prenda}}.00</td>
-                <td>$ {{$dato_prenda->prestamo_prenda}}.00</td>
+                <td>{{toMoney($dato_prenda->avaluo_prenda)}}</td>
+                <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
                 <td colspan="2">{{$dato_prenda->porcentaje_prestamo_sobre_avaluo}} %</td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Monto de avaluó: </td>
-                <td colspan="4"><b>$ {{$dato_prenda->avaluo_prenda}}.00 Son: {{num2letras($dato_prenda->avaluo_prenda)}}</b></td>
+                <td colspan="4"><b>{{toMoney($dato_prenda->avaluo_prenda)}} Son: {{num2letras($dato_prenda->avaluo_prenda)}}</b></td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Porcentaje del préstamo sobre el avaluó: </td>

@@ -201,3 +201,12 @@ function mes_actual()
 
    echo date('d') . "-" . $meses[date('n')] . "-" . date('Y');
 }
+
+function toMoney($val,$symbol='$ ',$r=2)
+{
+    $n = $val;
+    $sign = ($n < 0) ? '-' : '';
+    $i = number_format(abs($n),$r);
+
+    return  $symbol.$sign.$i;
+}

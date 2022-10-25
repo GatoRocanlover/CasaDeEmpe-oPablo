@@ -53,7 +53,7 @@
   <table>
     <tr>
       <th class="text-center" colspan="4">
-        <strong>Asociados Nueva Mutua de Umán S.A de C.V.</strong><br>
+        <strong>Asociados Nueva Mutua Umán S.A de C.V.</strong><br>
         RFC: ANM-180517PD6 <br>
         MATRIZ: CALLE 23 NO. 100-B x 19 Y 20 <br>
         Col. Centro Umán, Yucatán, <br>
@@ -104,31 +104,31 @@
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros">${{$dato_prenda->interes_anterior}}</td>
+        <td class="text-center numeros">{{toMoney($dato_prenda->interes_anterior)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">ABONO A CAPITAL:&nbsp;&nbsp;</td>
-        <td class="text-center numeros">${{$dato_prenda->abono_capital}}</td>
+        <td class="text-center numeros">{{toMoney($dato_prenda->abono_capital)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
-        <td class="text-center numeros ">${{$dato_prenda->almacenaje_anterior}} </td>
+        <td class="text-center numeros ">{{toMoney($dato_prenda->almacenaje_anterior)}} </td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
-        <td class="text-center bordeup numeros">${{$dato_prenda->sub_refrendo}} </td>
+        <td class="text-center bordeup numeros">{{toMoney($dato_prenda->sub_refrendo)}} </td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
-        <td class="text-center numeros">${{$dato_prenda->iva_anterior}} </td>
+        <td class="text-center numeros">{{toMoney($dato_prenda->iva_anterior)}} </td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
-        <td class="text-center numeros">${{$dato_prenda->recargo_des}} </td>
+        <td class="text-center numeros">{{toMoney($dato_prenda->recargo_des)}} </td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
-        <td class="text-center bordeup numeros">${{$dato_prenda->total}}</td>
+        <td class="text-center bordeup numeros">{{toMoney($dato_prenda->total)}}</td>
       </tr>
       <tr>
         <td colspan="4">&nbsp;</td>
@@ -141,11 +141,11 @@
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">PAGO RECIBIDO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros">${{$dato_prenda->cantidad_pago}}</td>
+        <td class="text-center numeros">{{toMoney($dato_prenda->cantidad_pago)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros">${{$dato_prenda->cambio_boleta}}</td>
+        <td class="text-center numeros">{{toMoney($dato_prenda->cambio_boleta)}}</td>
       </tr>
       <tr>
         <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
@@ -174,11 +174,11 @@
       </tr>
       <tr>
         <td colspan="2" class="textderecha fw-bold">SALDO ANTERIOR:</td>
-        <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_anterior}}</td>
+        <td colspan="2">&nbsp;&nbsp;{{toMoney($dato_prenda->importe_anterior)}}</td>
       </tr>
       <tr>
         <td colspan="2" class="textderecha fw-bold">SALDO ACTUAL:</td>
-        <td colspan="2">&nbsp;&nbsp;${{$dato_prenda->importe_actual}}</td>
+        <td colspan="2">&nbsp;&nbsp;{{toMoney($dato_prenda->importe_actual)}}</td>
       </tr>
       <tr>
         <td colspan="2" class="textderecha fw-bold">PROXIMO REFRENDO:</td>
@@ -214,7 +214,9 @@
         <td colspan="4">&nbsp;</td>
       </tr>
     </table>
-
+    @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 
   </body>
 

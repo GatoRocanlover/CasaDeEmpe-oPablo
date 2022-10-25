@@ -20,16 +20,6 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .letra {
-            font-size: 12px;
-        }
-    </style>
-
 </head>
 
 <body class="antialiased ">
@@ -60,6 +50,8 @@
                 </div>
             @endif
 
+
+            @can('editar-cliente')
             <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size60 fondoformulario">
                 <form action="{{ Route('cliente.update', $dato_cliente->id_cliente) }}" onsubmit="return enviar()" name="editarCliente"  method="POST"
                     class="row g-3 needs-validation size95 items-center justify-center" novalidate>
@@ -68,7 +60,7 @@
                     <input name="_method" type="hidden" value="PUT">
 
                     <label for="validationCustom03" class="form-label mt-8 text-center">EDITAR DATOS DEL CLIENTE</label>
-                    <p class="letra" style="color:brown">LOS CAMPOS CON * SON REQUERIDOS OBLIGATORIAMENTE.....</p>
+                    <p class="letracliente" style="color:brown">LOS CAMPOS CON * SON REQUERIDOS OBLIGATORIAMENTE.....</p>
                     <div class="col-md-6">
                         <label for="nombre_cliente" class="form-label">NOMBRE(S)*</label>
                         <input type="text" name="nombre_cliente" class="form-control" id="nombre_cliente"
@@ -319,6 +311,10 @@
                 </form>
             </div>
         </div>
+            
+@else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -334,34 +330,6 @@ document.getElementById("apellido_beneficiario").value = document.getElementById
 } 
 
 </script>
-<script>
-    //MENSAJE DE ALERTA BOTTON
-
-
-    function enviar() {
-   event.preventDefault();
-
-   Swal.fire({
-title: '¿DESEA TERMINAR DE EDITAR LOS DATOS DEL CLIENTE?',
-text: "Esta seguro que desea realizar esta operación!",
-icon: 'warning',
-showCancelButton: true,
-confirmButtonColor: '#3085d6',
-cancelButtonColor: '#d33',
-confirmButtonText: 'SI, DESEO TERMINAR DE ACTUALIZAR LOS DATOS!',
-cancelButtonText: "No"
-}).then((result) => {
-if (result.value) {
-document.editarCliente.submit();
-/* Swal.fire(
- 'Deleted!',
- 'Your file has been deleted.',
- 'success'
-)
-*/
-}
-})
-}
-</script>
+<script src="{{ asset('dist/js/EditarCliente.js') }}"></script>
 </html>
-<!-- -->
+

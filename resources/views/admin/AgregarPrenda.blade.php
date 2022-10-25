@@ -19,71 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/AgregarPrenda.css') }}" rel="stylesheet">
 
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .tabla {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .tabla1 {
-            width: 500px;
-            height: 455px;
-            padding: 30px;
-        }
-
-        .tabla2 {
-
-            width: 500px;
-            height: 455px;
-            padding: 30px;
-        }
-
-        textarea {
-            width: 405px;
-            height: 90px;
-        }
-
-        .sub {
-            font-size: 18px;
-        }
-
-        .sub2 {
-            font-size: 16px;
-        }
-
-        .centro1 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .red1 :hover {
-            background-color: green;
-
-        }
-
-        @media only screen and (min-width: 268px) {
-
-            .tabla2 {
-                border-left: none;
-                border-top: 2px solid black;
-            }
-        }
-
-        @media only screen and (min-width: 1024px) {
-
-            .tabla2 {
-                border-left: 2px solid black;
-                border-top: none;
-            }
-        }
-    </style>
 
 </head>
 
@@ -122,7 +59,7 @@
             </div>
         @endif
 
-
+        @can('alta-cotizacion')
 
         <br>
         <form action="{{ Route('prenda.store') }}" method="POST" onsubmit="return enviar()" name="formulario_boleta"
@@ -212,7 +149,7 @@
                             value="{{ $datoCotizar->gramaje_prenda }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>AVALUO:
-                            </strong>${{ $datoCotizar->avaluo_prenda }}</label>
+                            </strong>{{toMoney($datoCotizar->avaluo_prenda)}}</label>
                         <input type="hidden" name="avaluo_prenda" class="form-control" id="avaluo_prenda"
                             value="{{ $datoCotizar->avaluo_prenda }}" readonly>
                         <br>
@@ -228,7 +165,7 @@
 
 
                         <label for="" class="sub"><strong>PRESTAMO:
-                            </strong>${{ $datoCotizar->prestamo_prenda }}</label>
+                            </strong>{{toMoney($datoCotizar->prestamo_prenda)}}</label>
                         <input type="hidden" name="prestamo_prenda" class="form-control" id="prestamo_prenda"
                             value="{{ $datoCotizar->prestamo_prenda }}" readonly>
                     </div>
@@ -344,6 +281,9 @@
             </div>
     </div>
     </form>
+    @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

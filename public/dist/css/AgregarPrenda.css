@@ -1,0 +1,57 @@
+      .tabla {
+          display: flex;
+          flex-wrap: wrap;
+      }
+
+      .tabla1 {
+          width: 500px;
+          height: 455px;
+          padding: 30px;
+      }
+
+      .tabla2 {
+
+          width: 500px;
+          height: 455px;
+          padding: 30px;
+      }
+
+      textarea {
+          width: 405px;
+          height: 90px;
+      }
+
+      .sub {
+          font-size: 18px;
+      }
+
+      .sub2 {
+          font-size: 16px;
+      }
+
+      .centro1 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .red1 :hover {
+          background-color: green;
+
+      }
+
+      @media only screen and (min-width: 268px) {
+
+          .tabla2 {
+              border-left: none;
+              border-top: 2px solid black;
+          }
+      }
+
+      @media only screen and (min-width: 1024px) {
+
+          .tabla2 {
+              border-left: 2px solid black;
+              border-top: none;
+          }
+      }

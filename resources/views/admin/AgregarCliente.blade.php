@@ -20,17 +20,6 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-        .letra{
-            font-size: 12px;
-        }
-       
-   
-    </style>
-
 </head>
 
 <body class="antialiased ">
@@ -59,13 +48,16 @@
         </div>
         @endif
 
+
+
+        @can('crear-cliente')
         <div class="mt-8 max-w-6xl mx-auto items-center justify-center flex negritas  texto size60 fondoformulario">
             <form action="{{Route('cliente.store')}}" method="POST" onsubmit="return enviar()" name="registroCliente" class="row g-3 needs-validation size95 items-center justify-center" novalidate>
 
                 @csrf
 
                 <label for="validationCustom03" class="form-label mt-8 text-center fw-bold"><h5>DATOS PRINCIPALES DEL CLIENTE</h5></label>
-                <p class="letra" style="color:brown">LOS CAMPOS CON * SON REQUERIDOS OBLIGATORIAMENTE.....</p>
+                <p class="letracliente" style="color:brown">LOS CAMPOS CON * SON REQUERIDOS OBLIGATORIAMENTE.....</p>
                 <div class="col-md-6">
                     <label for="nombre_cliente" class="form-label">NOMBRE(S) *</label>
                     <input type="text" name="nombre_cliente" class="form-control" id="nombre_cliente" value="" placeholder="Ingrese los nombres del cliente"  required>
@@ -271,6 +263,9 @@
         </div>
 
     </div>
+    @else
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+@endcan
 </body>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="{{asset('dist/js/bootstrap.js')}}"></script>
@@ -286,32 +281,5 @@ function PasarApellido()
 {
 document.getElementById("apellido_beneficiario").value = document.getElementById("apellido_cotitular").value;
 } 
-
-     function enviar() {
-    event.preventDefault();
-
-    Swal.fire({
-title: '¿DESEA REGISTRAR EL CLIENTE?',
-text: "Esta seguro que desea realizar esta operación!",
-icon: 'warning',
-showCancelButton: true,
-confirmButtonColor: '#3085d6',
-cancelButtonColor: '#d33',
-confirmButtonText: 'SI, DESEO REGISTRAR EL CLIENTE!',
-cancelButtonText: "No"
-}).then((result) => {
-if (result.value) {
-document.registroCliente.submit();
-/* Swal.fire(
-  'Deleted!',
-  'Your file has been deleted.',
-  'success'
-)
- */
-}
-})
-}
-</script>
-
+<script src="{{asset('dist/js/AgregarCliente.js')}}"></script>
 </html>
-<!-- -->

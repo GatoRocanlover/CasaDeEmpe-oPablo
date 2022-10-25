@@ -21,44 +21,6 @@
     <link href="{{ asset('dist/fontawesome/css/all.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/estilos.css') }}" rel="stylesheet">
 
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
-
-        th {
-            text-align: center;
-        }
-
-        .hover :hover {
-            background-color: #8E6E06;
-            border-color: #8E6E06;
-        }
-
-        td {
-            text-align: center;
-        }
-
-        .icons {
-            color: green;
-        }
-
-        .icons:hover {
-            color: #8E6E06;
-
-        }
-
-        a:hover i {
-            transform: scale(1.3);
-
-        }
-    </style>
 </head>
 
 <body class="antialiased ">
@@ -79,6 +41,8 @@
 
 
             @include('layout.nav')
+
+            @can('ver-cotizacion')
         </div>
         @include('pdf.flash-message')
         <br>
@@ -105,11 +69,13 @@
                                 </div>
                             </form>
                         </div>
+                        @can('crear-cotizacion')
                         <div class="hover">
                             <a class="btn btn-success me-2 fw-bold" href="{{ route('cotizacion.agregar_prenda') }}"
                                 type="button"><i class="fa fa-plus-circle" style="font-size:20px"></i> &nbsp;AGREGAR
                                 COTIZACIÓN</a>
                         </div>
+                        @endcan
                     </div>
                     <div class="table-responsive">
                         <table class="table table-sm table-striped mt-8  ">
@@ -120,12 +86,19 @@
                                     <th scope="col">PRENDA</th>
                                     <th scope="col">DESCIPCIÓN GENERICA</th>
                                     <th scope="col">CARACTERISTICAS</th>
-                                    <th scope="col">AVALUO</th>
+                                    <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                     <th scope="col">PORCENTAJE DE EVALUO</th>
                                     <th scope="col">PRESTAMO</th>
                                     <th scope="col">FECHA DE ALTA PRENDA</th>
+                                    @can('impresion-cotizacion')
                                     <th scope="col">IMPRIMIR</th>
+                                    @endcan
+                                    @can('alta-cotizacion')
                                     <th scope="col">ALTA BOLETA</th>
+                                    @endcan
+                                    @can('borrar-cotizacion')
+                                    <th scope="col">BORRAR <br>COTIZACIÓN</th>
+                                    @endcan
                                 </tr>
                             </thead>
                             <tbody>
@@ -138,7 +111,7 @@
                                         </td>
                                         <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
                                         </td>
-                                        <td> {{ '$ ' . $prenda->avaluo_prenda }}</td>
+                                        <td> {{toMoney($prenda->avaluo_prenda)}}</td>
 
                                         <td>
                                             @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
@@ -167,8 +140,9 @@
                                                 100 %
                                             @endif
                                         </td>
-                                        <td>{{ '$' . $prenda->prestamo_prenda }}</td>
+                                        <td>{{toMoney($prenda->prestamo_prenda)}}</td>
                                         <td>{{ $prenda->created_at->format('d/m/Y') }}</td>
+                                        @can('impresion-cotizacion')
                                         <td>
                                             <br>
                                             <a class="nav-link text-center"
@@ -176,7 +150,8 @@
                                                 id="navbarDarkDropdownMenuLink" aria-expanded="false"><i
                                                     class="fa fa-print icons" style="font-size:30px;   "></i></a>
                                         </td>
-
+                                        @endcan
+                                        @can('alta-cotizacion')
                                         <td>
                                             <br>
                                             <a class="nav-link text-center"
@@ -184,8 +159,15 @@
                                                 id="navbarDarkDropdownMenuLink" aria-expanded="false"><i
                                                     class="fa fa-check-square icons" style="font-size:32px;"></i></a>
                                         </td>
-
+                                        @endcan
+                                        @can('borrar-cotizacion')
+                                        <td>
+                                            <br>
+                                        {!! Form::open(['method' => 'DELETE','route' => ['cotizacionprenda.destroy', $prenda->id_cotizacionprenda],'style'=>'display:inline']) !!}
+                                        {!! Form::submit('Borrar', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
                                         </td>
+                                        @endcan
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -199,6 +181,9 @@
             </div>
 
         </div>
+        @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
 
 </body>
 

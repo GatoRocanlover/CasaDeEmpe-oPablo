@@ -12,6 +12,13 @@ use Illuminate\Http\Request;
 
 class RefrendoController extends Controller
 {
+
+    public function __contruct()
+    {
+        $this->middleware('permission:ver-refrendo', ['only' => ['refrendopago']]);
+       
+    
+    }
     
     public function refrendopago(Request $request)
     {

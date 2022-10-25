@@ -16,8 +16,8 @@
                         CLIENTE
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item"href="{{ route('agregar_cliente') }}">AGREGAR</a></li>
-                        <li><a class="dropdown-item" href="{{ route('listado_cliente') }}">LISTADO</a></li>
+                        <!-- <li><a class="dropdown-item"href="{{ route('agregar_cliente') }}">AGREGAR</a></li> -->
+                        <li><a class="dropdown-item" href="{{ route('listado_cliente') }}">LISTADO DE CLIENTES</a></li>
                     </ul>
                 </li>
             </ul>
@@ -49,55 +49,74 @@
         </li>
       </ul>
     </div> -->
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            USUARIO
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{route('agregar_usuario')}}">AGREGAR</a></li>
-            <li><a class="dropdown-item" href="{{route('listado_usuario')}}">LISTADO</a></li>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        USUARIO
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                      <!--   <li><a class="dropdown-item" href="{{ route('register') }}">AGREGAR</a></li>-->
+                       
+                        <li><a class="dropdown-item" href="{{ route('usuarios.index') }}">LISTA DE USUARIOS</a></li>
+                        <li><a class="dropdown-item" href="{{ route('roles.index') }}">ROLES</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        CAJA
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{ route('Pagar') }}">DESEMPEÑO</a></li>
+                        <li><a class="dropdown-item" href="{{ route('1refrendo') }}">REFRENDO</a></li>
+                        <li><a class="dropdown-item" href="{{route('1capital')}}">ABONO A CAPITAL</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                REPORTES
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item" href="{{route('reporte.excel1')}}">CLIENTES</a></li>
+                <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">BOLETAS</a></li>
+                <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">CONCENTRADO</a></li>
+              </ul>
+            </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    SALIR
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <li>
+                      <a class="dropdown-item" style="color:white" id="navbarDarkDropdownMenuLink"
+                        href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{__('LOGOUT')}}&nbsp;&nbsp;<i class="fa fa-sign-out" style="font-size:20px"></i> 
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>    
+        </div>
     </div>
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            CAJA
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{route('Pagar')}}">PAGAR</a></li>
-            <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">LISTADO BOLETAS</a></li>
-            <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">DESEMBOLSAR</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            REPORTES
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{route('reporte.excel1')}}">CLIENTES</a></li>
-            <li><a class="dropdown-item" href="{{route('listado_boleta_pagar')}}">BOLETAS</a></li>
-            <li><a class="dropdown-item" href="{{route('listado_boleta_desembolsar')}}">CONCENTRADO</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item ">
-          <a class="nav-link" href="{{route('inicio_sesion')}}" id="navbarDarkDropdownMenuLink"  aria-expanded="false">
-            SALIR
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
 </nav>

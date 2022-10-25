@@ -46,7 +46,7 @@
   </style>
 
   <body>
-
+  @can('imprimir-ticket-desempeño')
     <table>
       <tr>
         <th class="text-center" colspan="4">
@@ -97,31 +97,32 @@
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">PRESTAMO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >$ {{$dato_desempeño->prestamo_prenda}}</td>
+
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->prestamo_prenda)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >$ {{$dato_desempeño->interes}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->interes)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
-        <td class="text-center numeros " >$ {{$dato_desempeño->almacenaje}}</td>
+        <td class="text-center numeros " >{{toMoney($dato_desempeño->almacenaje)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
-        <td class="text-center bordeup numeros" >$ {{$dato_desempeño->subtotal}}</td>
+        <td class="text-center bordeup numeros" >{{toMoney($dato_desempeño->subtotal)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >$ {{$dato_desempeño->iva}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->iva)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >$ {{$dato_desempeño->recargo_des}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->recargo_des)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
-        <td class="text-center bordeup numeros" >$ {{$dato_desempeño->total}}</td>
+        <td class="text-center bordeup numeros" >{{toMoney($dato_desempeño->total)}}</td>
       </tr>
       <tr>
         <td colspan="4">&nbsp;</td>
@@ -134,11 +135,11 @@
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">PAGO RECIBIDO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >$ {{$dato_desempeño->cantidad_pago}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->cantidad_pago)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">CAMBIO ENTREGADO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >$ {{$dato_desempeño->cambio_boleta}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->cambio_boleta)}}</td>
       </tr>
       <tr>
         <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
@@ -192,6 +193,9 @@
         <td colspan="4">&nbsp;</td>
       </tr>
     </table> 
+    @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    @endcan
   </body>
 
   </html>

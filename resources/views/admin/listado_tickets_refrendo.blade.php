@@ -20,32 +20,10 @@
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
-
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-
-        th {
-            text-align: center;
-        }
-
-        td {
-            text-align: center;
-        }
-
-        .searchSep {
-            display: flex;
-            justify-content: space-between;
-
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body class="antialiased ">
-    <div
-        class="sinborde relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="sinborde relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
 
         <!-- encabezado -->
@@ -60,6 +38,8 @@
             </div>
 
             @include('layout.nav')
+
+            @can('ver-listado-tickets-refrendo')
         </div>
 
         <br>
@@ -76,11 +56,8 @@
                         <div>
                             <form action="{{ route('listado_tickets_refrendo') }}" method="GET">
                                 <div class="col-md-12 d-flex  mt-2 ">
-                                    <input class="col-md-4 form-control text-center  me-2" type="search"
-                                        placeholder="ingrese folio o número del cliente" name="search"
-                                        aria-label="Search" value="{{ request('search') }}">
-                                    <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0"
-                                        type="submit">Buscar</button>
+                                    <input class="col-md-4 form-control text-center  me-2" type="search" placeholder="ingrese folio o número del cliente" name="search" aria-label="Search" value="{{ request('search') }}">
+                                    <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Buscar</button>
                                 </div>
                             </form>
                         </div>
@@ -92,83 +69,151 @@
                                 <th scope="col">CLIENTE</th>
                                 <th scope="col">PRENDA</th>
                                 <th scope="col">CARACTERISTICAS</th>
-                                <th scope="col">AVALUO</th>
+                                <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                 <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                 <th scope="col">PRESTAMO<br>INICIAL</th>
-                                <th scope="col">NUEVO<br>SALDO</th>
+                                <th scope="col">NUEVO<br>&nbsp;&nbsp;&nbsp;SALDO&nbsp;&nbsp;&nbsp;</th>
+                                @can('imprimir-boleta-refrendo')
                                 <th scope="col">IMPRIMIR BOLETA</th>
+                                @endcan
+                                @can('imprimir-ticket-refrendo')
                                 <th scope="col">TICKET DE PAGO</th>
+                                @endcan
                             </tr>
                         </thead>
 
                         @foreach ($lista_prendas as $prenda)
-                            <tr>
-                                <th scope="row">{{ $prenda->id_prendas }}</th>
-                                <td>{{ $prenda->cliente->nombre_cliente }} {{ $prenda->cliente->apellido_cliente }}
-                                </td>
-                                <td>{{ $prenda->nombre_prenda }}</td>
-                                <td>{{ $prenda->kilataje_prenda . 'k ' . ', ' . $prenda->gramaje_prenda . 'gr ' . ', ' . $prenda->caracteristicas_prenda }}
-                                </td>
-                                <td> {{ '$ ' . $prenda->avaluo_prenda }}</td>
+                        <tr>
+                            <th scope="row">
+                                
+                            @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->id_prendas }}
+                                @endif
+                                
+                           </th>
+                            <td>
 
-                                <td>
-                                    @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
-                                        45 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
-                                        50 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 55)
-                                        55 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 60)
-                                        60 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 65)
-                                        65 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 70)
-                                        70 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 75)
-                                        75 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 80)
-                                        80 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 85)
-                                        85 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 90)
-                                        90 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 95)
-                                        95 %
-                                    @else
-                                        100 %
-                                    @endif
-                                </td>
-                                <td>$&nbsp;{{ $prenda->prestamo_inicial }}</td>
-                                <td>$&nbsp;{{ $prenda->prestamo_prenda }}</td>
-                                <td><a class="nav-link text-center"
-                                        href="{{ route('boleta.vistaboleta', [$prenda->id_prendas]) }}"
-                                        id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print"
-                                            style="font-size:30px"></i></a></td>
-                                <td>  
-                                        <a class="nav-link text-center"
-                                            href="{{ route('boleta.vistarefre', [$prenda->id_prendas]) }}"
-                                            id="navbarDarkDropdownMenuLink" aria-expanded="false"><i
-                                                class="fa fa-file-text-o" style="font-size:30px"></i></a>
-                                          
-                            </tr>
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->cliente->nombre_cliente }} {{ $prenda->cliente->apellido_cliente }}
+                                @endif
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->nombre_prenda }}
+                                @endif
+
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{ $prenda->kilataje_prenda . 'k ' . ', ' . $prenda->gramaje_prenda . 'gr ' . ', ' . $prenda->caracteristicas_prenda }}
+                                @endif
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{toMoney($prenda->avaluo_prenda)}}
+                                @endif
+
+                            </td>
+
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
+                                45 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
+                                50 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 55)
+                                55 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 60)
+                                60 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 65)
+                                65 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 70)
+                                70 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 75)
+                                75 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 80)
+                                80 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 85)
+                                85 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 90)
+                                90 %
+                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 95)
+                                95 %
+                                @else
+                                100 %
+                                @endif
+                                @endif
+
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{toMoney($prenda->prestamo_inicial)}}
+                                @endif
+
+                            </td>
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                {{toMoney($prenda->prestamo_prenda)}}
+                                @endif
+
+                            </td>
+                            @can('imprimir-boleta-refrendo')
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                <a class="nav-link text-center" href="{{ route('boleta.vistaboleta', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a>
+                                @endif
+
+                            </td>
+                            @endcan
+                            @can('imprimir-ticket-refrendo')
+                            <td>
+
+                                @if ($prenda->numeros_refrendos ==0)
+                                @else
+                                <a class="nav-link text-center" href="{{ route('boleta.vistarefre', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-file-text-o" style="font-size:30px"></i></a>
+                                @endif
+
+                            </td>
+                            @endcan
+                        </tr>
                         @endforeach
                     </table>
                     <div class="d-flex  justify-content-end">
                         {!! $lista_prendas->links() !!}
                     </div>
                 </div>
+                @else
+                <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
+                @endcan
 </body>
 
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
@@ -176,12 +221,12 @@
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 
 @if (session('registro_ticket_refrendo') == 'Se genero la boleta')
-    <script>
-        Swal.fire(
-            'SE GENERO EL PAGO CON EXITO!',
-            'PUEDE DESCARGAR LA BOLETA Y EL TICKET EN LA PRIMERA FILA DE LA TABLA!!',
-            'success')
-    </script>
+<script>
+    Swal.fire(
+        'SE GENERO EL PAGO CON EXITO!',
+        'PUEDE DESCARGAR LA BOLETA Y EL TICKET EN LA PRIMERA FILA DE LA TABLA!!',
+        'success')
+</script>
 @endif
 
 </html>
