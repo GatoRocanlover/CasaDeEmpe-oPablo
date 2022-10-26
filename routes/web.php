@@ -13,11 +13,13 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelReporteController;
 use App\Http\Controllers\RolController;
-use App\Http\Controllers\ExcelReporteController;
+
 
 
 Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
 Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
+
+
 
 Route::group(['middleware' => ['auth']], function () {
 
