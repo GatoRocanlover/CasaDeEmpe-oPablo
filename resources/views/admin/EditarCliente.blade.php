@@ -319,7 +319,7 @@
 
   <script src="{{asset('dist/js/bootstrap.js')}}">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script>
 function PasarNombre()
 {
 document.getElementById("nombre_beneficiario").value = document.getElementById("nombre_cotitular").value;

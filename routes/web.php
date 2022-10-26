@@ -16,15 +16,20 @@ use App\Http\Controllers\RolController;
 
 
 
-Route::get('/', [AdminController::class, 'iniciarsesion'])->name('inicio_sesion');
-Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
 
 
 
+
+Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('roles', RolController::class);
     Route::resource('usuarios', UsuarioController::class);
+
+    //REPORTES
+    Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
+
+
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -110,7 +115,7 @@ Route::group(['middleware' => ['auth']], function () {
    /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
 });
 
-Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
+
 
 
 
