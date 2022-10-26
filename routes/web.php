@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelReporteController;
 use App\Http\Controllers\RolController;
+use App\Http\Controllers\DesempeñoController;
+
 
 
 
@@ -108,7 +110,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('ticket_capital/{id}', [PrendaController::class, 'vistacapitalboleta'])->name('boleta.vistacapital');
     Route::get('editar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'edit'])->name('cotizacionprenda.edit');
 
-
+    Route::get('desempeños', [DesempeñoController::class, 'index'])->name('desempeños');
+    Route::get('boleta_desempeñada/{id}', [DesempeñoController::class, 'vistaboleta'])->name('boleta_desempeño.vistaboleta');
 
 
   /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */

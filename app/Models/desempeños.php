@@ -4,12 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon;
 
-class Prenda extends Model
+class desempeños extends Model
 {
     use HasFactory;
-    protected $table ='prendas';
+    protected $table ='desempeños';
     protected $primaryKey ='id_prendas';
     protected $fillable =[
         'id_cliente',
@@ -70,8 +69,8 @@ class Prenda extends Model
         'numeros_refrendos',
         'folio_refrendo',
         'abono_capital',
-        'cantidad_pago',
-        'cambio_boleta',
+        'cantidad_pago1',
+        'cambio_boleta1',
         'sub_refrendo',
         'recargo_des',
         'total',
@@ -96,12 +95,10 @@ class Prenda extends Model
         'status',    
     ];
 
-    public function getFromDateAttribute($value) {
-        return \Carbon\Carbon::parse($value)->format('d-m-Y');
-    }
+
+
 
     public function cliente(){
         return $this->belongsTo(cliente::class, 'id_cliente', 'id_cliente');
      }
-    
 }

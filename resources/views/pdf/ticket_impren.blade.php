@@ -98,37 +98,37 @@
       <tr>
         <td colspan="3" class="fw-bold textderecha">PRESTAMO:&nbsp;&nbsp;</td>
 
-        <td class="text-center numeros" >{{toMoney($dato_desempeño->prestamo_prenda)}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->prestamo_prenda_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">INTERES COBRADO:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >{{toMoney($dato_desempeño->interes)}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->interes_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">COMISIÓN ALMACENAJE:&nbsp;&nbsp;</td>
-        <td class="text-center numeros " >{{toMoney($dato_desempeño->almacenaje)}}</td>
+        <td class="text-center numeros " >{{toMoney($dato_desempeño->almacenaje_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">SUB TOTAL:&nbsp;&nbsp;</td>
-        <td class="text-center bordeup numeros" >{{toMoney($dato_desempeño->subtotal)}}</td>
+        <td class="text-center bordeup numeros" >{{toMoney($dato_desempeño->subtotal_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">I.V.A. 16% :&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >{{toMoney($dato_desempeño->iva)}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->iva_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">RECARGOS:&nbsp;&nbsp;</td>
-        <td class="text-center numeros" >{{toMoney($dato_desempeño->recargo_des)}}</td>
+        <td class="text-center numeros" >{{toMoney($dato_desempeño->recargo_des_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="3" class="fw-bold textderecha">TOTAL:&nbsp;&nbsp;</td>
-        <td class="text-center bordeup numeros" >{{toMoney($dato_desempeño->total)}}</td>
+        <td class="text-center bordeup numeros" >{{toMoney($dato_desempeño->total_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="4">&nbsp;</td>
       </tr>
       <tr>
-        <td colspan="4" class="text-center fw-bold numeros2">{{num2letras($dato_desempeño->total)}}</td>
+        <td colspan="4" class="text-center fw-bold numeros2">{{num2letras($dato_desempeño->total_ticket)}}</td>
       </tr>
       <tr>
         <td colspan="4">&nbsp;</td>

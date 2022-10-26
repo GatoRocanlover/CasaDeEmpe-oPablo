@@ -115,7 +115,9 @@
                                 </td>
                                 <td>{{toMoney($prenda->prestamo_prenda)}}</td>
                                 @can('imprimir-boleta')
-                                <td><a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a></td>
+                                <td>
+                                    <a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-print" style="font-size:30px"></i></a>
+                                </td>
                                 @endcan
                             </tr>             
                         @endforeach
