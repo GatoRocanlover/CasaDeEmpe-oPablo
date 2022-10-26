@@ -30,7 +30,7 @@ class TicketController extends Controller
                 'cantidad_prenda',
                 'descripcion_generica',
                 'caracteristicas_prenda1',
-                'prestamo_prenda',
+                'prestamo_prenda_ticket',
                 'cantidad_pago',
                 'cambio_boleta',
             )

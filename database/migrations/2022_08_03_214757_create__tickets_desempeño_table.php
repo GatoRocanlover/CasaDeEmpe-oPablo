@@ -22,15 +22,15 @@ class CreateTicketsDesempeñoTable extends Migration
             $table->float('cantidad_prenda', 30);
             $table->string('descripcion_generica');
             $table->string('caracteristicas_prenda1',300);
-            $table->float('prestamo_prenda', 30);
+            $table->float('prestamo_prenda_ticket', 30);
             $table->float('cantidad_pago', 30);    
             $table->float('cambio_boleta', 30);
-            $table->float('interes', 30);
-            $table->float('almacenaje', 30);
-            $table->float('subtotal', 30);
-            $table->float('iva', 30);
-            $table->float('total', 30);
-            $table->float('recargo_des', 30);
+            $table->float('interes_ticket', 30);
+            $table->float('almacenaje_ticket', 30);
+            $table->float('subtotal_ticket', 30);
+            $table->float('iva_ticket', 30);
+            $table->float('total_ticket', 30);
+            $table->float('recargo_des_ticket', 30);
             $table->timestamps();
 
         });

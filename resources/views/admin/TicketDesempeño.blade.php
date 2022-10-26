@@ -108,7 +108,7 @@
                                     <td class="text-center">{{ $tickets->nombre_cliente }}</td>
                                     <td class="text-center">{{ $tickets->nombre_prenda }}</td>
                                     <td class="text-center">{{ $tickets->cantidad_prenda }}</td>
-                                    <td class="text-center">{{toMoney($tickets->prestamo_prenda)}}</td>
+                                    <td class="text-center">{{toMoney($tickets->prestamo_prenda_ticket)}}</td>
                                     <td class="text-center">{{toMoney($tickets->cantidad_pago)}}</td>
                                     <td class="text-center">{{toMoney($tickets->cambio_boleta)}}</td>
                                     @can('imprimir-ticket-desempeño')

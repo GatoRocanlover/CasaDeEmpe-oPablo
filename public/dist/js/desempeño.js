@@ -177,8 +177,8 @@ function calcular() {
 
 //sacar sub total
 var valor1 = document.getElementById("prestamo").value;
-var valor2 = document.getElementById("interes").value;
-var valor3 = document.getElementById("almacenaje").value;
+var valor2 = document.getElementById("interes_ticket").value;
+var valor3 = document.getElementById("almacenaje_ticket").value;
 
 
 
@@ -187,12 +187,12 @@ var valor3 = document.getElementById("almacenaje").value;
     
     $("#desempeño2").val(formatear(porce.toFixed(2)))
     $("#desempeño22").val(porce.toFixed(2))
-    $("#total").val(formatear(porce.toFixed(2)))
-    $("#interes").val($("#desempeño1 option:selected").data("interes"));
+    $("#total_ticket").val(formatear(porce.toFixed(2)))
+    $("#interes_ticket").val($("#desempeño1 option:selected").data("interes"));
     $("#prestamo").val($("#desempeño1 option:selected").data("prestamo"));
-    $("#almacenaje").val($("#desempeño1 option:selected").data("almacenaje"));
-    $("#iva").val($("#desempeño1 option:selected").data("iva"));
-    $("#subtotal").val($("#desempeño1 option:selected").data("subtotal"));
+    $("#almacenaje_ticket").val($("#desempeño1 option:selected").data("almacenaje"));
+    $("#iva_ticket").val($("#desempeño1 option:selected").data("iva"));
+    $("#subtotal_ticket").val($("#desempeño1 option:selected").data("subtotal"));
     $("#multa2").val(($("#desempeño1 option:selected").data("refrendo")/30).toFixed(2));
   
   
@@ -216,9 +216,9 @@ function calcular2() {
     var porce2 = parseFloat(porce+porce11);
 
      $("#desempeño2").val(porce2.toFixed(2))
-     $("#total").val(porce2.toFixed(2)) 
+     $("#total_ticket").val(porce2.toFixed(2)) 
      $("#multa3").val(formatear(porce9.toFixed(2)))
-     $("#recargo_des").val(porce9.toFixed(2))
+     $("#recargo_des_ticket").val(porce9.toFixed(2))
 
 }
 calcular2();

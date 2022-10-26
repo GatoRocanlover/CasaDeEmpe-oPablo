@@ -75,13 +75,13 @@
                         <label class="col-md-4">
                             <strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
                         </label>
-                        <input type="hidden" id="prestamo_prenda" name="prestamo_prenda" value="{{ $dato_prenda->prestamo_prenda }}">
+                        <input type="hidden" id="prestamo_prenda_ticket" name="prestamo_prenda_ticket" value="{{ $dato_prenda->prestamo_prenda }}">
                     </div>
                     <div class="col-md-12 mt-2">
-                        <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="interes" name="interes" type="text" readonly></label>
+                        <label for="prestamo_prenda" class="form-label"> <strong>INTERESES:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="interes_ticket" name="interes_ticket" type="text" readonly></label>
                     </div>
                     <div class="col-md-12">
-                        <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="almacenaje" name="almacenaje" type="text" readonly></label>
+                        <label for="prestamo_prenda" class="form-label"> <strong>ALMACENAJE:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="almacenaje_ticket" name="almacenaje_ticket" type="text" readonly></label>
                     </div>
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
@@ -89,15 +89,15 @@
 
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="subtotal" name="subtotal" type="text" readonly></label>
+                                TOTAL:&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="subtotal_ticket" name="subtotal_ticket" type="text" readonly></label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>SUB
-                                I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="iva" name="iva" type="text" readonly></label>
+                                I.V.A. 16% :&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="iva_ticket" name="iva_ticket" type="text" readonly></label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>
-                                RECARGOS :&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="recargo_des" name="recargo_des" type="text" readonly></label>
+                                RECARGOS :&nbsp;&nbsp;</strong>$&nbsp;<input class="col-md-5" id="recargo_des_ticket" name="recargo_des_ticket" type="text" readonly></label>
                     </div>
                     <div class="text-center col-md-12">
                         <p>---------------------------------------------</p>
@@ -109,7 +109,7 @@
                         <div class="col-md-18">
                             <div class="input-group has-validation">
                                 <span class=" fw-bold signo" id="inputGroupPrepend">$</span>
-                                <input class="tamañoletra text-center negro" id="total" name="total" type="text" readonly></label>
+                                <input class="tamañoletra text-center negro" id="total_ticket" name="total_ticket" type="text" readonly></label>
                             </div>
                         </div>
                     </div>
