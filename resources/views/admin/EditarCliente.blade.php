@@ -317,9 +317,10 @@
 @endcan
 </body>
 
-  <script src="{{asset('dist/js/bootstrap.js')}}">
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="{{ asset('dist/js/EditarCliente.js') }}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ asset('dist/js/bootstrap.js') }}"></script>
+<script src="{{ asset('dist/js/EditarCliente.js') }}"></script>
+</html>
 
 <script>
 function PasarNombre()
