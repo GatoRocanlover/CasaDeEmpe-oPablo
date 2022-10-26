@@ -263,7 +263,7 @@ class ClienteController extends Controller
     {
 
 
-        $clientes = Cliente::where(
+        $clientes = Cliente::orderBy('nombre_cliente', 'desc')->where(
             'nombre_cliente',
             'LIKE',
             "%" . $request->nombre_cliente . "%"
