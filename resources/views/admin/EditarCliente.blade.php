@@ -319,6 +319,8 @@
 
   <script src="{{asset('dist/js/bootstrap.js')}}">
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ asset('dist/js/EditarCliente.js') }}"></script>
+
 <script>
 function PasarNombre()
 {
@@ -329,7 +331,6 @@ function PasarApellido()
 document.getElementById("apellido_beneficiario").value = document.getElementById("apellido_cotitular").value;
 } 
 </script>
-<script src="{{ asset('dist/js/EditarCliente.js') }}"></script>
 
 </html>
 
