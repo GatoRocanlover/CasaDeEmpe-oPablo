@@ -60,7 +60,8 @@
                     <div class="searchSep mt-1 ">
                         <div>
                             <form action="{{ route('cotizacionprenda.listado') }}" method="GET">
-                                <div class="col-md-12 d-flex  mt-2 ">
+                            @csrf    
+                            <div class="col-md-12 d-flex  mt-2 ">
                                     <input class="col-md-4 form-control text-center  me-2" type="search"
                                         placeholder="ingrese folio o nombre de la prenda" name="search"
                                         aria-label="Search" value="{{ request('search') }}">

@@ -46,9 +46,12 @@ a{background-color:transparent}[hidden]{display:none}
 .fondoformulario{background: #e6e1e1!important;}
 .size{width:100% }
 .size80{width:80%}
+.size70{width:70%}
 .size95{width:95%}
 .size50{width:50% }
 .size60{width:60% }
+.size40{width:40% }
+.size45{width:45% }
 .size30{width:30% }
 .sinborde{padding:0!important; margin:0!important;}
 .titulo{line-height: 150%;

@@ -253,4 +253,9 @@ class CotizacionPrendaController extends Controller
             ]
         );
     }
+
+
+    public function index_lote(){
+        return view('admin.lotes_cotizacion');
+    }
 }
