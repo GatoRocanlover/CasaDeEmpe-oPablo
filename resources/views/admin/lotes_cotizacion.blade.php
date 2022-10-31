@@ -39,14 +39,23 @@
         </div>
         <!-- MENU -->
         @include('layout.nav')
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
             <label for="validationCustom03" class="form-label  text-center h3 fw-bold">{{__('MODULO COTIZACIÓN POR LOTES')}}</label>
         </div>
         <br>
 
-        <form action="{{ route('cotizacionprenda.listado') }}" method="GET">
-
+        <form action="{{Route('cotizacionprenda_lote.store')}}" method="POST" class="row needs-validation" novalidate>
+        @csrf
             <div class="accordion size50 mx-auto" id="accordionPanelsStayOpenExample">
 
                 <div class="accordion-item">
@@ -78,13 +87,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
-                                <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" placeholder="Ingrese las unidades cotizadas" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+                          
                             <div class="col-md-8 mt-7 container mt-3">
                                 <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
                                 <input type="text" oninput="cal()" name="dato_1" class="monto form-control" id="dato_1" value="" placeholder="Ingrese el dato #1" required>
@@ -130,13 +133,13 @@
 
                             <div class="col-md-8 container mt-3">
                                 <label for="avaluo_prenda" class="form-label">PRECIO DE AVALUO:</label>
-                                <input type="text" name="avaluo_prenda" onkeyUp="calcular();" class="form-control" id="avaluo_prenda" value="" readonly>
+                                <input type="text" name="prestamo_ava" onkeyUp="calcular();" class="form-control" id="prestamo_ava" value="" readonly>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-md-8 container mt-3">PORCENTAJE DE PRESTAMO SOBRE AVALUO:</label>
-                                <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
+                                <select name="prestamo_por" class="form-select" onchange="calcular();" aria-label="Default select example" id="prestamo_por">
                                     <option selected value="0">SELECCIONE EL PORCENTAJE DE AVALUO</option>
                                     <option value="45">45 %</option>
                                     <option value="50">50 %</option>
@@ -157,7 +160,7 @@
                             </div>
                             <div class="col-md-8 container mt-3">
                                 <label for="prestamo_prenda" class="form-label">PRESTAMO:</label>
-                                <input type="text" name="prestamo_prenda" class="form-control" id="prestamo_prenda" onkeyUp="calculartotal();" value="" readonly>
+                                <input type="text" name="prestamo_lote" class="form-control" id="prestamo_lote" onkeyUp="calculartotal();" value="" readonly>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -181,7 +184,7 @@
                             <!-- INICIO  -->
 
                             <div class="col-md-8  container">
-                                <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA:</label>
+                                <label for="nombre_prenda_2" class="form-label">NOMBRE DE PRENDA:</label>
                                 <div class="input-group has-validation">
                                     <input type="text" name="nombre_prenda_2" class="form-control" id="nombre_prenda_2" value="" placeholder="Nombre de la prenda que desea regristrar" required>
                                     <div class="valid-feedback">
@@ -190,21 +193,15 @@
                                 </div>
                             </div>
                             <div class="col-md-8 container mt-3">
-                                <label for="caracteristicas_prenda" class="form-label">CARACTERISTICAS:</label>
+                                <label for="caracteristicas_prenda_2" class="form-label">CARACTERISTICAS:</label>
                                 <textarea name="caracteristicas_prenda_2" class="form-control " id="caracteristicas_prenda_2" value="" placeholder="Ingrese las caracteristicas de la prenda" requiredrows="3"></textarea>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
-                                <input type="text" name="cantidad_prenda_2" class="form-control" id="cantidad_prenda_2" value="" placeholder="Ingrese las unidades cotizadas" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+                           
                             <div class="col-md-8 mt-7 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
+                                <label  class="form-label">DATOS DE LA MAQUINA:</label>
                                 <input type="text" oninput="cal()" name="dato_1_2" class="monto form-control" id="dato_1_2" value="" placeholder="Ingrese el dato #1" required>
                                 <input type="text" oninput="cal()" name="dato_2_2" class="monto form-control" id="dato_2_2" value="" placeholder="Ingrese el dato #2" required>
                                 <input type="text" oninput="cal()" name="dato_3_2" class="monto form-control" id="dato_3_2" value="" placeholder="Ingrese el dato #3" required>
@@ -212,7 +209,7 @@
 
                             </div>
                             <div class="col-md-8 container mt-3">
-                                <label for="kilataje_prenda" class="form-label">PROMEDIO:</label>
+                                <label for="kilataje_prenda_2" class="form-label">PROMEDIO:</label>
                                 <div class="input-group has-validation">
                                     <input type="text" name="promedio_prenda_2" class="form-control" id="promedio_prenda_2" value="" placeholder="Kilataje de la prenda" readonly>
                                     <div class="valid-feedback">
@@ -221,7 +218,7 @@
                                 </div>
                             </div>
                             <div class="col-md-8 container mt-3">
-                                <label for="kilataje_prenda" class="form-label">KILATAJE:</label>
+                                <label for="kilataje_prenda_2" class="form-label">KILATAJE:</label>
                                 <div class="input-group has-validation">
                                     <input type="text" name="kilataje_prenda_2" class="form-control" id="kilataje_prenda_2" value="" placeholder="Kilataje de la prenda" readonly>
                                     <div class="valid-feedback">
@@ -230,7 +227,7 @@
                                 </div>
                             </div>
                             <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">VALOR GENERICO:</label>
+                                <label for="cantidad_prenda_2" class="form-label">VALOR GENERICO:</label>
                                 <input type="text" name="valor_oro_plata_2" onkeyUp="calcular();" class="form-control" id="valor_oro_plata_2" value="" placeholder="Valor del Oro / Plata" required>
                                 <div class="valid-feedback">
                                     Looks good!
@@ -313,13 +310,7 @@
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
-                                <input type="text" name="cantidad_prenda_3" class="form-control" id="cantidad_prenda_3" value="" placeholder="Ingrese las unidades cotizadas" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+                            
                             <div class="col-md-8 mt-7 container mt-3">
                                 <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
                                 <input type="text" oninput="cal()" name="dato_1_3" class="monto form-control" id="dato_1_3" value="" placeholder="Ingrese el dato #1" required>
@@ -428,13 +419,7 @@
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
-                                <input type="text" name="cantidad_prenda_4" class="form-control" id="cantidad_prenda_4" value="" placeholder="Ingrese las unidades cotizadas" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+                            
                             <div class="col-md-8 mt-7 container mt-3">
                                 <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
                                 <input type="text" oninput="cal()" name="dato_1_4" class="monto form-control" id="dato_1_4" value="" placeholder="Ingrese el dato #1" required>
@@ -543,13 +528,7 @@
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
-                                <input type="text" name="cantidad_prenda_5" class="form-control" id="cantidad_prenda_5" value="" placeholder="Ingrese las unidades cotizadas" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+                            
                             <div class="col-md-8 mt-7 container mt-3">
                                 <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
                                 <input type="text" oninput="cal()" name="dato_1_5" class="monto form-control" id="dato_1_5" value="" placeholder="Ingrese el dato #1" required>
@@ -658,13 +637,7 @@
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-8 container mt-3">
-                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
-                                <input type="text" name="cantidad_prenda_6" class="form-control" id="cantidad_prenda_6" value="" placeholder="Ingrese las unidades cotizadas" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
+                          
                             <div class="col-md-8 mt-7 container mt-3">
                                 <label for="cantidad_prenda" class="form-label">DATOS DE LA MAQUINA:</label>
                                 <input type="text" oninput="cal()" name="dato_1_6" class="monto form-control" id="dato_1_6" value="" placeholder="Ingrese el dato #1" required>
@@ -751,7 +724,7 @@
                 <div class="col-md-8 container mt-3">
                     <label for="validationCustomUsername" class="form-label">DESCRIPCIÓN GENERICA DEL LOTE:</label>
                     <select class="form-select" aria-label="Default select example" name="descripcion_generica" id="descripcion_generica">
-                        <option selected value="">SELECCIONE LA DESCRIPCIÓN GENERICA DE LA PRENDA</option>
+                        <option selected value="" class="text-center">DESCRIPCIÓN GENERICA DEL LOTE</option>
                         <option value="ORO">ORO</option>
                         <option value="PLATA" disabled>PLATA</option>
                     </select>
@@ -759,35 +732,43 @@
                         Looks good!
                     </div>
                 </div>
+                <div class="col-md-8 container mt-3">
+                                <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
+                                <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" placeholder="Ingrese las unidades cotizadas" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
 
                 <div class="col-md-8 container mt-3">
                     <label for="Prestamo_lote" class="form-label">AVALUO TOTAL:</label>
-                    <input type="text" name="prestamo_ava" class="form-control" id="prestamo_ava" onkeyUp="calcularpor();" value="" readonly>
+                    <input type="text" name="avaluo_prenda" class="form-control" id="avaluo_prenda" onkeyUp="calcularpor();" value="" readonly>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-8 container mt-3">
                     <label for="Prestamo_lote" class="form-label">PORCETAJE DE AVALUO:</label>
-                    <input type="text" name="prestamo_por" class="form-control" id="prestamo_por" value="" readonly>
+                    <input type="text" name="porcentaje_prestamo_sobre_avaluo" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="" readonly>
+                    <input type="hidden" name="lote" class="form-control" id="lote"  value="1" readonly>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-8 container mt-3">
                     <label for="Prestamo_lote" class="form-label">PRESTAMO TOTAL:</label>
-                    <input type="text" name="prestamo_lote" class="form-control" id="prestamo_lote" onkeyUp="calcularpor();" value="" readonly>
+                    <input type="text" name="prestamo_prenda" class="form-control" id="prestamo_prenda" onkeyUp="calcularpor();" value="" readonly>
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
-                <input type="hidden" name="lote" class="form-control" id="lote"  value="1" readonly>
-                <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
-                    <button class="size50 bordes btn btn-primary navbar1 fw-bold">DAR DE ALTA</button>
-                </div>
+               
+               
 
             </div>
-
+            <div class=" mb-8 max-w-6xl mx-auto flex items-center justify-center mt-4">
+                    <button class="size50 bordes btn btn-primary navbar1 fw-bold">DAR DE ALTA</button>
+                </div>
         </form>
         <br>
 </body>

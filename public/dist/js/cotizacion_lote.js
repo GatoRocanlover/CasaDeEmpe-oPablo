@@ -6,8 +6,8 @@ function formatear(dato) {
 }
 
 function calcular() {
-    var valor = document.getElementById("porcentaje_prestamo_sobre_avaluo").value;
-    var valor2 = document.getElementById("avaluo_prenda").value;
+    var valor = document.getElementById("prestamo_por").value;
+    var valor2 = document.getElementById("prestamo_ava").value;
 
     var valor_2 = document.getElementById("porcentaje_prestamo_sobre_avaluo_2").value;
     var valor2_2 = document.getElementById("avaluo_prenda_2").value;
@@ -64,24 +64,24 @@ function calcular() {
 
     var totalpor = (parseFloat((ptotal/avatotal) *100|| 0));
 
-    $("#prestamo_prenda").val(formatear(porce.toFixed(0)))
+    $("#prestamo_lote ").val(formatear(porce.toFixed(0)))
     $("#prestamo_prenda_2").val(porce_2.toFixed(0))
     $("#prestamo_prenda_3").val(porce_3.toFixed(0))
     $("#prestamo_prenda_4").val(porce_4.toFixed(0))
     $("#prestamo_prenda_5").val(porce_5.toFixed(0))
     $("#prestamo_prenda_6").val(porce_6.toFixed(0))
 
-    $("#avaluo_prenda").val(formatear1(porce1.toFixed(0)))
+    $("#prestamo_ava").val(formatear1(porce1.toFixed(0)))
     $("#avaluo_prenda_2").val(porce1_2.toFixed(0))
     $("#avaluo_prenda_3").val(porce1_3.toFixed(0))
     $("#avaluo_prenda_4").val(porce1_4.toFixed(0))
     $("#avaluo_prenda_5").val(porce1_5.toFixed(0))
     $("#avaluo_prenda_6").val(porce1_6.toFixed(0))
-    $("#prestamo_ava").val(avatotal.toFixed(0))
+    $("#avaluo_prenda").val(avatotal.toFixed(0))
 
    
-    $("#prestamo_lote").val(ptotal.toFixed(0))
-    $("#prestamo_por").val(totalpor.toFixed(0))
+    $("#prestamo_prenda").val(ptotal.toFixed(0))
+    $("#porcentaje_prestamo_sobre_avaluo").val(totalpor.toFixed(0))
 }
 calcular();
 

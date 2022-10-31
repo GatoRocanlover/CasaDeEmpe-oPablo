@@ -89,7 +89,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('boleta_desempeñada/{id}', [DesempeñoController::class, 'vistaboleta'])->name('boleta_desempeño.vistaboleta');
 
     Route::get('Lotes_Cotizacion', [CotizacionPrendaController::class, 'index_lote'])->name('lotes_cotizacion');
-
+    Route::post('alta_cotizacion_lote', [CotizacionPrendaController::class, 'store_lote'])->name('cotizacionprenda_lote.store');
 });
 
 // Otros

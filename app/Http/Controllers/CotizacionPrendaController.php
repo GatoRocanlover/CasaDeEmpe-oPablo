@@ -15,12 +15,12 @@ class CotizacionPrendaController extends Controller
     public function __contruct()
     {
         $this->middleware('permission:ver-cotizacion|crear-cotizacion|impresion-cotizacion|alta-cotizacion|borrar-cotizacion', ['only' => ['index']]);
-        $this->middleware('permission:crear-cotizacion', ['only' => ['create','store']]);
+        $this->middleware('permission:crear-cotizacion', ['only' => ['create', 'store']]);
         $this->middleware('permission:impresion-cotizacion', ['only' => ['vistaTicket']]);
         $this->middleware('permission:alta-cotizacion', ['only' => ['vistaTicket']]);
         $this->middleware('permission:borrar-cotizacion', ['only' => ['destroy']]);
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +47,7 @@ class CotizacionPrendaController extends Controller
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
                 'cantidad_prenda',
+                'lote',
                 'created_at'
             )
             ->where('id_cotizacionprenda', 'LIKE', '%' . $search . '%')
@@ -85,9 +86,9 @@ class CotizacionPrendaController extends Controller
             "dato_2" => "bail|required",
             "dato_3" => "bail|required",
             "dato_4" => "bail|required",
-         
+
             "kilataje_prenda" => "bail|required",
-            "gramaje_prenda" => 'bail|required',    
+            "gramaje_prenda" => 'bail|required',
             "avaluo_prenda" => "bail|required",
             "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
             "prestamo_prenda" => 'bail|required',
@@ -105,7 +106,7 @@ class CotizacionPrendaController extends Controller
             "dato_2.required" => "No ingreso el valor #2 de la prenda",
             "dato_3.required" => "No ingreso el valor #3 de la prenda",
             "dato_4.required" => "No ingreso el valor #4 de la prenda",
-          
+
             "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar",
             "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
             "avaluo_prenda.required" => "No ha ingresado el avaluo",
@@ -133,6 +134,67 @@ class CotizacionPrendaController extends Controller
         return redirect()->route('cotizacionprenda.listado')->with('registro', 'cotizacion');
     }
 
+
+    public function store_lote(Request $request)
+    {
+        $reglas = [
+            "nombre_prenda" => "bail|required|min:3",
+            "caracteristicas_prenda" => 'bail|required',
+            "descripcion_generica" => "bail|required",
+            "valor_oro_plata" => 'bail|required',
+            "cantidad_prenda" => 'bail|required',
+            "dato_1" => "bail|required",
+            "dato_2" => "bail|required",
+            "dato_3" => "bail|required",
+            "dato_4" => "bail|required",
+
+            "kilataje_prenda" => "bail|required",
+            "gramaje_prenda" => 'bail|required',
+            "avaluo_prenda" => "bail|required",
+            "porcentaje_prestamo_sobre_avaluo" => 'bail|required',
+            "prestamo_prenda" => 'bail|required',
+        ];
+
+        $mensajes = [
+
+            "nombre_prenda.required" => "No ingreso el nombre de la pieza a refrendar",
+            "nombre_prenda.min" => "Los caracteres mínimos para la pieza a refrendar deben ser :min",
+            "caracteristicas_prenda.required" => "No ingreso las caracteristicas de la pieza a refrendar",
+            "descripcion_generica.required" => "No ingreso la descripcion de la pieza a refrendar",
+            "valor_oro_plata.required" => "No ingreso el valor generico del lote",
+            "cantidad_prenda.required" => "No ingreso la cantidad de la pieza",
+            "dato_1.required" => "No ingreso el valor #1 de la prenda",
+            "dato_2.required" => "No ingreso el valor #2 de la prenda",
+            "dato_3.required" => "No ingreso el valor #3 de la prenda",
+            "dato_4.required" => "No ingreso el valor #4 de la prenda",
+
+            "kilataje_prenda.required" => "No ingreso el kilataje de la pieza a refrendar",
+            "gramaje_prenda.required" => "No ingreso el gramaje de la pieza a refrendar",
+            "avaluo_prenda.required" => "No ha ingresado el avaluo",
+            "porcentaje_prestamo_sobre_avaluo.required" => "No ha seleccionado el porfentaje del avaluo",
+            "prestamo_prenda.required" => "No ha seleccionado el prestamo de preda. ",
+
+        ];
+        $validator = Validator::make(
+            $request->all(),
+            $reglas,
+            $mensajes
+        );
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+
+        $cotizacionprenda = CotizacionPrenda::make($request->all());
+        $cotizacionprenda->save();
+
+
+        return redirect()->route('cotizacionprenda.listado');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -151,8 +213,8 @@ class CotizacionPrendaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    { 
-           /*  $cotizacionprenda = CotizacionPrenda::find($id);
+    {
+        /*  $cotizacionprenda = CotizacionPrenda::find($id);
 
             return View::make('admin.EditarCotizacionPrenda')->with(
                 [
@@ -160,7 +222,6 @@ class CotizacionPrendaController extends Controller
 
                 ]
             ); */
-        
     }
     public function vistaaltacoti($id)
     { {
@@ -174,7 +235,7 @@ class CotizacionPrendaController extends Controller
             );
         }
     }
-    
+
 
 
     public function update(Request $request, $id)
@@ -255,7 +316,8 @@ class CotizacionPrendaController extends Controller
     }
 
 
-    public function index_lote(){
+    public function index_lote()
+    {
         return view('admin.lotes_cotizacion');
     }
 }

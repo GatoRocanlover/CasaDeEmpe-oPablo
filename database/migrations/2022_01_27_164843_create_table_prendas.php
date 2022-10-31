@@ -20,8 +20,8 @@ class CreateTablePrendas extends Migration
             $table->string('folio_cotizacion', 20);
             $table->string('nombre_prenda', 90);
             $table->string('descripcion_generica');
-            $table->float('kilataje_prenda', 20);
-            $table->float('gramaje_prenda', 30);
+            $table->float('kilataje_prenda', 20)->nullable()->default(null);
+            $table->float('gramaje_prenda', 30)->nullable()->default(null);
             $table->longText('caracteristicas_prenda');
             $table->float('avaluo_prenda', 30);
             $table->float('porcentaje_prestamo_sobre_avaluo');
