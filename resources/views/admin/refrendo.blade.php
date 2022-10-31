@@ -119,7 +119,7 @@
                     @if ($refrendo1->status ==1)
                                 {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda}}
                                 @else
-                                {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda.' '.$refrendo1->kilataje_prenda.'k '.', '.$refrendo1->gramaje_prenda.'gr '}}
+                                {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda.' '.$refrendo1->kilataje_prenda.'k '.' '.$refrendo1->gramaje_prenda.'gr '}}
                                 @endif
                     </td>
                     <td class="text-center"> {{toMoney($refrendo1->avaluo_prenda)}}</td>

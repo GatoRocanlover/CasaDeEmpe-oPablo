@@ -111,7 +111,7 @@
                     @if ($capital1->status ==1)
                                 {{'Cantidad: '.$capital1->cantidad_prenda.', '}}{{$capital1->caracteristicas_prenda}}
                                 @else
-                                {{'Cantidad: '.$capital1->cantidad_prenda.', '}}{{$capital1->caracteristicas_prenda.' '.$capital1->kilataje_prenda.'k '.', '.$capital1->gramaje_prenda.'gr '}}
+                                {{'Cantidad: '.$capital1->cantidad_prenda.', '}}{{$capital1->caracteristicas_prenda.' '.$capital1->kilataje_prenda.'k '.' '.$capital1->gramaje_prenda.'gr '}}
                                 @endif
                     </td>
                     <td class="text-center"> {{toMoney($capital1->avaluo_prenda)}}</td>
