@@ -46,6 +46,9 @@ class CotizacionPrendaController extends Controller
                 'avaluo_prenda',
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
+                'prestamo_ava',
+                'prestamo_por',
+                'prestamo_lote',
                 'cantidad_prenda',
                 'lote',
                 'created_at'

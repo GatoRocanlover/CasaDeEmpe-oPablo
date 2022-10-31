@@ -84,7 +84,13 @@
                                 <td scope="row">{{$prenda->id_prendas}}</td>
                                 <td>{{$prenda->cliente->nombre_cliente}} {{$prenda->cliente->apellido_cliente}}</td>
                                 <td>{{$prenda->nombre_prenda}}</td>
-                                <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
+                                <td>
+                                @if ($prenda->status ==1)
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
+                                @else
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '}}
+                                @endif
+                                </td>
                                 <td> {{toMoney($prenda->avaluo_prenda)}}</td>
 
                                 <td> @IF($prenda->porcentaje_prestamo_sobre_avaluo == 45)

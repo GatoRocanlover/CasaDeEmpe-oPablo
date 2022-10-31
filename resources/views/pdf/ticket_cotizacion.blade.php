@@ -34,7 +34,7 @@
 
     <body>
 
-    @can('impresion-cotizacion')
+        @can('impresion-cotizacion')
         <table>
             <tr>
                 <td colspan="4">
@@ -106,11 +106,17 @@
             </tr>
             <tr>
                 <td class="textderecha fw-bold">PRESTAMO:&nbsp;&nbsp;</td>
-                <td class="text-center">{{toMoney($dato_tickecoti->prestamo_prenda)}}</td>
+                <td class="text-center">
+                    @if ($dato_tickecoti->lote ==1)
+                    {{toMoney($dato_tickecoti->prestamo_lote)}}
+                    @else
+                    {{toMoney($dato_tickecoti->prestamo_prenda)}}
+                    @endif
+                </td>
             </tr>
             <tr>
                 <th colspan="4" class="text-center">
-                   USUARIO: {{ Auth::user()->name }}
+                    USUARIO: {{ Auth::user()->name }}
                 </th>
             </tr>
             <tr>
@@ -125,11 +131,11 @@
                 </th>
             </tr>
         </table>
-        
-            @else
-        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
-    @endcan
-        
+
+        @else
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
+        @endcan
+
     </body>
     </div>
 

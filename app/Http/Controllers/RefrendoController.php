@@ -32,6 +32,8 @@ class RefrendoController extends Controller
                 'gramaje_prenda',
                 'caracteristicas_prenda',
                 'avaluo_prenda',
+                'cantidad_prenda',
+                'status',
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
                 'numeros_refrendos',

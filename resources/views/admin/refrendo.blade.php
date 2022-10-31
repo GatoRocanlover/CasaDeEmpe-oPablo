@@ -115,7 +115,13 @@
                     <td class="text-center">{{$refrendo1->cliente->nombre_cliente.' '.$refrendo1->cliente->apellido_cliente}}</td>
 
                     <td>{{$refrendo1->nombre_prenda}}</td>
-                    <td>{{$refrendo1->caracteristicas_prenda.'.'.' '.' / '.'DETALLES ESPECIFICOS:'.' KILATAJE:'.''.' '.$refrendo1->kilataje_prenda.'k'.','.' '.'GRAMAJE:'.''.' '.$refrendo1->gramaje_prenda.'gr'}}</td>
+                    <td>
+                    @if ($refrendo1->status ==1)
+                                {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda}}
+                                @else
+                                {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda.' '.$refrendo1->kilataje_prenda.'k '.', '.$refrendo1->gramaje_prenda.'gr '}}
+                                @endif
+                    </td>
                     <td class="text-center"> {{toMoney($refrendo1->avaluo_prenda)}}</td>
 
                     <td class="text-center"> @IF($refrendo1->porcentaje_prestamo_sobre_avaluo == 45)

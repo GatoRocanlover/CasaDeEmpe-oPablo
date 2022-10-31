@@ -18,7 +18,7 @@ class CreateTablePrendas extends Migration
 
             $table->id('id_prendas');
             $table->string('folio_cotizacion', 20);
-            $table->string('nombre_prenda', 90);
+            $table->string('nombre_prenda', 500);
             $table->string('descripcion_generica');
             $table->float('kilataje_prenda', 20)->nullable()->default(null);
             $table->float('gramaje_prenda', 30)->nullable()->default(null);

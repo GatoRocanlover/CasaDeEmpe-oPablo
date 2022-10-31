@@ -110,8 +110,10 @@
                         <input type="hidden" name="folio_cotizacion" class="form-control" id="folio_cotizacion" value="{{ $datoCotizar->id_cotizacionprenda }}" readonly>
                         <br>
                         <label for="" class="sub"><strong>NOMBRE PRENDA:
-                            </strong>{{ $datoCotizar->nombre_prenda }}</label>
-                        <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="{{ $datoCotizar->nombre_prenda }}" readonly>
+                            </strong>
+                            @if($datoCotizar->nombre_prenda_2 == null){{ $datoCotizar->nombre_prenda }}@elseif($datoCotizar->nombre_prenda_3 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}@elseif($datoCotizar->nombre_prenda_4 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}@elseif($datoCotizar->nombre_prenda_5 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}{{', '. $datoCotizar->nombre_prenda_4 }}@elseif($datoCotizar->nombre_prenda_6 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}{{', '. $datoCotizar->nombre_prenda_4 }}{{', '. $datoCotizar->nombre_prenda_5 }}@else{{$datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}{{', '. $datoCotizar->nombre_prenda_4 }}{{', '. $datoCotizar->nombre_prenda_5 }}{{', '. $datoCotizar->nombre_prenda_6 }}@endif
+                        </label>
+                        <input type="hidden" name="nombre_prenda" class="form-control" id="nombre_prenda" value="@if($datoCotizar->nombre_prenda_2 == null){{ $datoCotizar->nombre_prenda }}@elseif($datoCotizar->nombre_prenda_3 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}@elseif($datoCotizar->nombre_prenda_4 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}@elseif($datoCotizar->nombre_prenda_5 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}{{', '. $datoCotizar->nombre_prenda_4 }}@elseif($datoCotizar->nombre_prenda_6 == null){{ $datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}{{', '. $datoCotizar->nombre_prenda_4 }}{{', '. $datoCotizar->nombre_prenda_5 }}@else{{$datoCotizar->nombre_prenda }}{{', '. $datoCotizar->nombre_prenda_2 }}{{', '. $datoCotizar->nombre_prenda_3 }}{{', '. $datoCotizar->nombre_prenda_4 }}{{', '. $datoCotizar->nombre_prenda_5 }}{{', '. $datoCotizar->nombre_prenda_6 }}@endif" readonly>
                         <br>
                         <label for="" class="sub mt-1"><strong>CANTIDAD DE PRENDAS:
                             </strong>{{ $datoCotizar->cantidad_prenda }}</label>
@@ -156,13 +158,16 @@
                         @endif
 
                         
-                        <label for="" class="sub"><strong>AVALUO:
-                            </strong>{{toMoney($datoCotizar->avaluo_prenda)}}</label>
-                        <input type="hidden" name="avaluo_prenda" class="form-control" id="avaluo_prenda" value="{{ $datoCotizar->avaluo_prenda }}" readonly>
+                        <label for="" class="sub"><strong>AVALUO:</strong>
+                                        {{toMoney($datoCotizar->avaluo_prenda)}}
+                                        </label>
+                        <input type="hidden" name="avaluo_prenda" class="form-control" id="avaluo_prenda" value="{{$datoCotizar->avaluo_prenda}}" readonly>
                         <br>
                         <label for="" class="sub"><strong>PORCENTAJE DE AVALUO:
-                            </strong>{{ $datoCotizar->porcentaje_prestamo_sobre_avaluo }}%</label>
-                        <input type="hidden" name="porcentaje_prestamo_sobre_avaluo" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="{{ $datoCotizar->porcentaje_prestamo_sobre_avaluo }}" readonly>
+                            </strong>
+                                        {{$datoCotizar->porcentaje_prestamo_sobre_avaluo.'%'}}
+                                        </label>
+                        <input type="hidden" name="porcentaje_prestamo_sobre_avaluo" class="form-control" id="porcentaje_prestamo_sobre_avaluo" value="{{$datoCotizar->porcentaje_prestamo_sobre_avaluo}}" readonly>
                         <br>
 
                         <input type="hidden" onkeyUp="calcular();" name="prestamo_inicial" class="form-control" id="prestamo_inicial" value="{{ $datoCotizar->prestamo_prenda }}" readonly>

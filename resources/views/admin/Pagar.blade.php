@@ -93,7 +93,6 @@
                                     <th class="text-center" scope="col">SOCIO</th>
                                     <th class="text-center" scope="col">CLIENTE</th>
                                     <th class="text-center" scope="col">PRENDA</th>
-                                    <th class="text-center" scope="col">NO. PRENDAS</th>
                                     <th class="text-center" scope="col">DESCRIPCION DE LA PRENDA</th>
                                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                     <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
@@ -120,8 +119,13 @@
                                         </td>
 
                                         <td>{{ $prenda->nombre_prenda }}</td>
-                                        <td class="text-center">{{ $prenda->cantidad_prenda }}</td>
-                                        <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
+                                        <td>
+                                        @if ($prenda->status ==1)
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
+                                @else
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '}}
+                                @endif  
+                                       
                                         </td>
                                         <td class="text-center"> {{toMoney($prenda->avaluo_prenda)}}</td>
 

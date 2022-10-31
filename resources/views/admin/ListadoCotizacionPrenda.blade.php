@@ -71,7 +71,7 @@
 
                             <a class="btn btn-success me-2 fw-bold" style="display:flex" href="{{ route('cotizacion.agregar_prenda') }}" type="button"><i class="fa fa-plus-circle" style="font-size:20px"></i> &nbsp;AGREGAR
                                 COTIZACIÓN</a>
-                            <a class="btn btn-success me-2 mt-2 fw-bold"  href="{{ route('lotes_cotizacion') }}" type="button"><i class="fa fa-plus-circle" style="font-size:20px"></i> &nbsp;AGREGAR
+                            <a class="btn btn-success me-2 mt-2 fw-bold" href="{{ route('lotes_cotizacion') }}" type="button"><i class="fa fa-plus-circle" style="font-size:20px"></i> &nbsp;AGREGAR
                                 COTIZACIÓN POR LOTE</a>
                         </div>
                         @endcan
@@ -89,6 +89,7 @@
                                     <th scope="col">PORCENTAJE DE EVALUO</th>
                                     <th scope="col">PRESTAMO</th>
                                     <th scope="col">FECHA DE ALTA PRENDA</th>
+                                    <th scope="col">STATUS</th>
                                     @can('impresion-cotizacion')
                                     <th scope="col">IMPRIMIR</th>
                                     @endcan
@@ -110,37 +111,28 @@
                                     </td>
                                     <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
                                     </td>
-                                    <td> {{toMoney($prenda->avaluo_prenda)}}</td>
+                                    <td>
+    
+                                        {{toMoney($prenda->avaluo_prenda)}}
+                                   
+                                        </td>
 
                                     <td>
-                                        @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
-                                        45 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
-                                        50 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 55)
-                                        55 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 60)
-                                        60 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 65)
-                                        65 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 70)
-                                        70 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 75)
-                                        75 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 80)
-                                        80 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 85)
-                                        85 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 90)
-                                        90 %
-                                        @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 95)
-                                        95 %
+                                    {{$prenda->porcentaje_prestamo_sobre_avaluo.'%'}}
+                                    </td>
+                                    <td>
+                        
+                                        {{toMoney($prenda->prestamo_prenda)}}
+                                        
+                                    </td>
+                                    <td>{{ $prenda->created_at->format('d/m/Y') }}</td>
+                                    <td>
+                                        @if ($prenda->lote ==1)
+                                        <div style="color:blueviolet">LOTE</div>
                                         @else
-                                        100 %
+                                        <div style="color:sandybrown">INDIVIDUAL</div>
                                         @endif
                                     </td>
-                                    <td>{{toMoney($prenda->prestamo_prenda)}}</td>
-                                    <td>{{ $prenda->created_at->format('d/m/Y') }}</td>
                                     @can('impresion-cotizacion')
                                     <td>
                                         <br>
