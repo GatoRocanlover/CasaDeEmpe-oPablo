@@ -7,10 +7,20 @@ use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use App\Models\desempeños;// PARA USAR LA TABLA DESEMPEÑOS
 
 
+
+
 class ExcelReporteController extends Controller
 {
     public function export(){
+        
 
+        $Tipo_socio = $item->socio;
+
+        if ($Tipo_socio == "0.20") {
+          echo "SI";
+        } elseif ($Tipo_socio == ".25") {
+          echo "NO";
+        } 
        //Nombre del archivo que generaremos
        $fileName = 'ReporteClientes.csv';
        //Arreglo que contendrá las filas de datos
@@ -30,20 +40,20 @@ class ExcelReporteController extends Controller
                    );
 
        $columns = array(
-            'id_cliente',
+            'No.',
             'Nombre',
             'Direccion',
-            'telefono_cliente',
-            'socio',
+            'Telefono',
+            'Es socio',
             'NumSocio');
 
        foreach ($items as $item){
            $arrayDetalle[] = array(
-                            'id_cliente' => $item->id_cliente,
+                            'No.' => $item->id_cliente,
                             'Nombre' => $item->nombre_cliente ." " . $item->apellido_cliente,
                             'Direccion' => " C: " .$item->calle_cliente." N. " . $item->numero_cliente." X " . $item->cruzamientos_cliente." " . $item->colonia_cliente,
-                            'telefono_cliente' => $item->telefono_cliente,
-                            'socio'  => $item->socio,                                       
+                            'Telefono' => $item->telefono_cliente,
+                            'Es socio'  => $Tipo_socio,                                       
                             'NumSocio'  => $item->numero_socio
                                );
        }
@@ -61,7 +71,7 @@ class ExcelReporteController extends Controller
        //Esto hace que Laravel exponga el archivo como descarga
        return response()->stream($callback, 200, $headers);
     }
-    public function exportDesempeños(){
+    /*public function exportDesempeños(){
 
         //Nombre del archivo que generaremos
         $fileName = 'ReporteDesempeños.csv';
@@ -83,8 +93,10 @@ class ExcelReporteController extends Controller
  
         $columns = array(
              'Fecha',
+             'id_cliente',
              'Folio_Boleta',
              'avaluo_prenda',
+             'prestamoAcumulado',
              'telefono_cliente',
              'porcentaje_prestamo_sobre_avaluo',
              'NumSocio');
@@ -92,8 +104,10 @@ class ExcelReporteController extends Controller
         foreach ($items as $item){
             $arrayDetalle[] = array(
                              'created_at' => $item->created_at,
+                             'id_cliente' => $item->id_cliente,
                              'id_prendas' => $item->id_prendas,
                              'avaluo_prenda' =>$item->avaluo_prenda,
+                             'prestamoAcumulado'=>$item-> avaluo_prenda,
                              'porcentaje_prestamo_sobre_avaluo' => $item->porcentaje_prestamo_sobre_avaluo,
                              'prestamo_inicial'  => $item->prestamo_inicial,                                       
                              'NumSocio'  => $item->numero_socio
@@ -112,5 +126,5 @@ class ExcelReporteController extends Controller
       
         //Esto hace que Laravel exponga el archivo como descarga
         return response()->stream($callback, 200, $headers);
-     }
+     }*/
 }

@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function () {
 
     //REPORTES
     Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
-
+    
 
 
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
