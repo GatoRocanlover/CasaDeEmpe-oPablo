@@ -49,7 +49,7 @@
   </style>
 
   <body>
-  @can('imprimir-ticket-refrendo')
+    @can('imprimir-ticket-refrendo')
     <table>
       <tr>
         <th class="text-center" colspan="4">
@@ -85,7 +85,15 @@
       </tr>
       <tr>
         <td class="textderecha fw-bold borde">PRENDA:&nbsp;&nbsp;</td>
-        <td class="text-center borde" colspan="3">{{$dato_prenda->nombre_prenda}}</td>
+        <td class="text-center borde" colspan="3">
+          @if ($dato_prenda->status ==1)
+          {{'Cantidad: '.$dato_prenda->cantidad_prenda.', '}} <br>
+          {{$dato_prenda->caracteristicas_prenda}}
+          @else
+          {{'Cantidad: '.$dato_prenda->cantidad_prenda.', '}} <br>
+          {{$dato_prenda->caracteristicas_prenda.' '.$dato_prenda->kilataje_prenda.'k '.' '.$dato_prenda->gramaje_prenda.'gr '}}
+          @endif
+        </td>
       </tr>
       <tr>
         <td class="textderecha fw-bold borde">TIPO DE&nbsp;&nbsp; MOVIMIENTO:&nbsp;&nbsp;</td>
@@ -215,7 +223,7 @@
       </tr>
     </table>
     @else
-        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
     @endcan
 
   </body>

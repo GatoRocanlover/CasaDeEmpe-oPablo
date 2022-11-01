@@ -49,7 +49,7 @@
                 <div class="col-md-12 table-responsive">
 
                     <!-- OPCION BUSCAR -->
-                    <label class="mt-2 fw-bold">BUSCAR FOLIO DE COTIZACION:</label>
+                    <label class="mt-2 fw-bold">BUSCAR FOLIO DE COTIZACIÓN:</label>
                     <div class="searchSep mt-1 ">
                         <div>
                             <form action="{{ route('listado_prenda') }}" method="GET">
@@ -66,12 +66,13 @@
                         <thead class="letra-blanca bg-dark">
                             <tr>
                                 <th scope="col">FOLIO BOLETA</th>
+                                <th scope="col">STATUS</th>
                                 <th scope="col">CLIENTE</th>
                                 <th scope="col">PRENDA</th>
-                                <th scope="col">CARACTERISTICAS</th>
+                                <th scope="col">CARACTERÍSTICAS</th>
                                 <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                                <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
-                                <th scope="col">&nbsp;&nbsp;PRESTAMO&nbsp;&nbsp;</th>
+                                <th scope="col">PORCENTAJE <br> DE <br> PRÉSTAMO</th>
+                                <th scope="col">&nbsp;&nbsp;PRÉSTAMO&nbsp;&nbsp;</th>
                                 @can('imprimir-boleta')
                                 <th scope="col">IMPRIMIR BOLETA</th>
                                 @endcan
@@ -82,36 +83,37 @@
 
                             <tr>
                                 <td scope="row">{{$prenda->id_prendas}}</td>
+                                <td>
+                                        @if ($prenda->status ==1)
+                                        <div style="color:blueviolet">LOTE</div>
+                                        @if ($prenda->cliente->socio == 0.02)
+                                        <div style="color:blueviolet">SOCIO</div>
+                                        @elseif($prenda->cliente->socio == 0.025)
+                                        <div style="color:blueviolet"> NO ES SOCIO</div>
+                                        @ENDIF
+                                        @else
+                                        <div style="color:sandybrown">INDIVIDUAL</div>
+                                        @if ($prenda->cliente->socio == 0.02)
+                                        <div style="color:sandybrown">SOCIO</div>
+                                        @elseif($prenda->cliente->socio == 0.025)
+                                        <div style="color:sandybrown">NO ES SOCIO</div>
+                                        @ENDIF
+                                        @endif
+                                    </td> 
                                 <td>{{$prenda->cliente->nombre_cliente}} {{$prenda->cliente->apellido_cliente}}</td>
                                 <td>{{$prenda->nombre_prenda}}</td>
-                                <td>{{$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '.', '.$prenda->caracteristicas_prenda}}</td>
+                                <td>
+                                @if ($prenda->status ==1)
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
+                                @else
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.', '.$prenda->gramaje_prenda.'gr '}}
+                                @endif
+                                </td>
                                 <td> {{toMoney($prenda->avaluo_prenda)}}</td>
 
-                                <td> @IF($prenda->porcentaje_prestamo_sobre_avaluo == 45)
-                                    45 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
-                                    50 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 55)
-                                    55 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 60)
-                                    60 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 65)
-                                    65 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 70)
-                                    70 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 75)
-                                    75 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 80)
-                                    80 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 85)
-                                    85 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 90)
-                                    90 %
-                                    @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 95)
-                                    95 %
-                                    @else
-                                    100 %
-                                    @endif
+                                <td>
+                                    {{$prenda->porcentaje_prestamo_sobre_avaluo.'%'}}
+                                 
                                 </td>
                                 <td>{{toMoney($prenda->prestamo_prenda)}}</td>
                                 @can('imprimir-boleta')

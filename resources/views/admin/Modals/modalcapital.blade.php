@@ -54,13 +54,13 @@
                                 &nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
                     </div>
                     <div class="">
-                        <label for="" class="sub "><strong>DESCRIPCION GENERICA: </strong>
+                        <label for="" class="sub "><strong>DESCRIPCIÓN GENERICA: </strong>
                             {{$dato_prenda->descripcion_generica}}
                         </label>
                     </div>
                     <div class="mt-2">
-                        <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERISTICAS:
-                                &nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                        <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERÍSTICAS:
+                                &nbsp;</strong>@if ($dato_prenda->status ==1){{$dato_prenda->caracteristicas_prenda}}@else{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}@endif</label>
                     </div>
                     <div class="col-md-12">
                         <label for="prestamo_prenda" class="form-label"> <strong>
@@ -73,7 +73,7 @@
                     </div>
                     <div>
                         <label class="col-md-4">
-                            <strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
+                            <strong>PRÉSTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
                             <input type="hidden" class="col-md-5" id="pago6" onkeyUp="calcular2();" name="pago6" value="{{ $dato_prenda->prestamo_prenda }}" readonly>
 
                         </label>

@@ -259,14 +259,14 @@
                         </label><br>
                         <label class="mt-2"><strong>NOMBRE DE LA
                                 PRENDA:&nbsp;&nbsp;</strong>{{ $dato_prenda->nombre_prenda }}</label> <br>
-                        <label class="mt-2"><strong>DESCRIPCION GENERICA:&nbsp;&nbsp;</strong>
+                        <label class="mt-2"><strong>DESCRIPCIÓN GENERICA:&nbsp;&nbsp;</strong>
                             {{$dato_prenda->descripcion_generica}}
                         </label> <br>
                         <label class="mt-2"><strong>CANTIDAD DE
                                 PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
-                        <label class="mt-2"><strong>CARACTERISTICAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
+                        <label class="mt-2"><strong>CARACTERÍSTICAS:&nbsp;&nbsp;</strong>@if ($dato_prenda->status ==1){{$dato_prenda->caracteristicas_prenda}}@else{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}@endif</label>
                         <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
-                        <label class="mt-1"><strong>PRESTAMO INICIAL:&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->prestamo_inicial)}}</label>
+                        <label class="mt-1"><strong>PRÉSTAMO INICIAL:&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->prestamo_inicial)}}</label>
                     </div>
 
 

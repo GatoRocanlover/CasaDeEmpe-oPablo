@@ -114,8 +114,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('boleta_desempeñada/{id}', [DesempeñoController::class, 'vistaboleta'])->name('boleta_desempeño.vistaboleta');
 
 
-  /*   Route::get('/abono_capital', [AjaxController::class, 'index'])->name('abonocapital'); */
-   /*  Route::post('/abono_capital/fetch', [AjaxController::class, 'fetch'])->name('autocomplete.fetch'); */
 });
 
 

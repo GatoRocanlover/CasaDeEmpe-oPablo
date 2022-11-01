@@ -65,36 +65,34 @@
 
                     <div class="col-md-8">
                         <label for="nombre_prenda" class="form-label">NOMBRE DE PRENDA:</label>
-                        <div class="input-group has-validation">
                             <input type="text" name="nombre_prenda" class="form-control" id="nombre_prenda" value="" placeholder="Nombre de la prenda que desea regristrar" required>
                             <div class="valid-feedback">
-                                Looks good!
+                                Requiere un nombre como minimo!
                             </div>
-                        </div>
                     </div>
                     <div class="col-md-8">
                         <label for="caracteristicas_prenda" class="form-label">CARACTERISTICAS:</label>
-                        <textarea name="caracteristicas_prenda" class="form-control " id="caracteristicas_prenda" value="" placeholder="Ingrese las caracteristicas de la prenda" requiredrows="3"></textarea>
+                        <textarea name="caracteristicas_prenda" class="form-control " id="caracteristicas_prenda" value="" placeholder="Ingrese las caracteristicas de la prenda" requiredrows="3" required></textarea>
                         <div class="valid-feedback">
-                            Looks good!
+                            Se requiere registrar una caracteristica!
                         </div>
                     </div>
                     <div class="col-md-8">
                         <label for="validationCustomUsername" class="form-label">DESCRIPCIÓN GENERICA:</label>
-                        <select class="form-select" aria-label="Default select example" name="descripcion_generica" id="descripcion_generica">
-                            <option selected value="-1">SELECCIONE LA DESCRIPCIÓN GENERICA DE LA PRENDA</option>
+                        <select class="form-select" aria-label="Default select example" name="descripcion_generica" id="descripcion_generica" required>
+                            <option selected disabled value="">SELECCIONE LA DESCRIPCIÓN GENERICA DE LA PRENDA</option>
                             <option value="ORO">ORO</option>
                             <option value="PLATA" disabled>PLATA</option>
                         </select>
                         <div class="valid-feedback">
-                            Looks good!
+                            Seleccione la descripción generica de la prenda!
                         </div>
                     </div>
                     <div class="col-md-8">
                         <label for="cantidad_prenda" class="form-label">CANTIDAD DE PRENDAS:</label>
                         <input type="text" name="cantidad_prenda" class="form-control" id="cantidad_prenda" value="" placeholder="Ingrese las unidades cotizadas" required>
                         <div class="valid-feedback">
-                            Looks good!
+                            Ingrese la cantidad de prendas recibidas!
                         </div>
                     </div>
                     <div class="col-md-8 mt-7">
@@ -127,7 +125,7 @@
                         <label for="cantidad_prenda" class="form-label">VALOR GENERICO:</label>
                         <input type="text" name="valor_oro_plata" onkeyUp="calcular1();" class="form-control" id="valor_oro_plata" value="" placeholder="Valor del Oro / Plata" required>
                         <div class="valid-feedback">
-                            Looks good!
+                        Ingrese el precio del Oro o Plata!
                         </div>
                     </div>
                     <div class="col-md-8">
@@ -135,7 +133,7 @@
                         <div class="input-group has-validation">
                             <input type="text" name="gramaje_prenda" onkeyUp="calcular1();" class="form-control" id="gramaje_prenda" value="" placeholder="Peso de la prenda" required>
                             <div class="valid-feedback">
-                                Looks good!
+                                Ingrese el peso de la prenda!
                             </div>
                         </div>
                     </div>
@@ -148,8 +146,8 @@
                         </div>
                     </div>
                     <div class="col-md-8">PORCENTAJE DE PRESTAMO SOBRE AVALUO:</label>
-                        <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo">
-                            <option selected value="0">SELECCIONE EL PORCENTAJE DE AVALUO</option>
+                        <select name="porcentaje_prestamo_sobre_avaluo" class="form-select" onchange="calcular();" aria-label="Default select example" id="porcentaje_prestamo_sobre_avaluo" required>
+                            <option selected disabled value="">SELECCIONE EL PORCENTAJE DE AVALUO</option>
                             <option value="45">45 %</option>
                             <option value="50">50 %</option>
                             <option value="55">55 %</option>
@@ -164,7 +162,7 @@
                             <option value="100">100 %</option>
                         </select>
                         <div class="valid-feedback">
-                            Looks good!
+                            Seleccione el porcentaje sobre el avaluo!
                         </div>
                     </div>
                     <div class="col-md-8">

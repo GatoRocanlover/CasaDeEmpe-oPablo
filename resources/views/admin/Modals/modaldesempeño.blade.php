@@ -58,22 +58,23 @@
                         <input type="hidden" name="cantidad_prenda" class="form-control text-center" id="cantidad_prenda" value="{{ $dato_prenda->cantidad_prenda }}" readonly>
                     </div>
                     <div class="">
-                        <label for="" class="sub "><strong>DESCRIPCION GENERICA: </strong>
+                        <label for="" class="sub "><strong>DESCRIPCIÓN GENERICA: </strong>
                             {{$dato_prenda->descripcion_generica}}
                         </label>
                         <input type="hidden" name="descripcion_generica" class="form-control text-center" id="descripcion_generica" value="{{$dato_prenda->descripcion_generica}}" readonly>
                     </div>
                     <div class="mt-1">
-                        <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERISTICAS:
-                                &nbsp;</strong>{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}</label>
-                        <input type="hidden" name="caracteristicas_prenda1" class="form-control text-center" id="caracteristicas_prenda1" value="{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}" readonly>
+                        <label for="caracteristicas_prenda" class="form-label"><strong>CARACTERÍSTICAS:
+                                &nbsp;</strong>@if ($dato_prenda->status ==1){{$dato_prenda->caracteristicas_prenda}}@else{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}@endif</label>
+                        <input type="hidden" name="caracteristicas_prenda1" class="form-control text-center" id="caracteristicas_prenda1" 
+                        value="@if ($dato_prenda->status ==1){{$dato_prenda->caracteristicas_prenda}}@else{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}@endif" readonly>
                     </div>
                     <div class="text-center col-md-12">
                         <p>-----------------------------------------------------------------</p>
                     </div>
                     <div>
                         <label class="col-md-4">
-                            <strong>PRESTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
+                            <strong>PRÉSTAMO:&nbsp;&nbsp;</strong>$&nbsp;{{ $dato_prenda->prestamo_prenda }}
                         </label>
                         <input type="hidden" id="prestamo_prenda_ticket" name="prestamo_prenda_ticket" value="{{ $dato_prenda->prestamo_prenda }}">
                     </div>
@@ -228,7 +229,7 @@
            
                 <input type="hidden" name="cantidad_prenda'" class="form-control" id="cantidad_prenda'" value="{{$dato_prenda->cantidad_prenda}}" readonly>
                 <input type="hidden" name="id_cliente" class="form-control" id="id_cliente" value="{{ $dato_prenda->id_cliente}}" readonly>
-                <input type="hidden" name="status" class="form-control" id="status" value="DESEMPEÑADO" readonly>
+                <input type="hidden" name="status" class="form-control" id="status" value="{{ $dato_prenda->status}}" readonly>
            
            
             </form>

@@ -32,7 +32,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('listado_prenda') }}">BOLETAS</a></li>
-                        <li><a class="dropdown-item" href="{{ route('cotizacionprenda.listado') }}">COTIZACION</a></li>
+                        <li><a class="dropdown-item" href="{{ route('cotizacionprenda.listado') }}">COTIZACIÓN</a></li>
                         <li><a class="dropdown-item" href="{{ route('desempeños') }}">BOLETAS DESEMPEÑADAS</a></li>
                     </ul>
                 </li>

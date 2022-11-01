@@ -409,7 +409,14 @@
                     {{$dato_prenda->descripcion_generica}}
                 </th>
                 <td colspan="4">
-                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
+                @if ($dato_prenda->status ==1)
+                Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
+                        @else
+                        Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
+                        @endif
+
+
+                   
                 </td>
                 <td>{{toMoney($dato_prenda->avaluo_prenda)}}</td>
                 <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
