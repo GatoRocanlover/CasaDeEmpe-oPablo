@@ -87,7 +87,7 @@
                                     <th scope="col">CARACTERISTICAS</th>
                                     <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                                     <th scope="col">PORCENTAJE DE EVALUO</th>
-                                    <th scope="col">PRESTAMO</th>
+                                    <th scope="col">&nbsp;PRESTAMO&nbsp;</th>
                                     <th scope="col">FECHA DE ALTA PRENDA</th>
                                     <th scope="col">STATUS</th>
                                     @can('impresion-cotizacion')
@@ -105,11 +105,38 @@
                                 @foreach ($lista_cotizacionprendas as $prenda)
                                 <tr>
                                     <th scope="row">{{ $prenda->id_cotizacionprenda }}</th>
-                                    <td>{{ $prenda->nombre_prenda }}</td>
+                                    <td>
+                                        @if($prenda->nombre_prenda_2 == null)
+                                        {{ $prenda->nombre_prenda }}
+                                        @elseif($prenda->nombre_prenda_3 == null)
+                                        {{ $prenda->nombre_prenda }}{{', '. $prenda->nombre_prenda_2 }}
+                                        @elseif($prenda->nombre_prenda_4 == null)
+                                        {{ $prenda->nombre_prenda }}{{', '. $prenda->nombre_prenda_2 }}{{', '. $prenda->nombre_prenda_3 }}
+                                        @elseif($prenda->nombre_prenda_5 == null)
+                                        {{ $prenda->nombre_prenda }}{{', '. $prenda->nombre_prenda_2 }}{{', '. $prenda->nombre_prenda_3 }}{{', '. $prenda->nombre_prenda_4 }}
+                                        @elseif($prenda->nombre_prenda_6 == null)
+                                        {{ $prenda->nombre_prenda }}{{', '. $prenda->nombre_prenda_2 }}{{', '. $prenda->nombre_prenda_3 }}{{', '. $prenda->nombre_prenda_4 }}{{', '. $prenda->nombre_prenda_5 }}
+                                        @else
+                                        {{$prenda->nombre_prenda }}{{', '. $prenda->nombre_prenda_2 }}{{', '. $prenda->nombre_prenda_3 }}{{', '. $prenda->nombre_prenda_4 }}{{', '. $prenda->nombre_prenda_5 }}{{', '. $prenda->nombre_prenda_6 }}
+                                        @endif
+                                    </td>
                                     <td>
                                         {{$prenda->descripcion_generica}}
                                     </td>
-                                    <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
+                                    <td>
+                                        @if($prenda->caracteristicas_prenda_2 == null)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{ $prenda->caracteristicas_prenda }} {{ $prenda->kilataje_prenda}}k {{ $prenda->gramaje_prenda }}gr
+                                        @elseif($prenda->caracteristicas_prenda_3 == null)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{ $prenda->caracteristicas_prenda }} {{ $prenda->kilataje_prenda}}k {{ $prenda->gramaje_prenda }}gr {{', '. $prenda->caracteristicas_prenda_2 }} {{ $prenda->kilataje_prenda_2}}k {{ $prenda->gramaje_prenda_2 }}gr 
+                                        @elseif($prenda->caracteristicas_prenda_4 == null)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{ $prenda->caracteristicas_prenda }} {{ $prenda->kilataje_prenda}}k {{ $prenda->gramaje_prenda }}gr {{', '. $prenda->caracteristicas_prenda_2 }} {{ $prenda->kilataje_prenda_2}}k {{ $prenda->gramaje_prenda_2 }}gr {{', '. $prenda->caracteristicas_prenda_3 }} {{ $prenda->kilataje_prenda_3.'k'}} {{ $prenda->gramaje_prenda_3.'gr'}}
+                                        @elseif($prenda->caracteristicas_prenda_5 == null)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{ $prenda->caracteristicas_prenda }} {{ $prenda->kilataje_prenda}}k {{ $prenda->gramaje_prenda }}gr {{', '. $prenda->caracteristicas_prenda_2 }} {{ $prenda->kilataje_prenda_2}}k {{ $prenda->gramaje_prenda_2 }}gr {{', '. $prenda->caracteristicas_prenda_3 }} {{ $prenda->kilataje_prenda_3.'k'}} {{ $prenda->gramaje_prenda_3.'gr'}}{{', '. $prenda->caracteristicas_prenda_4 }} {{ $prenda->kilataje_prenda_4.'k'}} {{ $prenda->gramaje_prenda_4.'gr'}}
+                                        @elseif($prenda->caracteristicas_prenda_6 == null)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{ $prenda->caracteristicas_prenda }} {{ $prenda->kilataje_prenda}}k {{ $prenda->gramaje_prenda }}gr {{', '. $prenda->caracteristicas_prenda_2 }} {{ $prenda->kilataje_prenda_2}}k {{ $prenda->gramaje_prenda_2 }}gr {{', '. $prenda->caracteristicas_prenda_3 }} {{ $prenda->kilataje_prenda_3.'k'}} {{ $prenda->gramaje_prenda_3.'gr'}}{{', '. $prenda->caracteristicas_prenda_4 }} {{ $prenda->kilataje_prenda_4.'k'}} {{ $prenda->gramaje_prenda_4.'gr'}}{{', '. $prenda->caracteristicas_prenda_5 }} {{ $prenda->kilataje_prenda_5.'k'}} {{ $prenda->gramaje_prenda_5.'gr'}}
+                                        @else
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda }} {{ $prenda->kilataje_prenda}}k {{ $prenda->gramaje_prenda }}gr {{', '. $prenda->caracteristicas_prenda_2 }} {{ $prenda->kilataje_prenda_2}}k {{ $prenda->gramaje_prenda_2 }}gr {{', '. $prenda->caracteristicas_prenda_3 }} {{ $prenda->kilataje_prenda_3.'k'}} {{ $prenda->gramaje_prenda_3.'gr'}}{{', '. $prenda->caracteristicas_prenda_4 }} {{ $prenda->kilataje_prenda_4.'k'}} {{ $prenda->gramaje_prenda_4.'gr'}}{{', '. $prenda->caracteristicas_prenda_5 }} {{ $prenda->kilataje_prenda_5.'k'}} {{ $prenda->gramaje_prenda_5.'gr'}}{{', '. $prenda->caracteristicas_prenda_6 }} {{ $prenda->kilataje_prenda_6.'k'}} {{ $prenda->gramaje_prenda_6.'gr'}}@endif
+
                                     </td>
                                     <td>
     
