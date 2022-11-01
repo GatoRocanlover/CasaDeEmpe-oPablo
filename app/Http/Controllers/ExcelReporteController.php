@@ -14,13 +14,7 @@ class ExcelReporteController extends Controller
     public function export(){
         
 
-        $Tipo_socio = $item->socio;
-
-        if ($Tipo_socio == "0.20") {
-          echo "SI";
-        } elseif ($Tipo_socio == ".25") {
-          echo "NO";
-        } 
+      
        //Nombre del archivo que generaremos
        $fileName = 'ReporteClientes.csv';
        //Arreglo que contendrá las filas de datos
@@ -48,12 +42,23 @@ class ExcelReporteController extends Controller
             'NumSocio');
 
        foreach ($items as $item){
+
+        $Tipo_socio = $item->socio;
+        $esSocio = "SI";
+        if ($Tipo_socio == "0.20") {
+            $esSocio = "SI";
+        } elseif ($Tipo_socio == ".25") {
+            $esSocio ="NO";
+        } 
+
+
+
            $arrayDetalle[] = array(
                             'No.' => $item->id_cliente,
                             'Nombre' => $item->nombre_cliente ." " . $item->apellido_cliente,
                             'Direccion' => " C: " .$item->calle_cliente." N. " . $item->numero_cliente." X " . $item->cruzamientos_cliente." " . $item->colonia_cliente,
                             'Telefono' => $item->telefono_cliente,
-                            'Es socio'  => $Tipo_socio,                                       
+                            'Es socio'  => $esSocio,                                       
                             'NumSocio'  => $item->numero_socio
                                );
        }
