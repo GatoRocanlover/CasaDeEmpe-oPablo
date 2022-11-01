@@ -21,8 +21,7 @@
     <link href="{{ asset('dist/fontawesome/css/all.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
 
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -34,8 +33,7 @@
 
 
 
-    <div
-        class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
+    <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
         <!-- encabezado -->
         <div class="size">
@@ -55,7 +53,7 @@
 
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
-            <label for="validationCustom03" class="form-label  text-center h3"> MODULO DE DESEMPEÑO</label>
+            <label for="validationCustom03" class="form-label  text-center h3">DESEMPEÑO</label>
         </div>
 
         <!-- ----------------------------------------------------------------------------->
@@ -69,18 +67,14 @@
                         <div>
                             <form action="{{ route('Pagar') }}" method="GET">
                                 <div class="col-md-12 d-flex  mt-2 ">
-                                    <input class="col-md-4 form-control text-center  me-2" type="search"
-                                        placeholder="ingrese folio o número del cliente" name="search"
-                                        aria-label="Search" value="{{ request('search') }}">
-                                    <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0"
-                                        type="submit">Buscar</button>
+                                    <input class="col-md-4 form-control text-center  me-2" type="search" placeholder="ingrese folio o número del cliente" name="search" aria-label="Search" value="{{ request('search') }}">
+                                    <button class="btn bbtn mt-5 btn-primary my-2 my-sm-0" type="submit">Buscar</button>
                                 </div>
                             </form>
                         </div>
                         @can('ver-listado-tickets-desempeño')
                         <div class="hover">
-                            <a class="btn btn-success me-2" href="{{ route('Ticket_Desempeño') }}" type="button"><i
-                                    class="fas fa-cash-register"></i> &nbsp;BOLETAS LIQUIDADAS</a>
+                            <a class="btn btn-success me-2" href="{{ route('Ticket_Desempeño') }}" type="button"><i class="fas fa-cash-register"></i> &nbsp;BOLETAS LIQUIDADAS</a>
                         </div>
                         @endcan
                     </div>
@@ -90,13 +84,13 @@
                             <thead class="letra-blanca bg-dark">
                                 <tr>
                                     <th class="text-center" scope="col">FOLIO BOLETA</th>
-                                    <th class="text-center" scope="col">SOCIO</th>
+                                    <th class="text-center">STATUS</th>
                                     <th class="text-center" scope="col">CLIENTE</th>
                                     <th class="text-center" scope="col">PRENDA</th>
-                                    <th class="text-center" scope="col">DESCRIPCION DE LA PRENDA</th>
+                                    <th class="text-center" scope="col">DESCRIPCIÓN DE LA PRENDA</th>
                                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
-                                    <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
-                                    <th class="text-center" scope="col">PRESTAMO</th>
+                                    <th class="text-center" scope="col">PORCENTAJE DE PRÉSTAMO</th>
+                                    <th class="text-center" scope="col">PRÉSTAMO</th>
                                     @can('pago-desempeño')
                                     <th class="text-center" scope="col">DESEMPEÑAR</th>
                                     @endcan
@@ -104,70 +98,52 @@
                             </thead>
                             <tbody>
                                 @foreach ($prendaPagarr as $prenda)
-                                    <tr>
-                                        <th class="text-center" scope="row">{{ $prenda->id_prendas }}</th>
-                                        <td class="text-center">
-                                            @if ($prenda->cliente->socio == 0.02)
-                                                SOCIO
-                                            @elseif($prenda->cliente->socio == 0.025)
-                                                NO SOCIO
-                                            @ENDIF
-                                        </td>
-
-                                        <td class="text-center">
-                                            {{ $prenda->cliente->nombre_cliente . ' ' . $prenda->cliente->apellido_cliente }}
-                                        </td>
-
-                                        <td>{{ $prenda->nombre_prenda }}</td>
-                                        <td>
+                                <tr>
+                                    <th class="text-center" scope="row">{{ $prenda->id_prendas }}</th>
+                                    <td>
                                         @if ($prenda->status ==1)
-                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
-                                @else
-                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.' '.$prenda->gramaje_prenda.'gr '}}
-                                @endif  
-                                       
-                                        </td>
-                                        <td class="text-center"> {{toMoney($prenda->avaluo_prenda)}}</td>
+                                        <div style="color:blueviolet">LOTE</div>
+                                        @if ($prenda->cliente->socio == 0.02)
+                                        <div style="color:blueviolet">SOCIO</div>
+                                        @elseif($prenda->cliente->socio == 0.025)
+                                        <div style="color:blueviolet"> NO ES SOCIO</div>
+                                        @ENDIF
+                                        @else
+                                        <div style="color:sandybrown">INDIVIDUAL</div>
+                                        @if ($prenda->cliente->socio == 0.02)
+                                        <div style="color:sandybrown">SOCIO</div>
+                                        @elseif($prenda->cliente->socio == 0.025)
+                                        <div style="color:sandybrown">NO ES SOCIO</div>
+                                        @ENDIF
+                                        @endif
+                                    </td> 
 
-                                        <td class="text-center">
-                                            @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
-                                                45 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
-                                                50 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 55)
-                                                55 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 60)
-                                                60 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 65)
-                                                65 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 70)
-                                                70 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 75)
-                                                75 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 80)
-                                                80 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 85)
-                                                85 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 90)
-                                                90 %
-                                            @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 95)
-                                                95 %
-                                            @else
-                                                100 %
-                                            @endif
-                                        </td>
-                                        <td class="text-center">{{toMoney($prenda->prestamo_prenda)}}</td>
-                                        @can('pago-desempeño')
-                                        <td class="text-center">
-                                            <br>
-                                            <a class="nav-link"
-                                                href="{{ route('prenda1.edit', [$prenda->id_prendas]) }}"
-                                                id="navbarDarkDropdownMenuLink" aria-expanded="false"><button><i
-                                                        class="fas fa-cash-register icons"
-                                                        style="font-size:30px;"></i></button></a>
-                                        </td>
-                                        @endcan
-                                    </tr>
+                                    <td class="text-center">
+                                        {{ $prenda->cliente->nombre_cliente . ' ' . $prenda->cliente->apellido_cliente }}
+                                    </td>
+
+                                    <td>{{ $prenda->nombre_prenda }}</td>
+                                    <td>
+                                        @if ($prenda->status ==1)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
+                                        @else
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.' '.$prenda->gramaje_prenda.'gr '}}
+                                        @endif
+
+                                    </td>
+                                    <td class="text-center"> {{toMoney($prenda->avaluo_prenda)}}</td>
+
+                                    <td class="text-center">
+                                        {{$prenda->porcentaje_prestamo_sobre_avaluo.' %'}}
+                                    </td>
+                                    <td class="text-center">{{toMoney($prenda->prestamo_prenda)}}</td>
+                                    @can('pago-desempeño')
+                                    <td class="text-center">
+                                        <br>
+                                        <a class="nav-link" href="{{ route('prenda1.edit', [$prenda->id_prendas]) }}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><button><i class="fas fa-cash-register icons" style="font-size:30px;"></i></button></a>
+                                    </td>
+                                    @endcan
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
@@ -188,21 +164,19 @@
     </div>
     </div>
     @else
-        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
+    <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
     @endcan
 </body>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
 </script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+
 </html>

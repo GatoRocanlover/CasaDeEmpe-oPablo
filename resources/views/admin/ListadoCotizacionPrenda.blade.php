@@ -46,7 +46,7 @@
         @include('pdf.flash-message')
         <br>
         <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
-            <label for="validationCustom03" class="form-label  text-center h3 fw-bold"> MODULO COTIZACIÓN</label>
+            <label for="validationCustom03" class="form-label  text-center h3 fw-bold">COTIZACIÓN PRENDA</label>
         </div>
 
         <!-- ----------------------------------------------------------------------------->
@@ -55,7 +55,7 @@
             <div class="max-w-6x2 size  flex items-center justify-center ">
                 <div class="col-md-12 table-responsive">
                     <!-- OPCION BUSCAR -->
-                    <label class="mt-2 fw-bold">BUSCAR FOLIO DE COTIZACION:</label>
+                    <label class="mt-2 fw-bold">BUSCAR FOLIO DE COTIZACIÓN:</label>
                     <div class="searchSep mt-1 ">
                         <div>
                             <form action="{{ route('cotizacionprenda.listado') }}" method="GET">

@@ -112,7 +112,12 @@
 
                                     <td>{{ $prenda->nombre_prenda }}</td>
                                     <td class="text-center">{{ $prenda->cantidad_prenda }}</td>
-                                    <td>{{ $prenda->caracteristicas_prenda . '.' . ' ' . ' / ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $prenda->gramaje_prenda . 'gr' }}
+                                    <td>
+                                        @if ($prenda->status ==1)
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
+                                        @else
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.' '.$prenda->gramaje_prenda.'gr '}}
+                                        @endif
                                     </td>
                                     <td class="text-center"> {{toMoney($prenda->avaluo_prenda)}}</td>
 
@@ -120,7 +125,7 @@
                                         {{$prenda->porcentaje_prestamo_sobre_avaluo.'%'}}
                                     </td>
                                     <td class="text-center">{{toMoney($prenda->prestamo_inicial)}}</td>
-                                    <td class="text-center" style="color:red">{{$prenda->status}}</td>
+                                    <td class="text-center" style="color:red">DESEMPEÑADO</td>
                                     @can('ver-boleta-desempeñada')
                                     <td class="text-center">
                                         <a class="nav-link text-center" href="{{route('boleta_desempeño.vistaboleta', [$prenda->id_prendas])}}" id="navbarDarkDropdownMenuLink" aria-expanded="false"><i class="fa fa-eye" style="font-size:30px"></i></i></a>

@@ -58,7 +58,7 @@
 
       <br>
       <div class="row g-3 mx-auto items-center justify-center needs-validation size100">
-        <label for="validationCustom03" class="form-label  text-center h3"> MODULO DE REFRENDO</label>
+        <label for="validationCustom03" class="form-label  text-center h3">REFRENDO</label>
       </div>
 
       <!-- ----------------------------------------------------------------------------->
@@ -93,14 +93,15 @@
                 <thead class="letra-blanca bg-dark">
                   <tr>
                     <th class="text-center" scope="col">FOLIO</th>
+                    <th class="text-center">STATUS</th>
                     <th class="text-center" scope="col">CLIENTE</th>
                     <th class="text-center" scope="col">PRENDA</th>
-                    <th class="text-center" scope="col">DESCRIPCION</th>
+                    <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DESCRIPCIÓN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
-                    <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
+                    <th class="text-center" scope="col">PORCENTAJE DE PRÉSTAMO</th>
                     <th class="text-center" scope="col">REFRENDOS</th>
-                    <th class="text-center" scope="col">PRESTAMO INICIAL</th>
-                    <th class="text-center" scope="col">PRESTAMO: SALDO</th>
+                    <th class="text-center" scope="col">PRÉSTAMO INICIAL</th>
+                    <th class="text-center" scope="col">PRÉSTAMO: SALDO</th>
                     @can('pago-refrendo')
                     <th class="text-center" scope="col">REFRENDAR</th>
                     @endcan
@@ -111,44 +112,37 @@
 
                   <tr>
                     <th class="text-center" scope="row">{{$refrendo1->id_prendas}}</th>
-
+                    <td>
+                      @if ($refrendo1->status ==1)
+                      <div style="color:blueviolet">LOTE</div>
+                      @if ($refrendo1->cliente->socio == 0.02)
+                      <div style="color:blueviolet">SOCIO</div>
+                      @elseif($refrendo1->cliente->socio == 0.025)
+                      <div style="color:blueviolet"> NO ES SOCIO</div>
+                      @ENDIF
+                      @else
+                      <div style="color:sandybrown">INDIVIDUAL</div>
+                      @if ($refrendo1->cliente->socio == 0.02)
+                      <div style="color:sandybrown">SOCIO</div>
+                      @elseif($refrendo1->cliente->socio == 0.025)
+                      <div style="color:sandybrown">NO ES SOCIO</div>
+                      @ENDIF
+                      @endif
+                    </td>
                     <td class="text-center">{{$refrendo1->cliente->nombre_cliente.' '.$refrendo1->cliente->apellido_cliente}}</td>
 
                     <td>{{$refrendo1->nombre_prenda}}</td>
                     <td>
-                    @if ($refrendo1->status ==1)
-                                {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda}}
-                                @else
-                                {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda.' '.$refrendo1->kilataje_prenda.'k '.' '.$refrendo1->gramaje_prenda.'gr '}}
-                                @endif
+                      @if ($refrendo1->status ==1)
+                      {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda}}
+                      @else
+                      {{'Cantidad: '.$refrendo1->cantidad_prenda.', '}}{{$refrendo1->caracteristicas_prenda.' '.$refrendo1->kilataje_prenda.'k '.' '.$refrendo1->gramaje_prenda.'gr '}}
+                      @endif
                     </td>
                     <td class="text-center"> {{toMoney($refrendo1->avaluo_prenda)}}</td>
 
-                    <td class="text-center"> @IF($refrendo1->porcentaje_prestamo_sobre_avaluo == 45)
-                      45 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 50)
-                      50 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 55)
-                      55 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 60)
-                      60 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 65)
-                      65 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 70)
-                      70 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 75)
-                      75 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 80)
-                      80 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 85)
-                      85 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 90)
-                      90 %
-                      @elseif($refrendo1->porcentaje_prestamo_sobre_avaluo == 95)
-                      95 %
-                      @else
-                      100 %
-                      @endif
+                    <td class="text-center">
+                      {{$refrendo1->porcentaje_prestamo_sobre_avaluo.' %'}}
                     </td>
                     <td class="text-center">#{{$refrendo1->numeros_refrendos}}</td>
                     <td class="text-center">{{toMoney($refrendo1->prestamo_inicial)}}</td>

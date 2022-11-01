@@ -89,10 +89,10 @@
                                 <th scope="col">FOLIO BOLETA</th>
                                 <th scope="col">CLIENTE</th>
                                 <th scope="col">PRENDA</th>
-                                <th scope="col">CARACTERISTICAS</th>
+                                <th scope="col">CARACTERÍSTICAS</th>
                                 <th scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
-                                <th scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
-                                <th scope="col">PRESTAMO<br>INICIAL</th>
+                                <th scope="col">PORCENTAJE <br> DE <br> PRÉSTAMO</th>
+                                <th scope="col">PRÉSTAMO<br>INICIAL</th>
                                 <th scope="col">NUEVO<br>&nbsp;&nbsp;&nbsp;SALDO&nbsp;&nbsp;&nbsp;</th>
                                 @can('imprimir-boleta-capital')
                                 <th scope="col">IMPRIMIR BOLETA</th>
@@ -128,7 +128,15 @@
                             <td>
                                 @if ($prenda->numeros_capital ==0)
                                 @else
-                                {{ $prenda->kilataje_prenda . 'k ' . ', ' . $prenda->gramaje_prenda . 'gr ' . ', ' . $prenda->caracteristicas_prenda }}
+                               
+                               
+                                @if ($prenda->status ==1)
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
+                                @else
+                                {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.' '.$prenda->gramaje_prenda.'gr '}}
+                                @endif  
+                               
+                                
                                 @endif
 
                             </td>
@@ -145,31 +153,7 @@
 
                                 @if ($prenda->numeros_capital ==0)
                                 @else
-                                @if ($prenda->porcentaje_prestamo_sobre_avaluo == 45)
-                                45 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 50)
-                                50 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 55)
-                                55 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 60)
-                                60 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 65)
-                                65 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 70)
-                                70 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 75)
-                                75 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 80)
-                                80 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 85)
-                                85 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 90)
-                                90 %
-                                @elseif($prenda->porcentaje_prestamo_sobre_avaluo == 95)
-                                95 %
-                                @else
-                                100 %
-                                @endif
+                                {{$prenda->porcentaje_prestamo_sobre_avaluo.' %'}}
                                 @endif
                             </td>
                             <td>

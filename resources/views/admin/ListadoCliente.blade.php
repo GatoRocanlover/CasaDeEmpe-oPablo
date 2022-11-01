@@ -73,6 +73,7 @@
                             <thead class="letra-blanca bg-dark">
                                 <tr>
                                     <th scope="col">Folio</th>
+                                    <th scope="col">Socio</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Identificación</th>
                                     <th scope="col">Celular</th>
@@ -89,6 +90,13 @@
                             @foreach ($clientes as $cliente)
                             <tr>
                                 <th scope="row">{{ $cliente->id_cliente }}</th>
+                                <th scope="row">
+                                @if ($cliente->socio == 0.02)
+                                        <div style="color:green">SOCIO</div>
+                                        @elseif($cliente->socio == 0.025)
+                                        <div style="color:blueviolet">NO ES SOCIO</div>
+                                        @ENDIF
+                                </th>
                                 <td>{{ $cliente->nombre_cliente . ' ' . $cliente->apellido_cliente }}</td>
                                 <td>
                                     {{ $cliente->tipo_de_identificacion }}

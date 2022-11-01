@@ -36,6 +36,7 @@ class ClienteController extends Controller
             'tipo_de_identificacion',
             'telefono_cliente',
             'calle_cliente',
+            'socio',
             'numero_cliente',
             'colonia_cliente',
             'ciudad_cliente',    

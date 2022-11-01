@@ -85,7 +85,7 @@
                                     <th class="text-center" scope="col">CLIENTE</th>
                                     <th class="text-center" scope="col">PRENDA</th>
                                     <th class="text-center" scope="col">NO. PRENDA</th>
-                                    <th class="text-center" scope="col">PRESTAMO</th>
+                                    <th class="text-center" scope="col">PRÉSTAMO</th>
                                     <th class="text-center" scope="col">MONTO RECIBIDO</th>
                                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;CAMBIO&nbsp;&nbsp;&nbsp;</th>
                                     @can('imprimir-ticket-desempeño')
