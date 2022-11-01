@@ -41,6 +41,7 @@ class CotizacionPrenda extends Model
         'porcentaje_prestamo_sobre_avaluo_2',
         'prestamo_prenda_2',
         'cantidad_prenda_2',
+        'valor_oro_plata_2',
 
         'nombre_prenda_3',
         'descripcion_generica_3',
@@ -56,6 +57,7 @@ class CotizacionPrenda extends Model
         'porcentaje_prestamo_sobre_avaluo_3',
         'prestamo_prenda_3',
         'cantidad_prenda_3',
+        'valor_oro_plata_3',
    
         'nombre_prenda_4',
         'descripcion_generica_4',
@@ -71,6 +73,7 @@ class CotizacionPrenda extends Model
         'porcentaje_prestamo_sobre_avaluo_4',
         'prestamo_prenda_4',
         'cantidad_prenda_4',
+        'valor_oro_plata_4',
 
         'nombre_prenda_5',
         'descripcion_generica_5',
@@ -86,6 +89,7 @@ class CotizacionPrenda extends Model
         'porcentaje_prestamo_sobre_avaluo_5',
         'prestamo_prenda_5',
         'cantidad_prenda_5',
+        'valor_oro_plata_5',
 
         'nombre_prenda_6',
         'descripcion_generica_6',
@@ -101,6 +105,8 @@ class CotizacionPrenda extends Model
         'porcentaje_prestamo_sobre_avaluo_6',
         'prestamo_prenda_6',
         'cantidad_prenda_6',
+        'valor_oro_plata_6',
+        
         'prestamo_ava',
         'prestamo_por',
         'prestamo_lote',

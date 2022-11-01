@@ -44,7 +44,7 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->float('avaluo_prenda_2', 30)->nullable()->default(null);
             $table->float('porcentaje_prestamo_sobre_avaluo_2')->nullable()->default(null);
             $table->float('prestamo_prenda_2', 20)->nullable()->default(null); 
-         
+            $table->string('valor_oro_plata_2', 20)->nullable()->default(null);
 
             //CONT3
             $table->string('nombre_prenda_3', 90)->nullable()->default(null);
@@ -59,7 +59,7 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->float('avaluo_prenda_3', 30)->nullable()->default(null);
             $table->float('porcentaje_prestamo_sobre_avaluo_3')->nullable()->default(null);
             $table->float('prestamo_prenda_3', 20)->nullable()->default(null); 
-           
+            $table->string('valor_oro_plata_3', 20)->nullable()->default(null);
 
             //CONT3
             $table->string('nombre_prenda_4', 90)->nullable()->default(null);
@@ -74,7 +74,7 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->float('avaluo_prenda_4', 30)->nullable()->default(null);
             $table->float('porcentaje_prestamo_sobre_avaluo_4')->nullable()->default(null);
             $table->float('prestamo_prenda_4', 20)->nullable()->default(null); 
-           
+            $table->string('valor_oro_plata_4', 20)->nullable()->default(null);
 
             //CONT3
             $table->string('nombre_prenda_5', 90)->nullable()->default(null);
@@ -89,7 +89,7 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->float('avaluo_prenda_5', 30)->nullable()->default(null);
             $table->float('porcentaje_prestamo_sobre_avaluo_5')->nullable()->default(null);
             $table->float('prestamo_prenda_5', 20)->nullable()->default(null); 
-            
+            $table->string('valor_oro_plata_5', 20)->nullable()->default(null);
 
             //CONT3
             $table->string('nombre_prenda_6', 90)->nullable()->default(null);
@@ -104,7 +104,7 @@ class CreateCotizacionesPrendasTable extends Migration
             $table->float('avaluo_prenda_6', 30)->nullable()->default(null);
             $table->float('porcentaje_prestamo_sobre_avaluo_6')->nullable()->default(null);
             $table->float('prestamo_prenda_6', 20)->nullable()->default(null); 
-         
+            $table->string('valor_oro_plata_6', 20)->nullable()->default(null);
 
 
             $table->float('prestamo_ava')->nullable()->default(null);

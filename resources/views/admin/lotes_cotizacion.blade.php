@@ -54,7 +54,7 @@
         </div>
         <br>
 
-        <form action="{{Route('cotizacionprenda_lote.store')}}" method="POST" class="row needs-validation" novalidate>
+        <form action="{{Route('cotizacionprenda_lote.store')}}" method="POST" onsubmit="return enviar()" name="registroCotizacion" class="row needs-validation" novalidate>
             @csrf
             <div class="accordion size50 mx-auto" id="accordionPanelsStayOpenExample">
 
@@ -787,6 +787,34 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script>
+   // /MENSAJE DE ALERTA BOTTON
 
+
+function enviar() {
+event.preventDefault();
+
+Swal.fire({
+title: '¿DESEA REGISTRAR COTIZACIÓN?',
+text: "Esta seguro que desea realizar esta operación!",
+icon: 'warning',
+showCancelButton: true,
+confirmButtonColor: '#3085d6',
+cancelButtonColor: '#d33',
+confirmButtonText: 'SI, DESEO REGISTRAR LA COTIZACIÓN!',
+cancelButtonText: "No"
+}).then((result) => {
+if (result.value) {
+document.registroCotizacion.submit();
+/* Swal.fire(
+'Deleted!',
+'Your file has been deleted.',
+'success'
+)
+*/
+}
+})
+}
+</script>
 
 </html>

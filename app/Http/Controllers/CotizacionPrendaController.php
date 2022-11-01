@@ -195,7 +195,7 @@ class CotizacionPrendaController extends Controller
         $cotizacionprenda->save();
 
 
-        return redirect()->route('cotizacionprenda.listado');
+        return redirect()->route('cotizacionprenda.listado')->with('registro', 'cotizacion');
     }
 
     /**
