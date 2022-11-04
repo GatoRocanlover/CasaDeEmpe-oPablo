@@ -48,6 +48,10 @@
         .letrapequeña2 {
             font-size: 9px;
         }
+
+        .folio {
+            font-size: 12px;
+        }
     </style>
 </head>
 
@@ -59,10 +63,22 @@
             <tr>
                 <th colspan="9">
                     <header>
-                        <div>
-                            <h6>
-                                Folio:&nbsp;{{ $dato_prenda->id_prendas }}&nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}{{$dato_prenda->numeros_refrendos}}&nbsp;/&nbsp;{{$dato_prenda->folio_capi}}{{$dato_prenda->numeros_capital}}
-                            </h6>
+                        <div class="folio">
+
+                            <p class="mt-2">
+                                &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
+                                @if($dato_prenda->folio_refrendo == 0)
+                                @else
+                                &nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}-{{$dato_prenda->numeros_refrendos}}
+                                @endif
+                                @if($dato_prenda->folio_capi == 0)
+                                @else
+                                &nbsp;/&nbsp;{{$dato_prenda->folio_capi}}-{{$dato_prenda->numeros_capital}}
+                                @endif
+    </p>
+
+
+
                         </div>
                         <div>
                             <h5>Asociados Nueva Mutua S.A. DE C.V.</h5>
@@ -409,14 +425,14 @@
                     {{$dato_prenda->descripcion_generica}}
                 </th>
                 <td colspan="4">
-                @if ($dato_prenda->status ==1)
-                Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
-                        @else
-                        Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
-                        @endif
+                    @if ($dato_prenda->status ==1)
+                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
+                    @else
+                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
+                    @endif
 
 
-                   
+
                 </td>
                 <td>{{toMoney($dato_prenda->avaluo_prenda)}}</td>
                 <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>

@@ -264,7 +264,10 @@
                     <br>
                     <label class="mt-1"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
                     <label class="mt-1"><strong>CARACTERÍSTICAS:&nbsp;&nbsp;</strong>@if ($dato_prenda->status ==1){{$dato_prenda->caracteristicas_prenda}}@else{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}@endif</label> <br>
-                    <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
+                    <label class="mt-1"><strong>CANTIDAD DE REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
+                    <label class="mt-1"><strong>-   ULTIMO PAGO REALIZADO (REFRENDO):&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->refrendo_anterior)}}</label> <br>
+                    <label class="mt-1"><strong>CANTIDAD DE ABONOS A CAPITAL REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_capital}}</label> <br>
+                    <label class="mt-1"><strong>- ULTIMO PAGO REALIZADO (CAPITAL):&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->total_capi)}}</label> <br>
                     <label class="mt-1"><strong>PRÉSTAMO INICIAL:&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->prestamo_inicial)}}</label>
                 </div>
 

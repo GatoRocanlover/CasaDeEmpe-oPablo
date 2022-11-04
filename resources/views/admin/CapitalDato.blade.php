@@ -25,6 +25,7 @@
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
     </style>
 </head>
+
 <body class="antialiased ">
     <div class="relative sinborde items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
 
@@ -131,7 +132,7 @@
                                 {{toMoney($dato_prenda->prestamo_prenda)}}
                             </td>
                             <td>
-                             {{toMoney($dato_prenda->interes2)}}
+                                {{toMoney($dato_prenda->interes2)}}
                             </td>
                             <td>
                                 {{toMoney($dato_prenda->almacenaje2)}}
@@ -258,7 +259,10 @@
                     <br>
                     <label class="mt-1"><strong>CANTIDAD DE PRENDAS:&nbsp;&nbsp;</strong>{{ $dato_prenda->cantidad_prenda }}</label>
                     <label class="mt-1"><strong>CARACTERÍSTICAS:&nbsp;&nbsp;</strong>@if ($dato_prenda->status ==1){{$dato_prenda->caracteristicas_prenda}}@else{{ $dato_prenda->caracteristicas_prenda . '.' . ' ' . 'DETALLES ESPECIFICOS:' . ' KILATAJE:' . '' . ' ' . $dato_prenda->kilataje_prenda . 'k' . ',' . ' ' . 'GRAMAJE:' . '' . ' ' . $dato_prenda->gramaje_prenda . 'gr' }}@endif</label> <br>
-                    <label class="mt-1"><strong>REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
+                    <label class="mt-1"><strong>CANTIDAD DE REFRENDOS REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_refrendos}}</label> <br>
+                    <label class="mt-1"><strong>- ULTIMO PAGO REALIZADO (REFRENDO):&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->refrendo_anterior)}}</label> <br>
+                    <label class="mt-1"><strong>CANTIDAD DE ABONOS A CAPITAL REALIZADOS:&nbsp;&nbsp;</strong>#{{ $dato_prenda->numeros_capital}}</label> <br>
+                    <label class="mt-1"><strong>- ULTIMO PAGO REALIZADO (CAPITAL):&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->total_capi)}}</label> <br>
                     <label class="mt-1"><strong>PRÉSTAMO INICIAL:&nbsp;&nbsp;</strong>{{toMoney($dato_prenda->prestamo_inicial)}}</label>
                 </div>
 
@@ -269,17 +273,16 @@
                     <select class="form-select text-center mt-2" id="interesrefre" name="interesrefre" onchange="calcular();" onchange="calcular2();" onchange="calcular66();" aria-label="Default select example">
 
                         <option selected value="">MES PARA ABONAR A CAPITAL</option>
-                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}"  data-refrendo_r="{{$dato_prenda->refrendo}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}"  data-refrendo_r="{{$dato_prenda->refrendo}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}"  data-refrendo_r="{{$dato_prenda->refrendo}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}"  data-refrendo_r="{{$dato_prenda->refrendo}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
-                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}"  data-refrendo_r="{{$dato_prenda->refrendo}}"
-                        >5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes}}" data-almacenaje="{{$dato_prenda->almacenaje}}" data-iva="{{$dato_prenda->iva}}" data-mes="{{$dato_prenda->mes2}}" data-refrendo_r="{{$dato_prenda->refrendo}}">1° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo2 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes2}}" data-almacenaje="{{$dato_prenda->almacenaje2}}" data-iva="{{$dato_prenda->iva2}}" data-mes="{{$dato_prenda->mes3}}" data-refrendo_r="{{$dato_prenda->refrendo}}">2° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo3 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes3}}" data-almacenaje="{{$dato_prenda->almacenaje3}}" data-iva="{{$dato_prenda->iva3}}" data-mes="{{$dato_prenda->mes4}}" data-refrendo_r="{{$dato_prenda->refrendo}}">3° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo4 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes4}}" data-almacenaje="{{$dato_prenda->almacenaje4}}" data-iva="{{$dato_prenda->iva4}}" data-mes="{{$dato_prenda->mes5}}" data-refrendo_r="{{$dato_prenda->refrendo}}">4° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</option>
+                        <option value="{{ $dato_prenda->refrendo5 }}" data-prestamo="{{$dato_prenda->prestamo_prenda}}" data-interes="{{$dato_prenda->interes5}}" data-almacenaje="{{$dato_prenda->almacenaje5}}" data-iva="{{$dato_prenda->iva5}}" data-mes="{{$dato_prenda->fecha_comercializacion}}" data-refrendo_r="{{$dato_prenda->refrendo}}">5° Mes / {{\Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</option>
                     </select>
                 </div>
 
 
-                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();"  class="form-control tamañoletra  text-center " readonly placeholder="0.00">
+                <input type="hidden" id="prestamo4" name="prestamo4" onkeyUp="calcular2();" class="form-control tamañoletra  text-center " readonly placeholder="0.00">
 
 
                 <div class="mt-4">
@@ -287,36 +290,36 @@
                         <label for="" class="negritas">CUANTO DESEA ABONAR A CAPITAL:</label>
                         <div class="input-group has-validation mt-2 ">
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">$</span>
-                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00"  disabled>
+                            <input type="number" id="capital" name="capital" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0.00" disabled>
                         </div>
                         <b class="mt-1 text-center" style="color:red;">Enter al poner un valor</b>
                     </div>
                 </div>
 
                 <div class="mt-3">
-                        <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            RECARGO POR DIA &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
-                        </button>
-                        </p>
-                    </div>
-                    <div class="collapse" id="collapseExample">
-                        <div class="card card-body">
-                            <label for=""><strong>RECARGO POR DIA:</strong></label>
-                            <label for="" class="negritas mt-4">PONGA LOS DIAS DE DIREFENCIA:</label>
-                            <div class="input-group has-validation ">
-                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Dias:&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                <input type="number" id="multa" name="multa"  value="" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0">
-                                                           </div>
-                            <div class="input-group has-validation ">
-                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Por dia:</span>
-                                <input type="number" id="multa2" name="multa2" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
-                            </div>
-                            <div class="input-group has-validation ">
-                                <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
-                                <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
-                            </div>
+                    <button class="btn btn-primary col-md-12" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        RECARGO POR DIA &nbsp; <i class="fa fa-plus-circle" style="font-size:20px"></i>
+                    </button>
+                    </p>
+                </div>
+                <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <label for=""><strong>RECARGO POR DIA:</strong></label>
+                        <label for="" class="negritas mt-4">PONGA LOS DIAS DE DIREFENCIA:</label>
+                        <div class="input-group has-validation ">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Dias:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            <input type="number" id="multa" name="multa" value="" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" placeholder="0">
+                        </div>
+                        <div class="input-group has-validation ">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Por dia:</span>
+                            <input type="number" id="multa2" name="multa2" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
+                        </div>
+                        <div class="input-group has-validation ">
+                            <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
+                            <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
                         </div>
                     </div>
+                </div>
 
                 <input type="hidden" id="abonototal" name="abonototal" onkeyUp="calcular2();" class="form-control input_style tamañoletra text-center" value="{{$dato_prenda->prestamo_prenda}}" readonly>
 
@@ -329,7 +332,7 @@
                     <div class="col-md-12">
                         <div class="input-group has-validation">
                             <span class="input-group-text fw-bold signo" style=" background-color:white" id="inputGroupPrepend">$</span>
-                            <input type="number" id="totalpago1" name="totalpago1" style=" background-color:white"  class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
+                            <input type="number" id="totalpago1" name="totalpago1" style=" background-color:white" class="form-control input_style tamañoletra text-center col-md-8" placeholder="0.00" disabled>
                         </div>
                     </div>
                 </div>
@@ -362,8 +365,8 @@
             @include('admin.Modals.modalcapital')
         </div>
         @else
-        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div> 
-    @endcan
+        <div class="h3 text-center fw-bold mt-8">No tienes los permisos para ver este modulo <br> Comunicate con tu superior...</div>
+        @endcan
 </body>
 
 <div class="mt-8">
@@ -380,4 +383,5 @@
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
 <script src="{{ asset('dist/js/capital.js') }}"></script>
+
 </html>
