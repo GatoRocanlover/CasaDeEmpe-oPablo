@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use App\Models\desempeños;// PARA USAR LA TABLA DESEMPEÑOS
+use App\Models\TicketsDesempeño;
 
 
 
@@ -86,7 +87,7 @@ class ExcelReporteController extends Controller
         $arrayDetalle = Array();
  
         //Estos son los datos que recibimos del modelo que queremos leer, aquí ustedes cámbienlo por el modelo que necesiten
-        $items=desempeños::all();
+        $items=TicketsDesempeño::all();
  
         //El encabezado que le dice al explorador el tipo de archivo que estamos generando
         $headers = array(
@@ -100,24 +101,33 @@ class ExcelReporteController extends Controller
  
         $columns = array(
              'Fecha',
-             'Folio_Boleta',
-             'id_cliente',
-             'avaluo_prenda',
-             'prestamoAcumulado',
-             'telefono_cliente',
-             'porcentaje_prestamo_sobre_avaluo',
-             'NumSocio');
+             'Folio',
+             'id_prendas',
+             'prestamo_prenda',
+             'interes',
+             'almacenaje',
+             'subtotal',
+             'iva',
+             'total',
+             'totalinteres');
+
  
         foreach ($items as $item){
+            $total_intereses=0;
+            $total_intereses= array_sum[$item->interes_ticket];
+           
+    
             $arrayDetalle[] = array(
-                             'created_at' => $item->created_at,
+                             'created_at' => $item->created_at->format('d-m-Y'),
+                             'Folio' => $item->id_folio,
                              'id_prendas' => $item->id_prendas,
-                             'id_cliente' => $item->id_cliente,
-                             'avaluo_prenda' =>$item->avaluo_prenda,
-                             'prestamoAcumulado'=>$item-> avaluo_prenda,
-                             'porcentaje_prestamo_sobre_avaluo' => $item->porcentaje_prestamo_sobre_avaluo,
-                             'prestamo_inicial'  => $item->prestamo_inicial,                                       
-                             'NumSocio'  => $item->numero_socio
+                             'prestamo_prenda' =>toMoney($item->prestamo_prenda_ticket),
+                             'interes'=>toMoney($item->interes_ticket),
+                             'almacenaje' => toMoney($item->almacenaje_ticket),
+                             'subtotal'  => toMoney($item->subtotal_ticket),
+                             'iva'  => toMoney($item->iva_ticket),                                       
+                             'total'  =>toMoney($item->total_ticket),
+                             'totalinteres'=>toMoney($total_intereses)
                                 );
         }
  
