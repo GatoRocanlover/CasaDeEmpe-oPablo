@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use App\Models\desempeños;// PARA USAR LA TABLA DESEMPEÑOS
 use App\Models\TicketsDesempeño;
+use App\Models\Prenda;
 
 
 
@@ -79,7 +80,8 @@ class ExcelReporteController extends Controller
     }
 
     
-    public function exportDesempeños(){
+    public function exportDesempeños()
+    {
 
         //Nombre del archivo que generaremos
         $fileName = 'ReporteDesempeños.csv';
@@ -113,10 +115,16 @@ class ExcelReporteController extends Controller
 
  
         foreach ($items as $item){
-            $total_intereses=0;
-            $total_intereses= array_sum[$item->interes_ticket];
-           
-    
+
+            for (int x = 0; x < matriz[$arrayDetalle].length; x++) {
+                int suma = 0;
+                for (int y = 0; y < matriz.length; y++) {
+                    suma += matriz[y][x];
+                }
+                System.out.printf("%d ", suma);
+            }
+            
+
             $arrayDetalle[] = array(
                              'created_at' => $item->created_at->format('d-m-Y'),
                              'Folio' => $item->id_folio,
@@ -129,8 +137,86 @@ class ExcelReporteController extends Controller
                              'total'  =>toMoney($item->total_ticket),
                              'totalinteres'=>toMoney($total_intereses)
                                 );
+                                
         }
+
+    
+        $callback = function() use($arrayDetalle, $columns) {
+            $file = fopen('php://output', 'w');
+            //si no quieren que el csv muestre el titulo de columnas omitan la siguiente línea.
+            fputcsv($file, $columns);
+                  foreach ($arrayDetalle as $item) {
+                      fputcsv($file, $item);
+                  }
+                  fclose($file);
+              };
+      
+        //Esto hace que Laravel exponga el archivo como descarga
+        return response()->stream($callback, 200, $headers);
+     }
+
+     public function exportRefrendos()
+    {
+
+        //Nombre del archivo que generaremos
+        $fileName = 'ReporteRefrendos.csv';
+        //Arreglo que contendrá las filas de datos
+        $arrayDetalle = Array();
  
+        //Estos son los datos que recibimos del modelo que queremos leer, aquí ustedes cámbienlo por el modelo que necesiten
+        $items=PrendaController::all();
+ 
+        //El encabezado que le dice al explorador el tipo de archivo que estamos generando
+        $headers = array(
+                    "Content-type"        => "text/csv",
+                    "Content-Disposition" => "attachment; filename=$fileName",
+                    "Pragma"              => "no-cache",
+                    "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                    "Expires"             => "0"
+ 
+                    );
+ 
+        $columns = array(
+             'Fecha',
+             'Folio',
+             'id_prendas',
+             'prestamo_prenda',
+             'interes',
+             'almacenaje',
+             'subtotal',
+             'iva',
+             'total',
+             'totalinteres');
+
+ 
+        foreach ($items as $item){
+
+            for (int x = 0; x < matriz[$arrayDetalle].length; x++) {
+
+                int suma = 0;
+                for (int y = 0; y < matriz.length; y++) {
+                    suma += matriz[y][x];
+                }
+                System.out.printf("%d ", suma);
+            }
+            
+
+            $arrayDetalle[] = array(
+                             'created_at' => $item->created_at->format('d-m-Y'),
+                             'Folio' => $item->id_folio,
+                             'id_prendas' => $item->id_prendas,
+                             'prestamo_prenda' =>toMoney($item->prestamo_prenda_ticket),
+                             'interes'=>toMoney($item->interes_ticket),
+                             'almacenaje' => toMoney($item->almacenaje_ticket),
+                             'subtotal'  => toMoney($item->subtotal_ticket),
+                             'iva'  => toMoney($item->iva_ticket),                                       
+                             'total'  =>toMoney($item->total_ticket),
+                             'totalinteres'=>toMoney($total_intereses)
+                                );
+                                
+        }
+
+    
         $callback = function() use($arrayDetalle, $columns) {
             $file = fopen('php://output', 'w');
             //si no quieren que el csv muestre el titulo de columnas omitan la siguiente línea.
