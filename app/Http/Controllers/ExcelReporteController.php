@@ -7,6 +7,8 @@ use App\Models\Cliente; // PARA USAR LA TABLA CLIENTES
 use App\Models\desempeños;// PARA USAR LA TABLA DESEMPEÑOS
 use App\Models\TicketsDesempeño;
 use App\Models\Prenda;
+use Carbon\Carbon;
+
 
 
 
@@ -116,13 +118,13 @@ class ExcelReporteController extends Controller
  
         foreach ($items as $item){
 
-            for (int x = 0; x < matriz[$arrayDetalle].length; x++) {
-                int suma = 0;
-                for (int y = 0; y < matriz.length; y++) {
-                    suma += matriz[y][x];
-                }
-                System.out.printf("%d ", suma);
-            }
+        //for (int x = 0; x < matriz[$arrayDetalle].length; x++) {
+               //() int suma = 0;
+                //for (int y = 0; y < matriz.length; y++) {
+                  //  suma += matriz[y][x];
+                //}
+                //System.out.printf("%d ", suma);
+            //}
             
 
             $arrayDetalle[] = array(
@@ -155,11 +157,11 @@ class ExcelReporteController extends Controller
         return response()->stream($callback, 200, $headers);
      }
 
-     public function exportRefrendos()
+     public function exportEmpeños()
     {
 
         //Nombre del archivo que generaremos
-        $fileName = 'ReporteRefrendos.csv';
+        $fileName = 'ReporteEmpeños.csv';
         //Arreglo que contendrá las filas de datos
         $arrayDetalle = Array();
  
@@ -177,41 +179,21 @@ class ExcelReporteController extends Controller
                     );
  
         $columns = array(
-             'Fecha',
-             'Folio',
+             'fecha_prestamo',
              'id_prendas',
-             'prestamo_prenda',
-             'interes',
-             'almacenaje',
-             'subtotal',
-             'iva',
-             'total',
-             'totalinteres');
+             'Operacion',
+             'prestamo_inicial',
+             'Prestamo_acumulado',
+             'Entrega Efectivo');
 
  
         foreach ($items as $item){
 
-            for (int x = 0; x < matriz[$arrayDetalle].length; x++) {
-
-                int suma = 0;
-                for (int y = 0; y < matriz.length; y++) {
-                    suma += matriz[y][x];
-                }
-                System.out.printf("%d ", suma);
-            }
-            
-
             $arrayDetalle[] = array(
-                             'created_at' => $item->created_at->format('d-m-Y'),
-                             'Folio' => $item->id_folio,
+                             'fecha_prestamo' => $item->fecha_prestamo,
                              'id_prendas' => $item->id_prendas,
-                             'prestamo_prenda' =>toMoney($item->prestamo_prenda_ticket),
-                             'interes'=>toMoney($item->interes_ticket),
-                             'almacenaje' => toMoney($item->almacenaje_ticket),
-                             'subtotal'  => toMoney($item->subtotal_ticket),
-                             'iva'  => toMoney($item->iva_ticket),                                       
-                             'total'  =>toMoney($item->total_ticket),
-                             'totalinteres'=>toMoney($total_intereses)
+                             'Operacion' =>  " Empeño: " .$item->id_prendas,
+                             'prestamo_inicial' =>toMoney($item->prestamo_inicial)
                                 );
                                 
         }

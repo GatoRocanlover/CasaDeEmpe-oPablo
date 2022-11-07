@@ -31,6 +31,7 @@ Route::group(['middleware' => ['auth']], function () {
     //REPORTES
     Route::get('/exportfile', [ExcelReporteController::class, "export"])->name('reporte.excel1');
     Route::get('/exportfile_Desempeños', [ExcelReporteController::class, "exportDesempeños"])->name('reporte.excel2');
+    Route::get('/exportfile_Empeños', [ExcelReporteController::class, "exportEmpeños"])->name('reporte.excel3');
     
 
 
