@@ -105,15 +105,14 @@ class ExcelReporteController extends Controller
  
         $columns = array(
              'Fecha',
+             'folio Boleta',
              'Folio',
-             'id_prendas',
              'prestamo_prenda',
              'interes',
              'almacenaje',
              'subtotal',
              'iva',
-             'total',
-             'totalinteres');
+             'total');
 
  
         foreach ($items as $item){
@@ -129,15 +128,15 @@ class ExcelReporteController extends Controller
 
             $arrayDetalle[] = array(
                              'created_at' => $item->created_at->format('d-m-Y'),
+                             'Folio Boleta' => $item->id_prendas,
                              'Folio' => $item->id_folio,
-                             'id_prendas' => $item->id_prendas,
                              'prestamo_prenda' =>toMoney($item->prestamo_prenda_ticket),
                              'interes'=>toMoney($item->interes_ticket),
                              'almacenaje' => toMoney($item->almacenaje_ticket),
                              'subtotal'  => toMoney($item->subtotal_ticket),
                              'iva'  => toMoney($item->iva_ticket),                                       
                              'total'  =>toMoney($item->total_ticket),
-                             'totalinteres'=>toMoney($total_intereses)
+                             
                                 );
                                 
         }
