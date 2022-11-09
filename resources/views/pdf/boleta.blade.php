@@ -221,7 +221,7 @@
 
                 <td colspan="9">
                     <div class="iempresa">
-                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->fecha_comercializacion)->formatLocalized('%d-%B-%Y')}}</u></b>.
+                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</u></b>.
                         Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: EFECTIVO. En caso de que sea
                         día inhábil, se considera el día siguiente.
                     </div>
