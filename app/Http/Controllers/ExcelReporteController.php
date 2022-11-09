@@ -29,11 +29,12 @@ class ExcelReporteController extends Controller
 
        //El encabezado que le dice al explorador el tipo de archivo que estamos generando
        $headers = array(
-                   "Content-type"        => "text/csv",
-                   "Content-Disposition" => "attachment; filename=$fileName",
-                   "Pragma"              => "no-cache",
-                   "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
-                   "Expires"             => "0"
+                    "Content-Encoding"    => "utf-8",
+                    "Content-type"        => "text/csv;charset=utf8",
+                    "Content-Disposition" => "attachment; filename=$fileName",
+                    "Pragma"              => "no-cache",
+                    "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                    "Expires"             => "0"
 
                    );
 
@@ -76,9 +77,10 @@ class ExcelReporteController extends Controller
                  }
                  fclose($file);
              };
-     
+             echo "\xEF\xBB\xBF";
        //Esto hace que Laravel exponga el archivo como descarga
        return response()->stream($callback, 200, $headers);
+       
     }
 
     
@@ -95,12 +97,12 @@ class ExcelReporteController extends Controller
  
         //El encabezado que le dice al explorador el tipo de archivo que estamos generando
         $headers = array(
-                    "Content-type"        => "text/csv",
-                    "Content-Disposition" => "attachment; filename=$fileName",
-                    "Pragma"              => "no-cache",
-                    "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
-                    "Expires"             => "0"
- 
+                        "Content-Encoding"    => "utf-8",
+                        "Content-type"        => "text/csv;charset=utf8",
+                        "Content-Disposition" => "attachment; filename=$fileName",
+                        "Pragma"              => "no-cache",
+                        "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+                        "Expires"             => "0"
                     );
  
         $columns = array(
@@ -151,6 +153,7 @@ class ExcelReporteController extends Controller
                   }
                   fclose($file);
               };
+              echo "\xEF\xBB\xBF";
       
         //Esto hace que Laravel exponga el archivo como descarga
         return response()->stream($callback, 200, $headers);
@@ -165,11 +168,13 @@ class ExcelReporteController extends Controller
         $arrayDetalle = Array();
  
         //Estos son los datos que recibimos del modelo que queremos leer, aquí ustedes cámbienlo por el modelo que necesiten
-        $items=PrendaController::all();
+        $items=Prenda::all();
  
         //El encabezado que le dice al explorador el tipo de archivo que estamos generando
         $headers = array(
-                    "Content-type"        => "text/csv",
+                   
+                    "Content-Encoding"    => "utf-8",
+                    "Content-type"        => "text/csv;charset=utf8",
                     "Content-Disposition" => "attachment; filename=$fileName",
                     "Pragma"              => "no-cache",
                     "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
@@ -191,7 +196,7 @@ class ExcelReporteController extends Controller
             $arrayDetalle[] = array(
                              'fecha_prestamo' => $item->fecha_prestamo,
                              'id_prendas' => $item->id_prendas,
-                             'Operacion' =>  " Empeño: " .$item->id_prendas,
+                             'Operacion' => " Empeño: " .$item->id_prendas,
                              'prestamo_inicial' =>toMoney($item->prestamo_inicial)
                                 );
                                 
@@ -199,14 +204,18 @@ class ExcelReporteController extends Controller
 
     
         $callback = function() use($arrayDetalle, $columns) {
+            
             $file = fopen('php://output', 'w');
             //si no quieren que el csv muestre el titulo de columnas omitan la siguiente línea.
             fputcsv($file, $columns);
                   foreach ($arrayDetalle as $item) {
-                      fputcsv($file, $item);
+                  
+                      fputcsv($file, $item, );
+                      
                   }
                   fclose($file);
               };
+              echo "\xEF\xBB\xBF";
       
         //Esto hace que Laravel exponga el archivo como descarga
         return response()->stream($callback, 200, $headers);
