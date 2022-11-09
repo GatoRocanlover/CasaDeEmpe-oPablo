@@ -89,8 +89,9 @@
                                     <th class="text-center" scope="col">PRENDA</th>
                                     <th class="text-center" scope="col">DESCRIPCIÓN DE LA PRENDA</th>
                                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
-                                    <th class="text-center" scope="col">PORCENTAJE DE PRÉSTAMO</th>
-                                    <th class="text-center" scope="col">PRÉSTAMO</th>
+                                    <th class="text-center" scope="col">PORCENTAJE <br> DE <br> PRÉSTAMO</th>
+                                    <th class="text-center" scope="col">PRÉSTAMO <br> INICIAL</th>
+                                    <th class="text-center" scope="col">PRÉSTAMO: SALDO</th>
                                     @can('pago-desempeño')
                                     <th class="text-center" scope="col">DESEMPEÑAR</th>
                                     @endcan
@@ -116,7 +117,7 @@
                                         <div style="color:sandybrown">NO ES SOCIO</div>
                                         @ENDIF
                                         @endif
-                                    </td> 
+                                    </td>
 
                                     <td class="text-center">
                                         {{ $prenda->cliente->nombre_cliente . ' ' . $prenda->cliente->apellido_cliente }}
@@ -136,6 +137,7 @@
                                     <td class="text-center">
                                         {{$prenda->porcentaje_prestamo_sobre_avaluo.' %'}}
                                     </td>
+                                    <td class="text-center">{{toMoney($prenda->prestamo_inicial)}}</td>
                                     <td class="text-center">{{toMoney($prenda->prestamo_prenda)}}</td>
                                     @can('pago-desempeño')
                                     <td class="text-center">

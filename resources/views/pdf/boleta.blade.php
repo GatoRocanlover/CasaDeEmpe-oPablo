@@ -146,9 +146,9 @@
 
                 <th rowspan="2">CAT <br> Costo Anual Total</th>
 
-                <th rowspan="2">TASA DE<br> INTERES ANUAL</th>
+                <th rowspan="2">TASA DE<br> INTERÉS ANUAL</th>
 
-                <th rowspan="2">MONTO DEL<br> PRESTAMO</th>
+                <th rowspan="2">MONTO DEL<br> PRÉSTAMO</th>
 
                 <th rowspan="2">MONTO TOTAL <br>A PAGAR</th>
 
@@ -212,7 +212,7 @@
                 <td colspan="9">
                     <div class="iempresa">
                         Metodología de calculo de interés: tasa de interés anual fija dividida entre
-                        360 días por el importe del saldo insoluto del préstamo por el numero de
+                        360 días por el importe del saldo insoluto del préstamo por el número de
                         días efectivamente transcurridos.
                     </div>
                 </td>
@@ -232,7 +232,7 @@
 
                 <th rowspan="7">OPCIONES DE PAGO PARA REFRENDO O DESEMPEÑO</th>
 
-                <th rowspan="2">NUMERO</th>
+                <th rowspan="2">NÚMERO</th>
 
                 <th colspan="4">MONTO</th>
 
@@ -409,12 +409,12 @@
             </tr>
             <tr>
                 <td colspan="9">
-                    <b> DESCRIPCION DE LA PRENDA</b>
+                    <b> DESCRIPCIÓN DE LA PRENDA</b>
                 </td>
             </tr>
             <tr>
-                <td><b>DESCRIPCION</b></td>
-                <td colspan="4"><b><b>CARACTERISTICAS</b></td>
+                <td><b>DESCRIPCIÓN</b></td>
+                <td colspan="4"><b><b>CARACTERÍSTICAS</b></td>
                 <td><b>AVALÚO</b></td>
                 <td><b>PRÉSTAMO</b></td>
                 <td colspan="2"><b>% PRÉSTAMO SOBRE AVALÚO</b></td>
@@ -504,7 +504,7 @@
                         <b>Dudas, aclaraciones y reclamaciones:</b>
                         <br>
                         <p>*Para cualquier duda, aclaraciones o reclamación, favor de dirigirse a : <b>Calle 23 Nº 100-B x 18 y 20 Col. Centro, Umán, Yucatán, C.P. 97390;</b> teléfono: 988 933 0223, correo
-                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 2:00 a 5:00 hras.</b>
+                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 3:00 a 6:00 hras.</b>
                         </p>
                         <div>*O en caso a <b>PROFECO</b> en los teléfonos: <b>55 68 87 22 o al 01-800-468-87-22</b>, pagina de internet: <b>www.gob.mx./profeco</b></div>
                     </div>
