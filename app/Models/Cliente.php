@@ -42,6 +42,11 @@ class Cliente extends Model
     {
         return $this->hasMany(Prenda::class, 'id_cliente','id_cliente');
     }
+
+    public function desempeños()
+    {
+        return $this->hasMany(desempeños::class, 'id_cliente','id_cliente');
+    }
     
     
 }
