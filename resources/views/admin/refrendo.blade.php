@@ -100,7 +100,7 @@
                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
                     <th class="text-center" scope="col">PORCENTAJE DE PRÉSTAMO</th>
                     <th class="text-center" scope="col">REFRENDOS</th>
-                    <th class="text-center" scope="col">PRÉSTAMO INICIAL</th>
+                    <th class="text-center" scope="col">&nbsp;PRÉSTAMO&nbsp; INICIAL</th>
                     <th class="text-center" scope="col">PRÉSTAMO: SALDO</th>
                     @can('pago-refrendo')
                     <th class="text-center" scope="col">REFRENDAR</th>
@@ -116,16 +116,16 @@
                       @if ($refrendo1->status ==1)
                       <div style="color:blueviolet">LOTE</div>
                       @if ($refrendo1->cliente->socio == 0.02)
-                      <div style="color:blueviolet">SOCIO</div>
+                      <div>SOCIO</div>
                       @elseif($refrendo1->cliente->socio == 0.025)
-                      <div style="color:blueviolet"> NO ES SOCIO</div>
+                      <div> NO SOCIO</div>
                       @ENDIF
                       @else
                       <div style="color:sandybrown">INDIVIDUAL</div>
                       @if ($refrendo1->cliente->socio == 0.02)
-                      <div style="color:sandybrown">SOCIO</div>
+                      <div>SOCIO</div>
                       @elseif($refrendo1->cliente->socio == 0.025)
-                      <div style="color:sandybrown">NO ES SOCIO</div>
+                      <div>NO SOCIO</div>
                       @ENDIF
                       @endif
                     </td>

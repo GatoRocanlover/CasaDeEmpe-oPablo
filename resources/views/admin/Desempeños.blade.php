@@ -102,16 +102,16 @@
                                         @if ($prenda->status ==1)
                                         <div style="color:blueviolet">LOTE</div>
                                         @if ($prenda->cliente->socio == 0.02)
-                                        <div style="color:blueviolet">SOCIO</div>
+                                        <div>SOCIO</div>
                                         @elseif($prenda->cliente->socio == 0.025)
-                                        <div style="color:blueviolet"> NO ES SOCIO</div>
+                                        <div> NO SOCIO</div>
                                         @ENDIF
                                         @else
                                         <div style="color:sandybrown">INDIVIDUAL</div>
                                         @if ($prenda->cliente->socio == 0.02)
-                                        <div style="color:sandybrown">SOCIO</div>
+                                        <div>SOCIO</div>
                                         @elseif($prenda->cliente->socio == 0.025)
-                                        <div style="color:sandybrown">NO ES SOCIO</div>
+                                        <div>NO SOCIO</div>
                                         @ENDIF
                                         @endif
                                     </td>

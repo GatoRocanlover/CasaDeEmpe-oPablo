@@ -64,19 +64,20 @@
                 <th colspan="9">
                     <header>
                         <div class="folio">
-
-                            <p class="mt-2">
-                                &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
-                                @if($dato_prenda->folio_refrendo == 0)
-                                @else
-                                &nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}-{{$dato_prenda->numeros_refrendos}}
-                                @endif
-                                @if($dato_prenda->folio_capi == 0)
-                                @else
-                                &nbsp;/&nbsp;{{$dato_prenda->folio_capi}}-{{$dato_prenda->numeros_capital}}
-                                @endif
+                      
+    <p class="mt-2">
+    &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
+    @if($dato_prenda->numeros_refrendos > 0)
+    &nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}-{{$dato_prenda->numeros_refrendos}}
+    @else
+   
+    @endif
+    @if($dato_prenda->numeros_capital > 0)
+    &nbsp;/&nbsp;{{$dato_prenda->folio_capi}}-{{$dato_prenda->numeros_capital}}
+    @else
+    
+    @endif
     </p>
-
 
 
                         </div>
