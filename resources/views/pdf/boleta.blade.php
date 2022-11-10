@@ -52,6 +52,26 @@
         .folio {
             font-size: 12px;
         }
+
+        .title {
+            font-size: 13px;
+        }
+
+        .title2 {
+            font-size: 11px;
+        }
+        .title3 {
+            font-size: 9px;
+        }
+        .title4 {
+            font-size: 8px;
+            text-align: center;
+        }
+
+        .img1 {
+            width: 75px;
+            height: 75px;
+        }
     </style>
 </head>
 
@@ -64,33 +84,33 @@
                 <th colspan="9">
                     <header>
                         <div class="folio">
-                      
-    <p class="mt-2">
-    &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
-    @if($dato_prenda->numeros_refrendos > 0)
-    &nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}-{{$dato_prenda->numeros_refrendos}}
-    @else
-   
-    @endif
-    @if($dato_prenda->numeros_capital > 0)
-    &nbsp;/&nbsp;{{$dato_prenda->folio_capi}}-{{$dato_prenda->numeros_capital}}
-    @else
-    
-    @endif
-    </p>
+
+                            <p class="mt-2">
+                                &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
+                                @if($dato_prenda->numeros_refrendos > 0)
+                                &nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}-{{$dato_prenda->numeros_refrendos}}
+                                @else
+
+                                @endif
+                                @if($dato_prenda->numeros_capital > 0)
+                                &nbsp;/&nbsp;{{$dato_prenda->folio_capi}}-{{$dato_prenda->numeros_capital}}
+                                @else
+
+                                @endif
+                            </p>
 
 
                         </div>
                         <div>
-                            <h5>Asociados Nueva Mutua de Umán S.A. DE C.V.</h5>
+                            <h5>Asociados Nueva Mutua S.A. DE C.V.</h5>
                             <h6>RFC: ANM-180517PD6 <br>
                                 Matriz: Calle 23 Nº 100-B x 18 y20<br>
                                 Col. Centro, Umán, Yucatán, C.P. 97390<br>
-                                Boleta de Empeño</h6>
+                                Boleta de Empeño</div>
 
                         </div>
                         <div>
-                            <img src="{{ asset('img/FONDO.png') }}" alt="">
+                            <img class="img1" src="{{ asset('img/FONDO.png') }}" alt="">
                         </div>
                     </header>
                     <div class="iempresa">
@@ -115,7 +135,7 @@
                         <b>{{ $dato_prenda->cliente->tipo_de_identificacion }}</b>, número:
                         <b>{{ $dato_prenda->cliente->numero_de_identificacion }}</b> con domicilio en:
                         <b>CALLE {{ $dato_prenda->cliente->calle_cliente }} N°
-                            {{ $dato_prenda->cliente->numero_cliente }} X 
+                            {{ $dato_prenda->cliente->numero_cliente }} X
                             {{$dato_prenda->cliente->cruzamientos_cliente}}, COL.
                             {{ $dato_prenda->cliente->colonia_cliente }},
                             {{ $dato_prenda->cliente->ciudad_cliente }},</b> Tel:
@@ -133,7 +153,7 @@
                         <br>
                         @if ($dato_prenda->cliente->socio == 0.02)
                         SOCIO: SI (<strong>X</strong>) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
-                    <strong>{{ $dato_prenda->cliente->numero_socio }}</strong> 
+                        <strong>{{ $dato_prenda->cliente->numero_socio }}</strong>
                         @else
                         @endif
                         @if ($dato_prenda->cliente->socio == 0.025)
@@ -190,7 +210,7 @@
                     (CON IVA)
                 </td>
 
-                <td colspan="5">
+                <td colspan="5" class="title3">
                     @if ($dato_prenda->cliente->socio == 0.02)
                     Comisión por Almacenaje: <b>2 %</b> (Claus. 11a) Pág. 5 <br>
                     Comisión por Avaluó:<b> $0.00</b> (Claus. 11b) Pág. 5 <br>
@@ -214,17 +234,17 @@
 
             <tr>
                 <td colspan="9">
-                    <div class="iempresa">
-                       <strong>Metodología de calculo de interés: tasa de interés anual fija dividida entre
-                        360 días por el importe del saldo insoluto del préstamo por el número de
-                        días efectivamente transcurridos.</strong> 
+                    <div class="iempresa title4">
+                        <strong>Metodología de calculo de interés: tasa de interés anual fija dividida entre
+                            360 días por el importe del saldo insoluto del préstamo por el número de
+                            días efectivamente transcurridos.</strong>
                     </div>
                 </td>
             </tr>
             <tr>
 
                 <td colspan="9">
-                    <div class="iempresa">
+                    <div class="iempresa title4">
                         Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</u></b>.
                         Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: <b><u>EFECTIVO</u></b>. En caso de que sea
                         día inhábil, se considera el día siguiente.
@@ -278,7 +298,7 @@
 
                 <td>{{toMoney($dato_prenda->desempeño)}}</td>
 
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</td>
+                <td class="title3">{{ \Carbon\Carbon::parse($dato_prenda->mes1)->formatLocalized('%d-%B-%Y')}}</td>
 
             </tr>
             <tr>
@@ -302,7 +322,7 @@
                 <td>
                     {{toMoney($dato_prenda->desempeño2)}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</td>
+                <td class="title3">{{ \Carbon\Carbon::parse($dato_prenda->mes2)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
             <tr>
                 <th>3° Mes</th>
@@ -325,7 +345,7 @@
                 <td>
                     {{toMoney($dato_prenda->desempeño3)}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</td>
+                <td class="title3">{{ \Carbon\Carbon::parse($dato_prenda->mes3)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
             <tr>
                 <th>4° Mes</th>
@@ -348,7 +368,7 @@
                 <td>
                     {{toMoney($dato_prenda->desempeño4)}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</td>
+                <td class="title3">{{ \Carbon\Carbon::parse($dato_prenda->mes4)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
             <tr>
                 <th>5° Mes</th>
@@ -371,7 +391,7 @@
                 <td>
                     {{toMoney($dato_prenda->desempeño5)}}
                 </td>
-                <td>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</td>
+                <td class="title3">{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</td>
             </tr>
 
             <tr>
@@ -398,8 +418,8 @@
             <tr>
                 <td colspan="9">
                     <div class="iempresa text-center">
-                      <strong>"Cuide su capacidad de pago, generalmente no debe exceder del 35% de sus ingresos". "Si usted no
-                        paga en tiempo y forma corre el riesgo de perder sus prendas"</strong>  
+                        <strong>"Cuide su capacidad de pago, generalmente no debe exceder del 35% de sus ingresos". "Si usted no
+                            paga en tiempo y forma corre el riesgo de perder sus prendas"</strong>
                     </div>
                 </td>
             </tr>
@@ -407,7 +427,7 @@
                 <td colspan="9">
                     <div class="iempresa text-center">
                         <strong>GARANTÍA: Para garantizar el pago de este préstamo, el consumidor deja en garantía el bien que
-                        se describe a continuación:</strong>
+                            se describe a continuación:</strong>
                     </div>
                 </td>
             </tr>
@@ -428,7 +448,7 @@
                 <th>
                     {{$dato_prenda->descripcion_generica}}
                 </th>
-                <td colspan="4">
+                <td colspan="4" class="title3">
                     @if ($dato_prenda->status ==1)
                     Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
                     @else
@@ -489,7 +509,8 @@
                 </td>
             </tr>
         </table>
-        <p class="letrapequeña">Estos conceptos causaran el pago de impuesto al valor agregado (IVA) a la tasa del
+        <div class="d-flex justify-content-between">
+        <p class="letrapequeña p-2">Estos conceptos causaran el pago de impuesto al valor agregado (IVA) a la tasa del
             16.00
             %
             <br>
@@ -497,8 +518,13 @@
             $DateAndTime = date('d/m/Y h:i:s a', time());
             echo "$DateAndTime.";
             ?>
-        </P>
-        <p class="letrapequeña text-end">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 1/6 </p>
+        </p>
+        <p class="letrapequeña p-2">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 1/6 </p>
+        </div> 
+        
+        
+        <!-- -------/SEGUNDO APARTADO/-------- -->
+        <br>
         <br>
         <div class="letrapequeña mt-3"> *El procedimiento para desempeño, refrendo, finiquito y reclamo del remanente se encuentra descrito en el contrato</div>
         <table>
