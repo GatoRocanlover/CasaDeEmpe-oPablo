@@ -448,7 +448,7 @@
                 <th>
                     {{$dato_prenda->descripcion_generica}}
                 </th>
-                <td colspan="4">
+                <td colspan="4" class="title3">
                     @if ($dato_prenda->status ==1)
                     Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
                     @else
