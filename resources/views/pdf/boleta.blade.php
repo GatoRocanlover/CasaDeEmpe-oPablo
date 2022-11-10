@@ -102,8 +102,8 @@
 
                         </div>
                         <div>
-                            <h5>Asociados Nueva Mutua S.A. DE C.V.</h5>
-                            <h6>RFC: ANM-180517PD6 <br>
+                            <div class="title">Asociados Nueva Mutua S.A. DE C.V.</div>
+                            <div class="title2">RFC: ANM-180517PD6 <br>
                                 Matriz: Calle 23 Nº 100-B x 18 y20<br>
                                 Col. Centro, Umán, Yucatán, C.P. 97390<br>
                                 Boleta de Empeño</div>
