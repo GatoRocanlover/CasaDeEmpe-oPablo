@@ -80,6 +80,8 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ route('reporte.excel1') }}">CLIENTES</a></li>
+                        <li><a class="dropdown-item" href="{{ route('reporte.excel2') }}">DESEMPEÑOS</a></li>
+                        <li><a class="dropdown-item" href="{{ route('reporte.excel3') }}">EMPEÑOS</a></li>
                     </ul>
                 </li>
             </ul>
