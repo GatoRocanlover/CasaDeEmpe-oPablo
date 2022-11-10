@@ -115,26 +115,29 @@
                         <b>{{ $dato_prenda->cliente->tipo_de_identificacion }}</b>, número:
                         <b>{{ $dato_prenda->cliente->numero_de_identificacion }}</b> con domicilio en:
                         <b>CALLE {{ $dato_prenda->cliente->calle_cliente }} N°
-                            {{ $dato_prenda->cliente->numero_cliente }} COL.
+                            {{ $dato_prenda->cliente->numero_cliente }} X 
+                            {{$dato_prenda->cliente->cruzamientos_cliente}}, COL.
                             {{ $dato_prenda->cliente->colonia_cliente }},
                             {{ $dato_prenda->cliente->ciudad_cliente }},</b> Tel:
                         <b>{{ $dato_prenda->cliente->telefono_cliente }}</b>, correo electrónico:
                         <b>{{ $dato_prenda->cliente->correo_electronico_cliente }}</b>, quien designa como
                         cotitular a
                         <b>{{ $dato_prenda->cliente->nombre_cotitular }}
-                            {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE N°
-                            {{ $dato_prenda->cliente->calle_cotitular }} COL.
+                            {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE
+                            {{ $dato_prenda->cliente->calle_cotitular }} N°
+                            {{ $dato_prenda->cliente->numero_cotitular }} X
+                            {{ $dato_prenda->cliente->cruzamientos_cotitular}} COL.
                             {{ $dato_prenda->cliente->colonia_cotitular }},
                             {{ $dato_prenda->cliente->ciudad_cotitular }}.</b>, solo para efectos de este.
 
                         <br>
                         @if ($dato_prenda->cliente->socio == 0.02)
-                        SOCIO: SI (X) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
-                        {{ $dato_prenda->cliente->numero_socio }}
+                        SOCIO: SI (<strong>X</strong>) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
+                    <strong>{{ $dato_prenda->cliente->numero_socio }}</strong> 
                         @else
                         @endif
                         @if ($dato_prenda->cliente->socio == 0.025)
-                        SOCIO: SI ( ) NO (X) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO: N/A
+                        SOCIO: SI ( ) NO (<strong>X</strong>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO: N/A
                         @else
                         @endif
 
@@ -212,9 +215,9 @@
             <tr>
                 <td colspan="9">
                     <div class="iempresa">
-                        Metodología de calculo de interés: tasa de interés anual fija dividida entre
+                       <strong>Metodología de calculo de interés: tasa de interés anual fija dividida entre
                         360 días por el importe del saldo insoluto del préstamo por el número de
-                        días efectivamente transcurridos.
+                        días efectivamente transcurridos.</strong> 
                     </div>
                 </td>
             </tr>
@@ -223,7 +226,7 @@
                 <td colspan="9">
                     <div class="iempresa">
                         Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</u></b>.
-                        Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: EFECTIVO. En caso de que sea
+                        Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: <b><u>EFECTIVO</u></b>. En caso de que sea
                         día inhábil, se considera el día siguiente.
                     </div>
                 </td>
@@ -317,7 +320,7 @@
                     {{toMoney($dato_prenda->iva3)}}
                 </td>
                 <td>
-                    {{toMoney($dato_prenda->refrendo)}}
+                    {{toMoney($dato_prenda->refrendo3)}}
                 </td>
                 <td>
                     {{toMoney($dato_prenda->desempeño3)}}
@@ -394,17 +397,17 @@
             </tr>
             <tr>
                 <td colspan="9">
-                    <div class="iempresa">
-                        "Cuide su capacidad de pago, generalmente no debe exceder del 35% de sus ingresos". "Si usted no
-                        paga en tiempo y forma corre el riesgo de perder sus prendas"
+                    <div class="iempresa text-center">
+                      <strong>"Cuide su capacidad de pago, generalmente no debe exceder del 35% de sus ingresos". "Si usted no
+                        paga en tiempo y forma corre el riesgo de perder sus prendas"</strong>  
                     </div>
                 </td>
             </tr>
             <tr>
                 <td colspan="9">
-                    <div class="iempresa">
-                        GARANTÍA: Para garantizar el pago de este préstamo, el consumidor deja en garantía el bien que
-                        se describe a continuación:
+                    <div class="iempresa text-center">
+                        <strong>GARANTÍA: Para garantizar el pago de este préstamo, el consumidor deja en garantía el bien que
+                        se describe a continuación:</strong>
                     </div>
                 </td>
             </tr>
