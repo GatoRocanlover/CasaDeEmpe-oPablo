@@ -83,11 +83,11 @@
                                     <th class="text-center" scope="col">STATUS</th>
                                     <th class="text-center" scope="col">CLIENTE</th>
                                     <th class="text-center" scope="col">PRENDA</th>
-                                    <th class="text-center" scope="col">NO. PRENDAS</th>
                                     <th class="text-center" scope="col">DESCRIPCION DE LA PRENDA</th>
                                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
-                                    <th class="text-center" scope="col">PORCENTAJE DE PRESTAMO</th>
+                                    <th class="text-center" scope="col">PORCENTAJE <br> DE <br> PRESTAMO</th>
                                     <th class="text-center" scope="col">PRESTAMO INICIAL</th>
+                                    <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;SALDO&nbsp;&nbsp;&nbsp;</th>
                                     <th class="text-center" scope="col">STATUS</th>
                                     @can('ver-boleta-desempeñada')
                                     <th class="text-center" scope="col">VER BOLETA</th>
@@ -102,16 +102,16 @@
                                         @if ($prenda->status ==1)
                                         <div style="color:blueviolet">LOTE</div>
                                         @if ($prenda->cliente->socio == 0.02)
-                                        <div style="color:blueviolet">SOCIO</div>
+                                        <div>SOCIO</div>
                                         @elseif($prenda->cliente->socio == 0.025)
-                                        <div style="color:blueviolet"> NO ES SOCIO</div>
+                                        <div> NO SOCIO</div>
                                         @ENDIF
                                         @else
                                         <div style="color:sandybrown">INDIVIDUAL</div>
                                         @if ($prenda->cliente->socio == 0.02)
-                                        <div style="color:sandybrown">SOCIO</div>
+                                        <div>SOCIO</div>
                                         @elseif($prenda->cliente->socio == 0.025)
-                                        <div style="color:sandybrown">NO ES SOCIO</div>
+                                        <div>NO SOCIO</div>
                                         @ENDIF
                                         @endif
                                     </td>
@@ -121,7 +121,6 @@
                                     </td>
 
                                     <td>{{ $prenda->nombre_prenda }}</td>
-                                    <td class="text-center">{{ $prenda->cantidad_prenda }}</td>
                                     <td>
                                         @if ($prenda->status ==1)
                                         {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
@@ -135,6 +134,7 @@
                                         {{$prenda->porcentaje_prestamo_sobre_avaluo.'%'}}
                                     </td>
                                     <td class="text-center">{{toMoney($prenda->prestamo_inicial)}}</td>
+                                    <td class="text-center">{{toMoney($prenda->prestamo_prenda)}}</td>
                                     <td class="text-center" style="color:red">DESEMPEÑADO</td>
                                     @can('ver-boleta-desempeñada')
                                     <td class="text-center">

@@ -93,7 +93,7 @@
                                 @if ($cliente->socio == 0.02)
                                         <div style="color:green">SOCIO</div>
                                         @elseif($cliente->socio == 0.025)
-                                        <div style="color:blueviolet">NO ES SOCIO</div>
+                                        <div style="color:brown">NO <br> SOCIO</div>
                                         @ENDIF
                                 </th>
                                 <td>{{ $cliente->nombre_cliente . ' ' . $cliente->apellido_cliente }}</td>

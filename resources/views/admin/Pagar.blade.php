@@ -88,8 +88,9 @@
                                     <th class="text-center" scope="col">PRENDA</th>
                                     <th class="text-center" scope="col">DESCRIPCIÓN DE LA PRENDA</th>
                                     <th class="text-center" scope="col">&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;</th>
-                                    <th class="text-center" scope="col">PORCENTAJE DE PRÉSTAMO</th>
-                                    <th class="text-center" scope="col">PRÉSTAMO</th>
+                                    <th class="text-center" scope="col">PORCENTAJE <br> DE <br> PRÉSTAMO</th>
+                                    <th class="text-center" scope="col">&nbsp;PRÉSTAMO&nbsp; <br> INICIAL</th>
+                                    <th class="text-center" scope="col">PRÉSTAMO: SALDO</th>
                                     @can('pago-desempeño')
                                     <th class="text-center" scope="col">DESEMPEÑAR</th>
                                     @endcan
@@ -103,19 +104,19 @@
                                         @if ($prenda->status ==1)
                                         <div style="color:blueviolet">LOTE</div>
                                         @if ($prenda->cliente->socio == 0.02)
-                                        <div style="color:blueviolet">SOCIO</div>
+                                        <div>SOCIO</div>
                                         @elseif($prenda->cliente->socio == 0.025)
-                                        <div style="color:blueviolet"> NO ES SOCIO</div>
+                                        <div> NO SOCIO</div>
                                         @ENDIF
                                         @else
                                         <div style="color:sandybrown">INDIVIDUAL</div>
                                         @if ($prenda->cliente->socio == 0.02)
-                                        <div style="color:sandybrown">SOCIO</div>
+                                        <div>SOCIO</div>
                                         @elseif($prenda->cliente->socio == 0.025)
-                                        <div style="color:sandybrown">NO ES SOCIO</div>
+                                        <div>NO SOCIO</div>
                                         @ENDIF
                                         @endif
-                                    </td> 
+                                    </td>
 
                                     <td class="text-center">
                                         {{ $prenda->cliente->nombre_cliente . ' ' . $prenda->cliente->apellido_cliente }}
@@ -135,6 +136,7 @@
                                     <td class="text-center">
                                         {{$prenda->porcentaje_prestamo_sobre_avaluo.' %'}}
                                     </td>
+                                    <td class="text-center">{{toMoney($prenda->prestamo_inicial)}}</td>
                                     <td class="text-center">{{toMoney($prenda->prestamo_prenda)}}</td>
                                     @can('pago-desempeño')
                                     <td class="text-center">

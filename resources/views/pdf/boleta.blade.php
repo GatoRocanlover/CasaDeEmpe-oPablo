@@ -48,6 +48,10 @@
         .letrapequeña2 {
             font-size: 9px;
         }
+
+        .folio {
+            font-size: 12px;
+        }
     </style>
 </head>
 
@@ -59,10 +63,23 @@
             <tr>
                 <th colspan="9">
                     <header>
-                        <div>
-                            <h6>
-                                Folio:&nbsp;{{ $dato_prenda->id_prendas }}&nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}{{$dato_prenda->numeros_refrendos}}&nbsp;/&nbsp;{{$dato_prenda->folio_capi}}{{$dato_prenda->numeros_capital}}
-                            </h6>
+                        <div class="folio">
+                      
+    <p class="mt-2">
+    &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
+    @if($dato_prenda->numeros_refrendos > 0)
+    &nbsp;/&nbsp;{{$dato_prenda->folio_refrendo}}-{{$dato_prenda->numeros_refrendos}}
+    @else
+   
+    @endif
+    @if($dato_prenda->numeros_capital > 0)
+    &nbsp;/&nbsp;{{$dato_prenda->folio_capi}}-{{$dato_prenda->numeros_capital}}
+    @else
+    
+    @endif
+    </p>
+
+
                         </div>
                         <div>
                             <h5>Asociados Nueva Mutua de Umán S.A. DE C.V.</h5>
@@ -98,26 +115,29 @@
                         <b>{{ $dato_prenda->cliente->tipo_de_identificacion }}</b>, número:
                         <b>{{ $dato_prenda->cliente->numero_de_identificacion }}</b> con domicilio en:
                         <b>CALLE {{ $dato_prenda->cliente->calle_cliente }} N°
-                            {{ $dato_prenda->cliente->numero_cliente }} COL.
+                            {{ $dato_prenda->cliente->numero_cliente }} X 
+                            {{$dato_prenda->cliente->cruzamientos_cliente}}, COL.
                             {{ $dato_prenda->cliente->colonia_cliente }},
                             {{ $dato_prenda->cliente->ciudad_cliente }},</b> Tel:
                         <b>{{ $dato_prenda->cliente->telefono_cliente }}</b>, correo electrónico:
                         <b>{{ $dato_prenda->cliente->correo_electronico_cliente }}</b>, quien designa como
                         cotitular a
                         <b>{{ $dato_prenda->cliente->nombre_cotitular }}
-                            {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE N°
-                            {{ $dato_prenda->cliente->calle_cotitular }} COL.
+                            {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE
+                            {{ $dato_prenda->cliente->calle_cotitular }} N°
+                            {{ $dato_prenda->cliente->numero_cotitular }} X
+                            {{ $dato_prenda->cliente->cruzamientos_cotitular}} COL.
                             {{ $dato_prenda->cliente->colonia_cotitular }},
                             {{ $dato_prenda->cliente->ciudad_cotitular }}.</b>, solo para efectos de este.
 
                         <br>
                         @if ($dato_prenda->cliente->socio == 0.02)
-                        SOCIO: SI (X) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
-                        {{ $dato_prenda->cliente->numero_socio }}
+                        SOCIO: SI (<strong>X</strong>) NO ( ) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO:
+                    <strong>{{ $dato_prenda->cliente->numero_socio }}</strong> 
                         @else
                         @endif
                         @if ($dato_prenda->cliente->socio == 0.025)
-                        SOCIO: SI ( ) NO (X) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO: N/A
+                        SOCIO: SI ( ) NO (<strong>X</strong>) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N° SOCIO: N/A
                         @else
                         @endif
 
@@ -130,9 +150,9 @@
 
                 <th rowspan="2">CAT <br> Costo Anual Total</th>
 
-                <th rowspan="2">TASA DE<br> INTERES ANUAL</th>
+                <th rowspan="2">TASA DE<br> INTERÉS ANUAL</th>
 
-                <th rowspan="2">MONTO DEL<br> PRESTAMO</th>
+                <th rowspan="2">MONTO DEL<br> PRÉSTAMO</th>
 
                 <th rowspan="2">MONTO TOTAL <br>A PAGAR</th>
 
@@ -195,9 +215,9 @@
             <tr>
                 <td colspan="9">
                     <div class="iempresa">
-                        Metodología de calculo de interés: tasa de interés anual fija dividida entre
-                        360 días por el importe del saldo insoluto del préstamo por el numero de
-                        días efectivamente transcurridos.
+                       <strong>Metodología de calculo de interés: tasa de interés anual fija dividida entre
+                        360 días por el importe del saldo insoluto del préstamo por el número de
+                        días efectivamente transcurridos.</strong> 
                     </div>
                 </td>
             </tr>
@@ -205,8 +225,8 @@
 
                 <td colspan="9">
                     <div class="iempresa">
-                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->fecha_comercializacion)->formatLocalized('%d-%B-%Y')}}</u></b>.
-                        Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: EFECTIVO. En caso de que sea
+                        Plazo del préstamo (Fecha limite para el refrendo o desempeño) : <b><u>{{ \Carbon\Carbon::parse($dato_prenda->mes5)->formatLocalized('%d-%B-%Y')}}</u></b>.
+                        Total de refrendos aplicables: <b><u>5</u></b>. Su pago será: <b><u>EFECTIVO</u></b>. En caso de que sea
                         día inhábil, se considera el día siguiente.
                     </div>
                 </td>
@@ -216,7 +236,7 @@
 
                 <th rowspan="7">OPCIONES DE PAGO PARA REFRENDO O DESEMPEÑO</th>
 
-                <th rowspan="2">NUMERO</th>
+                <th rowspan="2">NÚMERO</th>
 
                 <th colspan="4">MONTO</th>
 
@@ -300,7 +320,7 @@
                     {{toMoney($dato_prenda->iva3)}}
                 </td>
                 <td>
-                    {{toMoney($dato_prenda->refrendo)}}
+                    {{toMoney($dato_prenda->refrendo3)}}
                 </td>
                 <td>
                     {{toMoney($dato_prenda->desempeño3)}}
@@ -377,28 +397,28 @@
             </tr>
             <tr>
                 <td colspan="9">
-                    <div class="iempresa">
-                        "Cuide su capacidad de pago, generalmente no debe exceder del 35% de sus ingresos". "Si usted no
-                        paga en tiempo y forma corre el riesgo de perder sus prendas"
+                    <div class="iempresa text-center">
+                      <strong>"Cuide su capacidad de pago, generalmente no debe exceder del 35% de sus ingresos". "Si usted no
+                        paga en tiempo y forma corre el riesgo de perder sus prendas"</strong>  
                     </div>
                 </td>
             </tr>
             <tr>
                 <td colspan="9">
-                    <div class="iempresa">
-                        GARANTÍA: Para garantizar el pago de este préstamo, el consumidor deja en garantía el bien que
-                        se describe a continuación:
+                    <div class="iempresa text-center">
+                        <strong>GARANTÍA: Para garantizar el pago de este préstamo, el consumidor deja en garantía el bien que
+                        se describe a continuación:</strong>
                     </div>
                 </td>
             </tr>
             <tr>
                 <td colspan="9">
-                    <b> DESCRIPCION DE LA PRENDA</b>
+                    <b> DESCRIPCIÓN DE LA PRENDA</b>
                 </td>
             </tr>
             <tr>
-                <td><b>DESCRIPCION</b></td>
-                <td colspan="4"><b><b>CARACTERISTICAS</b></td>
+                <td><b>DESCRIPCIÓN</b></td>
+                <td colspan="4"><b><b>CARACTERÍSTICAS</b></td>
                 <td><b>AVALÚO</b></td>
                 <td><b>PRÉSTAMO</b></td>
                 <td colspan="2"><b>% PRÉSTAMO SOBRE AVALÚO</b></td>
@@ -409,14 +429,14 @@
                     {{$dato_prenda->descripcion_generica}}
                 </th>
                 <td colspan="4">
-                @if ($dato_prenda->status ==1)
-                Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
-                        @else
-                        Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
-                        @endif
+                    @if ($dato_prenda->status ==1)
+                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
+                    @else
+                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
+                    @endif
 
 
-                   
+
                 </td>
                 <td>{{toMoney($dato_prenda->avaluo_prenda)}}</td>
                 <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
@@ -488,7 +508,7 @@
                         <b>Dudas, aclaraciones y reclamaciones:</b>
                         <br>
                         <p>*Para cualquier duda, aclaraciones o reclamación, favor de dirigirse a : <b>Calle 23 Nº 100-B x 18 y 20 Col. Centro, Umán, Yucatán, C.P. 97390;</b> teléfono: 988 933 0223, correo
-                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 2:00 a 5:00 hras.</b>
+                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 3:00 a 6:00 hras.</b>
                         </p>
                         <div>*O en caso a <b>PROFECO</b> en los teléfonos: <b>55 68 87 22 o al 01-800-468-87-22</b>, pagina de internet: <b>www.gob.mx./profeco</b></div>
                     </div>

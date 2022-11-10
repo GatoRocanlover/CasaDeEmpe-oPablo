@@ -97,8 +97,7 @@ class desempeños extends Model
 
 
 
-
-    public function cliente(){
+     public function cliente(){
         return $this->belongsTo(cliente::class, 'id_cliente', 'id_cliente');
      }
 }
