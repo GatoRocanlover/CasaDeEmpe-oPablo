@@ -110,24 +110,39 @@ class ExcelReporteController extends Controller
              'folio Boleta',
              'Folio',
              'prestamo_prenda',
+             'prestamo_prenda_acumulado',
              'interes',
+             'interes_acumulado',
              'almacenaje',
-             'subtotal',
+             'almacenaje_acumulado',
              'iva',
+             'iva_acumulado',
              'total');
 
- 
-        foreach ($items as $item){           
+            $prestamo_prenda_acumulado=0;
+            $interes_acumulado=0;
+            $almacenaje_acumulado=0;
+            $iva_acumulado=0;
+
+        foreach ($items as $item){ 
+            $prestamo_prenda_acumulado=$prestamo_prenda_acumulado+$item->prestamo_prenda_ticket; 
+            $interes_acumulado=$interes_acumulado+$item->interes_ticket; 
+            $almacenaje_acumulado=$almacenaje_acumulado+$item->almacenaje_ticket;    
+            $iva_acumulado=$iva_acumulado+$item->iva_ticket; 
+
 
             $arrayDetalle[] = array(
                              'created_at' => $item->created_at->format('d-m-Y'),
                              'Folio Boleta' => $item->id_prendas,
                              'Folio' => $item->id_folio,
                              'prestamo_prenda' =>toMoney($item->prestamo_prenda_ticket),
+                             'prestamo_prenda_acumulado' =>toMoney($prestamo_prenda_acumulado),
                              'interes'=>toMoney($item->interes_ticket),
+                             'interes_acumulado'=>toMoney($interes_acumulado),
                              'almacenaje' => toMoney($item->almacenaje_ticket),
-                             'subtotal'  => toMoney($item->subtotal_ticket),
-                             'iva'  => toMoney($item->iva_ticket),                                       
+                             'almacenaje_acumulado' => toMoney($almacenaje_acumulado),
+                             'iva'  => toMoney($item->iva_ticket),
+                             'iva_acumulado'  => toMoney($iva_acumulado),                                       
                              'total'  =>toMoney($item->total_ticket),
                              
                                 );
@@ -181,14 +196,17 @@ class ExcelReporteController extends Controller
              'Prestamo_acumulado',
              'Entrega Efectivo');
 
- 
+            $prestamoacumulado=0;
         foreach ($items as $item){
+
+            $prestamoacumulado=$prestamoacumulado+$item->prestamo_inicial;
 
             $arrayDetalle[] = array(
                              'fecha_prestamo' => $item->fecha_prestamo,
                              'id_prendas' => $item->id_prendas,
                              'Operacion' => " Empeño: " .$item->id_prendas,
-                             'prestamo_inicial' =>toMoney($item->prestamo_inicial)
+                             'prestamo_inicial' =>toMoney($item->prestamo_inicial),
+                             'Prestamo_acumulado' =>toMoney($prestamoacumulado)
                                 );
                                 
         }
@@ -201,7 +219,7 @@ class ExcelReporteController extends Controller
             fputcsv($file, $columns);
                   foreach ($arrayDetalle as $item) {
                   
-                      fputcsv($file, $item, );
+                      fputcsv($file, $item);
                       
                   }
                   fclose($file);
