@@ -117,16 +117,7 @@ class ExcelReporteController extends Controller
              'total');
 
  
-        foreach ($items as $item){
-
-        //for (int x = 0; x < matriz[$arrayDetalle].length; x++) {
-               //() int suma = 0;
-                //for (int y = 0; y < matriz.length; y++) {
-                  //  suma += matriz[y][x];
-                //}
-                //System.out.printf("%d ", suma);
-            //}
-            
+        foreach ($items as $item){           
 
             $arrayDetalle[] = array(
                              'created_at' => $item->created_at->format('d-m-Y'),
