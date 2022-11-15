@@ -193,8 +193,7 @@ class ExcelReporteController extends Controller
              'id_prendas',
              'Operacion',
              'prestamo_inicial',
-             'Prestamo_acumulado',
-             'Entrega Efectivo');
+             'Prestamo_acumulado');
 
             $prestamoacumulado=0;
         foreach ($items as $item){
