@@ -78,9 +78,9 @@
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                                         <div class="form-group">
-                                            <label for="email">E-mail:</label>
+                                            <label for="email">Usuario:</label>
                                             <!-- <input type="text" name="email" id="email" class="form-control"> -->
-                                            {!! Form::text('email', null, ['class' => 'form-control mt-1','placeholder'=>'Email: example@example.com']) !!}
+                                            {!! Form::text('email', null, ['class' => 'form-control mt-1','placeholder'=>'Ingrese Usuario para ingresar al sistema']) !!}
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-12 col-md-12 mt-3">

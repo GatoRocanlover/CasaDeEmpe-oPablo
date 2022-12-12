@@ -79,7 +79,7 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
                                             <div class="form-group">
-                                                <label for="email">E-mail:</label>
+                                                <label for="email">Usuario:</label>
                                                 <!-- <input type="text" name="email" id="email" value="{{$user->email}}"> -->
                                                 {!! Form::text('email', null, ['class' => 'form-control mt-1']) !!}
                                             </div>

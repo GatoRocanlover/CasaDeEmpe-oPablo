@@ -74,7 +74,10 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::post('alta_cotizacion', [CotizacionPrendaController::class, 'store'])->name('cotizacionprenda.store');
     Route::put('actualizar_cotizacion_prenda/{id}', [CotizacionPrendaController::class, 'update'])->name('cotizacionprenda.update');
+    
     Route::get('altacotizacion/{id}', [CotizacionPrendaController::class, 'vistaaltacoti'])->name('coti.altacotizacion');
+    Route::post('/altacotizacion/fetch', [CotizacionPrendaController::class, 'fetch'])->name('autocomplete.fetch');
+    
     Route::get('/ListadoCotizacion', [CotizacionPrendaController::class, 'index'])->name('cotizacionprenda.listado');
     Route::get('/AgregarCotizacionPrenda', [CotizacionPrendaController::class, 'AgregarPrenda'])->name('cotizacion.agregar_prenda');
     Route::get('ticket_cotizacion/{id}', [CotizacionPrendaController::class, 'vistaTicket'])->name('ticket.vistaTicketCotiza');
