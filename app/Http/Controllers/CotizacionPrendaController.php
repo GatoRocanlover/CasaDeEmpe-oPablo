@@ -266,7 +266,10 @@ class CotizacionPrendaController extends Controller
      
       $query = trim($request->get('query'));
       $data = DB::table('clientes')
-        ->where('nombre_cliente', 'LIKE', "%{$query}%")->orWhere('id_cliente', 'LIKE', "%{$query}%")->take(1)
+        ->where('nombre_cliente', 'LIKE', "%{$query}%")
+        ->orWhere('id_cliente', 'LIKE', "%{$query}%")
+        ->orWhere('apellido_cliente', 'LIKE', "%{$query}%")
+        ->take(1)
         ->get();
   
       return Response()->json($data);
