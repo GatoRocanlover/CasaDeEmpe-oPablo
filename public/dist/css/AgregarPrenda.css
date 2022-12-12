@@ -5,14 +5,14 @@
 
       .tabla1 {
           width: 500px;
-          height: 455px;
+          height: 585px;
           padding: 30px;
       }
 
       .tabla2 {
 
           width: 500px;
-          height: 455px;
+          height: 585px;
           padding: 30px;
       }
 
@@ -35,10 +35,7 @@
           align-items: center;
       }
 
-      .red1 :hover {
-          background-color: green;
-
-      }
+      
 
       @media only screen and (min-width: 268px) {
 

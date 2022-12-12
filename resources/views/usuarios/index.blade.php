@@ -52,7 +52,7 @@
                                     <thead class="letra-blanca bg-dark">
                                         <th style="display: none;">ID</th>
                                         <th style="color:#fff;">Nombre</th>
-                                        <th style="color:#fff;">E-mail</th>
+                                        <th style="color:#fff;">Usuario</th>
                                         <th style="color:#fff;">Rol</th>
                                         @can('editar-usuario')
                                         <th style="color:#fff;">Editar</th>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request; //PARA RECIBIR PARAMETROS
 use App\Models\CotizacionPrenda; // PARA USAR LA TABLA CLIENTES
 use Illuminate\Support\Facades\View; // PARA USAR LAS VISTAS
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 
 
 class CotizacionPrendaController extends Controller
@@ -257,6 +258,30 @@ class CotizacionPrendaController extends Controller
                 ]
             );
         }
+    }
+
+    function fetch(Request $request)
+    {
+  
+     
+      $query = trim($request->get('query'));
+      $data = DB::table('clientes')
+        ->where('nombre_cliente', 'LIKE', "%{$query}%")->orWhere('id_cliente', 'LIKE', "%{$query}%")->take(1)
+        ->get();
+  
+      return Response()->json($data);
+      /*  $output = '<ul class="dropdown-menu" style="display:block; position:relative;width:100%;">'; 
+   
+   
+       foreach ($data as $row) {
+          $output .= '
+                
+                <li><a class="dropdown-item" href="#">' . $row->nombre_prenda . '</a></li>
+                ';
+        }
+        $output .= '</ul>';
+        echo $output; 
+      }  */
     }
 
 
