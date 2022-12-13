@@ -154,7 +154,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -261,7 +261,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -355,7 +355,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -461,7 +461,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -555,7 +555,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -649,7 +649,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -758,7 +758,7 @@
                         </tr>
                         <tr>
                             <th colspan="4" class="text-center">
-                                USUARIO: {{ Auth::user()->name }}
+                                USUARIO: {{ Auth::user()->email }}
                             </th>
                         </tr>
                         <tr>
@@ -854,7 +854,7 @@
                         </tr>
                         <tr>
                             <th colspan="4" class="text-center">
-                                USUARIO: {{ Auth::user()->name }}
+                                USUARIO: {{ Auth::user()->email }}
                             </th>
                         </tr>
                         <tr>
@@ -950,7 +950,7 @@
                         </tr>
                         <tr>
                             <th colspan="4" class="text-center">
-                                USUARIO: {{ Auth::user()->name }}
+                                USUARIO: {{ Auth::user()->email }}
                             </th>
                         </tr>
                         <tr>
@@ -1048,7 +1048,7 @@
                         </tr>
                         <tr>
                             <th colspan="4" class="text-center">
-                                USUARIO: {{ Auth::user()->name }}
+                                USUARIO: {{ Auth::user()->email }}
                             </th>
                         </tr>
                         <tr>
@@ -1157,7 +1157,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -1251,7 +1251,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -1345,7 +1345,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -1441,7 +1441,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -1535,7 +1535,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -1647,7 +1647,7 @@
                         </tr>
                         <tr>
                             <th colspan="4" class="text-center">
-                                USUARIO: {{ Auth::user()->name }}
+                                USUARIO: {{ Auth::user()->email }}
                             </th>
                         </tr>
                         <tr>
@@ -1746,7 +1746,7 @@
                         </tr>
                         <tr>
                             <th colspan="4" class="text-center">
-                                USUARIO: {{ Auth::user()->name }}
+                                USUARIO: {{ Auth::user()->email }}
                             </th>
                         </tr>
                         <tr>
@@ -1835,7 +1835,7 @@
                 </tr>
                 <tr>
                     <th colspan="4" class="text-center">
-                        USUARIO: {{ Auth::user()->name }}
+                        USUARIO: {{ Auth::user()->email }}
                     </th>
                 </tr>
                 <tr>
@@ -1933,7 +1933,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -2031,7 +2031,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>
@@ -2128,7 +2128,7 @@
                     </tr>
                     <tr>
                         <th colspan="4" class="text-center">
-                            USUARIO: {{ Auth::user()->name }}
+                            USUARIO: {{ Auth::user()->email }}
                         </th>
                     </tr>
                     <tr>

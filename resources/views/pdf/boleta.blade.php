@@ -519,7 +519,7 @@
             echo "$DateAndTime.";
             ?>
         </p>
-        <p class="letrapequeña p-2">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 1/6 </p>
+        <p class="letrapequeña p-2">User: {{ Auth::user()->email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 1/6 </p>
         </div> 
         
         
@@ -615,7 +615,7 @@
             ?>
         </p>
         <p class="letrapequeña text-start">Fin de texto de Pág 2/6 </p>
-        <p class="letrapequeña text-end">User: {{ Auth::user()->name }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 2/6 </p>
+        <p class="letrapequeña text-end">User: {{ Auth::user()->email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 2/6 </p>
 
 </div>
 
