@@ -64,7 +64,9 @@ class PrendaController extends Controller
                 'avaluo_prenda',
                 'status',
                 'porcentaje_prestamo_sobre_avaluo',
-                'prestamo_prenda'
+                'prestamo_prenda',
+                
+
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
             ->orWhere('nombre_prenda', 'LIKE', '%' . $search . '%')
@@ -125,7 +127,8 @@ class PrendaController extends Controller
                 'avaluo_prenda',
                 'status',
                 'porcentaje_prestamo_sobre_avaluo',
-                'prestamo_prenda'
+                'prestamo_prenda',
+                'created_at'
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
             ->orWhereHas('cliente', function ($query) use ($request) {
@@ -197,7 +200,10 @@ class PrendaController extends Controller
                 'prestamo_prenda',
                 'prestamo_inicial',
                 'status',
-                'numeros_capital'
+                'numeros_capital',
+             
+                
+
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
             ->orWhereHas('cliente', function ($query) use ($request) {

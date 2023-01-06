@@ -73,6 +73,7 @@
                                 <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;AVALUO&nbsp;&nbsp;&nbsp;&nbsp;</th>
                                 <th scope="col">PORCENTAJE <br> DE <br> PRÉSTAMO</th>
                                 <th scope="col">&nbsp;&nbsp;PRÉSTAMO&nbsp;&nbsp;</th>
+                                <th scope="col">&nbsp;&nbsp;FECHA DE CREACION&nbsp;&nbsp;</th>
                                 @can('imprimir-boleta')
                                 <th scope="col">IMPRIMIR BOLETA</th>
                                 @endcan
@@ -115,7 +116,10 @@
                                     {{$prenda->porcentaje_prestamo_sobre_avaluo.'%'}}
                                  
                                 </td>
-                                <td>{{toMoney($prenda->prestamo_prenda)}}</td>
+                                <td>{{toMoney($prenda->prestamo_prenda)}}
+                                </td>
+                                <td>{{($prenda->created_at)}}
+                                </td>
                                 @can('imprimir-boleta')
                                 <td>
                                     <a class="nav-link text-center" href="{{route('boleta.vistaboleta', [$prenda->id_prendas])}}"  id="navbarDarkDropdownMenuLink" aria-expanded="false"  target="_blank"><i class="fa fa-print" style="font-size:30px"></i></a>

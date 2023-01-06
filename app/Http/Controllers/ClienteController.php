@@ -39,12 +39,12 @@ class ClienteController extends Controller
             'socio',
             'numero_cliente',
             'colonia_cliente',
-            'ciudad_cliente',    
+            'ciudad_cliente'   
            
         )->where('id_cliente', 'LIKE', '%' . $search . '%')
         ->orWhere('nombre_cliente', 'LIKE', '%' . $search . '%')
         ->orWhere('apellido_cliente', 'LIKE', '%' . $search . '%')
-        ->paginate(5);
+        ->paginate(10);
         return view('admin.ListadoCliente', compact('clientes'));
       
     }
