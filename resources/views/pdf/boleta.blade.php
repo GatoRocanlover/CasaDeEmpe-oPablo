@@ -104,7 +104,7 @@
                         <div>
                             <div class="title">Asociados Nueva Mutua S.A. DE C.V.</div>
                             <div class="title2">RFC: ANM-180517PD6 <br>
-                                Matriz: Calle 23 Nº 100-B x 18 y20<br>
+                                Matriz: Calle 23 Nº 100-B x 18 y 20<br>
                                 Col. Centro, Umán, Yucatán, C.P. 97390<br>
                                 Boleta de Empeño</div>
 
@@ -124,10 +124,10 @@
                                 </script> -->
 
                         </div>
-                        CONTRATO DE MUTUO CON INTERES Y GARANTIA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA
+                        CONTRATO DE MUTUO CON INTERÉS Y GARANTÍA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA
                         MUTUA S.A. DE C.V., EL PROVEEDOR,
                         con domicilio en: Calle 23 No 100-B x 18 y 20 Col. Centro, Umán,
-                        Yucatán, México. C.P.97390, R.F.C. ANM-180517PD6, 988 933 0223,
+                        Yucatán, México. C.P.97390, R.F.C. ANM-180517PD6, Tel. 988 933 0223,
                         Correo electrónico: asociadosnm2018@gmail.com.
                         <br>
                         y EL CONSUMIDOR <b>{{ $dato_prenda->cliente->nombre_cliente }}
@@ -235,7 +235,7 @@
             <tr>
                 <td colspan="9">
                     <div class="iempresa title4">
-                        <strong>Metodología de calculo de interés: tasa de interés anual fija dividida entre
+                        <strong>Metodología de cálculo de interés: tasa de interés anual fija dividida entre
                             360 días por el importe del saldo insoluto del préstamo por el número de
                             días efectivamente transcurridos.</strong>
                     </div>
@@ -481,7 +481,7 @@
             <tr>
                 <td class="iempresa text-center" colspan="5">El monto del préstamo se realiza en:</td>
                 <td class="iempresa text-center" colspan="4">Efectivo:&nbsp;<u>&nbsp;&nbsp; X &nbsp;&nbsp;</u>&nbsp;o a la cuenta bancaria del Consumidor al
-                    <br>numero:
+                    <br>número:
                 </td>
             </tr>
             <tr>
@@ -571,7 +571,7 @@
                 <td colspan="4">
                     EL CONSUMIDOR recoge en el acto y su entera satisfaccíon la(s) prenda(s) arriba <br>
                     descrita(s), por lo que otorga a <b>ASOCIADOS NUEVA MUTUA S.A. DE C.V.</b>, el finiquito <br>
-                    más amplio que en derecho corresponda, liberandolo de cualquier responsabilidad <br>
+                    más amplio que en derecho corresponda, liberándolo de cualquier responsabilidad <br>
                     jurídica que hubiera surgido o pudiese surgir en relación al contrato y la prenda.
                 </td>
                 <td colspan="2" class="text-center">
