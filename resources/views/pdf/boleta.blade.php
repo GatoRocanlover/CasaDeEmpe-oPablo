@@ -534,7 +534,7 @@
                         <b>Dudas, aclaraciones y reclamaciones:</b>
                         <br>
                         <p>*Para cualquier duda, aclaraciones o reclamación, favor de dirigirse a : <b>Calle 23 Nº 100-B x 18 y 20 Col. Centro, Umán, Yucatán, C.P. 97390;</b> teléfono: 988 933 0223, correo
-                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 1200 hras y Sab 3:00 a 6:00 hras.</b>
+                            <br> electrónico: asociadosnm2018@gmail.com;en un horario de <b>Lun a Mié 8:00 a 11:30 hras y 3:30 a 6:00 hras, Jue a Vie 8:00 a 12:00 hras y Sab 3:00 a 6:00 hras.</b>
                         </p>
                         <div>*O en caso a <b>PROFECO</b> en los teléfonos: <b>55 68 87 22 o al 01-800-468-87-22</b>, pagina de internet: <b>www.gob.mx./profeco</b></div>
                     </div>
