@@ -452,7 +452,7 @@
                     @if ($dato_prenda->status ==1)
                     Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->caracteristicas_prenda}}
                     @else
-                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr, Completo.
+                    Can. {{$dato_prenda->cantidad_prenda}}, {{$dato_prenda->nombre_prenda}}: {{$dato_prenda->caracteristicas_prenda}}, {{$dato_prenda->kilataje_prenda}} k, {{$dato_prenda->gramaje_prenda}} gr.
                     @endif
 
 
@@ -460,7 +460,7 @@
                 </td>
                 <td>{{toMoney($dato_prenda->avaluo_prenda)}}</td>
                 <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
-                <td colspan="2">{{$dato_prenda->porcentaje_prestamo_sobre_avaluo}} %</td>
+                <td colspan="2"><input type="text" id="unomenos" class="text-center col-md-1 border-0" value="" readonly> %</td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Monto de avaluó: </td>
@@ -468,7 +468,7 @@
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Porcentaje del préstamo sobre el avaluó: </td>
-                <td colspan="4"><b>{{$dato_prenda->porcentaje_prestamo_sobre_avaluo}} %</b></td>
+                <td colspan="4"><b><input type="text" id="unomenos2" class="text-center col-md-1 border-0" value="" readonly> %</b></td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Fecha de inicio de comercialización:</td>
@@ -618,6 +618,9 @@
         <p class="letrapequeña text-end">User: {{ Auth::user()->email }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pág. 2/6 </p>
 
 </div>
+<input type="hidden" value="{{$dato_prenda->prestamo_prenda}}" id="unomas">
+<input type="hidden" value="{{$dato_prenda->avaluo_prenda}}" id="unomas1">
+
 
 </body>
 
@@ -630,6 +633,23 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 <script src="{{ asset('dist/js/bootstrap.js') }}"></script>
 <script src="{{ asset('dist/js/jquery.min.js') }}"></script>
+<script>
+    
+function calcular() {
+    var valor = document.getElementById("unomas").value;
+    var valor1 = document.getElementById("unomas1").value;
+  
+    var porce = parseFloat(valor);
+    var porce2 = parseFloat(valor1);
+    var porce3 = (porce/porce2)*100;
+   
+    $("#unomenos").val(porce3.toFixed(0))
+    $("#unomenos2").val(porce3.toFixed(0))
+
+       }
+calcular();
+
+</script>
 
 
 </html>
