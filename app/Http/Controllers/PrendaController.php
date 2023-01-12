@@ -128,6 +128,7 @@ class PrendaController extends Controller
                 'status',
                 'porcentaje_prestamo_sobre_avaluo',
                 'prestamo_prenda',
+                'prestamo_inicial',
                 'created_at'
             )
             ->where('id_prendas', 'LIKE', '%' . $search . '%')
