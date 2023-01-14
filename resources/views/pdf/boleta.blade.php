@@ -254,7 +254,7 @@
 
             <tr>
 
-                <th rowspan="7">OPCIONES DE PAGO PARA REFRENDO O DESEMPEÑO</th>
+                <th rowspan="7">OPCIONES DE<br>PAGO PARA<br> REFRENDO O DESEMPEÑO</th>
 
                 <th rowspan="2">NÚMERO</th>
 
