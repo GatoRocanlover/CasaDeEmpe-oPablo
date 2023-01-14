@@ -127,7 +127,7 @@
                                         @if ($prenda->status ==1)
                                         {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda}}
                                         @else
-                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.' '.$prenda->gramaje_prenda.'gr '}}
+                                        {{'Cantidad: '.$prenda->cantidad_prenda.', '}}{{$prenda->nombre_prenda.': '}}{{$prenda->caracteristicas_prenda.' '.$prenda->kilataje_prenda.'k '.' '.$prenda->gramaje_prenda.'gr '}}
                                         @endif
 
                                     </td>
