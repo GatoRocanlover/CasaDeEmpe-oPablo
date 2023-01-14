@@ -136,7 +136,7 @@
                         <b>{{ $dato_prenda->cliente->numero_de_identificacion }}</b> con domicilio en:
                         <b>CALLE {{ $dato_prenda->cliente->calle_cliente }} N°
                             {{ $dato_prenda->cliente->numero_cliente }} X
-                            {{$dato_prenda->cliente->cruzamientos_cliente}}, COL.
+                            {{$dato_prenda->cliente->cruzamientos_cliente}},
                             {{ $dato_prenda->cliente->colonia_cliente }},
                             {{ $dato_prenda->cliente->ciudad_cliente }},</b> Tel:
                         <b>{{ $dato_prenda->cliente->telefono_cliente }}</b>, correo electrónico:
@@ -146,7 +146,7 @@
                             {{ $dato_prenda->cliente->apellido_cotitular }}</b>, con domicilio en <b>CALLE
                             {{ $dato_prenda->cliente->calle_cotitular }} N°
                             {{ $dato_prenda->cliente->numero_cotitular }} X
-                            {{ $dato_prenda->cliente->cruzamientos_cotitular}} COL.
+                            {{ $dato_prenda->cliente->cruzamientos_cotitular}},
                             {{ $dato_prenda->cliente->colonia_cotitular }},
                             {{ $dato_prenda->cliente->ciudad_cotitular }}.</b>, solo para efectos de este.
 
