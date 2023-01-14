@@ -152,7 +152,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="colonia_cliente" class="form-label">COLONIA *</label>
-                    <input type="text" name="colonia_cliente" class="form-control" id="colonia_cliente" placeholder="Ingrese la colonia del cliente" required>
+                    <input type="text" name="colonia_cliente" class="form-control" id="colonia_cliente" placeholder="Añadir: col, fracc, loc, priv, hda y ect" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
@@ -217,7 +217,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="colonia_cotitular" class="form-label">COLONIA</label>
-                    <input type="text" name="colonia_cotitular" class="form-control" id="colonia_cotitular" placeholder="Colonia del cotitular" required>
+                    <input type="text" name="colonia_cotitular" class="form-control" id="colonia_cotitular" placeholder="Añadir: col, fracc, loc, priv, hda y ect" required>
                     <div class="invalid-feedback">
                         Please provide a valid zip.
                     </div>
