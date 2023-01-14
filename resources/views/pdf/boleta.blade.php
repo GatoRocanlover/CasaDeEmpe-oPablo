@@ -124,8 +124,8 @@
                                 </script> -->
 
                         </div>
-                        CONTRATO DE MUTUO CON INTERÉS Y GARANTÍA PRENDARIA (PRÉSTAMO), que celebra: ASOCIADOS NUEVA
-                        MUTUA S.A. DE C.V., EL PROVEEDOR,
+                        CONTRATO DE MUTUO CON INTERÉS Y GARANTÍA PRENDARIA (PRÉSTAMO), que celebra: <b>ASOCIADOS NUEVA
+                        MUTUA S.A. DE C.V.</b>, EL PROVEEDOR,
                         con domicilio en: Calle 23 No 100-B x 18 y 20 Col. Centro, Umán,
                         Yucatán, México. C.P.97390, R.F.C. ANM-180517PD6, Tel. 988 933 0223,
                         Correo electrónico: asociadosnm2018@gmail.com.
