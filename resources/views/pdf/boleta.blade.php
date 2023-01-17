@@ -64,7 +64,7 @@
             font-size: 9px;
         }
         .title4 {
-            font-size: 8px;
+            font-size: 9.5px;
             text-align: center;
         }
 
@@ -83,7 +83,7 @@
             <tr>
                 <th colspan="9">
                     <header>
-                        <div class="folio">
+                        <div class="folio" style="color:black">
 
                             <p class="mt-2">
                                 &nbsp;Folio:&nbsp;{{ $dato_prenda->id_prendas }}
@@ -101,7 +101,7 @@
 
 
                         </div>
-                        <div>
+                        <div style="color:black">
                             <div class="title">Asociados Nueva Mutua S.A. DE C.V.</div>
                             <div class="title2">RFC: ANM-180517PD6 <br>
                                 Matriz: Calle 23 Nº 100-B x 18 y 20<br>
