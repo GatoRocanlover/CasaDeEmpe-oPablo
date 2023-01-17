@@ -460,7 +460,7 @@
                 </td>
                 <td>{{toMoney($dato_prenda->avaluo_prenda)}}</td>
                 <td>{{toMoney($dato_prenda->prestamo_prenda)}}</td>
-                <td colspan="2"><input type="text" id="unomenos" class="text-center col-md-1 border-0" value="" readonly> %</td>
+                <td colspan="2"><b><input type="text" id="unomenos" size="1" class="text-center border-0" value="" readonly> %</b></td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Monto de avaluó: </td>
@@ -468,7 +468,7 @@
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Porcentaje del préstamo sobre el avaluó: </td>
-                <td colspan="4"><b><input type="text" id="unomenos2" class="text-center col-md-1 border-0" value="" readonly> %</b></td>
+                <td colspan="4"><b><input type="text" id="unomenos2" size="1" class="text-center border-0" value="" readonly> %</b></td>
             </tr>
             <tr>
                 <td class="iempresa" colspan="5">Fecha de inicio de comercialización:</td>
