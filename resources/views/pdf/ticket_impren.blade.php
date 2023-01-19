@@ -24,24 +24,17 @@
       text-align: right;
     }
 
-    table {
-      border: 1px solid black;
-    }
-
     .textaling {
       text-align: center;
     }
     .bordeup{
       border-top: 1px solid black;
     }
-    .borde{
-      border: 1px solid black;
-    }
     .numeros{
       font-size: 14px;
     }
     .numeros2{
-      font-size: 10px;
+      font-size: 14px;
     }
   </style>
 
@@ -59,7 +52,7 @@
         </th>
       </tr>
       <tr>
-        <th colspan="4" class="text-center fw-bold">---------------------------------------------------------------------------------------------------</th>
+        <th colspan="4" class="text-center fw-bold">-------------------------------------------------------------------------</th>
       </tr>
       <tr>
         <th colspan="4" class="text-center fw-bold">COMPROBANTE DE PAGO</th>
@@ -142,10 +135,7 @@
         <td class="text-center numeros" >{{toMoney($dato_desempeño->cambio_boleta)}}</td>
       </tr>
       <tr>
-        <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
-      </tr>
-      <tr>
-        <td colspan="4" class="text-center">---------------------------------------------------------------------------------------------------</td>
+        <td colspan="4" class="text-center">-------------------------------------------------------------------------</td>
       </tr>
       <tr>
         <td colspan="4" class="fw-bold text-center">FORMAS DE PAGO</td>
