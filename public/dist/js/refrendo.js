@@ -22,7 +22,7 @@
      } else if (vcantidad >= vtotal) {
          const ventacambio = vcantidad - vtotal;
          //vcambio.style.fontSize="23px";
-         let mycamb = truncateDecimals(ventacambio, 2);
+         let mycamb = ventacambio.toFixed(2);
          //vcambio.value=ventacambio;
          ////console.log("EL CAMBIO :"+ ventacambio);
          vcambio.value = mycamb;
@@ -132,7 +132,7 @@ pcantidadv.addEventListener("keyup", event => {
     } else if (vcantidad >= vtotal) {
         const ventacambio = vcantidad - vtotal;
         //vcambio.style.fontSize="23px";
-        let mycamb = truncateDecimals(ventacambio, 2);
+        let mycamb = ventacambio.toFixed(2);
         //vcambio.value=ventacambio;
         ////console.log("EL CAMBIO :"+ ventacambio);
         vcambio.value = mycamb;
