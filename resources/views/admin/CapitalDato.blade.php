@@ -318,6 +318,7 @@
                             <span class="input-group-text fw-bold signo" id="inputGroupPrepend">Total: $</span>
                             <input type="number" id="multa3" name="multa3" onkeyUp="calcular2();" class="form-control input_style text-center" disabled>
                         </div>
+                        <b class="mt-1 text-center" style="color:red;">Enter al poner un valor o modificar.</b>
                     </div>
                 </div>
 
