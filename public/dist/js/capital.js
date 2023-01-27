@@ -265,7 +265,7 @@ function calcular2() {
     $("#total_capi").val(porce2.toFixed(2))
     $("#abono_capital_capi").val(porce1.toFixed(2))
     $("#sub_capital").val(((($("#interesrefre option:selected").data("interes")) + ($("#interesrefre option:selected").data("almacenaje"))) + (porce1) || 0).toFixed(2));
-    $("#prestamo_prenda").val(porce5.toFixed(0))
+    $("#prestamo_prenda").val(porce5.toFixed(2))
 
     $("#prestamo_prenda1").val(porce5.toFixed(2))
     $("#prestamo_prenda2").val(porce5.toFixed(2))
